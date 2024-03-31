@@ -46,10 +46,12 @@
 .map iframe {
   width: 85%;
 }
-.Contact > h1 {
+.Contact > h1,
+#Enquiry > h1 {
   height: 30%;
   display: flex;
   align-items: flex-end;
+  word-break: keep-all;
   padding-left: 10%;
   margin: 1em 0px;
   font-size: 3em;
@@ -72,6 +74,7 @@
 .form > div {
   width: 45%;
   display: flex;
+
   flex-direction: column;
 }
 .form > div > input {
@@ -93,9 +96,13 @@
 #message div * {
   margin: 0%;
 }
+#message input[type="checkbox"] {
+  margin-right: 5px;
+}
 #message div {
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
   align-items: center;
 }
 #message {
@@ -113,7 +120,60 @@
   background-color: #f3f4f6;
   border: 1px solid #d1d5db;
 }
+#Enquiry {
+  padding-top: 20vh;
+  padding-bottom: 7vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
 
+#Enquiry .form {
+  width: 60%;
+}
+
+#messageBox span {
+  position: absolute;
+  top: 3%;
+  right: 3%;
+  cursor: pointer;
+}
+#messageBox div {
+  width: 400px;
+  height: 200px;
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px black;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: messageboxani 500ms ease-in-out;
+}
+
+@keyframes messageboxani {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+#messageBox {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  z-index: 100;
+  top: 0%;
+  left: 0%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 @media only screen and (max-width: 750px) {
   .Contact {
     margin-top: 15vh !important;
@@ -147,5 +207,15 @@
   }
   .map iframe {
     width: 100%;
+  }
+  #Enquiry > h1 {
+    font-size: 2em;
+  }
+  #Enquiry .form {
+    width: 95% !important;
+  }
+  #Enquiry h1 {
+    margin-left: 2% !important;
+    padding-left: 1%;
   }
 }

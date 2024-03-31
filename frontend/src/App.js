@@ -18,6 +18,7 @@ import CaseStudies from "./Components/CaseStudy/CaseStudies.jsx";
 import CaseStudytemplate from "./Components/CaseStudy/CaseStudytemplate.jsx";
 import PolicyTemplate from "./Components/Policy/PolicyTemplate.jsx";
 import Franchise from "./Components/Common Elements/Franchise.jsx";
+import Booking from "./Components/Contact Us/Booking.jsx";
 
 function App() {
   return (
@@ -43,6 +44,7 @@ function App() {
         <Route path="/casestudies" element={<CaseStudies />} />
         <Route path="/casestudy/:section" element={<CaseStudytemplate />} />
         <Route path="/contactus" element={<Contact />} />
+        <Route path="/booking" element={<Booking />} />
         <Route path="/aboutus/offices" element={<Contact />} />
         <Route path="/testimonials" element={<Testimonials />} />
         <Route path="/franchise" element={<Franchise />} />

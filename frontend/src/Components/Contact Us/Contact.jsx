@@ -1,9 +1,26 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 
 import "./Contact.css";
 import { useLocation } from "react-router-dom";
 
 function Contact() {
+  const [formData, setFormData] = useState({
+    firstname: "",
+    lastname: "",
+    email: "",
+    contactNumber: "",
+    city: "",
+    state: "",
+    country: "",
+    message: "",
+  });
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
   const observedElements = useRef([]);
   useEffect(() => {
     window.scrollTo({
@@ -38,13 +55,87 @@ function Contact() {
     };
   }, []);
 
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
+  }, []);
+
+  const handleSubmit = async (e) => {
+    // Check if any field is empty
+    if (Object.values(formData).some((value) => value === "")) {
+      window.alert("Please fill in all fields before submitting.");
+      return;
+    }
+    try {
+      // Check if local storage contains submission time
+      const lastContactSubmitTime = localStorage.getItem(
+        "lastContactSubmitTime"
+      );
+      if (lastContactSubmitTime) {
+        const currentTime = new Date().getTime();
+        const timeDifference =
+          (currentTime - parseInt(lastContactSubmitTime)) / (1000 * 60 * 60); // Difference in hours
+        if (timeDifference < 1) {
+          setmessage(
+            "You recently submitted a message. Please try again after 2-3 hours."
+          );
+          setismessageVisible(true);
+          return;
+        }
+      }
+
+      const response = await fetch(
+        `${process.env.REACT_APP_API_URL}/messages/contactus`,
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
+
+      if (response.ok) {
+        console.log("Message sent successfully");
+        // Store current time in local storage
+        localStorage.setItem(
+          "lastContactSubmitTime",
+          new Date().getTime().toString()
+        );
+        setmessage("Your message has been sent successfully!");
+        setismessageVisible(true);
+      } else {
+        console.error("Failed to send message");
+        setmessage("Failed to send message! Try Again Later");
+      }
+    } catch (error) {
+      console.error("Error sending message:", error);
+    }
+  };
+
+  const [message, setmessage] = useState("");
+  const [ismessageVisible, setismessageVisible] = useState(false);
 
   return (
     <>
+      {ismessageVisible ? (
+        <div id="messageBox">
+          <div>
+            <span
+              onClick={() => {
+                setismessageVisible(false);
+              }}
+            >
+              x
+            </span>
+            {message}
+          </div>
+        </div>
+      ) : (
+        <></>
+      )}
       <div className="Contact">
         <h1 ref={(el) => observedElements.current.push(el)}>
           {loc.pathname === "/contactus" ? "CONTACT US" : "Get in Touch"}
@@ -104,38 +195,79 @@ function Contact() {
           <div className="form" ref={(el) => observedElements.current.push(el)}>
             <div>
               <label htmlFor="">Country</label>
-              <input type="text" />
+              <input
+                type="text"
+                value={formData.country}
+                onChange={handleChange}
+                name="country"
+              />
             </div>
             <div>
               <label htmlFor="">State</label>
-              <input type="text" />
+              <input
+                type="text"
+                value={formData.state}
+                onChange={handleChange}
+                name="state"
+              />
             </div>
             <div>
               <label htmlFor="">City</label>
-              <input type="text" />
+              <input
+                type="text"
+                value={formData.city}
+                onChange={handleChange}
+                name="city"
+              />
             </div>
             <div>
               <label htmlFor="">First Name</label>
-              <input type="text" />
+              <input
+                type="text"
+                value={formData.firstname}
+                onChange={handleChange}
+                name="firstname"
+              />
             </div>
             <div>
               <label htmlFor="">Last Name</label>
-              <input type="text" />
+              <input
+                type="text"
+                value={formData.lastname}
+                onChange={handleChange}
+                name="lastname"
+              />
             </div>
             <div>
               <label htmlFor="">Contact No.</label>
-              <input type="number" />
+              <input
+                type="number"
+                value={formData.contactNumber}
+                onChange={handleChange}
+                name="contactNumber"
+              />
             </div>
             <div>
               <label htmlFor="">Email</label>
-              <input type="email" />
+              <input
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                name="email"
+              />
             </div>
 
             <div id="message">
               <label htmlFor="">Message</label>
-              <textarea name="" cols="30" rows="10"></textarea>
+              <textarea
+                cols="30"
+                rows="10"
+                value={formData.message}
+                onChange={handleChange}
+                name="message"
+              ></textarea>
             </div>
-            <button>Submit</button>
+            <button onClick={handleSubmit}>Submit</button>
           </div>
         </div>
       </div>

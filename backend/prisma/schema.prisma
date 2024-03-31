@@ -1,0 +1,36 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model Inquiry {
+  timeframe      DateTime @id @default(now())
+  country        String   @db.VarChar(100)
+  state          String   @db.VarChar(100)
+  city           String   @db.VarChar(100)
+  firstname      String   @db.VarChar(100)
+  lastname       String   @db.VarChar(100)
+  contactNumber  String   @db.VarChar(20)
+  email          String   @db.VarChar(255)
+  message        String
+
+  @@map("Inquiries")
+}
+
+model Booking {
+  timeframe       DateTime @id @default(now())
+  name            String   @db.VarChar(100)
+  contactNumber   String   @db.VarChar(20)
+  email           String   @db.VarChar(255)
+  city            String   @db.VarChar(100)
+  state           String   @db.VarChar(100)
+  country         String   @db.VarChar(100)
+  problemType     String   @db.VarChar(100)
+  description     String
+
+  @@map("Bookings")
+}

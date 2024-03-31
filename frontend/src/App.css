@@ -62,7 +62,7 @@
   justify-content: space-evenly;
 }
 
-#Navbar a {
+#Navbar a:not(.button) {
   border-bottom: 5px solid #eb7e2400;
 
   height: 100%;
@@ -71,7 +71,7 @@
   justify-content: center;
   gap: 3px;
 }
-#Navbar a:hover {
+#Navbar a:not(.button):hover {
   border-bottom: 5px solid #a536f3;
 }
 

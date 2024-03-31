@@ -1,26 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 function MobileNavbar() {
   const [isBurgerActive, setisBurgerActive] = useState(false);
   const [isLevel2Active, setisLevel2Active] = useState(false);
   const [dropdownContent, setDropdownContent] = useState(null);
-  const [isScrolled, setIsScrolled] = useState(false);
-  useEffect(() => {
-    const handleScroll = () => {
-      const scrollPosition = window.scrollY;
-      if (scrollPosition > 0) {
-        setIsScrolled(true);
-      } else {
-        setIsScrolled(false);
-      }
-    };
-    window.addEventListener("scroll", handleScroll);
-
-    // Cleanup the event listener on component unmount
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
 
   const handleAccordionClick = (event) => {
     const accordionButton = event.target;

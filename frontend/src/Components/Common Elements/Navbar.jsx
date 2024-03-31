@@ -378,7 +378,7 @@ function Navbar() {
         <div>
           <ul className="upperdiv" onMouseEnter={handleMouseLeave}>
             {" "}
-            <button class="button">
+            <Link to={"/booking"} class="button">
               Book Appointment
               <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
                 <path
@@ -387,7 +387,7 @@ function Navbar() {
                   fill-rule="evenodd"
                 ></path>
               </svg>
-            </button>
+            </Link>
             {/* <a>
               <i className="fa-solid fa-cart-shopping"></i>
             </a>
