@@ -1,0 +1,98 @@
+#Services * {
+  transition: all 500ms ease-in-out;
+
+  animation: componrntrenser 1.5s ease;
+}
+
+#Services {
+  width: 100%;
+  background-color: #fff8e3;
+  margin-top: 18vh;
+}
+#Services .sec1 {
+  background-color: white;
+  width: 70%;
+  padding: 5% 15%;
+}
+#Services .sec2 {
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  color: white;
+  min-height: 60vh;
+  box-shadow: inset 0 0 1000px 250px rgba(0, 0, 0, 0.3);
+}
+#Services .sec2 div {
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  font-size: 1.6em;
+  margin: 0px 3em;
+  margin-top: 10%;
+}
+#Services .sec2 div span {
+  font-family: "Trocchi", serif;
+  font-weight: 400;
+  font-size: 1.3em;
+  font-style: normal;
+  display: flex;
+  gap: 5px;
+}
+.author {
+  font-size: 0.8em !important;
+}
+#Services .sec1 p,
+.sec3 p {
+  font-size: 1.12em;
+  margin: 10px 0px;
+}
+#Services .sec1 h1 {
+  font-size: 300%;
+  color: #4d4d4d;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  margin: 15px 0px;
+}
+#Services .sec3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#Services .sec3 > div {
+  width: 70%;
+  background: white;
+  padding: 2em;
+  margin: 5% 0px;
+  border-radius: 15px;
+}
+#Services .sec3 h3 {
+  color: #053c8f;
+  margin: 15px 0px;
+  font-size: 150%;
+  font-family: "Oswald", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-variation-settings: "slnt" 0;
+}
+
+@media screen and (max-width: 500px) {
+  #Services {
+    margin-top: 12vh;
+  }
+  #Services .sec1 {
+    width: 90%;
+    padding: 5% 5%;
+  }
+  #Services .sec2 div {
+    margin: 0px 5%;
+    margin-top: 20%;
+  }
+  #Services .sec3 > div {
+    width: 80%;
+    padding: 7.5%;
+  }
+}

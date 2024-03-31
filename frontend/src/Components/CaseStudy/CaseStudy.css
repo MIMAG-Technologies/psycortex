@@ -1,0 +1,47 @@
+#CaseStudies * {
+  animation: componrntrenser 1.5s ease;
+  transition: all 500ms ease;
+}
+#CaseStudies {
+  margin-top: 18vh;
+  background-color: #fff8e3;
+}
+.casestudiescontainers {
+  padding: 10vh 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.onecase p {
+  text-transform: uppercase;
+  border-top: 1px solid grey;
+  padding-top: 10px;
+  font-size: 1.2em;
+}
+.onecase h1 {
+  color: black;
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.onecase {
+  width: 500px;
+  padding: 25px;
+  background-color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  gap: 10px;
+}
+@media screen and (max-width: 500px) {
+  .onecase {
+    width: 85%;
+  }
+  #CaseStudies {
+    margin-top: 12vh;
+  }
+}

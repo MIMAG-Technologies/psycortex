@@ -1,0 +1,334 @@
+/* DIRECTORS MESSAGE */
+
+#DirectorsMessage * {
+  transition: all 500ms ease-in-out;
+  animation: componrntrenser 1.5s ease;
+}
+#DirectorsMessage {
+  width: 100%;
+  background-color: #fff8e3;
+  margin-top: 18vh;
+  padding-bottom: 2em;
+}
+
+.onedirector .drinfo h1,
+.onedirector .drinfo span p {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.onedirector .drinfo span p {
+  font-family: RelFont;
+}
+.onedirector .drinfo span {
+  border-left: 5px solid purple;
+  padding-left: 20px;
+  margin-bottom: 10px;
+}
+.onedirector .drinfo {
+  width: 70%;
+  font-size: 1.3em;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.onedirector img {
+  width: 25%;
+  height: fit-content;
+}
+.onedirector {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin: 3em auto;
+  width: 70em;
+}
+
+/* mission Vision and Values */
+
+#MissionVissionValues *:not(.card__content) {
+  transition: all 500ms ease-in-out;
+  animation: componrntrenser 1.5s ease;
+}
+
+#MissionVissionValues {
+  width: 100%;
+  margin-top: 18vh;
+  background-color: #fff8e3;
+}
+#MissionVissionValues .missionvv_cards {
+  padding: 4em;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.card {
+  position: relative;
+  margin: 2em;
+  width: 450px;
+  height: 600px;
+  /* background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100%); */
+  border-radius: 10px;
+  display: flex;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card span {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  font-size: 3.5em;
+  color: white;
+  width: 200px;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover {
+  transform: scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.card__content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  background-color: #fff;
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+.card:hover .card__content {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.card__title {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  text-align: center;
+  font-style: normal;
+  margin: 0;
+  font-size: 36px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card__description {
+  font-size: 19px;
+  margin: 10px 0 0;
+  line-height: 1.4;
+}
+
+.card:hover span {
+  scale: 0;
+  transform: rotate(-45deg);
+}
+
+/* TEAMS */
+#Team * {
+  transition: all 500ms ease-in-out;
+
+  animation: componrntrenser 1.5s ease;
+}
+#Team {
+  margin-top: 18vh;
+  background-color: #fff8e3;
+}
+
+#teamdiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding: 4em 0px;
+}
+
+.onemember {
+  width: 450px;
+  border-radius: 5px;
+  height: 600px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  position: relative;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+  overflow: hidden;
+}
+.onemember img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+}
+.onemember:hover div {
+  height: 20%;
+}
+.onemember > div {
+  padding: 20px;
+  transition: all 1s ease;
+  background-color: #1b4296f0;
+  border-radius: 10px;
+  position: absolute;
+  color: white;
+  margin-bottom: 1em;
+  width: 60%;
+}
+
+@media screen and (max-width: 72em) and (min-width: 51em) {
+  .onedirector .drinfo {
+    width: 70%;
+  }
+  .onedirector img {
+    width: 25%;
+  }
+  .onedirector {
+    width: 50em;
+  }
+}
+@media screen and (max-width: 450px) {
+  .onemember {
+    width: 90%;
+    height: 550px;
+  }
+}
+
+@media screen and (max-width: 50em) {
+  .onedirector .drinfo {
+    width: 100%;
+  }
+  .onedirector img {
+    width: 90%;
+  }
+  .onedirector {
+    align-items: center;
+    width: 90%;
+    flex-direction: column;
+  }
+  .onedirector .drinfo span {
+    margin: 1em 0px;
+  }
+
+  #MissionVissionValues .missionvv_cards {
+    padding: 1em;
+  }
+
+  .card {
+    position: relative;
+    margin: 2em 0px;
+    width: 450px;
+    min-height: 650px;
+  }
+  .card__description {
+    font-size: 18px;
+  }
+}
+
+#Awards *:not(.flip-card-back) {
+  transition: all 500ms ease-in-out;
+  animation: componrntrenser 1.5s ease;
+}
+#Awards {
+  margin-top: 18vh;
+  overflow: hidden;
+  background-color: #fff8e3;
+}
+.partnershipcardsdiv {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 200px;
+  margin: 2em;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+.flip-cardlong {
+  background-color: transparent;
+  width: 300px;
+  height: 400px;
+  margin: 2em;
+  perspective: 1000px;
+  font-family: sans-serif;
+}
+
+.title {
+  font-size: 1.5em;
+  font-weight: 900;
+  text-align: center;
+  margin: 0;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-cardlong:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front img {
+  width: 100%;
+  height: 100%;
+}
+.flip-card-front,
+.flip-card-back {
+  box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.2);
+  position: absolute;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border: 1px solid #702b88;
+  border-radius: 1rem;
+}
+
+.flip-card-back p {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+.flip-card-back {
+  background: linear-gradient(
+    120deg,
+    #7e4990 30%,
+    #702b88 88%,
+    #d3a0e3 40%,
+    #c77ede 78%
+  );
+  color: white;
+  transform: rotateY(180deg);
+}
