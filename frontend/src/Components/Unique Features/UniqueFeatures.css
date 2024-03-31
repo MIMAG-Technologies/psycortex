@@ -87,6 +87,9 @@
   width: 48%;
 }
 
+#UniqueFeature .section2 video {
+  border-radius: 10px;
+}
 #UniqueFeature .section2 > div p {
   font-size: 18px;
 }
@@ -127,6 +130,6 @@
     gap: 15px;
   }
   #UniqueFeature .section2 > div > * {
-    width: calc(100% - 2em);
+    width: 100%;
   }
 }

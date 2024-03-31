@@ -1,6 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import v1 from "./Videos/psycortexfor1.mp4";
-
 function BrainTakeForWho() {
   const observedElements = useRef([]);
   useEffect(() => {
@@ -53,14 +51,8 @@ function BrainTakeForWho() {
     `${process.env.PUBLIC_URL}/assets/Videos/Home/psycortexfor4.mp4`,
     `${process.env.PUBLIC_URL}/assets/Videos/Home/psycortexfor3.mp4`,
     `${process.env.PUBLIC_URL}/assets/Videos/Home/psycortexfor2.mp4`,
-    v1,
+    `${process.env.PUBLIC_URL}/assets/Videos/Home/psycortexfor1.mp4`,
   ];
-  const extLinkArr = ["#", "#", "#", "#"];
-
-  // useEffect(() => {
-  //   const video = document.getElementById("videoPlayer");
-  //   video.play();
-  // }, [index]);
 
   return (
     <div id="BrainTakeForWho">
@@ -121,10 +113,12 @@ function BrainTakeForWho() {
           autoPlay
           loop
           muted
-          preload
           playsInline
         >
-          <source src={imgArr[index]} type="video/mp4" />
+          <source
+            src={imgArr[index]}
+            type='video/mp4; codecs="avc1.4D401E, mp4a.40.2"'
+          />
           Your browser does not support the video tag.
         </video>
       </div>
