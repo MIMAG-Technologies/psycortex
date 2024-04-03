@@ -19,6 +19,7 @@ import CaseStudytemplate from "./Components/CaseStudy/CaseStudytemplate.jsx";
 import PolicyTemplate from "./Components/Policy/PolicyTemplate.jsx";
 import Franchise from "./Components/Common Elements/Franchise.jsx";
 import Booking from "./Components/Contact Us/Booking.jsx";
+import Search from "./Components/Search/Search.jsx";
 
 function App() {
   return (
@@ -27,6 +28,7 @@ function App() {
       <MobileNavbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/search/:key" element={<Search />} />
         <Route path="/aboutus/team" element={<Team />} />
         <Route
           path="/aboutus/directorsmessage"

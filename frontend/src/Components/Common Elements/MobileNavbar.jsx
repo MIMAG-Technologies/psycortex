@@ -1,9 +1,12 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 function MobileNavbar() {
   const [isBurgerActive, setisBurgerActive] = useState(false);
   const [isLevel2Active, setisLevel2Active] = useState(false);
   const [dropdownContent, setDropdownContent] = useState(null);
+  const [isSearchBoxOpen, setisSearchBoxOpen] = useState(false);
+  const [searchkey, setsearchkey] = useState("");
+  const navigate = useNavigate();
 
   const handleAccordionClick = (event) => {
     const accordionButton = event.target;
@@ -653,7 +656,37 @@ function MobileNavbar() {
             alt=""
           />{" "}
         </Link>
-        <i className="fa-solid fa-magnifying-glass"></i>
+        <div id="search-box-div">
+          <input
+            value={searchkey}
+            onChange={(e) => setsearchkey(e.target.value)}
+            type="text"
+            style={{
+              display: isSearchBoxOpen ? "inline" : "none",
+            }}
+          />
+          <i
+            onClick={() => {
+              if (isSearchBoxOpen && searchkey !== "") {
+                setisSearchBoxOpen(false);
+                navigate(`/search/${searchkey}`);
+              } else {
+                setisSearchBoxOpen(true);
+              }
+            }}
+            style={{
+              borderRight: isSearchBoxOpen ? "none" : "2px solid black",
+            }}
+            className="fa-solid fa-magnifying-glass"
+          ></i>{" "}
+          <i
+            onClick={() => setisSearchBoxOpen(false)}
+            style={{
+              display: isSearchBoxOpen ? "inline" : "none",
+            }}
+            className="fa-solid fa-xmark"
+          ></i>
+        </div>
         <div
           className="burger"
           onClick={() => {

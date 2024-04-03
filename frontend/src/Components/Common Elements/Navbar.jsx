@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomtoTopBtn from "./BottomtoTopBtn";
 
 function Navbar() {
@@ -7,6 +7,9 @@ function Navbar() {
   const [isDropdownActive, setIsDropdownActive] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const [isSearchBoxOpen, setisSearchBoxOpen] = useState(false);
+  const [searchkey, setsearchkey] = useState("");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -405,7 +408,35 @@ function Navbar() {
             >
               Contact Us
             </Link>
-            <i className="fa-solid fa-magnifying-glass"></i>{" "}
+            <div id="search-box-div">
+              <input
+                value={searchkey}
+                onChange={(e) => setsearchkey(e.target.value)}
+                type="text"
+                style={{
+                  width: isSearchBoxOpen ? "fit-content" : "0px",
+                  color: location.pathname !== "/" ? "black" : "white",
+                }}
+              />
+              <i
+                onClick={() => {
+                  if (isSearchBoxOpen && searchkey !== "") {
+                    setisSearchBoxOpen(false);
+                    navigate(`/search/${searchkey}`);
+                  } else {
+                    setisSearchBoxOpen(true);
+                  }
+                }}
+                className="fa-solid fa-magnifying-glass"
+              ></i>{" "}
+              <i
+                onClick={() => setisSearchBoxOpen(false)}
+                style={{
+                  width: isSearchBoxOpen ? "fit-content" : "0px",
+                }}
+                className="fa-solid fa-xmark"
+              ></i>
+            </div>
           </ul>
           <ul className={isScrolled ? "lowerscrolled" : "lowerdiv"}>
             <Link to="/" className="imglowerdiv">
