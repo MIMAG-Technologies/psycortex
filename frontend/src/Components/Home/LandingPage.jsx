@@ -22,7 +22,7 @@ function LandingPage() {
     }, 8000);
 
     return () => clearInterval(intervalId);
-  }, []);
+  });
 
   return (
     <>
@@ -36,7 +36,12 @@ function LandingPage() {
           <p>{infoArry[index]}</p>
         </div>
       </div>
-      <a href={whatsAppLink} id="whatsapp-logo" target="_blank">
+      <a
+        href={whatsAppLink}
+        id="whatsapp-logo"
+        target="_blank"
+        rel="noreferrer"
+      >
         <i className="fa-brands fa-whatsapp"></i>
       </a>
     </>

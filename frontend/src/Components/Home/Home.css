@@ -32,6 +32,7 @@ body {
 }
 #LandingPage {
   height: 110vh;
+  transition: all 500ms ease;
   width: 100vw;
   overflow: hidden;
   background-size: cover;

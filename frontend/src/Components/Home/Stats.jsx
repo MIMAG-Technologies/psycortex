@@ -42,23 +42,27 @@ function Stats() {
         // Clean up the interval when the component unmounts or the section goes out of viewport
         return () => {
           clearInterval(interval);
-          if (statsRef.current) {
-            observer.unobserve(statsRef.current);
+          const currentRef = statsRef.current; // Copy statsRef.current to a variable
+          if (currentRef) {
+            observer.unobserve(currentRef);
           }
         };
       }
     });
 
-    if (statsRef.current) {
-      observer.observe(statsRef.current);
+    const currentRef = statsRef.current; // Copy statsRef.current to a variable
+    if (currentRef) {
+      observer.observe(currentRef);
     }
 
     return () => {
-      if (statsRef.current) {
-        observer.unobserve(statsRef.current);
+      const currentRef = statsRef.current; // Copy statsRef.current to a variable
+      if (currentRef) {
+        observer.unobserve(currentRef);
       }
     };
   }, [finalStat1, finalStat2, finalStat3]);
+
   return (
     <div id="Stats">
       <h1>

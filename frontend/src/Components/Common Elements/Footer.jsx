@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
+  const FACEBOOK_LINK = "https://www.facebook.com/psycortex.bt/";
+  const YOUTUBE_LINK = "https://youtube.com";
+  const INSTAGRAM_LINK = "https://www.instagram.com/psycotex_pvt_ltd";
+  const LINKED_IN_LINK = "https://www.linkedin.com/in";
+  const X_LINK = "https://twitter.com/";
   return (
     <div id="Footer">
       <div id="newletter">
@@ -13,19 +18,19 @@ function Footer() {
           </span>
         </div>
         <div id="rhs">
-          <a href="#">
+          <a href={FACEBOOK_LINK}>
             <i className="fa-brands fa-facebook"></i>
           </a>
-          <a href="https://www.instagram.com/psycotex_pvt_ltd">
+          <a href={INSTAGRAM_LINK}>
             <i className="fa-brands fa-instagram"></i>
           </a>
-          <a href="#">
+          <a href={X_LINK}>
             <i className="fa-brands fa-x-twitter"></i>
           </a>
-          <a href="#">
+          <a href={LINKED_IN_LINK}>
             <i className="fa-brands fa-linkedin-in"></i>
           </a>
-          <a href="#">
+          <a href={YOUTUBE_LINK}>
             <i className="fa-brands fa-youtube"></i>
           </a>
         </div>
