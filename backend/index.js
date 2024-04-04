@@ -14,6 +14,23 @@ app.use(messageRouter);
 app.use(emailRouter);
 
 const PORT = process.env.PORT || 3001;
+const { PrismaClient } = require("@prisma/client");
+
+const prisma = new PrismaClient();
+
+async function checkDatabaseConnection() {
+  try {
+    await prisma.$connect();
+    console.log("Database connected successfully");
+  } catch (error) {
+    console.error("Failed to connect to database:", error);
+  } finally {
+    await prisma.$disconnect();
+  }
+}
+
+checkDatabaseConnection();
+
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}`);
 });
