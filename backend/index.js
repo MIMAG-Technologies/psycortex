@@ -7,7 +7,12 @@ const emailRouter = require("./routers/email");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+app.use(
+  cors({
+    origin: "http://89.116.32.90/",
+    credentials: true, // If your API requires credentials (e.g., cookies, authorization headers)
+  })
+);
 require("dotenv").config();
 
 app.use(messageRouter);
