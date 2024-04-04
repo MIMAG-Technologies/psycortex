@@ -418,6 +418,50 @@ function MobileNavbar() {
             MidBrain Activation
           </Link>
         </div>
+        <span className="accordion" onClick={handleAccordionClick}>
+          Corporate
+        </span>
+        <div className="accordion-content">
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/corporate/psychologicalemployeecounseling"
+          >
+            Psychological Employee Counseling
+          </Link>
+
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/corporate/worklifeservices"
+          >
+            Work-Life Service
+          </Link>
+
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/corporate/stresscontrolforcorporates"
+          >
+            Stress Control for Corporates
+          </Link>
+
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/corporate/hrqol"
+          >
+            Health-related Quality of Life
+          </Link>
+        </div>
       </>
     );
   };

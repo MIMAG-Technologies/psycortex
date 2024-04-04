@@ -34,3 +34,7 @@ model Booking {
 
   @@map("Bookings")
 }
+model Subscriptions {
+  email           String   @id @db.VarChar(255)
+  @@map("Subscriptions")
+}

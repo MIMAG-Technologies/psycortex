@@ -87,6 +87,7 @@ function Booking() {
       } else {
         console.error("Failed to submit booking");
         setmessage("Failed to book appointment! Try Again Later");
+        setismessageVisible(true);
       }
     } catch (error) {
       console.error("Error submitting booking:", error);
@@ -234,6 +235,15 @@ function Booking() {
                 <label htmlFor="substance_use_disorders">
                   Substance Use Disorders
                 </label>
+              </span>
+              <span>
+                <input
+                  type="checkbox"
+                  name="enquirytype"
+                  id="others"
+                  onChange={handleCheckboxChange}
+                />
+                <label htmlFor="others">Other</label>
               </span>
             </div>
             <label htmlFor="discription">

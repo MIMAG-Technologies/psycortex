@@ -94,6 +94,8 @@ function Services() {
               ? "#0f1e6d"
               : section === "sexologycounselling"
               ? "#416d19"
+              : section === "corporate"
+              ? "#fba748"
               : "#492e87",
         }}
       >

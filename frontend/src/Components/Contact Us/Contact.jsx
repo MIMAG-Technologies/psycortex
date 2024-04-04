@@ -109,6 +109,7 @@ function Contact() {
       } else {
         console.error("Failed to send message");
         setmessage("Failed to send message! Try Again Later");
+        setismessageVisible(true);
       }
     } catch (error) {
       console.error("Error sending message:", error);

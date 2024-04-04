@@ -330,6 +330,31 @@ function Navbar() {
         level: 2,
         ref: "/services/psychologicaltesting/midbrainactivation",
       },
+      {
+        content: "Corporates",
+        level: 1,
+        ref: "#",
+      },
+      {
+        content: "Psychological Employee Counseling",
+        level: 2,
+        ref: "/services/corporate/psychologicalemployeecounseling",
+      },
+      {
+        content: "Work-Life Service",
+        level: 2,
+        ref: "/services/corporate/worklifeservices",
+      },
+      {
+        content: "Stress Control for Corporates",
+        level: 2,
+        ref: "/services/corporate/stresscontrolforcorporates",
+      },
+      {
+        content: "Health-related Quality of Life",
+        level: 2,
+        ref: "/services/corporate/hrqol",
+      },
     ],
   };
 
@@ -411,6 +436,7 @@ function Navbar() {
             <div id="search-box-div">
               <input
                 value={searchkey}
+                placeholder="Search..."
                 onChange={(e) => setsearchkey(e.target.value)}
                 type="text"
                 style={{
