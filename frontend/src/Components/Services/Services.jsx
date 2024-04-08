@@ -12,7 +12,7 @@ function Services() {
       top: 0,
       behavior: "smooth",
     });
-  }, [section]);
+  }, [subsection]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(

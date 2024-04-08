@@ -143,6 +143,9 @@ function Footer() {
             <Link to="/uniquefeature/mentalhealthcounselling">
               Mental Health Counseling
             </Link>
+            <Link to="/uniquefeature/aptitudetest">Aptitude Test</Link>
+            <Link to="/uniquefeature/softskills">Soft Skills Devlopement</Link>
+            <Link to="/uniquefeature/garbhsanskar">Garbh Sanskar</Link>
           </div>
           <h4>Services</h4>
           <h4 className="uniqfooter">Psychological Counseling</h4>
@@ -257,8 +260,23 @@ function Footer() {
             <Link to="/services/psychologicaltesting/intelligencebuildingprogram">
               Intelligence Building Program
             </Link>
-            <Link to="/services/psychologicaltesting/midbrainactivation">
+            <Link to="/services/psychologiccorporateltesting/midbrainactivation">
               MidBrain Activation
+            </Link>
+          </div>
+          <h4 className="uniqfooter">Corporates</h4>
+          <div>
+            <Link to="/services/corporate/psychologicalemployeecounseling">
+              Psychological Employee Counseling
+            </Link>
+            <Link to="/services/corporate/worklifeservices">
+              Work-Life Service
+            </Link>
+            <Link to="/services/corporate/stresscontrolforcorporates">
+              Stress Control for Corporates
+            </Link>
+            <Link to="/services/corporate/hrqol">
+              Health-related Quality of Life
             </Link>
           </div>
           <div>

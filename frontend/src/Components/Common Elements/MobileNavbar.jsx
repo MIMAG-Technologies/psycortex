@@ -662,6 +662,33 @@ function MobileNavbar() {
         >
           Mental Health Counseling
         </Link>
+        <Link
+          onClick={() => {
+            setisBurgerActive(!isBurgerActive);
+            setisLevel2Active(false);
+          }}
+          to="/uniquefeature/aptitudetest"
+        >
+          Aptitude Test
+        </Link>
+        <Link
+          onClick={() => {
+            setisBurgerActive(!isBurgerActive);
+            setisLevel2Active(false);
+          }}
+          to="/uniquefeature/softskills"
+        >
+          Soft Skills Devlopement
+        </Link>
+        <Link
+          onClick={() => {
+            setisBurgerActive(!isBurgerActive);
+            setisLevel2Active(false);
+          }}
+          to="/uniquefeature/garbhsanskar"
+        >
+          Garbh Sanskar
+        </Link>
       </>
     );
   };
@@ -807,7 +834,7 @@ function MobileNavbar() {
           }}
           to="/franchise"
         >
-          Franchise
+          Our Franchise
         </Link>
         <Link
           onClick={() => {

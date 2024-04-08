@@ -127,6 +127,21 @@ function Navbar() {
         ref: "/uniquefeature/insomniacounseling",
         level: 1,
       },
+      {
+        content: "Aptitude Test",
+        ref: "/uniquefeature/aptitudetest",
+        level: 1,
+      },
+      {
+        content: "Soft Skills Devlopement",
+        ref: "/uniquefeature/softskills",
+        level: 1,
+      },
+      {
+        content: "Garbh Sanskar",
+        ref: "/uniquefeature/garbhsanskar",
+        level: 1,
+      },
     ],
     services: [
       {
@@ -525,7 +540,7 @@ function Navbar() {
                     : "black",
               }}
             >
-              Franchise
+              Our Franchise
             </Link>
             <Link
               to={"/casestudies"}
