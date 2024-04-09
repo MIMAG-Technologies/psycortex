@@ -64,10 +64,9 @@ function DirectorsMessage() {
 
           <p ref={(el) => el && observedElements.current.push(el)}>
             I am honored to extend a warm welcome to you on behalf of Psycortex
-            Brain Take Mental Health Pvt. Ltd. As the Director of our
-            organization, I am privileged to lead a team of dedicated
-            professionals who are committed to transforming the landscape of
-            mental health care.
+            Pvt. Ltd. As the Director of our organization, I am privileged to
+            lead a team of dedicated professionals who are committed to
+            transforming the landscape of mental health care.
           </p>
           <p ref={(el) => el && observedElements.current.push(el)}>
             At Psycortex, we understand the challenges and complexities

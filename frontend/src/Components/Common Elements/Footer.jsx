@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Footer() {
   const FACEBOOK_LINK = "https://www.facebook.com/psycortex.bt/";
   const YOUTUBE_LINK = "https://youtube.com";
-  const INSTAGRAM_LINK = "https://www.instagram.com/psycotex_pvt_ltd";
+  const INSTAGRAM_LINK = "https://www.instagram.com/psycortex_pvt_ltd/";
   const LINKED_IN_LINK = "https://www.linkedin.com/in";
   const X_LINK = "https://twitter.com/";
 
@@ -65,7 +65,7 @@ function Footer() {
         <div id="newletter">
           <div id="lhs">
             <label htmlFor="newsletter-email">
-              Subscribe to our news alerts
+              Subscribe to our Newsletter
             </label>
             <span>
               <input

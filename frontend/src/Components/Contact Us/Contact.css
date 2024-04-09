@@ -22,6 +22,14 @@
 .Contact > div > div {
   width: 40%;
 }
+.adress h2 {
+  font-size: 1.9em;
+  font-weight: bold;
+}
+.adress h2.cityname {
+  font-size: 1.5em;
+  font-weight: 300;
+}
 .adress {
   display: flex;
   flex-direction: column;
@@ -30,6 +38,7 @@
 .adress p {
   margin: 10px 0px;
   padding-right: 15px;
+  font-size: 1.2em;
 }
 .adress h3 {
   margin-top: 1em;

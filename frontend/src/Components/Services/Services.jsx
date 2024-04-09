@@ -101,8 +101,7 @@ function Services() {
       >
         <div>
           <h3 ref={(el) => el && observedElements.current.push(el)}>
-            {sectionData.title +
-              " at Psycortex Brain Take Mental Health Pvt. Ltd"}
+            {sectionData.title + " at Psycortex Pvt. Ltd"}
           </h3>
           <p ref={(el) => el && observedElements.current.push(el)}>
             {sectionData.p4}

@@ -147,29 +147,36 @@ function Contact() {
             ref={(el) => observedElements.current.push(el)}
           >
             <h2> {loc.pathname === "/contactus" ? "Get in Touch" : ""}</h2>
-            <h2>Nagpur</h2>
+            <h1>Head Office</h1>
             <p>
               <span>Address : </span>
               Block no. 101/102, 2nd floor, Shriram Tower, Sadar, Nagpur-
               440001, Maharashtra
             </p>
-            <h2>Pune</h2>
+            <h1>Branch Office</h1>
+            <h2 className="cityname">Nagpur</h2>
+            <p>
+              <span>Address : </span>
+              18, ‘Latakunj’, Behind Kalyan Jewellers, Abhyankar Nagar, Nagpur –
+              10
+            </p>
+            <h2 className="cityname">Pune</h2>
             <p>
               <span>Address : </span>
               Block no. 214 2nd Floor , 93 Avenue Mall,Bhagwan Tatyasaheb Kawade
               Rd, Fatima Nagar , RSPF , Wanowrie , Pune , Maharashtra 411022
             </p>
+
+            <h2 className="cityname">Indore</h2>
             <p>
-              <h2>Indore</h2>
-              <p>
-                <span>Address : </span>
-                114 , AB Road , Near PATEL MOTORS , Part II , Scheme No 114,
-                Indore , Madhya Pradesh 452010
-              </p>
+              <span>Address : </span>
+              114 , AB Road , Near PATEL MOTORS , Part II , Scheme No 114,
+              Indore , Madhya Pradesh 452010
             </p>
+
             <p>
               {" "}
-              <span>Phone no : </span>9270034937
+              <span>Phone no : </span>7249424403
             </p>
             <p>
               {" "}
