@@ -23,6 +23,10 @@ require("dotenv").config();
 app.use(messageRouter);
 app.use(emailRouter);
 
+app.get("/", (req, res) => {
+  res.status(200).send("Welcome to psycortex Backend!");
+});
+
 const PORT = process.env.PORT || 3001;
 const { PrismaClient } = require("@prisma/client");
 
