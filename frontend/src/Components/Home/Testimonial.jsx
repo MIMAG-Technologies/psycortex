@@ -105,6 +105,7 @@ function Testimonial() {
       <SwiperSlide>
         <div
           className="one-testimonial"
+          key={index}
           ref={(el) => el && observedElements.current.push(el)}
         >
           <i

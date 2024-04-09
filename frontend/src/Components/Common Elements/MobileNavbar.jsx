@@ -856,6 +856,14 @@ function MobileNavbar() {
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
           }}
+          to="/booking"
+        >
+          Book Appointment
+        </Link>
+        <Link
+          onClick={() => {
+            setisBurgerActive(!isBurgerActive);
+          }}
           to="/contactus"
         >
           Contact Us

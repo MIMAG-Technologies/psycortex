@@ -1,5 +1,9 @@
 [
   {
+    "title": "Home",
+    "ref": "/"
+  },
+  {
     "title": "Directors Message",
     "ref": "/aboutus/directorsmessage"
   },
@@ -79,9 +83,18 @@
     "title": "Insomnia/Sleep Problem Counselling",
     "ref": "/uniquefeature/insomniacounselling"
   },
+
   {
-    "title": "Psychological Counselling",
-    "ref": "#"
+    "title": "Aptitude Test",
+    "ref": "/uniquefeature/aptitudetest"
+  },
+  {
+    "title": "Soft Skills Devlopement",
+    "ref": "/uniquefeature/softskills"
+  },
+  {
+    "title": "Garbh Sanskar",
+    "ref": "/uniquefeature/garbhsanskar"
   },
   {
     "title": "Substance Abuse or Addiction Counselling",
@@ -152,10 +165,6 @@
     "ref": "/services/psychologicalcounselling/gestalttherapy"
   },
   {
-    "title": "Sexology Counselling",
-    "ref": "#"
-  },
-  {
     "title": "Erectile Dysfunction",
     "ref": "/services/sexologycounselling/erectiledysfunction"
   },
@@ -208,10 +217,6 @@
     "ref": "/services/sexologycounselling/pelvicfloorphysicaltherapy"
   },
   {
-    "title": "Psychological Testing",
-    "ref": "#"
-  },
-  {
     "title": "Basic Counselling",
     "ref": "/services/psychologicaltesting/basiccounselling"
   },
@@ -238,5 +243,77 @@
   {
     "title": "MidBrain Activation",
     "ref": "/services/psychologicaltesting/midbrainactivation"
+  },
+  {
+    "title": "Psychological Employee Counselling",
+
+    "ref": "/services/corporate/psychologicalemployeecounselling"
+  },
+  {
+    "title": "Work-Life Service",
+
+    "ref": "/services/corporate/worklifeservices"
+  },
+  {
+    "title": "Stress Control for Corporates",
+
+    "ref": "/services/corporate/stresscontrolforcorporates"
+  },
+  {
+    "title": "Health-related Quality of Life",
+    "ref": "/services/corporate/hrqol"
+  },
+  {
+    "title": "Testimonials",
+    "ref": "/testimonials"
+  },
+  {
+    "title": "Our Franchise",
+    "ref": "/franchise"
+  },
+  {
+    "title": "Case Studies",
+    "ref": "/casestudies"
+  },
+  {
+    "title": "Enhancing Student Well-being: A Case Study on School Counselling Services by Psycortex Pvt. Ltd.",
+    "ref": "/casestudy/enhancingstudentwellbeing"
+  },
+
+  {
+    "title": "Blogs",
+    "ref": "/blogs"
+  },
+  {
+    "title": "Human Psychology: From Experimental Studies to Brain-Body Correspondence",
+    "ref": "/blog/humanpsychology"
+  },
+  {
+    "title": "Breaking Free: The Role of Drug De-addiction Counselling in Reclaiming Lives",
+    "ref": "/blog/breakingfree"
+  },
+  {
+    "title": "Unraveling the Mysteries of DMIT Test: Understanding Your Unique Potential",
+    "ref": "/blog/dmittest"
+  },
+  {
+    "title": "Contact Us",
+    "ref": "/contactus"
+  },
+  {
+    "title": "Bookings",
+    "ref": "/booking"
+  },
+  {
+    "title": "Refund Policy",
+    "ref": "/psycortex/returnpolicy"
+  },
+  {
+    "title": "Terms and Conditions",
+    "ref": "/psycortex/termsandcondition"
+  },
+  {
+    "title": "Privacy Policy",
+    "ref": "/psycortex/privacypolicy"
   }
 ]
