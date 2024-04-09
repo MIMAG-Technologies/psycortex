@@ -2,11 +2,6 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 
-const messageRouter = require("./routers/messages");
-const emailRouter = require("./routers/email");
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 const corsOptions = {
   origin: [
     "http://89.116.32.90",
@@ -18,11 +13,16 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 
+const messageRouter = require("./routers/messages");
+const emailRouter = require("./routers/email");
+
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 require("dotenv").config();
 
 app.use(messageRouter);
 app.use(emailRouter);
-
 app.get("/", (req, res) => {
   res.status(200).send("Welcome to psycortex Backend!");
 });
