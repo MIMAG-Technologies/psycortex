@@ -36,14 +36,14 @@ function HomeServices() {
       bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service5.jpg`,
       info: "Career counseling is a specialized service to assist individuals in navigating career exploration. Counselors use assessments, discussions, and guidance to identify strengths, interests, and aptitudes. This process provides insight into potential career pathways aligning with skills, values, and aspirations, aiding informed decision-making. Career counseling offers invaluable support, equipping individuals with tools to pursue fulfilling careers .",
       active: false,
-      to: "/uniquefeature/careercounseling",
+      to: "/uniquefeature/careercounselling",
     },
     {
       title: "Anger Management",
       bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service6.jpg`,
       info: "Anger management counseling is a comprehensive therapeutic approach meticulously crafted to guide individuals through an introspective journey aimed at understanding and effectively managing the complexities of their anger and its pervasive ramifications. Through this process, participants are empowered to delve deep into their emotional landscape, unraveling the interplay of triggers, underlying emotions, and behavioral responses associated with anger.",
       active: false,
-      to: "/uniquefeature/anxietycounseling",
+      to: "/uniquefeature/anxietycounselling",
     },
   ]);
   const handleSectionHover = (index) => {

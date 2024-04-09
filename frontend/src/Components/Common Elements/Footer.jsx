@@ -71,6 +71,7 @@ function Footer() {
               <input
                 type="email"
                 id="newsletter-email"
+                placeholder="Enter Email"
                 value={email}
                 onChange={(e) => setemail(e.target.value)}
               />

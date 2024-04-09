@@ -246,7 +246,7 @@ function SkilledIn() {
             thoughts and bedtime worries.
             <Link
               class="know-more-btn"
-              to={"/uniquefeature/insomniacounseling"}
+              to={"/uniquefeature/insomniacounselling"}
             >
               Know More
               <div

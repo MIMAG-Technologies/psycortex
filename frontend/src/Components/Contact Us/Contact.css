@@ -16,18 +16,18 @@
   width: 100%;
   height: 70%;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: center;
 }
-.Contact > div > div {
+.Contact > div > div:not(.map) {
   width: 40%;
 }
 .adress h2 {
-  font-size: 1.9em;
+  font-size: 1.6em;
   font-weight: bold;
 }
 .adress h2.cityname {
-  font-size: 1.5em;
+  font-size: 1.4em;
   font-weight: 300;
 }
 .adress {
@@ -38,7 +38,8 @@
 .adress p {
   margin: 10px 0px;
   padding-right: 15px;
-  font-size: 1.2em;
+  font-size: 1.1em;
+  text-wrap: balance;
 }
 .adress h3 {
   margin-top: 1em;
@@ -51,6 +52,8 @@
   width: 100%;
   margin-top: 10px;
   margin-bottom: 5em;
+  display: flex;
+  justify-content: center;
 }
 .map iframe {
   width: 85%;
@@ -191,7 +194,7 @@
     width: 100%;
     height: 70%;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
     gap: 4em;
     justify-content: center;
