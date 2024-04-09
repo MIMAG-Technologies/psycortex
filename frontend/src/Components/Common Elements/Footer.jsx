@@ -111,68 +111,72 @@ function Footer() {
             <Link to="/uniquefeature/maritialcounselling">
               Marital Counselling
             </Link>
-            <Link to="/uniquefeature/premaritalcounseling">
-              Pre-Marital Counseling
+            <Link to="/uniquefeature/premaritalcounselling">
+              Pre-Marital Counselling
             </Link>
             <Link to="/uniquefeature/postmaritalcounselling">
-              Post-Marital Counseling
+              Post-Marital Counselling
             </Link>
-            <Link to="/uniquefeature/careercounseling">Career Counselling</Link>
-            <Link to="/uniquefeature/anxietycounseling">
-              Anxiety Counseling
+            <Link to="/uniquefeature/careercounselling">
+              Career Counselling
             </Link>
-            <Link to="/uniquefeature/depressioncounseling">
-              Depression Counseling
+            <Link to="/uniquefeature/anxietycounselling">
+              Anxiety Counselling
             </Link>
-            <Link to="/uniquefeature/insomniacounseling">
-              Insomnia/Sleep Problem Counseling
+            <Link to="/uniquefeature/depressioncounselling">
+              Depression Counselling
             </Link>
-            <Link to="/uniquefeature/traumaticcounseling">
-              Traumatic Counseling
+            <Link to="/uniquefeature/insomniacounselling">
+              Insomnia/Sleep Problem Counselling
+            </Link>
+            <Link to="/uniquefeature/traumaticcounselling">
+              Traumatic Counselling
             </Link>
             <Link to="/uniquefeature/cbt">Cognitive Behavioral Therapy</Link>
             <Link to="/uniquefeature/parentingcounselling">
               Parenting Counselling
             </Link>
-            <Link to="/uniquefeature/familycounselling">Family Counseling</Link>
-            <Link to="/uniquefeature/childcounselling">Child Counseling</Link>
-            <Link to="/uniquefeature/groupcounselling">Group Counseling</Link>
+            <Link to="/uniquefeature/familycounselling">
+              Family Counselling
+            </Link>
+            <Link to="/uniquefeature/childcounselling">Child Counselling</Link>
+            <Link to="/uniquefeature/groupcounselling">Group Counselling</Link>
             <Link to="/uniquefeature/stressmanagementcounselling">
-              Stress Management Counseling
+              Stress Management Counselling
             </Link>
             <Link to="/uniquefeature/mentalhealthcounselling">
-              Mental Health Counseling
+              Mental Health Counselling
             </Link>
             <Link to="/uniquefeature/aptitudetest">Aptitude Test</Link>
             <Link to="/uniquefeature/softskills">Soft Skills Devlopement</Link>
             <Link to="/uniquefeature/garbhsanskar">Garbh Sanskar</Link>
           </div>
           <h4>Services</h4>
-          <h4 className="uniqfooter">Psychological Counseling</h4>
+          <h4 className="uniqfooter">Psychological Counselling</h4>
           <div>
             <Link to="/services/psychologicalcounselling/substanceabuseoraddictioncounselling">
-              Substance Abuse or Addiction Counseling
+              Substance Abuse or Addiction Counselling
             </Link>
             <Link to="/services/psychologicalcounselling/interpersonalpsychotherapy">
               Interpersonal Psychotherapy
             </Link>
             <Link to="/services/psychologicalcounselling/overthinkingcounselling">
-              Overthinking Counseling
+              Overthinking Counselling
             </Link>
             <Link to="/services/psychologicalcounselling/motivationalcounselling">
-              Motivational Counseling
+              Motivational Counselling
             </Link>
             <Link to="/services/psychologicalcounselling/sexcounselling">
-              Sex Counseling
+              Sex Counselling
             </Link>
             <Link to="/services/psychologicalcounselling/personcenteredtherapy">
               Person Centered Therapy
             </Link>
             <Link to="/services/psychologicalcounselling/griefcounselling">
-              Grief Counseling
+              Grief Counselling
             </Link>
             <Link to="/services/psychologicalcounselling/dialecticalbehaviourcounselling">
-              Dialectical Behaviour Counseling
+              Dialectical Behaviour Counselling
             </Link>
             <Link to="/services/psychologicalcounselling/solutionfocusedbrieftherapy">
               Solution-Focused Brief Therapy
@@ -193,7 +197,7 @@ function Footer() {
               Art Therapy
             </Link>
             <Link to="/services/psychologicalcounselling/rehabilitationcounselling">
-              Rehabilitation Counseling
+              Rehabilitation Counselling
             </Link>
             <Link to="/services/psychologicalcounselling/humanisticpsychology">
               Humanistic Psychology
@@ -202,7 +206,7 @@ function Footer() {
               Gestalt Therapy
             </Link>
           </div>
-          <h4 className="uniqfooter">Sexology Counseling</h4>
+          <h4 className="uniqfooter">Sexology Counselling</h4>
           <div>
             <Link to="/services/sexologycounselling/erectiledysfunction">
               Erectile Dysfunction
@@ -245,10 +249,10 @@ function Footer() {
           <h4 className="uniqfooter">Psychological Testing</h4>
           <div>
             <Link to="/services/psychologicaltesting/basiccounselling">
-              Basic Counseling
+              Basic Counselling
             </Link>
             <Link to="/services/psychologicaltesting/personalcounselling">
-              Personal Counseling
+              Personal Counselling
             </Link>
             <Link to="/services/psychologicaltesting/dmittest">DMIT Test</Link>
             <Link to="/services/psychologicaltesting/psychometricassessment">
@@ -266,8 +270,8 @@ function Footer() {
           </div>
           <h4 className="uniqfooter">Corporates</h4>
           <div>
-            <Link to="/services/corporate/psychologicalemployeecounseling">
-              Psychological Employee Counseling
+            <Link to="/services/corporate/psychologicalemployeecounselling">
+              Psychological Employee Counselling
             </Link>
             <Link to="/services/corporate/worklifeservices">
               Work-Life Service
@@ -304,9 +308,9 @@ function Footer() {
             reserved.
           </p>
           <ul>
-            <Link to={"/psycortex/privacypolicy"}>Private Policy</Link>
+            <Link to={"/psycortex/privacypolicy"}>Privacy Policy</Link>
             <Link to={"/psycortex/termsandcondition"}>Terms & Conditions</Link>
-            <Link to={"/psycortex/returnpolicy"}>Return Policy</Link>
+            <Link to={"/psycortex/returnpolicy"}>Refund Policy</Link>
           </ul>
         </div>
       </div>

@@ -48,7 +48,7 @@ function Franchise() {
         ref={(el) => el && observedElements.current.push(el)}
       >
         {" "}
-        KNOW YOUR TALENT FRANCHISE PROPOSAL FORMAT
+        OUR FRANCHISE
       </h1>
       <h2 ref={(el) => el && observedElements.current.push(el)}>
         {" "}
@@ -130,7 +130,7 @@ function Franchise() {
         </li>
         <li ref={(el) => el && observedElements.current.push(el)}>
           {" "}
-          Counseling Services
+          Counselling Services
         </li>
         <li ref={(el) => el && observedElements.current.push(el)}> IQ Test</li>
         <li ref={(el) => el && observedElements.current.push(el)}>
@@ -143,7 +143,7 @@ function Franchise() {
         Training and Support:
       </h2>
       <p ref={(el) => el && observedElements.current.push(el)}>
-        We offer complete counseling training and support until your staff
+        We offer complete Counselling training and support until your staff
         becomes proficient in delivering exceptional service. Our reports boast
         an impressive accuracy rate of over 90% and are available in English,
         Hindi, Marathi, and other local languages as per your requirements.
@@ -154,8 +154,8 @@ function Franchise() {
       <p ref={(el) => el && observedElements.current.push(el)}>
         This investment opportunity promises not only financial rewards but also
         the chance to make a meaningful impact in various sectors, including
-        education, personal development, and counseling. With our robust support
-        system and innovative products, you can embark on a successful
+        education, personal development, and Counselling. With our robust
+        support system and innovative products, you can embark on a successful
         entrepreneurial journey with confidence. Don't miss out on this
         opportunity to join our network of successful investors and make a
         difference in people's lives.

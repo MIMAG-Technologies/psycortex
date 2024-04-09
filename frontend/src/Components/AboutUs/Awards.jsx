@@ -10,12 +10,12 @@ function Awards() {
   const data = [
     {
       src: "/assets/Images/AboutUs/Awards/certificate1.jpg",
-      shortinfo: "Certificate for diploma in Counseling",
+      shortinfo: "Certificate for diploma in Counselling",
     },
 
     {
       src: "/assets/Images/AboutUs/Awards/certificate2.jpg",
-      shortinfo: "Certificate for diploma in Child Counseling",
+      shortinfo: "Certificate for diploma in Child Counselling",
     },
     {
       src: "/assets/Images/AboutUs/Awards/certificate6.jpeg",
@@ -24,7 +24,7 @@ function Awards() {
 
     {
       src: "/assets/Images/AboutUs/Awards/certificate7.jpeg",
-      shortinfo: "Certificate for Phd in Sexology and Psychosexual Counseling",
+      shortinfo: "Certificate for Phd in Sexology and Psychosexual Counselling",
     },
   ];
   const longdata = [

@@ -53,38 +53,38 @@ function Navbar() {
     ],
     uniqueFeatures: [
       {
-        content: "Marital Counseling",
+        content: "Marital Counselling",
         ref: "/uniquefeature/maritialcounselling",
         level: 1,
       },
       {
-        content: "Pre-Marital Counseling ",
-        ref: "/uniquefeature/premaritalcounseling",
+        content: "Pre-Marital Counselling ",
+        ref: "/uniquefeature/premaritalcounselling",
         level: 1,
       },
       {
-        content: "Post-Marital Counseling ",
+        content: "Post-Marital Counselling ",
         ref: "/uniquefeature/postmaritalcounselling",
         level: 1,
       },
       {
-        content: "Career Counseling",
-        ref: "/uniquefeature/careercounseling",
+        content: "Career Counselling",
+        ref: "/uniquefeature/careercounselling",
         level: 1,
       },
       {
-        content: "Anxiety Counseling",
-        ref: "/uniquefeature/anxietycounseling",
+        content: "Anxiety Counselling",
+        ref: "/uniquefeature/anxietycounselling",
         level: 1,
       },
       {
-        content: "Depression Counseling",
-        ref: "/uniquefeature/depressioncounseling",
+        content: "Depression Counselling",
+        ref: "/uniquefeature/depressioncounselling",
         level: 1,
       },
       {
-        content: "Traumatic Counseling",
-        ref: "/uniquefeature/traumaticcounseling",
+        content: "Traumatic Counselling",
+        ref: "/uniquefeature/traumaticcounselling",
         level: 1,
       },
       {
@@ -93,38 +93,38 @@ function Navbar() {
         ref: "/uniquefeature/cbt",
       },
       {
-        content: "Parenting Counseling",
+        content: "Parenting Counselling",
         ref: "/uniquefeature/parentingcounselling",
         level: 1,
       },
       {
-        content: "Family Counseling",
+        content: "Family Counselling",
         ref: "/uniquefeature/familycounselling",
         level: 1,
       },
       {
-        content: "Child Counseling",
+        content: "Child Counselling",
         ref: "/uniquefeature/childcounselling",
         level: 1,
       },
       {
-        content: "Group Counseling",
+        content: "Group Counselling",
         ref: "/uniquefeature/groupcounselling",
         level: 1,
       },
       {
-        content: "Stress Management Counseling",
+        content: "Stress Management Counselling",
         ref: "/uniquefeature/stressmanagementcounselling",
         level: 1,
       },
       {
-        content: "Mental Health Counseling",
+        content: "Mental Health Counselling",
         ref: "/uniquefeature/mentalhealthcounselling",
         level: 1,
       },
       {
-        content: "Insomnia/Sleep Problem Counseling",
-        ref: "/uniquefeature/insomniacounseling",
+        content: "Insomnia/Sleep Problem Counselling",
+        ref: "/uniquefeature/insomniacounselling",
         level: 1,
       },
       {
@@ -145,12 +145,12 @@ function Navbar() {
     ],
     services: [
       {
-        content: "Psychological Counseling",
+        content: "Psychological Counselling",
         level: 1,
         ref: "#",
       },
       {
-        content: "Substance Abuse or Addiction Counseling",
+        content: "Substance Abuse or Addiction Counselling",
         level: 2,
         ref: "/services/psychologicalcounselling/substanceabuseoraddictioncounselling",
       },
@@ -160,17 +160,17 @@ function Navbar() {
         ref: "/services/psychologicalcounselling/interpersonalpsychotherapy",
       },
       {
-        content: "Overthinking Counseling",
+        content: "Overthinking Counselling",
         level: 2,
         ref: "/services/psychologicalcounselling/overthinkingcounselling",
       },
       {
-        content: "Motivational Counseling",
+        content: "Motivational Counselling",
         level: 2,
         ref: "/services/psychologicalcounselling/motivationalcounselling",
       },
       {
-        content: "Sex Counseling",
+        content: "Sex Counselling",
         level: 2,
         ref: "/services/psychologicalcounselling/sexcounselling",
       },
@@ -180,12 +180,12 @@ function Navbar() {
         ref: "/services/psychologicalcounselling/personcenteredtherapy",
       },
       {
-        content: "Grief Counseling",
+        content: "Grief Counselling",
         level: 2,
         ref: "/services/psychologicalcounselling/griefcounselling",
       },
       {
-        content: "Dialectical Behaviour Counseling",
+        content: "Dialectical Behaviour Counselling",
         level: 2,
         ref: "/services/psychologicalcounselling/dialecticalbehaviourcounselling",
       },
@@ -220,7 +220,7 @@ function Navbar() {
         ref: "/services/psychologicalcounselling/arttherapy",
       },
       {
-        content: "Rehabilitation Counseling",
+        content: "Rehabilitation Counselling",
         level: 2,
         ref: "/services/psychologicalcounselling/rehabilitationcounselling",
       },
@@ -235,7 +235,7 @@ function Navbar() {
         ref: "/services/psychologicalcounselling/gestalttherapy",
       },
       {
-        content: "Sexology Counseling",
+        content: "Sexology Counselling",
         level: 1,
         ref: "#",
       },
@@ -311,12 +311,12 @@ function Navbar() {
         ref: "#",
       },
       {
-        content: "Basic Counseling",
+        content: "Basic Counselling",
         level: 2,
         ref: "/services/psychologicaltesting/basiccounselling",
       },
       {
-        content: "Personal Counseling",
+        content: "Personal Counselling",
         level: 2,
         ref: "/services/psychologicaltesting/personalcounselling",
       },
@@ -351,9 +351,9 @@ function Navbar() {
         ref: "#",
       },
       {
-        content: "Psychological Employee Counseling",
+        content: "Psychological Employee Counselling",
         level: 2,
-        ref: "/services/corporate/psychologicalemployeecounseling",
+        ref: "/services/corporate/psychologicalemployeecounselling",
       },
       {
         content: "Work-Life Service",
@@ -540,7 +540,7 @@ function Navbar() {
                     : "black",
               }}
             >
-              Our Franchise
+              Franchise
             </Link>
             <Link
               to={"/casestudies"}

@@ -7,7 +7,17 @@ const emailRouter = require("./routers/email");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(cors());
+const corsOptions = {
+  origin: [
+    "http://89.116.32.90",
+    "https://89.116.32.90",
+    "http://psycortex.in",
+    "https://psycortex.in",
+  ],
+};
+
+app.use(cors(corsOptions));
+
 require("dotenv").config();
 
 app.use(messageRouter);

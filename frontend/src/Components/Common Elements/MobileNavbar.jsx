@@ -427,9 +427,9 @@ function MobileNavbar() {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/corporate/psychologicalemployeecounseling"
+            to="/services/corporate/psychologicalemployeecounselling"
           >
-            Psychological Employee Counseling
+            Psychological Employee Counselling
           </Link>
 
           <Link
@@ -541,9 +541,9 @@ function MobileNavbar() {
             setisBurgerActive(!isBurgerActive);
             setisLevel2Active(false);
           }}
-          to="/uniquefeature/premaritalcounseling"
+          to="/uniquefeature/premaritalcounselling"
         >
-          Pre-Marital Counseling
+          Pre-Marital Counselling
         </Link>
         <Link
           onClick={() => {
@@ -552,14 +552,14 @@ function MobileNavbar() {
           }}
           to="/uniquefeature/postmaritalcounselling"
         >
-          Post-Marital Counseling
+          Post-Marital Counselling
         </Link>
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
             setisLevel2Active(false);
           }}
-          to="/uniquefeature/careercounseling"
+          to="/uniquefeature/careercounselling"
         >
           Career Counselling
         </Link>
@@ -568,36 +568,36 @@ function MobileNavbar() {
             setisBurgerActive(!isBurgerActive);
             setisLevel2Active(false);
           }}
-          to="/uniquefeature/anxietycounseling"
+          to="/uniquefeature/anxietycounselling"
         >
-          Anxiety Counseling
+          Anxiety Counselling
         </Link>
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
             setisLevel2Active(false);
           }}
-          to="/uniquefeature/depressioncounseling"
+          to="/uniquefeature/depressioncounselling"
         >
-          Depression Counseling
+          Depression Counselling
         </Link>
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
             setisLevel2Active(false);
           }}
-          to="/uniquefeature/insomniacounseling"
+          to="/uniquefeature/insomniacounselling"
         >
-          Insomnia/Sleep Problem Counseling
+          Insomnia/Sleep Problem Counselling
         </Link>
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
             setisLevel2Active(false);
           }}
-          to="/uniquefeature/traumaticcounseling"
+          to="/uniquefeature/traumaticcounselling"
         >
-          Traumatic Counseling
+          Traumatic Counselling
         </Link>
         <Link
           onClick={() => {
@@ -624,7 +624,7 @@ function MobileNavbar() {
           }}
           to="/uniquefeature/familycounselling"
         >
-          Family Counseling
+          Family Counselling
         </Link>
         <Link
           onClick={() => {
@@ -633,7 +633,7 @@ function MobileNavbar() {
           }}
           to="/uniquefeature/childcounselling"
         >
-          Child Counseling
+          Child Counselling
         </Link>
         <Link
           onClick={() => {
@@ -642,7 +642,7 @@ function MobileNavbar() {
           }}
           to="/uniquefeature/groupcounselling"
         >
-          Group Counseling
+          Group Counselling
         </Link>
         <Link
           onClick={() => {
@@ -651,7 +651,7 @@ function MobileNavbar() {
           }}
           to="/uniquefeature/stressmanagementcounselling"
         >
-          Stress Management Counseling
+          Stress Management Counselling
         </Link>
         <Link
           onClick={() => {
@@ -660,7 +660,7 @@ function MobileNavbar() {
           }}
           to="/uniquefeature/mentalhealthcounselling"
         >
-          Mental Health Counseling
+          Mental Health Counselling
         </Link>
         <Link
           onClick={() => {
@@ -834,7 +834,7 @@ function MobileNavbar() {
           }}
           to="/franchise"
         >
-          Our Franchise
+          Franchise
         </Link>
         <Link
           onClick={() => {

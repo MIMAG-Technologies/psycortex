@@ -10,7 +10,7 @@ function Team() {
   const members = [
     {
       name: "DR. VIJAY DWIVEDI",
-      role: "Director | Psycortex Pvt. Ltd.",
+      role: "Managing Director | Psycortex Pvt. Ltd.",
       src: "/assets/Images/AboutUs/DirectorsMessage/dr. dwivedi.jpeg",
     },
     {
