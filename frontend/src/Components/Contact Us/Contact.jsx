@@ -4,6 +4,7 @@ import "./Contact.css";
 import { useLocation } from "react-router-dom";
 
 function Contact() {
+  const [isButtonDisabled, setisButtonDisabled] = useState(false);
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -81,12 +82,13 @@ function Contact() {
           (currentTime - parseInt(lastContactSubmitTime)) / (1000 * 60 * 60); // Difference in hours
         if (timeDifference < 1) {
           setmessage(
-            "You recently submitted a message. Please try again after 2-3 hours."
+            "You recently submitted a message. Please try again after sometime."
           );
           setismessageVisible(true);
           return;
         }
       }
+      setisButtonDisabled(true);
 
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/messages/contactus`,
@@ -108,10 +110,12 @@ function Contact() {
         );
         setmessage("Your message has been sent successfully!");
         setismessageVisible(true);
+        setisButtonDisabled(false);
       } else {
         console.error("Failed to send message");
         setmessage("Failed to send message! Try Again Later");
         setismessageVisible(true);
+        setisButtonDisabled(false);
       }
     } catch (error) {
       console.error("Error sending message:", error);
@@ -291,7 +295,15 @@ function Contact() {
                 name="message"
               ></textarea>
             </div>
-            <button onClick={handleSubmit}>Submit</button>
+            <button
+              disabled={isButtonDisabled}
+              style={{
+                cursor: isButtonDisabled ? "not-allowed" : "pointer",
+              }}
+              onClick={handleSubmit}
+            >
+              Submit
+            </button>
           </div>
         </div>
         <div>

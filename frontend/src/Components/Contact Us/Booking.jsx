@@ -7,6 +7,8 @@ function Booking() {
       behavior: "smooth",
     });
   }, []);
+  const [isButtonDisabled, setisButtonDisabled] = useState(false);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -65,12 +67,13 @@ function Booking() {
           (currentTime - parseInt(lastSubmitTime)) / (1000 * 60 * 60); // Difference in hours
         if (timeDifference < 1) {
           setmessage(
-            "You recently submitted a booking. Please try again after 2-3 hours."
+            "You recently submitted a booking. Please try again after sometime!"
           );
           setismessageVisible(true);
           return;
         }
       }
+      setisButtonDisabled(true);
 
       const response = await fetch(
         `${process.env.REACT_APP_API_URL}/messages/booking`,
@@ -90,10 +93,12 @@ function Booking() {
           "Your Booking Done Succesfully , We wil Contact you Soon , Thank You for Choosing Psycortex Pvt. Ltd!"
         );
         setismessageVisible(true);
+        setisButtonDisabled(false);
       } else {
         console.error("Failed to submit booking");
         setmessage("Failed to book appointment! Try Again Later");
         setismessageVisible(true);
+        setisButtonDisabled(false);
       }
     } catch (error) {
       console.error("Error submitting booking:", error);
@@ -123,7 +128,7 @@ function Booking() {
       )}
       <div id="Enquiry">
         <h1>Book Appointment Now</h1>
-        <div className="form">
+        <form className="form">
           <div>
             <label htmlFor="">Name</label>
             <input
@@ -264,8 +269,16 @@ function Booking() {
               onChange={handleChange}
             ></textarea>
           </div>
-          <button onClick={handleSubmit}>Submit</button>
-        </div>
+          <button
+            disabled={isButtonDisabled}
+            style={{
+              cursor: isButtonDisabled ? "not-allowed" : "pointer",
+            }}
+            onClick={handleSubmit}
+          >
+            Submit
+          </button>
+        </form>
       </div>
     </>
   );

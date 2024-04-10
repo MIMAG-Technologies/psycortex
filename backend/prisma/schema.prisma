@@ -16,7 +16,7 @@ model Inquiry {
   lastname       String   @db.VarChar(100)
   contactNumber  String   @db.VarChar(20)
   email          String   @db.VarChar(255)
-  message        String
+  message        String   @db.VarChar(5000)
 
   @@map("Inquiries")
 }
@@ -30,7 +30,7 @@ model Booking {
   state           String   @db.VarChar(100)
   country         String   @db.VarChar(100)
   problemType     String   @db.VarChar(100)
-  description     String
+  description     String   @db.VarChar(5000)
 
   @@map("Bookings")
 }
