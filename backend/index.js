@@ -11,7 +11,7 @@ const corsOptions = {
   ],
 };
 
-app.use(cors());
+app.use(cors(corsOptions));
 
 const messageRouter = require("./routers/messages");
 const emailRouter = require("./routers/email");
