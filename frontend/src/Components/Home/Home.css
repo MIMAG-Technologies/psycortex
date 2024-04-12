@@ -499,8 +499,8 @@ body {
   /* border-bottom: 1px solid black; */
 }
 .one-acheivement p {
-  font-size: 1.2em;
   min-height: 250px;
+  font-size: 1.2em;
   padding: 15px 0px;
   /* border-bottom: 1px solid black; */
 }
@@ -510,10 +510,10 @@ body {
   flex-direction: column;
 }
 .one-acheivement img {
-  border: 2px solid black;
+  height: 450px;
   margin-top: 15px;
   width: 100%;
-  height: 300px;
+  object-fit: contain;
 }
 .one-special-acheivement div {
   display: flex;
@@ -527,7 +527,7 @@ body {
   flex-direction: row-reverse;
 }
 .one-special-acheivement img {
-  border: 2px solid black;
+  object-fit: contain;
   margin-top: 15px;
   width: 60%;
 }
@@ -667,6 +667,17 @@ body {
     font-size: 3em;
   }
 
+  .slider-controler {
+    display: none;
+  }
+  .heading {
+    margin: 0%;
+    font-size: 250%;
+    margin-left: 5%;
+  }
+}
+
+@media screen and (max-width: 1000px) {
   /* Achievemetns */
   #Acheivements > h1 {
     font-size: 250%;
@@ -680,6 +691,12 @@ body {
   .one-acheivement {
     width: 100%;
   }
+  .one-acheivement img {
+    height: fit-content;
+  }
+  .one-acheivement p {
+    min-height: fit-content;
+  }
   .one-special-acheivement {
     width: 100%;
 
@@ -692,13 +709,5 @@ body {
   .one-special-acheivement p {
     font-size: 1.2em;
     margin-right: 0em;
-  }
-  .slider-controler {
-    display: none;
-  }
-  .heading {
-    margin: 0%;
-    font-size: 250%;
-    margin-left: 5%;
   }
 }

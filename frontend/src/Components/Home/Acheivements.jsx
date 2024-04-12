@@ -40,7 +40,7 @@ function Acheivements() {
           className="one-special-acheivement"
         >
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Images/AboutUs/Awards/certificate4.jpeg`}
+            src={`${process.env.PUBLIC_URL}/assets/Images/AboutUs/Awards/certificate7.jpeg`}
             alt=""
           />
           <div>
@@ -59,17 +59,15 @@ function Acheivements() {
           className="one-acheivement"
         >
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Images/AboutUs/Awards/certificate2.jpg`}
+            src={`${process.env.PUBLIC_URL}/assets/Images/AboutUs/Awards/certificate5.jpeg`}
             alt=""
           />
           <div>
             <p ref={(el) => el && observedElements.current.push(el)}>
-              Dr. Vijay Dwivedi was proudly awarded a prestigious certificate by
-              the International College of Teachers and Trainers, recognizing
-              his outstanding achievement in completing the rigorous Diploma in
-              Child Psychology. This accomplishment stands as a testament to Dr.
-              Dwivedi's dedication, expertise, and commitment to the field of
-              counseling.
+              Dr. Vijay Dwivedi was proudly awarded a prestigious award of
+              Indian Star of the year 2023. This accomplishment stands as a
+              testament to Dr. Dwivedi's dedication, expertise, and commitment
+              to the field of counseling.
             </p>
           </div>
         </div>
@@ -97,17 +95,16 @@ function Acheivements() {
           className="one-acheivement"
         >
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Images/AboutUs/Awards/certificate1.jpg`}
+            src={`${process.env.PUBLIC_URL}/assets/Images/AboutUs/Awards/certificate3.jpg`}
             alt=""
           />
           <div>
             <p ref={(el) => el && observedElements.current.push(el)}>
-              Dr. Vijay Dwivedi was proudly honored with a prestigious
-              certificate by the International College of Teachers and Trainers,
-              acknowledging his exceptional achievement in completing the
-              rigorous Diploma in Counseling. This accomplishment is a testament
-              to Dr. Dwivedi's dedication, expertise, and unwavering commitment
-              to the counseling profession.
+              Dr. Vijay Dwivedi was proudly honored with the prestigious City
+              Excellence Awards/23 by the India News Index, acknowledging his
+              exceptional achievement. This accomplishment is a testament to Dr.
+              Dwivedi's dedication, expertise, and unwavering commitment to the
+              counseling profession.
             </p>
           </div>
         </div>
