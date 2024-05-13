@@ -510,6 +510,13 @@
   #dropdown {
     display: none;
   }
+  .fa-cart-shopping::after {
+    top: -7px;
+    right: 7px;
+  }
+  #MobileNavbar .cart-container {
+    text-decoration: none;
+  }
   #MobileNavbar {
     display: block;
     width: 100%;

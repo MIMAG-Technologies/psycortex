@@ -507,8 +507,8 @@ function Navbar(props) {
               ></i>
             </div>
             <Link
-              to={login === "Login" ? "/user/login" : location.pathname}
               class="button"
+              to={login === "Login" ? "/user/login" : location.pathname}
               onClick={
                 login === "Login"
                   ? () => {

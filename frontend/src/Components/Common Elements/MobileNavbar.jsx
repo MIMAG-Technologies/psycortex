@@ -1,13 +1,20 @@
-import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
-function MobileNavbar() {
+import React, { useState, useEffect } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import UserCard from "../User/UserCard";
+function MobileNavbar(props) {
   const [isBurgerActive, setisBurgerActive] = useState(false);
   const [isLevel2Active, setisLevel2Active] = useState(false);
   const [dropdownContent, setDropdownContent] = useState(null);
+  const [isUserCardVisible, setisUserCardVisible] = useState(false);
+
   const [isSearchBoxOpen, setisSearchBoxOpen] = useState(false);
   const [searchkey, setsearchkey] = useState("");
   const navigate = useNavigate();
-
+  const location = useLocation();
+  const { fetchUser, user, login, cartlenght } = props;
+  useEffect(() => {
+    fetchUser();
+  }, []);
   const handleAccordionClick = (event) => {
     const accordionButton = event.target;
     const content = accordionButton.nextElementSibling;
@@ -718,184 +725,211 @@ function MobileNavbar() {
   };
 
   return (
-    <div id="MobileNavbar">
-      <div id="mobNav">
-        <Link clasName="level1navLink" to="/">
-          {" "}
-          <img
-            src={`${process.env.PUBLIC_URL}/assets/Images/thebraintakeLogo.png`}
-            alt=""
-          />{" "}
-        </Link>
-        <div id="search-box-div">
-          <input
-            value={searchkey}
-            onChange={(e) => setsearchkey(e.target.value)}
-            type="text"
-            style={{
-              display: isSearchBoxOpen ? "inline" : "none",
-            }}
-          />
-          <i
+    <>
+      {isUserCardVisible ? (
+        <UserCard
+          fetchUser={fetchUser}
+          user={user}
+          setisUserCardVisible={setisUserCardVisible}
+        />
+      ) : (
+        <></>
+      )}
+      <div id="MobileNavbar">
+        <div id="mobNav">
+          <Link clasName="level1navLink" to="/">
+            {" "}
+            <img
+              src={`${process.env.PUBLIC_URL}/assets/Images/thebraintakeLogo.png`}
+              alt=""
+            />{" "}
+          </Link>
+          <div id="search-box-div">
+            <input
+              value={searchkey}
+              onChange={(e) => setsearchkey(e.target.value)}
+              type="text"
+              style={{
+                display: isSearchBoxOpen ? "inline" : "none",
+              }}
+            />
+            <i
+              onClick={() => {
+                if (isSearchBoxOpen && searchkey !== "") {
+                  setisSearchBoxOpen(false);
+                  navigate(`/search/${searchkey}`);
+                } else {
+                  setisSearchBoxOpen(true);
+                }
+              }}
+              style={{
+                borderRight: isSearchBoxOpen ? "none" : "2px solid black",
+              }}
+              className="fa-solid fa-magnifying-glass"
+            ></i>{" "}
+            <i
+              onClick={() => setisSearchBoxOpen(false)}
+              style={{
+                display: isSearchBoxOpen ? "inline" : "none",
+              }}
+              className="fa-solid fa-xmark"
+            ></i>
+          </div>
+          <Link to={"/user/mycart"} className="cart-container">
+            <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
+          </Link>
+          <div
+            className="burger"
             onClick={() => {
-              if (isSearchBoxOpen && searchkey !== "") {
-                setisSearchBoxOpen(false);
-                navigate(`/search/${searchkey}`);
-              } else {
-                setisSearchBoxOpen(true);
+              setisBurgerActive(!isBurgerActive);
+
+              setisLevel2Active(false);
+            }}
+          >
+            <div
+              className="top"
+              style={
+                isBurgerActive
+                  ? { transform: "rotate(45deg) translateY(8px)" }
+                  : { transform: "rotate(0deg) translateY(0%)" }
               }
-            }}
-            style={{
-              borderRight: isSearchBoxOpen ? "none" : "2px solid black",
-            }}
-            className="fa-solid fa-magnifying-glass"
-          ></i>{" "}
-          <i
-            onClick={() => setisSearchBoxOpen(false)}
-            style={{
-              display: isSearchBoxOpen ? "inline" : "none",
-            }}
-            className="fa-solid fa-xmark"
-          ></i>
+            ></div>
+            <div
+              className="middle"
+              style={
+                isBurgerActive
+                  ? { transform: "translateX(500%)" }
+                  : { transform: "translateX(0%)" }
+              }
+            ></div>
+            <div
+              className="bottom"
+              style={
+                isBurgerActive
+                  ? { transform: "rotate(-45deg) translateY(-8px)" }
+                  : { transform: "rotate(0deg) translateY(0%)" }
+              }
+            ></div>
+          </div>
         </div>
         <div
-          className="burger"
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
+          id="mobNavL1"
+          style={isBurgerActive ? { right: "0%" } : { right: "-101%" }}
+        >
+          <span
+            onClick={() => {
+              setisLevel2Active(true);
+              handleNavHover(1);
+            }}
+          >
+            About Us
+          </span>
+          <span
+            onClick={() => {
+              setisLevel2Active(true);
+              handleNavHover(3);
+            }}
+          >
+            Unique Features
+          </span>
+          <span
+            onClick={() => {
+              setisLevel2Active(true);
+              handleNavHover(2);
+            }}
+          >
+            Services
+          </span>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            to="/testimonials"
+          >
+            Testimonials
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            to="/franchise"
+          >
+            Franchise
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            to="/casestudies"
+          >
+            Case Studies
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            to="/blogs"
+          >
+            Blogs
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            to="/booking"
+          >
+            Book Appointment
+          </Link>
 
-            setisLevel2Active(false);
-          }}
-        >
-          <div
-            className="top"
-            style={
-              isBurgerActive
-                ? { transform: "rotate(45deg) translateY(8px)" }
-                : { transform: "rotate(0deg) translateY(0%)" }
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            to="/contactus"
+          >
+            Contact Us
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            to="/shop"
+          >
+            Shop
+          </Link>
+          <Link
+            to={login === "Login" ? "/user/login" : location.pathname}
+            onClick={
+              login === "Login"
+                ? () => {
+                    setisBurgerActive(!isBurgerActive);
+                  }
+                : () => {
+                    setisUserCardVisible(!isUserCardVisible);
+                  }
             }
-          ></div>
-          <div
-            className="middle"
-            style={
-              isBurgerActive
-                ? { transform: "translateX(500%)" }
-                : { transform: "translateX(0%)" }
-            }
-          ></div>
-          <div
-            className="bottom"
-            style={
-              isBurgerActive
-                ? { transform: "rotate(-45deg) translateY(-8px)" }
-                : { transform: "rotate(0deg) translateY(0%)" }
-            }
-          ></div>
+          >
+            {login === "Login" ? login : "My Account"}
+          </Link>
         </div>
-      </div>
-      <div
-        id="mobNavL1"
-        style={isBurgerActive ? { right: "0%" } : { right: "-101%" }}
-      >
-        <span
-          onClick={() => {
-            setisLevel2Active(true);
-            handleNavHover(1);
-          }}
-        >
-          About Us
-        </span>
-        <span
-          onClick={() => {
-            setisLevel2Active(true);
-            handleNavHover(3);
-          }}
-        >
-          Unique Features
-        </span>
-        <span
-          onClick={() => {
-            setisLevel2Active(true);
-            handleNavHover(2);
-          }}
-        >
-          Services
-        </span>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-          }}
-          to="/testimonials"
-        >
-          Testimonials
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-          }}
-          to="/franchise"
-        >
-          Franchise
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-          }}
-          to="/casestudies"
-        >
-          Case Studies
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-          }}
-          to="/blogs"
-        >
-          Blogs
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-          }}
-          to="/booking"
-        >
-          Book Appointment
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-          }}
-          to="/contactus"
-        >
-          Contact Us
-        </Link>
-        {/* <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-          }}
-          to="/"
-          className="my-account"
-        >
-          <i className="fa-solid fa-user"></i>
-          Login
-        </Link> */}
-      </div>
-      <div
-        id="mobNavL2"
-        style={isLevel2Active ? { right: "0%" } : { right: "-101%" }}
-      >
         <div
-          id="back-btn"
-          onClick={() => {
-            setisLevel2Active(false);
-          }}
+          id="mobNavL2"
+          style={isLevel2Active ? { right: "0%" } : { right: "-101%" }}
         >
-          <i className="fa-solid fa-angle-left"></i>
-          Back
-        </div>
+          <div
+            id="back-btn"
+            onClick={() => {
+              setisLevel2Active(false);
+            }}
+          >
+            <i className="fa-solid fa-angle-left"></i>
+            Back
+          </div>
 
-        {dropdownContent}
+          {dropdownContent}
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

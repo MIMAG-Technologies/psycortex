@@ -84,7 +84,12 @@ function App() {
             login={login}
             cartlenght={cartlenght}
           />
-          <MobileNavbar />
+          <MobileNavbar
+            fetchUser={fetchUser}
+            user={user}
+            login={login}
+            cartlenght={cartlenght}
+          />
         </>
       )}
       <Routes>
