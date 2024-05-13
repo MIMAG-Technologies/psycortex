@@ -1,0 +1,239 @@
+#signin {
+  height: 100vh;
+  width: 100%;
+  margin-top: 25vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  color: black;
+}
+
+@media screen and (max-width: 520px) {
+  #signin {
+    height: 100vh;
+  }
+}
+
+#signin form {
+  margin: 0px;
+  margin-top: 2px;
+  width: 30em;
+  height: 86.5vh;
+  display: flex;
+  overflow: hidden;
+}
+
+/* ========= Login Steps Global Styling ========= */
+
+#signin form section {
+  min-width: calc(100% - 5em);
+  padding: 0px 2.5em;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  position: relative;
+}
+
+.sign-up-next-btn {
+  width: 100%;
+  text-align: center;
+  text-decoration: none;
+  padding: 10px 0px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  background-color: #501a77;
+  border-radius: 25px;
+  margin: 1.5em 0px;
+  align-self: flex-end;
+}
+
+.sign-in-step-count {
+  color: #a7a7a9;
+  margin: 18px 0px 5px 0px;
+  font-size: 1em;
+}
+
+.step-description {
+  margin: 0px 0px 25px 0px;
+  font-size: 1em;
+}
+
+.steps-field-description {
+  color: #a7a7a9;
+  font-size: 0.8em;
+  margin: 2px 0px;
+  font-weight: 600;
+}
+
+.sign-up-prev-btn {
+  position: absolute;
+  top: 28px;
+  left: 0px;
+  color: #a7a7a9;
+  text-decoration: none;
+}
+
+.sign-up-prev-btn:hover {
+  color: #fff;
+}
+
+.totalloadingbar {
+  position: absolute;
+  left: 0px;
+  height: 2.5px;
+  width: 100%;
+  background-color: #767676;
+  border-radius: 5px;
+}
+
+/* =========== Fields Warning Styling =============== */
+.user-warning {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  color: #f15e6c;
+}
+
+.user-new-email-warning p,
+.user-warning p {
+  font-size: 14px;
+  width: 80%;
+  margin: 0%;
+}
+
+.user-new-email-warning {
+  width: calc(100%-24px);
+  display: flex;
+  justify-content: space-evenly;
+  background-color: #ffa42b;
+  color: #000;
+  padding: 12px;
+  border-radius: 7px;
+  font-weight: 500;
+}
+
+.user-new-email-warning p a {
+  color: #000;
+}
+
+/* =========== Step 0 Styling =========== */
+
+#step0 h1 {
+  font-size: 2.5em;
+  margin-top: 0px;
+}
+
+#use-phone-instead {
+  color: #501a77;
+}
+
+#step0 label {
+  font-weight: bold;
+}
+
+#step0 input {
+  width: calc(100% - 24px);
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 7px 0px;
+  outline: none;
+  height: 2.5em;
+  background-color: transparent;
+  border: 2px solid #767676;
+}
+
+/* =========== Step 1 Styling =========== */
+
+#step1 #password-input-container {
+  width: 100%;
+  position: relative;
+}
+
+#step1 label {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+
+#step1 #password-input-container input {
+  width: calc(100% - 24px);
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 7px 0px;
+  outline: none;
+  height: 2.5em;
+  background-color: transparent;
+  border: 2px solid #767676;
+}
+
+#step1 #password-input-container input:active {
+  border: 2px solid white;
+}
+
+#password-visibility {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+}
+
+/* =========== Step 2 Styling =========== */
+
+#step2 label {
+  font-weight: bold;
+  margin-top: 15px;
+  font-size: 0.9em;
+}
+
+.steps-field-description a {
+  color: #a7a7a9;
+  margin-left: 2px;
+}
+
+#step2 input {
+  width: calc(100% - 24px);
+  padding: 2px 10px;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 7px 0px;
+  outline: none;
+  height: 2.5em;
+  background-color: transparent;
+  border: 2px solid #767676;
+}
+
+/* =========== Step 3 Styling =========== */
+
+.term-and-conditions-checkbox {
+  display: flex;
+  padding: 16px;
+  background-color: #a1a1a13b;
+  border-radius: 5px;
+  width: 100%;
+  margin-top: 16px;
+  position: relative;
+  font-size: 0.9em;
+}
+
+.term-and-conditions-checkbox label {
+  width: 82%;
+}
+
+.term-and-conditions-checkbox input[type="checkbox"] {
+  margin-right: 10px;
+  height: 16px;
+  width: 16px;
+}
+
+.term-and-conditions-notes {
+  font-size: 0.9em;
+  margin: 0%;
+  margin-top: 7px;
+}
+
+.term-and-conditions-notes a {
+  color: #501a77;
+}

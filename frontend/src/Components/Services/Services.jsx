@@ -49,7 +49,11 @@ function Services() {
 
   return (
     <div id="Services" key={subsection}>
-      <div className="breadcrumb">{sectionData.breadcrumb}</div>
+      <div className="breadcrumb">
+        <i className="fa-solid fa-house"></i>
+
+        {` > ` + sectionData.breadcrumb}
+      </div>
       <div className="sec1">
         <h1 ref={(el) => el && observedElements.current.push(el)}>
           {sectionData.title}

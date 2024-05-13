@@ -20,9 +20,9 @@ function Team() {
     },
   ];
 
-  const oneMember = (member) => {
+  const oneMember = () => {
     return members.map((member, index) => (
-      <div className="onemember">
+      <div className="onemember" key={index}>
         <img src={process.env.PUBLIC_URL + member.src} alt="" />{" "}
         <div>
           <h2>{member.name}</h2>
@@ -33,7 +33,10 @@ function Team() {
   };
   return (
     <div id="Team">
-      <div className="breadcrumb">{" About Us > Team"} </div>
+      <div className="breadcrumb">
+        <i className="fa-solid fa-house"></i>
+        {" > About Us > Team"}{" "}
+      </div>
       <div id="teamdiv">{oneMember()}</div>
     </div>
   );

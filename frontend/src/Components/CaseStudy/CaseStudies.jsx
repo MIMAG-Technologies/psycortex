@@ -21,6 +21,10 @@ function CaseStudies() {
 
   return (
     <div id="CaseStudies">
+      <div className="breadcrumb">
+        <i className="fa-solid fa-house"></i>
+        {" > Case Studies"}{" "}
+      </div>
       <div className="casestudiescontainers">
         {studies.map((casestudy, index) => onecasestudy(casestudy))}
       </div>

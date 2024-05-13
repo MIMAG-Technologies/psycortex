@@ -48,7 +48,9 @@ function UniqueFeature() {
         className="breadcrumb"
         ref={(el) => el && observedElements.current.push(el)}
       >
-        {sectionData?.breadcrumb}
+        <i className="fa-solid fa-house"></i>
+
+        {" > " + sectionData?.breadcrumb}
       </div>
       <div className="section1">
         <div>

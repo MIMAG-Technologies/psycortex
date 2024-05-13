@@ -69,7 +69,10 @@ function Awards() {
 
   return (
     <div id="Awards">
-      <div className="breadcrumb">{" About Us > Awards"} </div>
+      <div className="breadcrumb">
+        <i className="fa-solid fa-house"></i>
+        {" > About Us > Awards"}{" "}
+      </div>
       <div className="partnershipcardsdiv">
         {data.map((imgs, index) => onecard(imgs))}
         {longdata.map((imgs, index) => onelongcard(imgs))}

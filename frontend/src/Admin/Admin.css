@@ -1,0 +1,32 @@
+#AdminNavbar nav {
+  background-color: black;
+  color: white;
+  padding: 10px;
+  width: calc(100%-10px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+#AdminNavbar .adminMenubar a.admin-active {
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  font-weight: bold;
+}
+#AdminNavbar .adminMenubar a {
+  color: white;
+  text-decoration: none;
+  padding: 10px;
+}
+#AdminNavbar .adminMenubar {
+  width: 100%;
+  background-color: black;
+  position: fixed;
+  bottom: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 10vh;
+  color: white;
+}

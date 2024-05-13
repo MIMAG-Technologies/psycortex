@@ -1,0 +1,246 @@
+#Shop {
+  margin-top: 18vh;
+  background-color: #fff8e3;
+}
+.itemscontainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  padding: 10vh 0px;
+}
+
+.itemscontainer .oneitem .imgtoLink {
+  margin-top: 2.5%;
+  border-radius: 5px;
+  width: 95%;
+}
+.itemscontainer .oneitem img {
+  width: 100%;
+}
+.itemscontainer .oneitem h1 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.itemscontainer .oneitem {
+  width: 450px;
+  border-radius: 10px;
+  padding-bottom: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 15px;
+  background-color: white;
+}
+
+.radio-inputs {
+  width: 300px;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  border-radius: 0.5rem;
+  background-color: #eee;
+  box-sizing: border-box;
+  box-shadow: 0 0 0px 1px rgba(0, 0, 0, 0.06);
+  padding: 0.25rem;
+  font-size: 14px;
+}
+
+.radio-inputs .radio {
+  flex: 1 1 auto;
+  text-align: center;
+}
+
+.radio-inputs .radio input {
+  display: none;
+}
+
+.radio-inputs .radio .name {
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  border-radius: 0.5rem;
+  border: none;
+  padding: 0.5rem 0;
+  color: rgba(51, 65, 85, 1);
+  transition: all 0.15s ease-in-out;
+}
+
+.radio-inputs .radio input:checked + .name {
+  background-color: #ffffff;
+  font-weight: 600;
+}
+
+.shopbutton {
+  position: relative;
+  width: 150px;
+  height: 40px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  border: 1px solid #2f0f46;
+  background-color: #501a77;
+}
+
+.shopbutton,
+.shopbutton__icon,
+.shopbutton__text {
+  transition: all 0.3s;
+}
+
+.shopbutton .shopbutton__text {
+  transform: translateX(30px);
+  color: #fff;
+  font-weight: 600;
+}
+
+.shopbutton .shopbutton__icon {
+  position: absolute;
+  transform: translateX(109px);
+  height: 100%;
+  width: 39px;
+  background-color: #2f0f46;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shopbutton .svg {
+  width: 30px;
+  stroke: #fff;
+}
+
+.shopbutton:hover {
+  background: #501a77;
+}
+
+.shopbutton:hover .shopbutton__text {
+  color: transparent;
+}
+
+.shopbutton:hover .shopbutton__icon {
+  width: 148px;
+  transform: translateX(0);
+}
+
+.shopbutton:active .shopbutton__icon {
+  background-color: #501a77;
+}
+
+.shopbutton:active {
+  border: 1px solid #501a77;
+}
+
+.shop-know-more-btn {
+  padding: 7px 10px;
+  background-color: black;
+  color: white;
+  text-decoration: none;
+  border-radius: 10px;
+}
+.CounsellingProduct {
+  background-color: #fff8e3;
+  margin-top: 18vh;
+  padding-bottom: 2em;
+  width: 100%;
+}
+.mainProduct {
+  width: 90%;
+  flex-wrap: wrap;
+  margin: 2em auto;
+  display: flex;
+  justify-content: space-between;
+  background-color: white;
+  padding: 20px;
+  border-radius: 20px;
+}
+
+.mainProduct > p > h1,
+.mainProduct > p > h2 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+}
+.mainProduct > p {
+  width: 80%;
+  margin: 0px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.mainProduct > h1 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  width: 80%;
+  border-bottom: 1px solid black;
+  border-top: 1px solid black;
+  padding: 10px;
+  margin: 50px 10%;
+  text-align: center;
+}
+.mainProduct img {
+  width: 46%;
+  object-fit: contain;
+}
+
+.mainProduct .details {
+  width: 46%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.mainProduct .details > *:not(.radio-inputs) {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+  font-style: normal;
+  width: 100%;
+  padding: 15px 0px;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.637);
+}
+.CartBtns {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+#Quantifier > * {
+  padding: 6px 10px;
+  color: white;
+  background-color: #501a77;
+  border: 1px solid #2f0f46;
+  text-align: center;
+}
+
+@media screen and (max-width: 1000px) {
+  .mainProduct img {
+    width: 100%;
+    object-fit: contain;
+  }
+
+  .mainProduct .details {
+    width: 100%;
+  }
+  .mainProduct {
+    flex-direction: column;
+  }
+  .radio-inputs {
+    width: 100%;
+  }
+
+  .mainProduct > p {
+    width: 95%;
+    margin: 0px;
+    padding: 10px;
+  }
+  .mainProduct > h1 {
+    width: 95%;
+    margin: 10px 0px;
+  }
+}

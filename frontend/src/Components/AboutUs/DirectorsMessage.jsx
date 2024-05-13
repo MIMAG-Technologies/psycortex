@@ -39,7 +39,10 @@ function DirectorsMessage() {
   }, []);
   return (
     <div id="DirectorsMessage">
-      <div className="breadcrumb">{" About Us > Directors Message"} </div>
+      <div className="breadcrumb">
+        <i className="fa-solid fa-house"></i>
+        {" > About Us > Directors Message"}{" "}
+      </div>
       <div className="onedirector">
         <img
           ref={(el) => el && observedElements.current.push(el)}

@@ -10,7 +10,8 @@ function MissionVissionValues() {
   return (
     <div id="MissionVissionValues">
       <div className="breadcrumb">
-        {" About Us > Mission Vission and Values"}{" "}
+        <i className="fa-solid fa-house"></i>
+        {" > About Us > Mission Vission and Values"}{" "}
       </div>
 
       <div className="missionvv_cards">

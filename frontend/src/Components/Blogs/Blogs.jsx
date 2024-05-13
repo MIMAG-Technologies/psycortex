@@ -29,6 +29,10 @@ function Blogs() {
   };
   return (
     <div id="Blogs">
+      <div className="breadcrumb">
+        <i className="fa-solid fa-house"></i>
+        {" > Blogs"}{" "}
+      </div>
       <div className="blog-container">
         {data.map((blog, index) => oneblog(blog))}
       </div>

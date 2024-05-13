@@ -1,15 +1,22 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomtoTopBtn from "./BottomtoTopBtn";
+import UserCard from "../User/UserCard";
 
-function Navbar() {
+function Navbar(props) {
   const [section, setSection] = useState("aboutus");
   const [isDropdownActive, setIsDropdownActive] = useState(false);
+  const [isUserCardVisible, setisUserCardVisible] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const location = useLocation();
-  const navigate = useNavigate();
   const [isSearchBoxOpen, setisSearchBoxOpen] = useState(false);
   const [searchkey, setsearchkey] = useState("");
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const { fetchUser, user, login, cartlenght } = props;
+  useEffect(() => {
+    fetchUser();
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -405,6 +412,15 @@ function Navbar() {
 
   return (
     <>
+      {!isScrolled && isUserCardVisible ? (
+        <UserCard
+          fetchUser={fetchUser}
+          user={user}
+          setisUserCardVisible={setisUserCardVisible}
+        />
+      ) : (
+        <></>
+      )}
       <div
         id="Navbar"
         style={{
@@ -431,10 +447,22 @@ function Navbar() {
                 ></path>
               </svg>
             </Link>
-            {/* <a>
-              <i className="fa-solid fa-cart-shopping"></i>
-            </a>
-            <a>Shop</a> */}
+            <Link to={"/user/mycart"} className="cart-container">
+              <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
+            </Link>
+            <Link
+              to={"/shop"}
+              style={{
+                color:
+                  location.pathname === "/"
+                    ? isScrolled
+                      ? "black"
+                      : "white"
+                    : "black",
+              }}
+            >
+              Shop
+            </Link>
             <Link
               to="/contactus"
               style={{
@@ -478,6 +506,21 @@ function Navbar() {
                 className="fa-solid fa-xmark"
               ></i>
             </div>
+            <Link
+              to={login === "Login" ? "/user/login" : location.pathname}
+              class="button"
+              onClick={
+                login === "Login"
+                  ? () => {
+                      return;
+                    }
+                  : () => {
+                      setisUserCardVisible(!isUserCardVisible);
+                    }
+              }
+            >
+              {login}
+            </Link>
           </ul>
           <ul className={isScrolled ? "lowerscrolled" : "lowerdiv"}>
             <Link to="/" className="imglowerdiv">
