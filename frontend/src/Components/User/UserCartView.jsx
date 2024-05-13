@@ -20,14 +20,16 @@ function UserCartView(props) {
       );
       setCart(res.data);
       calculateGrandTotal();
-    } catch (error) {
-      alert("Internal Server Error fail to Load Cart!");
-    }
+    } catch (error) {}
   };
 
   useEffect(() => {
     fetchCart();
   }, []);
+
+  useEffect(() => {
+    calculateGrandTotal();
+  }, [cart]);
 
   const updateCart = async (productId, quantity) => {
     const token = localStorage.getItem("psycortexTOKEN");

@@ -30,6 +30,7 @@
   padding-bottom: 2%;
   display: flex;
   align-items: center;
+  text-align: center;
   flex-direction: column;
   gap: 15px;
   background-color: white;
@@ -229,9 +230,10 @@
   }
   .mainProduct {
     flex-direction: column;
+    width: 80%;
   }
   .radio-inputs {
-    width: 100%;
+    width: 90%;
   }
 
   .mainProduct > p {
@@ -242,5 +244,17 @@
   .mainProduct > h1 {
     width: 95%;
     margin: 10px 0px;
+  }
+  .itemscontainer .oneitem p {
+    width: 90%;
+    text-align: center;
+  }
+  .itemscontainer .oneitem {
+    margin-top: 20px;
+    width: 90%;
+  }
+  .shop-know-more-btn {
+    width: 80%;
+    margin-bottom: 10px;
   }
 }
