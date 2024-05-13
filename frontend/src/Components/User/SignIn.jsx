@@ -32,7 +32,7 @@ function SignIn(props) {
       setisLoading(true);
       try {
         const response = await axios.post(
-          "http://localhost:8080/auth/requestsignin",
+          `${process.env.REACT_APP_API_URL}/auth/requestsignin`,
           { email: email },
           {
             headers: {
@@ -69,7 +69,7 @@ function SignIn(props) {
     setisLoading(true);
     try {
       const response = await axios.post(
-        "http://localhost:8080/auth/signin",
+        `${process.env.REACT_APP_API_URL}/auth/signin`,
         body,
         {
           headers: {
@@ -101,7 +101,7 @@ function SignIn(props) {
     try {
       const currentDateTimeString = new Date().toString();
       const res = await axios.post(
-        "http://localhost:8080/auth/checkotp",
+        `${process.env.REACT_APP_API_URL}/auth/checkotp`,
         {
           otp: userOTP,
           email: email,
@@ -158,7 +158,7 @@ function SignIn(props) {
       if (token) {
         try {
           const response = await axios.get(
-            "http://localhost:8080/user/fetchuser",
+            `${process.env.REACT_APP_API_URL}/user/fetchuser`,
             {
               headers: {
                 "Content-Type": "application/json",

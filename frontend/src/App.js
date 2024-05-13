@@ -52,7 +52,7 @@ function App() {
     if (token) {
       try {
         const response = await axios.get(
-          "http://localhost:8080/user/fetchuser",
+          `${process.env.REACT_APP_API_URL}/user/fetchuser`,
           {
             headers: {
               "Content-Type": "application/json",

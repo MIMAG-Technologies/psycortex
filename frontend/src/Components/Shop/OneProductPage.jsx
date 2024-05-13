@@ -15,13 +15,13 @@ function OneProductPage(props) {
 
   const [allproducts, setallproducts] = useState([]);
 
-  const addtocart = async (productId) => {
+  const addtocart = async () => {
     const token = localStorage.getItem("psycortexTOKEN");
     if (token) {
       try {
         setisLoading(true);
         const res = axios.put(
-          `http://localhost:8080/additemtocart`,
+          `${process.env.REACT_APP_API_URL}/additemtocart`,
           {
             productId: selectedVariants.productId,
             quantity: quantity,
@@ -50,7 +50,9 @@ function OneProductPage(props) {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const responce = await axios.get("http://localhost:8080/getproducts");
+        const responce = await axios.get(
+          `${process.env.REACT_APP_API_URL}/getproducts`
+        );
         setallproducts(responce.data);
         console.log(responce.data);
       } catch (error) {

@@ -19,11 +19,15 @@ function LogIn(props) {
     };
     try {
       setresponse(
-        await axios.post("http://localhost:8080/auth/login", userObj, {
-          headers: {
-            "Content-Type": "application/json",
-          },
-        })
+        await axios.post(
+          `${process.env.REACT_APP_API_URL}/auth/login`,
+          userObj,
+          {
+            headers: {
+              "Content-Type": "application/json",
+            },
+          }
+        )
       );
       localStorage.setItem("psycortexTOKEN", response.data.token);
       fetchUser();
@@ -40,7 +44,7 @@ function LogIn(props) {
       if (token) {
         try {
           const response = await axios.get(
-            "http://localhost:8080/user/fetchuser",
+            `${process.env.REACT_APP_API_URL}/user/fetchuser`,
             {
               headers: {
                 "Content-Type": "application/json",

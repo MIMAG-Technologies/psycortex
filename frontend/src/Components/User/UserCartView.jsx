@@ -9,12 +9,15 @@ function UserCartView(props) {
   const fetchCart = async () => {
     const token = localStorage.getItem("psycortexTOKEN");
     try {
-      const res = await axios.get(`http://localhost:8080/getUserCart`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
-        },
-      });
+      const res = await axios.get(
+        `${process.env.REACT_APP_API_URL}/getUserCart`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
       setCart(res.data);
       calculateGrandTotal();
     } catch (error) {
@@ -31,7 +34,7 @@ function UserCartView(props) {
     if (token) {
       try {
         const res = await axios.put(
-          `http://localhost:8080/updatecart`,
+          `${process.env.REACT_APP_API_URL}/updatecart`,
           {
             productId: productId,
             quantity: quantity,

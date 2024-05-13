@@ -25,7 +25,7 @@ function ForgotPassword() {
       setisLoading(true);
       try {
         const response = await axios.post(
-          "http://localhost:8080/auth/forgotpassword",
+          `${process.env.REACT_APP_API_URL}/auth/forgotpassword`,
           { email: email },
           {
             headers: {
@@ -56,7 +56,7 @@ function ForgotPassword() {
     try {
       const currentDateTimeString = new Date().toString();
       const res = await axios.post(
-        "http://localhost:8080/auth/checkotp",
+        `${process.env.REACT_APP_API_URL}/auth/checkotp`,
         {
           otp: userOTP,
           email: email,
@@ -82,7 +82,7 @@ function ForgotPassword() {
     setisLoading(true);
     try {
       const response = await axios.put(
-        "http://localhost:8080/auth/changepassword",
+        `${process.env.REACT_APP_API_URL}/auth/changepassword`,
         { email, newPassword: userPassword }
       );
       if (response.data.message === "Password changed successfully") {

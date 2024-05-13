@@ -10,7 +10,9 @@ function Shop() {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/getproducts");
+        const response = await axios.get(
+          `${process.env.REACT_APP_API_URL}/getproducts`
+        );
         setProduct(response.data);
 
         // Set the default selected variant for each product
