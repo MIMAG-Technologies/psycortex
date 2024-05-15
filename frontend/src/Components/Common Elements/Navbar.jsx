@@ -38,6 +38,11 @@ function Navbar(props) {
         level: 1,
       },
       {
+        content: "About",
+        ref: "/aboutus/about",
+        level: 1,
+      },
+      {
         content: "Mission Values and Vision",
         ref: "/aboutus/missionvisionandvalues",
         level: 1,

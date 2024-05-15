@@ -332,3 +332,36 @@
   color: white;
   transform: rotateY(180deg);
 }
+#About {
+  width: 100%;
+  background-color: #fff8e3;
+  margin-top: 18vh;
+  padding-bottom: 2em;
+}
+
+#About > div:not(.breadcrumb) {
+  margin: 1em auto;
+  max-width: 1000px;
+  padding: 20px;
+  border-radius: 20px;
+  background-color: white;
+  box-shadow: 1px 1px 10px black;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+#About h1 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 500;
+}
+#About p {
+  font-family: RelFont;
+  font-size: 18px;
+}
+@media screen and (max-width: 900px) {
+  #About > div:not(.breadcrumb) {
+    width: calc(85% - 20px);
+  }
+}

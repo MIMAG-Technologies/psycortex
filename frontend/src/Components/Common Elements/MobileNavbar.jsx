@@ -494,6 +494,16 @@ function MobileNavbar(props) {
 
             setisLevel2Active(false);
           }}
+          to="/aboutus/about"
+        >
+          About{" "}
+        </Link>
+        <Link
+          onClick={() => {
+            setisBurgerActive(!isBurgerActive);
+
+            setisLevel2Active(false);
+          }}
           to="/aboutus/missionvisionandvalues"
         >
           Mission Values and Vision

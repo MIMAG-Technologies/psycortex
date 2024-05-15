@@ -34,6 +34,7 @@ import Products from "./Admin/Products.jsx";
 import ChangePassword from "./Admin/ChangePassword.jsx";
 import Media from "./Admin/Media.jsx";
 import ForgotPassword from "./Components/User/ForgotPassword.jsx";
+import About from "./Components/AboutUs/About.jsx";
 
 function App() {
   const [user, setuser] = useState({});
@@ -96,6 +97,7 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/search/:key" element={<Search />} />
         <Route path="/aboutus/team" element={<Team />} />
+        <Route path="/aboutus/about" element={<About />} />
         <Route
           path="/aboutus/directorsmessage"
           element={<DirectorsMessage />}

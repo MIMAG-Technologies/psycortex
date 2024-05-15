@@ -212,7 +212,7 @@ function SignIn(props) {
                 <AlertCircle size={24} strokeWidth={2.25} />
                 <p>
                   This address is already linked to an existing account. To
-                  continue, <a href="#">log in</a>.
+                  continue, <Link to={"/user/login"}>login</Link>.
                 </p>
               </div>
             ) : (
@@ -248,7 +248,7 @@ function SignIn(props) {
               {otpRecived ? "Verify OTP" : " Send OPT"}
             </a>
             <p className="login-signin">
-              Already have a Account?
+              Already have an Account?
               <Link to={"/user/login"}>login</Link>
             </p>
           </section>

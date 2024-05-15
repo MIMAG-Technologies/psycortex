@@ -100,6 +100,7 @@ function Footer() {
           <h4>About Us</h4>
           <div>
             <Link to="/aboutus/directorsmessage">Directors Message</Link>
+            <Link to="/aboutus/about">About</Link>
             <Link to="/aboutus/missionvisionandvalues">
               Mission Values and Vision
             </Link>

@@ -111,8 +111,7 @@ function LogIn(props) {
             Forgot Password?
           </Link>
           <p className="login-signin">
-            Don't have a Account?
-            <Link to={"/user/signin"}>signin</Link>
+            Don't have an Account? <Link to={"/user/signin"}>Sign in</Link>
           </p>
         </section>
       </form>

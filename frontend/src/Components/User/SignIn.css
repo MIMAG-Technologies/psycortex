@@ -9,19 +9,22 @@
   color: black;
 }
 
+#signin form {
+  width: 30em;
+  margin: 0px;
+  margin-top: 2px;
+  height: 86.5vh;
+  display: flex;
+  overflow: hidden;
+}
+
 @media screen and (max-width: 520px) {
   #signin {
     height: 100vh;
   }
-}
-
-#signin form {
-  margin: 0px;
-  margin-top: 2px;
-  width: 30em;
-  height: 86.5vh;
-  display: flex;
-  overflow: hidden;
+  #signin form {
+    width: 100%;
+  }
 }
 
 /* ========= Login Steps Global Styling ========= */
