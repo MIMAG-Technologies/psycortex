@@ -31,10 +31,10 @@ import axios from "axios";
 import AdminNavbar from "./Admin/AdminNavbar.jsx";
 import Users from "./Admin/Users.jsx";
 import Products from "./Admin/Products.jsx";
-import ChangePassword from "./Admin/ChangePassword.jsx";
 import Media from "./Admin/Media.jsx";
 import ForgotPassword from "./Components/User/ForgotPassword.jsx";
 import About from "./Components/AboutUs/About.jsx";
+import AdminLogin from "./Admin/AdminLogin.jsx";
 
 function App() {
   const [user, setuser] = useState({});
@@ -142,10 +142,11 @@ function App() {
         />
         {/* ADMIN ROUTE */}
 
+        <Route path="/adminLogin" element={<AdminLogin />} />
+
         <Route path="/admin" element={<AdminNavbar />}>
-          <Route path="user-management" element={<Users />} />
+          <Route path="" element={<Users />} />
           <Route path="product-management" element={<Products />} />
-          <Route path="admin-management" element={<ChangePassword />} />
           <Route path="media" element={<Media />} />
         </Route>
       </Routes>

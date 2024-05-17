@@ -1,0 +1,16 @@
+Admin Panel
+    User
+        UserList
+            One User
+                Change User data
+                see what userhave in his cart and purchase
+                Delete User 
+                Send a Mail to User
+    Product
+        Product List
+            Edit Product
+            See User details about product
+            Delete Product
+        Add Product
+        
+    Media

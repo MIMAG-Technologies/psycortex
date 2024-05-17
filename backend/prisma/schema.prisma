@@ -72,6 +72,10 @@ model Product {
   description String? @db.Text
 }
 
+model Admin {
+  username   String   @id @unique
+  password   String
+}
 
 
 

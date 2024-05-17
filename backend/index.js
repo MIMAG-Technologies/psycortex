@@ -1,6 +1,7 @@
 const express = require("express");
 const app = express();
 const cors = require("cors");
+const { createAdminIfNotExists } = require("./controllers/adminControllers"); // Import the function
 
 const corsOptions = {
   origin: [
@@ -18,6 +19,8 @@ const messageRouter = require("./routers/messages");
 const emailRouter = require("./routers/email");
 const userRouter = require("./routers/userRouter");
 const productRouter = require("./routers/productRoutes");
+const adminRouter = require("./routers/adminRoute");
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -27,6 +30,7 @@ app.use(messageRouter);
 app.use(emailRouter);
 app.use(userRouter);
 app.use(productRouter);
+app.use(adminRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Welcome to psycortex Backend!");
@@ -48,8 +52,15 @@ async function checkDatabaseConnection() {
   }
 }
 
-checkDatabaseConnection();
+async function startServer() {
+  // Create admin if it doesn't exist
+  await createAdminIfNotExists();
 
-app.listen(PORT, () => {
-  console.log(`Server is running on port ${PORT}`);
-});
+  // Start server after admin creation
+  checkDatabaseConnection();
+  app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
+  });
+}
+
+startServer();
