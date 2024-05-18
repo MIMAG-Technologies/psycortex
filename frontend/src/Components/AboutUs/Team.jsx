@@ -10,12 +10,12 @@ function Team() {
   const members = [
     {
       name: "DR. VIJAY DWIVEDI",
-      role: "Managing Director | Psycortex Pvt. Ltd.",
+      role: "Managing Director | Psycortex Brain Take Mental Health (OPC) Pvt. Ltd",
       src: "/assets/Images/AboutUs/DirectorsMessage/dr. dwivedi.jpeg",
     },
     {
       name: "DR. RASHMI SHUKLA",
-      role: "Director | Psycortex Pvt. Ltd.",
+      role: "Director | Psycortex Brain Take Mental Health (OPC) Pvt. Ltd ",
       src: "/assets/Images/AboutUs/DirectorsMessage/drshukla.jpeg",
     },
   ];

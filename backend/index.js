@@ -12,8 +12,8 @@ const corsOptions = {
   ],
 };
 
-app.use(cors(corsOptions));
-// app.use(cors());
+// app.use(cors(corsOptions));
+app.use(cors());
 
 const messageRouter = require("./routers/messages");
 const emailRouter = require("./routers/email");
@@ -64,3 +64,7 @@ async function startServer() {
 }
 
 startServer();
+
+
+
+

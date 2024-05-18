@@ -66,8 +66,8 @@ function Stats() {
   return (
     <div id="Stats">
       <h1>
-        Psycortex has helped thousands of people in spite of a mental health
-        challenge.
+        Psycortex Brain Take Mental Health (OPC) Pvt. Ltd has helped thousands
+        of people in spite of a mental health challenge.
       </h1>
       <div id="stats-cards" ref={statsRef}>
         <div>
