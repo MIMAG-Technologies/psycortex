@@ -2,11 +2,13 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
 function Footer() {
-  const FACEBOOK_LINK = "https://www.facebook.com/psycortex.bt/";
-  const YOUTUBE_LINK = "https://youtube.com";
-  const INSTAGRAM_LINK = "https://www.instagram.com/psycortex_pvt_ltd/";
-  const LINKED_IN_LINK = "https://www.linkedin.com/in";
-  const X_LINK = "https://twitter.com/";
+  const FACEBOOK_LINK =
+    "https://www.facebook.com/psycortex.bt?mibextid=rS40aB7S9Ucbxw6v";
+  const X_LINK = "https://x.com/PPsycortex";
+  const LINKED_IN_LINK =
+    "http://www.linkedin.com/in/psycortex-private-limited-720289301";
+  const INSTAGRAM_LINK = "https://www.youtube.com/@psycortex_private_limited";
+  const YOUTUBE_LINK = "https://www.instagram.com/psycortex_pvt_ltd/";
 
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
