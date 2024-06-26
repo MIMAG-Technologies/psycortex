@@ -7,8 +7,8 @@ function Footer() {
   const X_LINK = "https://x.com/PPsycortex";
   const LINKED_IN_LINK =
     "http://www.linkedin.com/in/psycortex-private-limited-720289301";
-  const INSTAGRAM_LINK = "https://www.youtube.com/@psycortex_private_limited";
-  const YOUTUBE_LINK = "https://www.instagram.com/psycortex_pvt_ltd/";
+  const INSTAGRAM_LINK = "https://www.instagram.com/psycortex_pvt_ltd/";
+  const YOUTUBE_LINK = "https://www.youtube.com/@psycortex_private_limited";
 
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
