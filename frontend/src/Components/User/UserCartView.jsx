@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
+import PaymentButton from "../Payments/CheckOutBtn";
 
 function UserCartView(props) {
   const { fetchUser } = props;
@@ -132,6 +133,7 @@ function UserCartView(props) {
     return (
       <div className="UserCartView">
         <h1>Cart is Empty</h1>
+        <PaymentButton />
       </div>
     );
   }

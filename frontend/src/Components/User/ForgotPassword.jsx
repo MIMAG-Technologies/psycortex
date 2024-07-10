@@ -167,7 +167,7 @@ function ForgotPassword() {
               className="sign-up-next-btn"
               onClick={otpRecived ? checkOTP : sendOTP}
             >
-              {otpRecived ? "Verify OTP" : " Send OPT"}
+              {otpRecived ? "Verify OTP" : " Send OTP"}
             </a>
           </section>
         ) : (
