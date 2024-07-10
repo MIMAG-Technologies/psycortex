@@ -53,7 +53,7 @@ const requestSignin = async (req, res) => {
       subject: "OTP for Signin",
       text: `Dear User,
 
-Your OTP for signin is: ${otp}
+Your OTP for SignIn is: ${otp}
 
 Best regards,
 Psycortex Pvt. Ltd.`,

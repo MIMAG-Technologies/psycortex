@@ -245,7 +245,7 @@ function SignIn(props) {
               className="sign-up-next-btn"
               onClick={otpRecived ? checkOTP : sendOTP}
             >
-              {otpRecived ? "Verify OTP" : " Send OPT"}
+              {otpRecived ? "Verify OTP" : " Send OTP"}
             </a>
             <p className="login-signin">
               Already have an Account?
