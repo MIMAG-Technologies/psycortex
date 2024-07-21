@@ -20,6 +20,7 @@ const emailRouter = require("./routers/email");
 const userRouter = require("./routers/userRouter");
 const productRouter = require("./routers/productRoutes");
 const adminRouter = require("./routers/adminRoute");
+const TransactionRouter = require("./routers/transactionRoutes");
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -31,6 +32,7 @@ app.use(emailRouter);
 app.use(userRouter);
 app.use(productRouter);
 app.use(adminRouter);
+app.use(TransactionRouter);
 
 app.get("/", (req, res) => {
   res.status(200).send("Welcome to psycortex Backend!");
@@ -64,7 +66,3 @@ async function startServer() {
 }
 
 startServer();
-
-
-
-

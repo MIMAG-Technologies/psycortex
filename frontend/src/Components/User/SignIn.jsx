@@ -14,8 +14,6 @@ function SignIn(props) {
   const [number, setnumber] = useState("");
   const [isValidPassword, setisValidPassword] = useState(true);
   const [isNumberOk, setisNumberOk] = useState(true);
-  const [address, setaddress] = useState("");
-  const [isAddressOk, setisAddressOk] = useState(true);
   const [isLoading, setisLoading] = useState(false);
   const [userPassword, setuserPassword] = useState("");
   const [isPasswordVisible, setisPasswordVisible] = useState(false);
@@ -25,6 +23,7 @@ function SignIn(props) {
   const [doesOTPmatch, setdoesOTPmatch] = useState(true);
   const navigate = useNavigate();
   const { fetchUser } = props;
+
   const sendOTP = async () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     setisValidEmail(true);
@@ -62,7 +61,6 @@ function SignIn(props) {
     const body = {
       email: email,
       name: name,
-      address: address,
       password: userPassword,
       phoneNo: number,
     };
@@ -89,14 +87,6 @@ function SignIn(props) {
   };
 
   const checkOTP = async () => {
-    // const isOTPValid = await bcrypt.compare(userOTP, hashedOTP);
-    // if (isOTPValid) {
-    //   setdoesOTPmatch(true);
-    //   navigate("/user/signin#step1");
-    // } else {
-    //   setdoesOTPmatch(false);
-    // }
-
     setisLoading(true);
     try {
       const currentDateTimeString = new Date().toString();
@@ -130,6 +120,7 @@ function SignIn(props) {
       setisNameOk(true);
     }
   }, [name]);
+
   useEffect(() => {
     let cleanNumber = number.replace(/\D/g, "");
     if (
@@ -144,13 +135,6 @@ function SignIn(props) {
       setisNumberOk(true);
     }
   }, [number]);
-  useEffect(() => {
-    if (address.trim() === "") {
-      setisAddressOk(false);
-    } else {
-      setisAddressOk(true);
-    }
-  }, [address]);
 
   useEffect(() => {
     const token = localStorage.getItem("psycortexTOKEN");
@@ -179,6 +163,7 @@ function SignIn(props) {
     setuserPassword(e.target.value);
     setisValidPassword(userPassword.length >= 8 && userPassword.trim() !== "");
   };
+
   return (
     <div id="signin">
       {isLoading ? <LoadingBar /> : <></>}
@@ -277,7 +262,6 @@ function SignIn(props) {
                 }
                 autoComplete="new-password"
               />
-
               <div
                 id="password-visibility"
                 onClick={() => {
@@ -286,7 +270,6 @@ function SignIn(props) {
               >
                 {isPasswordVisible ? <Eye /> : <EyeOff />}
               </div>
-
               {!isValidPassword ? (
                 <div className="user-warning">
                   <AlertCircle size={24} strokeWidth={2.25} />
@@ -316,128 +299,60 @@ function SignIn(props) {
         )}
         {currentstep === 2 ? (
           <section id="step2">
-            <div id="step2loadingbar"></div>
-            <div className="totalloadingbar"></div>
+            <div id="step1loadingbar"></div>
             <a onClick={() => setcurrentstep(1)} className="sign-up-prev-btn">
               <ChevronLeft size={32} />
             </a>
+            <div className="totalloadingbar"></div>
             <h3 className="sign-in-step-count">Step 2 of 3</h3>
-            <h3 className="step-description">Tell u about yourself</h3>
-            <label htmlFor="sign-in-name">Name</label>
+            <h3 className="step-description">Tell us your Name </h3>
+            <label htmlFor="name">Name</label>
             <input
               type="text"
-              name="sign-in-name"
-              id="sign-in-name"
+              name="user-name"
+              id="name"
               value={name}
               onChange={(e) => {
                 setname(e.target.value);
               }}
+              style={!isNameOk ? { border: "2px solid #f15e6c" } : null}
             />
             {!isNameOk ? (
               <div className="user-warning">
                 <AlertCircle size={24} strokeWidth={2.25} />
-                <p>Please enter a valid name</p>
+                <p>Name cannot be empty</p>
               </div>
             ) : (
               <></>
             )}
-            <label htmlFor="sign-in-number">Phone Number</label>
+            <label htmlFor="number">Mobile Number</label>
             <input
-              type="number"
-              name="sign-in-number"
-              id="sign-in-number"
+              type="text"
+              name="number"
+              id="number"
               value={number}
               onChange={(e) => {
                 setnumber(e.target.value);
               }}
+              style={!isNumberOk ? { border: "2px solid #f15e6c" } : null}
             />
             {!isNumberOk ? (
               <div className="user-warning">
                 <AlertCircle size={24} strokeWidth={2.25} />
-                <p>Please enter a valid Phone Number</p>
+                <p>Mobile number is invalid</p>
               </div>
             ) : (
               <></>
             )}
-            <label htmlFor="sign-in-address">Address</label>
-            <input
-              type="text"
-              name="sign-in-address"
-              id="sign-in-address"
-              value={address}
-              onChange={(e) => {
-                setaddress(e.target.value);
-              }}
-            />
-            {!isAddressOk ? (
-              <div className="user-warning">
-                <AlertCircle size={24} strokeWidth={2.25} />
-                <p>Please enter a valid Address</p>
-              </div>
-            ) : (
-              <></>
-            )}
-
             <a
-              onClick={
-                isAddressOk && isNameOk && isNumberOk
-                  ? () => setcurrentstep(3)
-                  : () => setcurrentstep(2)
-              }
+              onClick={() => {
+                if (isNameOk && isNumberOk) {
+                  SubmitForm();
+                }
+              }}
               className="sign-up-next-btn"
             >
               Next
-            </a>
-          </section>
-        ) : (
-          <></>
-        )}
-        {currentstep === 3 ? (
-          <section id="step3">
-            <div id="step3loadingbar"></div>
-            <div className="totalloadingbar"></div>
-            <a onClick={() => setcurrentstep(2)} className="sign-up-prev-btn">
-              <ChevronLeft size={32} />
-            </a>
-            <h3 className="sign-in-step-count">Step 3 of 3</h3>
-            <h3 className="step-description">Terms & Conditions</h3>
-            <div className="term-and-conditions-checkbox">
-              <input
-                type="checkbox"
-                name="term-and-conditions-checkbox"
-                id="share-my-registration-data"
-              />
-              <span></span>
-              <label htmlFor="share-my-registration-data">
-                {" "}
-                I Agree all the terms and conditions
-              </label>
-            </div>
-            <p className="term-and-conditions-notes">
-              By clicking on sign-up, you agree to Psycortex's{" "}
-              <Link
-                to={"/psycortex/termsandcondition"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Terms and Conditions of Use
-              </Link>
-              .
-            </p>
-            <p className="term-and-conditions-notes">
-              To learn more about how Psycortex collects, uses, shares and
-              protects your personal data, please see{" "}
-              <Link
-                to={"/psycortex/privacypolicy"}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Psycortex's Privacy Policy
-              </Link>
-              .
-            </p>
-            <a href="#" onClick={SubmitForm} className="sign-up-next-btn">
-              Sign Up
             </a>
           </section>
         ) : (

@@ -134,11 +134,11 @@ function App() {
         <Route path="/user/login" element={<LogIn fetchUser={fetchUser} />} />
         <Route
           path="/user/mycart"
-          element={<UserCartView fetchUser={fetchUser} />}
+          element={<UserCartView fetchUser={fetchUser} user={user} />}
         />
         <Route
           path="/user/mypurchaseditems"
-          element={<UserPurchasedItemView />}
+          element={<UserPurchasedItemView user={user} />}
         />
         {/* ADMIN ROUTE */}
 

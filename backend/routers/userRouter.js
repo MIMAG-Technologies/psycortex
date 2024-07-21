@@ -8,7 +8,7 @@ const {
   forgotpassword,
   changepassword,
 } = require("../controllers/authController");
-const { fetchUser } = require("../controllers/UserController");
+const { fetchUser, updateUser } = require("../controllers/UserController");
 
 // AUTH ROUTES
 
@@ -23,5 +23,6 @@ router.post("/auth/login", login);
 // USE ROUTES
 
 router.get("/user/fetchuser", fetchUser);
+router.put("/user/updateuser", updateUser);
 
 module.exports = router;

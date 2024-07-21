@@ -9,20 +9,13 @@ function UserCard(props) {
     localStorage.removeItem("psycortexTOKEN");
     fetchUser();
     setisUserCardVisible(false);
+    window.location.reload();
   };
 
   return (
     <div id="UserCard">
       <h1>{user.name}</h1>
       <p>{user.email}</p>
-      <Link
-        to={"/"}
-        onClick={() => {
-          setisUserCardVisible(false);
-        }}
-      >
-        <i className="fa-solid fa-user"></i>My Profile
-      </Link>
       <Link
         to={"/user/mycart"}
         onClick={() => {

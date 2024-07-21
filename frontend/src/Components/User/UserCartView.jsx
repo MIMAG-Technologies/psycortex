@@ -1,94 +1,113 @@
-import axios from "axios";
+// UserCartView.js
 import React, { useEffect, useState } from "react";
-import PaymentButton from "../Payments/CheckOutBtn";
+import "../Payments/Payment.css";
+
+import {
+  scaleGrandTotal,
+  getProductIds,
+  fetchCart,
+  updateCart,
+  decrementQuantity,
+  incrementQuantity,
+  calculateGrandTotal,
+  calculateTotal,
+  initiateTransaction,
+  updateUser,
+} from "./cartUtils";
+import { useNavigate } from "react-router-dom";
 
 function UserCartView(props) {
-  const { fetchUser } = props;
+  const { fetchUser, user } = props;
+  const [hereUser, setHereUser] = useState({});
   const [cart, setCart] = useState([]);
   const [grandTotal, setGrandTotal] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
+  const [confirmCard, setConfirmCard] = useState(false);
+  const [data, setData] = useState({});
+  const [isEverythingOk, setIsEverythingOk] = useState(false);
+  const navigate = useNavigate();
+  const [transactionStatus, setTransactionStatus] = useState(null);
+  const [checking, setChecking] = useState(false);
 
-  const fetchCart = async () => {
-    const token = localStorage.getItem("psycortexTOKEN");
-    try {
-      const res = await axios.get(
-        `${process.env.REACT_APP_API_URL}/getUserCart`,
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      setCart(res.data);
-      calculateGrandTotal();
-    } catch (error) {}
+  useEffect(() => {
+    let intervalId;
+    intervalId = setInterval(() => {
+      const status = localStorage.getItem("isTransactionDone");
+      if (status) {
+        setTransactionStatus(status);
+        setChecking(false); // Stop checking once status is found
+      }
+    }, 3000); // Check every 3 seconds
+
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount or stop
+  }, [checking]);
+
+  useEffect(() => {
+    if (transactionStatus === "success") {
+      navigate("/user/mypurchaseditems");
+      window.location.reload();
+      localStorage.removeItem("isTransactionDone");
+    } else if (transactionStatus === "failure") {
+      window.location.reload();
+      localStorage.removeItem("isTransactionDone");
+    }
+  }, [transactionStatus]);
+
+  const startChecking = () => {
+    setChecking(true);
+    console.log("Checking started!");
   };
 
   useEffect(() => {
-    fetchCart();
+    setData({
+      name: hereUser.name,
+      email: hereUser.email,
+      productIds: getProductIds(cart),
+      amount: `${scaleGrandTotal(grandTotal)}`,
+    });
+  }, [hereUser, cart, grandTotal]);
+
+  useEffect(() => {
+    setHereUser(user);
+  }, [user]);
+  useEffect(() => {
+    const allFieldsFilled = Object.values(user).every((field) => field !== "");
+    if (!allFieldsFilled) {
+      setIsEverythingOk(false);
+    } else {
+      setIsEverythingOk(true);
+      startChecking();
+    }
+  }, [user]);
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    const allFieldsFilled = Object.values(hereUser).every(
+      (field) => field !== ""
+    );
+
+    if (!allFieldsFilled) {
+      setIsEverythingOk(false);
+      alert("Please Fill all Fields!");
+      return;
+    }
+
+    const res = await updateUser(hereUser, fetchUser);
+    setIsEverythingOk(res);
+    if (res) {
+      setChecking();
+    }
+  };
+
+  useEffect(() => {
+    fetchCart(setCart, () => calculateGrandTotal(cart, setGrandTotal));
   }, []);
 
   useEffect(() => {
-    calculateGrandTotal();
-  }, [cart]);
-
-  const updateCart = async (productId, quantity) => {
-    const token = localStorage.getItem("psycortexTOKEN");
-    if (token) {
-      try {
-        const res = await axios.put(
-          `${process.env.REACT_APP_API_URL}/updatecart`,
-          {
-            productId: productId,
-            quantity: quantity,
-          },
-          {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        alert("Cart Updated Succesfully !");
-        fetchCart();
-        fetchUser();
-        calculateGrandTotal();
-      } catch (error) {
-        console.log(error);
-        alert("Internal Server Error! Please try again after some time.");
-      }
-    } else {
-      alert("Please login to access these services.");
+    if (grandTotal === 0) {
+      calculateGrandTotal(cart, setGrandTotal);
     }
-  };
-
-  const decrementQuantity = (index) => {
-    const updatedCart = [...cart];
-    if (updatedCart[index].quantity > 0) {
-      updatedCart[index].quantity--;
-      setCart(updatedCart);
-    }
-  };
-
-  const incrementQuantity = (index) => {
-    const updatedCart = [...cart];
-    updatedCart[index].quantity++;
-    setCart(updatedCart);
-  };
-
-  const calculateGrandTotal = () => {
-    let total = 0;
-    cart.forEach((item) => {
-      total += parseInt(item.cost.replace(/,/g, "")) * item.quantity;
-    });
-    setGrandTotal(total);
-  };
-
-  const calculateTotal = (item) => {
-    const cost = parseInt(item.cost.replace(/,/g, "")); // Remove commas and parse to integer
-    const total = item.quantity * cost;
-    return total.toLocaleString(); // Return total as a string with proper comma formatting
-  };
+  }, [cart, grandTotal]);
 
   const allItemsInCart = () => {
     return cart.map((item, index) => (
@@ -97,33 +116,38 @@ function UserCartView(props) {
           <h1>{item.name}</h1>
           <p>{item.diffrentby}</p>
           <p>No of Sessions: {item.sessions}</p>
-          <p>Cost/item : {item.cost}</p>
+          <p>Cost/item: {item.cost}</p>
         </div>
         <div>
           <div id="Quantifier">
-            <span onClick={() => decrementQuantity(index)}>
+            <span onClick={() => decrementQuantity(cart, setCart, index)}>
               <i className="fa-solid fa-minus"></i>
             </span>
             <span>{item.quantity}</span>
-            <span onClick={() => incrementQuantity(index)}>
+            <span onClick={() => incrementQuantity(cart, setCart, index)}>
               <i className="fa-solid fa-plus"></i>
             </span>
           </div>
           <button
             className="editcartbtn"
-            onClick={() => updateCart(item.productId, item.quantity)}
+            onClick={() =>
+              updateCart(
+                item.productId,
+                item.quantity,
+                () =>
+                  fetchCart(setCart, () =>
+                    calculateGrandTotal(cart, setGrandTotal)
+                  ),
+                fetchUser,
+                () => calculateGrandTotal(cart, setGrandTotal)
+              )
+            }
           >
             <i className="fa-solid fa-cart-arrow-down"></i> Update Cart
           </button>
         </div>
         <div>
-          <p
-            style={{
-              fontWeight: "bolder",
-            }}
-          >
-            Total : {calculateTotal(item)}
-          </p>
+          <p style={{ fontWeight: "bolder" }}>Total: {calculateTotal(item)}</p>
         </div>
       </div>
     ));
@@ -133,17 +157,193 @@ function UserCartView(props) {
     return (
       <div className="UserCartView">
         <h1>Cart is Empty</h1>
-        <PaymentButton />
       </div>
     );
   }
 
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setHereUser({
+      ...hereUser,
+      [name]: value,
+    });
+  };
+
+  if (confirmCard) {
+    return (
+      <div className="UserCheckoutView">
+        <form onSubmit={handleSubmit}>
+          <p className="checkoutdetailheading">Billing Details</p>
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            required
+            placeholder="Name"
+            value={hereUser.name || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            disabled
+            id="email"
+            name="email"
+            required
+            placeholder="Email"
+            value={hereUser.email || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="phoneNo">Phone Number</label>
+          <input
+            type="tel"
+            id="phoneNo"
+            name="phoneNo"
+            required
+            placeholder="Phone Number"
+            value={hereUser.phoneNo || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="companyName">Company Name</label>
+          <input
+            type="text"
+            id="companyName"
+            name="companyName"
+            placeholder="Company Name"
+            value={hereUser.companyName || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="country">Country</label>
+          <input
+            type="text"
+            id="country"
+            name="country"
+            placeholder="Country"
+            value={hereUser.country || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="streetAddress">Street Address</label>
+          <input
+            type="text"
+            id="streetAddress"
+            name="streetAddress"
+            placeholder="Street Address"
+            value={hereUser.streetAddress || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="apartment">Apartment</label>
+          <input
+            type="text"
+            id="apartment"
+            name="apartment"
+            placeholder="Apartment"
+            value={hereUser.apartment || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="city">City</label>
+          <input
+            type="text"
+            id="city"
+            name="city"
+            placeholder="City"
+            value={hereUser.city || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="state">State</label>
+          <input
+            type="text"
+            id="state"
+            name="state"
+            placeholder="State"
+            value={hereUser.state || ""}
+            onChange={handleChange}
+          />
+
+          <label htmlFor="pinCode">Pin Code</label>
+          <input
+            type="text"
+            id="pinCode"
+            name="pinCode"
+            placeholder="Pin Code"
+            value={hereUser.pinCode || ""}
+            onChange={handleChange}
+          />
+          <button type="submit">Update Details</button>
+        </form>
+        <div className="UserCheckoutViewRHS">
+          <p className="checkoutdetailheading">Your Order</p>
+          <div className="cartdetails">
+            <div style={{ backgroundColor: "#f3f4f6" }}>Items</div>
+            <div style={{ backgroundColor: "#f3f4f6" }}>Subtotal</div>
+            {cart.map((item, index) => (
+              <React.Fragment key={index}>
+                <div>
+                  {item.name}-{item.diffrentby}{" "}
+                  {`(${item.sessions} sessions) x ${item.quantity}`}
+                </div>
+                <div style={{ color: "#501a77" }}>
+                  Rs {calculateTotal(item)}
+                </div>
+              </React.Fragment>
+            ))}
+            <div style={{ backgroundColor: "#f3f4f6" }}>Total</div>
+            <div style={{ color: "#501a77", fontWeight: "bold" }}>
+              Rs {grandTotal}
+            </div>
+          </div>
+          <label id="wordline-select">
+            <input type="radio" checked />
+            Pay with Worldline
+            <img
+              src="/assets/Images/Payments/worldline-logo.svg"
+              alt="Wordline"
+            />
+          </label>
+          <button id={isEverythingOk ? "btnSubmit" : ""}>
+            {!isEverythingOk ? "Please Fill Your Details First" : "Pay Now"}
+          </button>
+        </div>
+      </div>
+    );
+  }
   return (
     <div className="UserCartView">
       {allItemsInCart()}
       <span>
         <h1>Grand Total: Rs {grandTotal.toLocaleString()}</h1>
-        <PaymentButton />
+        <div
+          className="check-out-container"
+          onClick={() =>
+            initiateTransaction(data, setIsLoading, setConfirmCard, grandTotal)
+          }
+        >
+          <div className="check-out-left-side">
+            <div className="check-out-card">
+              <div className="check-out-card-line"></div>
+              <div className="check-out-buttons"></div>
+            </div>
+            <div className="check-out-post">
+              <div className="check-out-post-line"></div>
+              <div className="check-out-screen">
+                <div className="check-out-dollar">$</div>
+              </div>
+              <div className="check-out-numbers"></div>
+              <div className="check-out-numbers-line2"></div>
+            </div>
+          </div>
+          <div className="check-out-right-side">
+            <div className="check-out-new">Checkout</div>
+          </div>
+        </div>
       </span>
     </div>
   );

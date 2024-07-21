@@ -231,7 +231,7 @@ const checkOTP = async (req, res) => {
 
 const signin = async (req, res) => {
   try {
-    const { email, name, address, password, phoneNo } = req.body;
+    const { email, name, password, phoneNo } = req.body;
 
     const existingUser = await prisma.user.findUnique({
       where: {
@@ -251,7 +251,6 @@ const signin = async (req, res) => {
       data: {
         email,
         name,
-        address,
         password: hashedPassword,
         phoneNo,
         cart: "[]",

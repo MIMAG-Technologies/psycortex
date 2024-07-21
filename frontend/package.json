@@ -13,6 +13,7 @@
     "crypto-js": "^4.2.0",
     "jquery": "^3.7.1",
     "lucide-react": "^0.378.0",
+    "onlinepayments-sdk-client-js": "^3.1.1",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-icons": "^5.2.1",

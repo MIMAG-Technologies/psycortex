@@ -1,0 +1,185 @@
+// cartUtils.js
+import axios from "axios";
+
+export const scaleGrandTotal = (grandTotal) => {
+  const min = 2;
+  const max = 9;
+  const referenceAmount = 1000000; // 10 lakhs
+  const percentage = grandTotal / referenceAmount;
+  const scaledTotal = percentage * (max - min) + min;
+  return Math.min(Math.max(scaledTotal, min), max);
+};
+
+export const getProductIds = (array) => {
+  let productIds = [];
+  array.forEach((item) => {
+    const oneProduct = {
+      productId: item.productId,
+      quantity: item.quantity,
+    };
+    productIds.push(JSON.stringify(oneProduct));
+  });
+  return productIds;
+};
+
+export const fetchCart = async (setCart, calculateGrandTotal) => {
+  const token = localStorage.getItem("psycortexTOKEN");
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getUserCart`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    setCart(res.data);
+    calculateGrandTotal();
+  } catch (error) {
+    console.error(error);
+  }
+};
+export const fetchUserPurchased = async () => {
+  const token = localStorage.getItem("psycortexTOKEN");
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/getUserPurchased`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
+
+export const updateCart = async (
+  productId,
+  quantity,
+  fetchCart,
+  fetchUser,
+  calculateGrandTotal
+) => {
+  const token = localStorage.getItem("psycortexTOKEN");
+  if (token) {
+    try {
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/updatecart`,
+        {
+          productId: productId,
+          quantity: quantity,
+        },
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Cart Updated Successfully!");
+      fetchCart();
+      fetchUser();
+      calculateGrandTotal();
+    } catch (error) {
+      console.log(error);
+      alert("Internal Server Error! Please try again after some time.");
+    }
+  } else {
+    alert("Please login to access these services.");
+  }
+};
+export const updateUser = async (user, fetchUser) => {
+  const token = localStorage.getItem("psycortexTOKEN");
+  const { cart, purchasesItems, ...userWithoutCartAndPurchases } = user;
+  if (token) {
+    try {
+      await axios.put(
+        `${process.env.REACT_APP_API_URL}/user/updateuser`,
+        userWithoutCartAndPurchases,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("User Updated Succesfully");
+      fetchUser();
+      return true;
+    } catch (error) {
+      console.log(error);
+      alert("Internal Server Error! Please try again after some time.");
+      return false;
+    }
+  } else {
+    alert("Please login to access these services.");
+    return false;
+  }
+};
+
+export const decrementQuantity = (cart, setCart, index) => {
+  const updatedCart = [...cart];
+  if (updatedCart[index].quantity > 0) {
+    updatedCart[index].quantity--;
+    setCart(updatedCart);
+  }
+};
+
+export const incrementQuantity = (cart, setCart, index) => {
+  const updatedCart = [...cart];
+  updatedCart[index].quantity++;
+  setCart(updatedCart);
+};
+
+export const calculateGrandTotal = (cart, setGrandTotal) => {
+  let total = 0;
+  cart.forEach((item) => {
+    total += parseInt(item.cost.replace(/,/g, "")) * item.quantity;
+  });
+  setGrandTotal(total);
+};
+
+export const calculateTotal = (item) => {
+  const cost = parseInt(item.cost.replace(/,/g, ""));
+  const total = item.quantity * cost;
+  return total.toLocaleString();
+};
+
+export const initiateTransaction = async (
+  data,
+  setisLoading,
+  setconfirmcard,
+  grandTotal
+) => {
+  setisLoading(true);
+  const token = localStorage.getItem("psycortexTOKEN");
+  try {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/transaction/initiate`,
+      data,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    const transactionToken = res.data.token;
+    localStorage.setItem("transactionToken", transactionToken);
+    localStorage.setItem(
+      "transactionPaymentAmount",
+      Math.floor(scaleGrandTotal(grandTotal))
+    );
+    setconfirmcard(true);
+  } catch (error) {
+    alert("Something Went Wrong!");
+  } finally {
+    setisLoading(false);
+  }
+};

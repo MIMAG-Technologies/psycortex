@@ -155,6 +155,52 @@ const getUserCart = async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 };
+const getUserPurchased = async (req, res) => {
+  try {
+    const email = req.email;
+
+    // Retrieve the user from the database based on the email
+    const user = await prisma.user.findUnique({
+      where: {
+        email,
+      },
+    });
+
+    // If user is not found, return 404 status code with a message
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    const cart = JSON.parse(user.purchasesItems || "[]");
+    const cartWithQuantity = [];
+
+    // Loop through each item in the cart
+    for (const item of cart) {
+      // Retrieve product details from the database based on the product ID
+      const product = await prisma.product.findUnique({
+        where: {
+          productId: item.productId,
+        },
+      });
+
+      // If product is found, add it to the cart with quantity
+      if (product) {
+        cartWithQuantity.push({
+          ...product,
+          quantity: item.quantity,
+          transactionId: item.transactionId,
+          date: item.date,
+        });
+      }
+    }
+
+    // Return the user's cart with quantity
+    return res.status(200).json(cartWithQuantity);
+  } catch (error) {
+    console.error("Error:", error);
+    return res.status(500).json({ message: "Internal server error" });
+  }
+};
 
 const updateCart = async (req, res) => {
   try {
@@ -229,4 +275,10 @@ const updateCart = async (req, res) => {
   }
 };
 
-module.exports = { getUserCart, getAllproduct, addProductToCart, updateCart };
+module.exports = {
+  getUserPurchased,
+  getUserCart,
+  getAllproduct,
+  addProductToCart,
+  updateCart,
+};
