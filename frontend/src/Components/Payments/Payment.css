@@ -8,7 +8,7 @@
   background-color: #ffffff;
 }
 
-.UserCheckoutView label:not(#wordline-select)::after {
+.UserCheckoutView label:not(#wordline-select, #companyname)::after {
   content: " *";
   color: red;
 }

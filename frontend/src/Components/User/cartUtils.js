@@ -1,15 +1,6 @@
 // cartUtils.js
 import axios from "axios";
 
-export const scaleGrandTotal = (grandTotal) => {
-  const min = 2;
-  const max = 9;
-  const referenceAmount = 1000000; // 10 lakhs
-  const percentage = grandTotal / referenceAmount;
-  const scaledTotal = percentage * (max - min) + min;
-  return Math.min(Math.max(scaledTotal, min), max);
-};
-
 export const getProductIds = (array) => {
   let productIds = [];
   array.forEach((item) => {
@@ -172,10 +163,7 @@ export const initiateTransaction = async (
     );
     const transactionToken = res.data.token;
     localStorage.setItem("transactionToken", transactionToken);
-    localStorage.setItem(
-      "transactionPaymentAmount",
-      Math.floor(scaleGrandTotal(grandTotal))
-    );
+    localStorage.setItem("transactionPaymentAmount", grandTotal);
     setconfirmcard(true);
   } catch (error) {
     alert("Something Went Wrong!");

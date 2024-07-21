@@ -788,6 +788,28 @@ function MobileNavbar(props) {
           <Link to={"/user/mycart"} className="cart-container">
             <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
           </Link>
+          <Link
+            class="button"
+            style={{
+              height: login === "Login" ? "fit-content" : "4vh",
+              width: login === "Login" ? "fit-content" : "4vh",
+              padding: login === "Login" ? "" : "0px",
+
+              textDecoration: "none",
+            }}
+            to={login === "Login" ? "/user/login" : location.pathname}
+            onClick={
+              login === "Login"
+                ? () => {
+                    return;
+                  }
+                : () => {
+                    setisUserCardVisible(!isUserCardVisible);
+                  }
+            }
+          >
+            {login}
+          </Link>
           <div
             className="burger"
             onClick={() => {
@@ -906,20 +928,6 @@ function MobileNavbar(props) {
             to="/shop"
           >
             Shop
-          </Link>
-          <Link
-            to={login === "Login" ? "/user/login" : location.pathname}
-            onClick={
-              login === "Login"
-                ? () => {
-                    setisBurgerActive(!isBurgerActive);
-                  }
-                : () => {
-                    setisUserCardVisible(!isUserCardVisible);
-                  }
-            }
-          >
-            {login === "Login" ? login : "My Account"}
           </Link>
         </div>
         <div

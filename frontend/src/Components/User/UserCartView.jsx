@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import "../Payments/Payment.css";
 
 import {
-  scaleGrandTotal,
   getProductIds,
   fetchCart,
   updateCart,
@@ -63,7 +62,7 @@ function UserCartView(props) {
       name: hereUser.name,
       email: hereUser.email,
       productIds: getProductIds(cart),
-      amount: `${scaleGrandTotal(grandTotal)}`,
+      amount: `${grandTotal}`,
     });
   }, [hereUser, cart, grandTotal]);
 
@@ -71,7 +70,9 @@ function UserCartView(props) {
     setHereUser(user);
   }, [user]);
   useEffect(() => {
-    const allFieldsFilled = Object.values(user).every((field) => field !== "");
+    const allFieldsFilled = Object.entries(user)
+      .filter(([key]) => key !== "companyName")
+      .every(([, value]) => value !== "");
     if (!allFieldsFilled) {
       setIsEverythingOk(false);
     } else {
@@ -82,9 +83,9 @@ function UserCartView(props) {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const allFieldsFilled = Object.values(hereUser).every(
-      (field) => field !== ""
-    );
+    const allFieldsFilled = Object.entries(hereUser)
+      .filter(([key]) => key !== "companyName")
+      .every(([, value]) => value !== "");
 
     if (!allFieldsFilled) {
       setIsEverythingOk(false);
@@ -208,7 +209,9 @@ function UserCartView(props) {
             onChange={handleChange}
           />
 
-          <label htmlFor="companyName">Company Name</label>
+          <label htmlFor="companyName" id="companyname">
+            Company Name
+          </label>
           <input
             type="text"
             id="companyName"
@@ -222,6 +225,7 @@ function UserCartView(props) {
           <input
             type="text"
             id="country"
+            required
             name="country"
             placeholder="Country"
             value={hereUser.country || ""}
@@ -232,6 +236,7 @@ function UserCartView(props) {
           <input
             type="text"
             id="streetAddress"
+            required
             name="streetAddress"
             placeholder="Street Address"
             value={hereUser.streetAddress || ""}
@@ -242,6 +247,7 @@ function UserCartView(props) {
           <input
             type="text"
             id="apartment"
+            required
             name="apartment"
             placeholder="Apartment"
             value={hereUser.apartment || ""}
@@ -253,6 +259,7 @@ function UserCartView(props) {
             type="text"
             id="city"
             name="city"
+            required
             placeholder="City"
             value={hereUser.city || ""}
             onChange={handleChange}
@@ -263,6 +270,7 @@ function UserCartView(props) {
             type="text"
             id="state"
             name="state"
+            required
             placeholder="State"
             value={hereUser.state || ""}
             onChange={handleChange}
@@ -273,6 +281,7 @@ function UserCartView(props) {
             type="text"
             id="pinCode"
             name="pinCode"
+            required
             placeholder="Pin Code"
             value={hereUser.pinCode || ""}
             onChange={handleChange}

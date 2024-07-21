@@ -1,15 +1,36 @@
-#UserCard {
+.UserCardWrapper {
   position: fixed;
-  top: 18vh;
+  top: 0px;
+  left: 0px;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 99;
+  width: 100%;
+  background-color: rgba(128, 128, 128, 0.39);
+}
+#UserCard {
   z-index: 100;
-  width: 350px;
+  max-width: 400px;
+  height: fit-content;
+  margin: 0px 20px;
+  margin-top: 10vh;
   padding: 15px;
   display: flex;
   flex-direction: column;
-  right: 10px;
   background-color: white;
   box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.514);
   border-radius: 10px;
+}
+@media screen and(max-width:440px) {
+  #UserCard {
+    width: 90%;
+    margin: 0px;
+    margin-top: 10vh;
+  }
+  .UserCardWrapper {
+    align-items: center;
+  }
 }
 
 #UserCard h1,
@@ -20,6 +41,7 @@
   font-optical-sizing: auto;
   font-weight: 500;
   font-style: normal;
+  overflow-wrap: break-word;
 }
 
 #UserCard a:hover {
@@ -51,12 +73,14 @@
 }
 
 .UserCartView > span {
-  width: 70%;
+  width: 86%;
   display: flex;
   margin-top: 20px;
+  text-wrap: balance;
   align-items: center;
   justify-content: space-between;
 }
+
 .UserCartView > div {
   border-radius: 10px;
   padding: 20px 0px;
@@ -186,6 +210,12 @@
 
   .check-out-new {
     font-size: 18px;
+  }
+  .UserCardWrapper {
+    justify-content: center;
+  }
+  #UserCard {
+    width: 90%;
   }
 }
 
