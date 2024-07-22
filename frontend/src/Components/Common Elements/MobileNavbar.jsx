@@ -484,16 +484,6 @@ function MobileNavbar(props) {
 
             setisLevel2Active(false);
           }}
-          to="/aboutus/directorsmessage"
-        >
-          Directors Message
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-
-            setisLevel2Active(false);
-          }}
           to="/aboutus/about"
         >
           About{" "}

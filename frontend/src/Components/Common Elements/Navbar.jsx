@@ -33,11 +33,6 @@ function Navbar(props) {
   const dropdownData = {
     aboutus: [
       {
-        content: "Directors Message",
-        ref: "/aboutus/directorsmessage",
-        level: 1,
-      },
-      {
         content: "About",
         ref: "/aboutus/about",
         level: 1,

@@ -152,18 +152,8 @@ function Contact() {
             className="adress"
             ref={(el) => observedElements.current.push(el)}
           >
-            <h2> {loc.pathname === "/contactus" ? "Get in Touch" : ""}</h2>
-            <h1 ref={(el) => observedElements.current.push(el)}>Head Office</h1>
-            <p ref={(el) => observedElements.current.push(el)}>
-              <span ref={(el) => observedElements.current.push(el)}>
-                Address :{" "}
-              </span>
-              Block no. 101/102, 2nd floor, Shriram Tower, Sadar, Nagpur-
-              440001, Maharashtra
-            </p>
-            <h1 ref={(el) => observedElements.current.push(el)}>
-              Branch Office
-            </h1>
+            <h1> {loc.pathname === "/contactus" ? "Get in Touch" : ""}</h1>
+            <h2 ref={(el) => observedElements.current.push(el)}>Head Office</h2>
             <h2
               ref={(el) => observedElements.current.push(el)}
               className="cityname"
@@ -174,9 +164,12 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Address :{" "}
               </span>
-              18, ‘Latakunj’, Behind Kalyan Jewellers, Abhyankar Nagar, Nagpur –
-              10
+              Block no. 101/102, 2nd floor, Shriram Tower, Sadar, Nagpur-
+              440001, Maharashtra
             </p>
+            <h2 ref={(el) => observedElements.current.push(el)}>
+              Branch Office
+            </h2>
             <h2
               ref={(el) => observedElements.current.push(el)}
               className="cityname"
@@ -210,14 +203,14 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Phone No :{" "}
               </span>
-              7249424403
+              72494*****
             </p>
             <p ref={(el) => observedElements.current.push(el)}>
               {" "}
               <span ref={(el) => observedElements.current.push(el)}>
                 Email :{" "}
               </span>
-              psycortex01@gmail.com
+              psycor*****@gmail.com
             </p>
           </div>
           <div className="form" ref={(el) => observedElements.current.push(el)}>

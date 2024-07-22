@@ -9,7 +9,6 @@ import Services from "./Components/Services/Services.jsx";
 import Testimonials from "./Components/Testimonials/Testimonials.jsx";
 import Contact from "./Components/Contact Us/Contact.jsx";
 import Team from "./Components/AboutUs/Team.jsx";
-import DirectorsMessage from "./Components/AboutUs/DirectorsMessage.jsx";
 import MissionVissionValues from "./Components/AboutUs/MissionVissionValues.jsx";
 import Awards from "./Components/AboutUs/Awards.jsx";
 import Blogs from "./Components/Blogs/Blogs.jsx";
@@ -98,10 +97,6 @@ function App() {
         <Route path="/search/:key" element={<Search />} />
         <Route path="/aboutus/team" element={<Team />} />
         <Route path="/aboutus/about" element={<About />} />
-        <Route
-          path="/aboutus/directorsmessage"
-          element={<DirectorsMessage />}
-        />
         <Route
           path="/aboutus/missionvisionandvalues"
           element={<MissionVissionValues />}

@@ -70,7 +70,7 @@ input[type="number"]::-webkit-outer-spin-button {
   display: flex;
   align-items: flex-end;
   word-break: keep-all;
-  padding-left: 8%;
+  padding-left: 10%;
   margin: 1em 0px;
   font-size: 3em;
   font-family: "Playfair Display", serif;

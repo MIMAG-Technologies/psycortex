@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-
+import "./AboutUs.css";
 function Team() {
   useEffect(() => {
     window.scrollTo({
