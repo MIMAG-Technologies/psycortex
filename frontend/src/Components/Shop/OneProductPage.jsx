@@ -80,6 +80,12 @@ function OneProductPage(props) {
                 sessions: "48",
                 cost: "2,40,000",
               },
+              {
+                productId: "PSYIC4",
+                diffrentby: "0 months",
+                sessions: "0",
+                cost: "100",
+              },
             ],
           },
           {
