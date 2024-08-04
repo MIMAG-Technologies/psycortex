@@ -310,6 +310,11 @@ function UserCartView(props) {
             </div>
           </div>
           <label id="wordline-select">
+            <input type="radio" /> You agree to all the terms & conditions
+            mentioned on the website. No charge back would be entertained once
+            the payment is completed.
+          </label>
+          <label id="wordline-select">
             <input type="radio" checked />
             Pay with Worldline
             <img
