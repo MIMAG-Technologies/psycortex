@@ -48,6 +48,11 @@ function Navbar(props) {
         level: 1,
       },
       {
+        content: "Gallery",
+        ref: "/aboutus/gallery",
+        level: 1,
+      },
+      {
         content: "Offices",
         ref: "/aboutus/offices",
         level: 1,

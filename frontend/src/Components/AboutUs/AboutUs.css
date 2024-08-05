@@ -365,3 +365,22 @@
     width: calc(85% - 20px);
   }
 }
+
+/* GALLERY */
+
+.Gallery {
+  display: flex;
+  gap: 15px;
+  width: calc(90% - 15px);
+  margin: 20vh auto;
+}
+
+.Gallery img {
+  transition: all 200ms ease-in-out;
+}
+.Gallery > div {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}

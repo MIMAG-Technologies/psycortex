@@ -34,6 +34,7 @@ import Media from "./Admin/Media.jsx";
 import ForgotPassword from "./Components/User/ForgotPassword.jsx";
 import About from "./Components/AboutUs/About.jsx";
 import AdminLogin from "./Admin/AdminLogin.jsx";
+import Gallery from "./Components/AboutUs/Gallery.jsx";
 
 function App() {
   const [user, setuser] = useState({});
@@ -102,6 +103,7 @@ function App() {
           element={<MissionVissionValues />}
         />
         <Route path="/aboutus/awards" element={<Awards />} />
+        <Route path="/aboutus/gallery" element={<Gallery />} />
 
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/blog/:section" element={<Blog />} />
