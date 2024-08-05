@@ -514,6 +514,16 @@ function MobileNavbar(props) {
 
             setisLevel2Active(false);
           }}
+          to="/aboutus/gallery"
+        >
+          Gallery
+        </Link>
+        <Link
+          onClick={() => {
+            setisBurgerActive(!isBurgerActive);
+
+            setisLevel2Active(false);
+          }}
           to="/aboutus/offices"
         >
           Offices

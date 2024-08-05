@@ -106,6 +106,7 @@ function Footer() {
               Mission Values and Vision
             </Link>
             <Link to="/aboutus/team">Our Team</Link>
+            <Link to="/aboutus/gallery">Gallery</Link>
             <Link to="/aboutus/offices">Offices</Link>
             <Link to="/aboutus/awards">Awards</Link>
           </div>
