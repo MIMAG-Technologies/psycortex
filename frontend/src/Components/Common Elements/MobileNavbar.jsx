@@ -43,7 +43,7 @@ function MobileNavbar(props) {
     return (
       <>
         <span className="accordion" onClick={handleAccordionClick}>
-          Psychological Counselling
+          Counselling Services
         </span>
         <div className="accordion-content">
           <Link
@@ -51,173 +51,113 @@ function MobileNavbar(props) {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicalcounselling/substanceabuseoraddictioncounselling"
+            to="/services/counsellingservices/maritalcounselling"
+          >
+            Marital Counselling
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/counsellingservices/premaritalcounselling"
+          >
+            Pre-Marital Counselling
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/counsellingservices/postmaritalcounselling"
+          >
+            Post-Marital Counselling
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/counsellingservices/anxietycounselling"
+          >
+            Anxiety Counselling
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/counsellingservices/depressioncounselling"
+          >
+            Depression Counselling
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/counsellingservices/traumacounselling"
+          >
+            Trauma Counselling
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/counsellingservices/substanceabuseoraddictioncounselling"
           >
             Substance Abuse or Addiction Counselling
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicalcounselling/interpersonalpsychotherapy"
-          >
-            Interpersonal Psychotherapy
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/overthinkingcounselling"
-          >
-            Overthinking Counselling
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/motivationalcounselling"
-          >
-            Motivational Counselling
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/sexcounselling"
-          >
-            Sex Counselling
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/personcenteredtherapy"
-          >
-            Person Centered Therapy
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/griefcounselling"
+            to="/services/counsellingservices/griefcounselling"
           >
             Grief Counselling
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicalcounselling/dialecticalbehaviourcounselling"
+            to="/services/counsellingservices/motivationalcounselling"
           >
-            Dialectical Behaviour Counselling
+            Motivational Counselling
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicalcounselling/solutionfocusedbrieftherapy"
+            to="/services/counsellingservices/stressmanagementcounselling"
           >
-            Solution-Focused Brief Therapy
+            Stress Management Counselling
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicalcounselling/narrativetherapy"
+            to="/services/counsellingservices/mentalhealthcounselling"
           >
-            Narrative Therapy
+            Mental Health Counselling
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicalcounselling/rationalemotivetherapy"
+            to="/services/counsellingservices/sleepcounselling"
           >
-            Rational Emotive Therapy
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/emotionallyfocusedtherapy"
-          >
-            Emotionally Focused Therapy
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/playtherapy"
-          >
-            Play Therapy
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/arttherapy"
-          >
-            Art Therapy
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/rehabilitationcounselling"
-          >
-            Rehabilitation Counselling
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/humanisticpsychology"
-          >
-            Humanistic Psychology
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicalcounselling/gestalttherapy"
-          >
-            Gestalt Therapy
+            Sleep Counselling
           </Link>
         </div>
+
         <span className="accordion" onClick={handleAccordionClick}>
-          Sexology Counselling
+          Psychotherapy Approaches
         </span>
         <div className="accordion-content">
           <Link
@@ -225,134 +165,23 @@ function MobileNavbar(props) {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/sexologycounselling/erectiledysfunction"
+            to="/services/psychotherapyapproaches/interpersonalpsychotherapy"
           >
-            Erectile Dysfunction
+            Interpersonal Psychotherapy
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/sexologycounselling/lowlibido"
+            to="/services/psychotherapyapproaches/psychologicalcounselling"
           >
-            Low Libido
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/lackofinterest"
-          >
-            Lack of Interest
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/prematureejaculation"
-          >
-            Premature Ejaculation
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/lowconfidence"
-          >
-            Low Confidence
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/lackofresponsetosexualstimulus"
-          >
-            Lack of Response to Sexual Stimulus
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/inabilitytoreachorgasm"
-          >
-            Inability to Reach Orgasm
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/excessivelibido"
-          >
-            Excessive Libido
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/distressingsexualthoughtsunwanted"
-          >
-            Distressing Sexual Thoughts Unwanted
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/inabilitytocontrolsexualbehaviour"
-          >
-            Inability to Control Sexual Behavior
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/issuesrelatingtosexualtrauma"
-          >
-            Issues relating to Sexual Trauma
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/somaticsextherapy"
-          >
-            Somatic Sex Therapy
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/sexologycounselling/pelvicfloorphysicaltherapy"
-          >
-            Pelvic Floor Physical Therapy
+            Psychological Counselling
           </Link>
         </div>
 
         <span className="accordion" onClick={handleAccordionClick}>
-          Psychological Testing
+          Assessment and Testing
         </span>
         <div className="accordion-content">
           <Link
@@ -360,73 +189,32 @@ function MobileNavbar(props) {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicaltesting/basiccounselling"
+            to="/services/assessmentandtesting/psychologicaltesting"
           >
-            Basic Counselling
+            Psychological Testing
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicaltesting/personalcounselling"
-          >
-            Personal Counselling
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicaltesting/dmittest"
-          >
-            DMIT Test
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicaltesting/psychometricassessment"
+            to="/services/assessmentandtesting/psychometricassessment"
           >
             Psychometric Assessment
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/psychologicaltesting/careersuitabilitytest"
+            to="/services/assessmentandtesting/careersuitabilitytest"
           >
             Career Suitability Test
           </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicaltesting/intelligencebuildingprogram"
-          >
-            Intelligence Building Program
-          </Link>
-
-          <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-              setisLevel2Active(false);
-            }}
-            to="/services/psychologicaltesting/midbrainactivation"
-          >
-            MidBrain Activation
-          </Link>
         </div>
+
         <span className="accordion" onClick={handleAccordionClick}>
-          Corporate
+          Career and Skills Development
         </span>
         <div className="accordion-content">
           <Link
@@ -434,39 +222,123 @@ function MobileNavbar(props) {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/corporate/psychologicalemployeecounselling"
+            to="/services/careerandskillsdevelopment/careercounselling"
           >
-            Psychological Employee Counselling
+            Career Counselling
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/corporate/worklifeservices"
+            to="/services/careerandskillsdevelopment/softskillsdevelopment"
           >
-            Work-Life Service
+            Soft Skills Development
           </Link>
+        </div>
 
+        <span className="accordion" onClick={handleAccordionClick}>
+          Unique Features
+        </span>
+        <div className="accordion-content">
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/corporate/stresscontrolforcorporates"
+            to="/services/uniquefeatures/comprehensivementalwellnesssupport"
           >
-            Stress Control for Corporates
+            Comprehensive Mental Wellness Support
           </Link>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
             }}
-            to="/services/corporate/hrqol"
+            to="/services/uniquefeatures/personalizedtherapyplans"
           >
-            Health-related Quality of Life
+            Personalized Therapy Plans
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/evidencebasedtherapeutictechniques"
+          >
+            Evidence-Based Therapeutic Techniques
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/specializedsupport"
+          >
+            Specialized Support
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/careerandprofessionaldevelopment"
+          >
+            Career and Professional Development
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/familyandrelationshipcounselling"
+          >
+            Family and Relationship Counselling
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/stressandsleepmanagement"
+          >
+            Stress and Sleep Management
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/empatheticandsupportiveenvironment"
+          >
+            Empathetic and Supportive Environment
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/commitmenttoconfidentiality"
+          >
+            Commitment to Confidentiality
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/ethicalandprofessionalstandards"
+          >
+            Ethical and Professional Standards
+          </Link>
+          <Link
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+              setisLevel2Active(false);
+            }}
+            to="/services/uniquefeatures/educationalresourcesandsupport"
+          >
+            Educational Resources and Support
           </Link>
         </div>
       </>
@@ -486,7 +358,7 @@ function MobileNavbar(props) {
           }}
           to="/aboutus/about"
         >
-          About{" "}
+          About Us{" "}
         </Link>
         <Link
           onClick={() => {
@@ -498,7 +370,7 @@ function MobileNavbar(props) {
         >
           Mission Values and Vision
         </Link>
-        <Link
+        {/* <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
 
@@ -507,7 +379,7 @@ function MobileNavbar(props) {
           to="/aboutus/team"
         >
           Our Team
-        </Link>
+        </Link> */}
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
@@ -518,7 +390,7 @@ function MobileNavbar(props) {
         >
           Gallery
         </Link>
-        <Link
+        {/* <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
 
@@ -527,7 +399,7 @@ function MobileNavbar(props) {
           to="/aboutus/offices"
         >
           Offices
-        </Link>
+        </Link> */}
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
@@ -856,14 +728,14 @@ function MobileNavbar(props) {
           >
             About Us
           </span>
-          <span
+          {/* <span
             onClick={() => {
               setisLevel2Active(true);
               handleNavHover(3);
             }}
           >
             Unique Features
-          </span>
+          </span> */}
           <span
             onClick={() => {
               setisLevel2Active(true);
@@ -872,14 +744,14 @@ function MobileNavbar(props) {
           >
             Services
           </span>
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
             }}
             to="/testimonials"
           >
             Testimonials
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -888,14 +760,14 @@ function MobileNavbar(props) {
           >
             Franchise
           </Link>
-          <Link
+          {/*<Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
             }}
             to="/casestudies"
           >
             Case Studies
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);

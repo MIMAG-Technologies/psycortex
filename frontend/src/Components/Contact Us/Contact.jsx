@@ -203,7 +203,7 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Phone No :{" "}
               </span>
-              72494*****
+              87670*****
             </p>
             <p ref={(el) => observedElements.current.push(el)}>
               {" "}

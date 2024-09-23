@@ -33,7 +33,7 @@ function Navbar(props) {
   const dropdownData = {
     aboutus: [
       {
-        content: "About",
+        content: "About Us",
         ref: "/aboutus/about",
         level: 1,
       },
@@ -42,21 +42,21 @@ function Navbar(props) {
         ref: "/aboutus/missionvisionandvalues",
         level: 1,
       },
-      {
-        content: "Our Team",
-        ref: "/aboutus/team",
-        level: 1,
-      },
+      // {
+      //   content: "Our Team",
+      //   ref: "/aboutus/team",
+      //   level: 1,
+      // },
       {
         content: "Gallery",
         ref: "/aboutus/gallery",
         level: 1,
       },
-      {
-        content: "Offices",
-        ref: "/aboutus/offices",
-        level: 1,
-      },
+      // {
+      //   content: "Offices",
+      //   ref: "/aboutus/offices",
+      //   level: 1,
+      // },
       {
         content: "Awards",
         ref: "/aboutus/awards",
@@ -157,230 +157,179 @@ function Navbar(props) {
     ],
     services: [
       {
-        content: "Psychological Counselling",
+        content: "Counselling Services",
         level: 1,
         ref: "#",
+      },
+      {
+        content: "Marital Counselling",
+        level: 2,
+        ref: "/services/counsellingservices/maritalcounselling",
+      },
+      {
+        content: "Pre-Marital Counselling",
+        level: 2,
+        ref: "/services/counsellingservices/premaritalcounselling",
+      },
+      {
+        content: "Post-Marital Counselling",
+        level: 2,
+        ref: "/services/counsellingservices/postmaritalcounselling",
+      },
+      {
+        content: "Anxiety Counselling",
+        level: 2,
+        ref: "/services/counsellingservices/anxietycounselling",
+      },
+      {
+        content: "Depression Counselling",
+        level: 2,
+        ref: "/services/counsellingservices/depressioncounselling",
+      },
+      {
+        content: "Trauma Counselling",
+        level: 2,
+        ref: "/services/counsellingservices/traumacounselling",
       },
       {
         content: "Substance Abuse or Addiction Counselling",
         level: 2,
-        ref: "/services/psychologicalcounselling/substanceabuseoraddictioncounselling",
-      },
-      {
-        content: "Interpersonal Psychotherapy",
-        level: 2,
-        ref: "/services/psychologicalcounselling/interpersonalpsychotherapy",
-      },
-      {
-        content: "Overthinking Counselling",
-        level: 2,
-        ref: "/services/psychologicalcounselling/overthinkingcounselling",
-      },
-      {
-        content: "Motivational Counselling",
-        level: 2,
-        ref: "/services/psychologicalcounselling/motivationalcounselling",
-      },
-      {
-        content: "Sex Counselling",
-        level: 2,
-        ref: "/services/psychologicalcounselling/sexcounselling",
-      },
-      {
-        content: "Person Centered Therapy",
-        level: 2,
-        ref: "/services/psychologicalcounselling/personcenteredtherapy",
+        ref: "/services/counsellingservices/substanceabuseoraddictioncounselling",
       },
       {
         content: "Grief Counselling",
         level: 2,
-        ref: "/services/psychologicalcounselling/griefcounselling",
+        ref: "/services/counsellingservices/griefcounselling",
       },
       {
-        content: "Dialectical Behaviour Counselling",
+        content: "Motivational Counselling",
         level: 2,
-        ref: "/services/psychologicalcounselling/dialecticalbehaviourcounselling",
+        ref: "/services/counsellingservices/motivationalcounselling",
       },
       {
-        content: "Solution-Focused Brief Therapy",
+        content: "Stress Management Counselling",
         level: 2,
-        ref: "/services/psychologicalcounselling/solutionfocusedbrieftherapy",
+        ref: "/services/counsellingservices/stressmanagementcounselling",
       },
       {
-        content: "Narrative Therapy",
+        content: "Mental Health Counselling",
         level: 2,
-        ref: "/services/psychologicalcounselling/narrativetherapy",
+        ref: "/services/counsellingservices/mentalhealthcounselling",
       },
       {
-        content: "Rational Emotive Therapy",
+        content: "Sleep Counselling",
         level: 2,
-        ref: "/services/psychologicalcounselling/rationalemotivetherapy",
+        ref: "/services/counsellingservices/sleepcounselling",
       },
       {
-        content: "Emotionally Focused Therapy",
-        level: 2,
-        ref: "/services/psychologicalcounselling/emotionallyfocusedtherapy",
-      },
-      {
-        content: "Play Therapy",
-        level: 2,
-        ref: "/services/psychologicalcounselling/playtherapy",
-      },
-      {
-        content: "Art Therapy",
-        level: 2,
-        ref: "/services/psychologicalcounselling/arttherapy",
-      },
-      {
-        content: "Rehabilitation Counselling",
-        level: 2,
-        ref: "/services/psychologicalcounselling/rehabilitationcounselling",
-      },
-      {
-        content: "Humanistic Psychology",
-        level: 2,
-        ref: "/services/psychologicalcounselling/humanisticpsychology",
-      },
-      {
-        content: "Gestalt Therapy",
-        level: 2,
-        ref: "/services/psychologicalcounselling/gestalttherapy",
-      },
-      {
-        content: "Sexology Counselling",
+        content: "Psychotherapy Approaches",
         level: 1,
         ref: "#",
       },
-
       {
-        content: "Erectile Dysfunction",
+        content: "Interpersonal Psychotherapy",
         level: 2,
-        ref: "/services/sexologycounselling/erectiledysfunction",
+        ref: "/services/psychotherapyapproaches/interpersonalpsychotherapy",
       },
       {
-        content: "Low Libido",
+        content: "Psychological Counselling",
         level: 2,
-        ref: "/services/sexologycounselling/lowlibido",
+        ref: "/services/psychotherapyapproaches/psychologicalcounselling",
       },
       {
-        content: "Lack of Interest",
-        level: 2,
-        ref: "/services/sexologycounselling/lackofinterest",
-      },
-      {
-        content: "Premature Ejaculation",
-        level: 2,
-        ref: "/services/sexologycounselling/prematureejaculation",
-      },
-      {
-        content: "Low Confidence",
-        level: 2,
-        ref: "/services/sexologycounselling/lowconfidence",
-      },
-      {
-        content: "Lack of Response to Sexual Stimulus",
-        level: 2,
-        ref: "/services/sexologycounselling/lackofresponsetosexualstimulus",
-      },
-      {
-        content: "Inability to Reach Orgasm",
-        level: 2,
-        ref: "/services/sexologycounselling/inabilitytoreachorgasm",
-      },
-      {
-        content: "Excessive Libido",
-        level: 2,
-        ref: "/services/sexologycounselling/excessivelibido",
-      },
-      {
-        content: "Distressing Sexual Thoughts Unwanted",
-        level: 2,
-        ref: "/services/sexologycounselling/distressingsexualthoughtsunwanted",
-      },
-      {
-        content: "Inability to Control Sexual Behavior",
-        level: 2,
-        ref: "/services/sexologycounselling/inabilitytocontrolsexualbehaviour",
-      },
-      {
-        content: "Issues relating to Sexual Trauma",
-        level: 2,
-        ref: "/services/sexologycounselling/issuesrelatingtosexualtrauma",
-      },
-      {
-        content: "Somatic Sex Therapy",
-        level: 2,
-        ref: "/services/sexologycounselling/somaticsextherapy",
-      },
-      {
-        content: "Pelvic Floor Physical Therapy",
-        level: 2,
-        ref: "/services/sexologycounselling/pelvicfloorphysicaltherapy",
+        content: "Assessment and Testing",
+        level: 1,
+        ref: "#",
       },
       {
         content: "Psychological Testing",
-        level: 1,
-        ref: "#",
-      },
-      {
-        content: "Basic Counselling",
         level: 2,
-        ref: "/services/psychologicaltesting/basiccounselling",
-      },
-      {
-        content: "Personal Counselling",
-        level: 2,
-        ref: "/services/psychologicaltesting/personalcounselling",
-      },
-      {
-        content: "DMIT Test",
-        level: 2,
-        ref: "/services/psychologicaltesting/dmittest",
+        ref: "/services/assessmentandtesting/psychologicaltesting",
       },
       {
         content: "Psychometric Assessment",
         level: 2,
-        ref: "/services/psychologicaltesting/psychometricassessment",
+        ref: "/services/assessmentandtesting/psychometricassessment",
       },
       {
         content: "Career Suitability Test",
         level: 2,
-        ref: "/services/psychologicaltesting/careersuitabilitytest",
+        ref: "/services/assessmentandtesting/careersuitabilitytest",
       },
       {
-        content: "Intelligence Building Program",
-        level: 2,
-        ref: "/services/psychologicaltesting/intelligencebuildingprogram",
-      },
-      {
-        content: "MidBrain Activation",
-        level: 2,
-        ref: "/services/psychologicaltesting/midbrainactivation",
-      },
-      {
-        content: "Corporates",
+        content: "Career and Skills Development",
         level: 1,
         ref: "#",
       },
       {
-        content: "Psychological Employee Counselling",
+        content: "Career Counselling",
         level: 2,
-        ref: "/services/corporate/psychologicalemployeecounselling",
+        ref: "/services/careerandskillsdevelopment/careercounselling",
       },
       {
-        content: "Work-Life Service",
+        content: "Soft Skills Development",
         level: 2,
-        ref: "/services/corporate/worklifeservices",
+        ref: "/services/careerandskillsdevelopment/softskillsdevelopment",
       },
       {
-        content: "Stress Control for Corporates",
-        level: 2,
-        ref: "/services/corporate/stresscontrolforcorporates",
+        content: "Unique Features",
+        level: 1,
+        ref: "#",
       },
       {
-        content: "Health-related Quality of Life",
+        content: "Comprehensive Mental Wellness Support",
         level: 2,
-        ref: "/services/corporate/hrqol",
+        ref: "/services/uniquefeatures/comprehensivementalwellnesssupport",
+      },
+      {
+        content: "Personalized Therapy Plans",
+        level: 2,
+        ref: "/services/uniquefeatures/personalizedtherapyplans",
+      },
+      {
+        content: "Evidence-Based Therapeutic Techniques",
+        level: 2,
+        ref: "/services/uniquefeatures/evidencebasedtherapeutictechniques",
+      },
+      {
+        content: "Specialized Support",
+        level: 2,
+        ref: "/services/uniquefeatures/specializedsupport",
+      },
+      {
+        content: "Career and Professional Development",
+        level: 2,
+        ref: "/services/uniquefeatures/careerandprofessionaldevelopment",
+      },
+      {
+        content: "Family and Relationship Counselling",
+        level: 2,
+        ref: "/services/uniquefeatures/familyandrelationshipcounselling",
+      },
+      {
+        content: "Stress and Sleep Management",
+        level: 2,
+        ref: "/services/uniquefeatures/stressandsleepmanagement",
+      },
+      {
+        content: "Empathetic and Supportive Environment",
+        level: 2,
+        ref: "/services/uniquefeatures/empatheticandsupportiveenvironment",
+      },
+      {
+        content: "Commitment to Confidentiality",
+        level: 2,
+        ref: "/services/uniquefeatures/commitmenttoconfidentiality",
+      },
+      {
+        content: "Ethical and Professional Standards",
+        level: 2,
+        ref: "/services/uniquefeatures/ethicalandprofessionalstandards",
+      },
+      {
+        content: "Educational Resources and Support",
+        level: 2,
+        ref: "/services/uniquefeatures/educationalresourcesandsupport",
       },
     ],
   };
@@ -534,6 +483,22 @@ function Navbar(props) {
                 alt=""
               />
             </Link>
+            <Link
+              to={"/"}
+              onMouseEnter={() => {
+                setIsDropdownActive(false);
+              }}
+              style={{
+                color:
+                  location.pathname === "/"
+                    ? isScrolled
+                      ? "black"
+                      : "white"
+                    : "black",
+              }}
+            >
+              Home
+            </Link>
             <a
               onMouseEnter={() => {
                 setSection("aboutus");
@@ -542,23 +507,23 @@ function Navbar(props) {
             >
               About Us <DropdownArrow />{" "}
             </a>
-            <a
+            {/* <a
               onMouseEnter={() => {
                 setSection("uniqueFeatures");
                 setIsDropdownActive(true);
               }}
             >
               Unique features <DropdownArrow />{" "}
-            </a>
+            </a> */}
             <a
               onMouseEnter={() => {
                 setIsDropdownActive(true);
                 setSection("services");
               }}
             >
-              Services <DropdownArrow />{" "}
+              Our Services <DropdownArrow />{" "}
             </a>
-            <Link
+            {/* <Link
               onMouseEnter={() => {
                 setIsDropdownActive(false);
               }}
@@ -573,7 +538,7 @@ function Navbar(props) {
               }}
             >
               Testimonials
-            </Link>
+            </Link> */}
             <Link
               to={"/franchise"}
               onMouseEnter={() => {
@@ -590,7 +555,7 @@ function Navbar(props) {
             >
               Franchise
             </Link>
-            <Link
+            {/* <Link
               to={"/casestudies"}
               onMouseEnter={() => {
                 setIsDropdownActive(false);
@@ -605,7 +570,7 @@ function Navbar(props) {
               }}
             >
               Case Studies
-            </Link>
+            </Link> */}
             <Link
               to={"/blogs"}
               onMouseEnter={() => {

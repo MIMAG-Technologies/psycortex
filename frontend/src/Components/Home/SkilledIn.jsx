@@ -99,15 +99,14 @@ function SkilledIn() {
             className="mobile-view-photo"
           />
           <p ref={(el) => el && observedElements.current.push(el)}>
-            Adult psychology is a multifaceted field of study that delves into
-            the cognitive, emotional, and behavioral aspects of individuals in
-            the adult stage of development. It encompasses a wide range of
-            topics, including identity formation, relationships, career
-            development, and mental health. One significant area of focus within
-            adult psychology is understanding how life experiences, societal
-            influences, and biological factors shape an individual's thoughts,
-            feelings, and actions as they navigate the challenges and
-            opportunities of adulthood.
+            Adult psychology explores the cognitive, emotional, and behavioral
+            aspects of individuals during adulthood. It covers various topics
+            such as identity development, relationships, career progression, and
+            overall mental well-being. A key focus in adult psychology is
+            understanding how life experiences, societal influences, and
+            biological factors shape an individual’s thoughts, feelings, and
+            actions as they face the challenges and opportunities that come with
+            adulthood.
             <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
@@ -144,15 +143,14 @@ function SkilledIn() {
           />
 
           <p ref={(el) => el && observedElements.current.push(el)}>
-            Parenting counseling is a specialized form of therapy aimed at
-            supporting parents in navigating the challenges and complexities of
-            raising children. It provides a safe and non-judgmental space for
-            parents to explore their concerns, frustrations, and goals related
-            to parenting. Through counseling sessions, parents can gain insights
-            into their parenting styles, communication patterns, and family
-            dynamics. Counselors often use evidence-based techniques and
-            strategies to help parents develop effective discipline strategies,
-            improve parent-child relationships, and manage stress.
+            Parenting counseling offers support to parents as they navigate the
+            challenges of raising children. It provides a safe, non-judgmental
+            space for parents to discuss their concerns, frustrations, and
+            parenting goals. Through these sessions, parents can better
+            understand their parenting styles, communication methods, and family
+            dynamics. Counselors use evidence-based techniques to help parents
+            develop effective discipline strategies, enhance parent-child
+            relationships, and manage stress.
             <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
@@ -191,16 +189,14 @@ function SkilledIn() {
           />
 
           <p ref={(el) => el && observedElements.current.push(el)}>
-            Marital counseling, also known as couples therapy, is a specialized
-            form of psychotherapy designed to help couples address and resolve
-            conflicts, improve communication, and strengthen their relationship.
-            In marital counseling sessions, trained therapists provide a
-            supportive and neutral environment where couples can openly discuss
-            their concerns, emotions, and relationship dynamics.Through various
-            therapeutic techniques and interventions, such as active listening,
-            conflict resolution strategies, and behavior modification exercises,
-            couples learn to identify and understand the underlying issues
-            contributing to their difficulties.
+            Marital counseling, or couples therapy, offers support to couples
+            looking to address conflicts, improve communication, and strengthen
+            their relationship. In these sessions, trained therapists provide a
+            neutral and supportive space for couples to openly discuss concerns
+            and relationship dynamics. Using techniques like active listening,
+            conflict resolution strategies, and behavior-focused exercises,
+            couples work together to understand and address the underlying
+            issues affecting their relationship.
             <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
@@ -235,15 +231,13 @@ function SkilledIn() {
             className="mobile-view-photo"
           />
           <p>
-            Insomnia counseling offers valuable support and guidance to
-            individuals struggling with persistent sleep difficulties. By
-            addressing the underlying factors contributing to insomnia, such as
-            stress, anxiety, or lifestyle habits, counselors work
-            collaboratively with clients to develop personalized strategies for
-            improving sleep quality and quantity. Through cognitive-behavioral
-            techniques, relaxation exercises, and sleep hygiene education,
-            individuals learn effective coping mechanisms to manage racing
-            thoughts and bedtime worries.
+            Insomnia counseling provides support and guidance to individuals
+            experiencing difficulties with sleep. By exploring factors such as
+            stress, anxiety, or lifestyle habits, counselors collaborate with
+            clients to create personalized strategies for enhancing sleep
+            quality. Using cognitive-behavioral techniques, relaxation
+            exercises, and sleep hygiene practices, individuals can develop
+            helpful ways to manage racing thoughts and bedtime concerns.
             <Link
               class="know-more-btn"
               to={"/uniquefeature/insomniacounselling"}
@@ -277,17 +271,15 @@ function SkilledIn() {
           <img src={imgArr[4]} alt="" className="mobile-view-photo" />
 
           <p ref={(el) => el && observedElements.current.push(el)}>
-            An intelligence building program is designed to enhance cognitive
-            abilities and optimize intellectual potential through structured
-            activities, exercises, and techniques. These programs often
-            integrate various cognitive tasks such as problem-solving, critical
-            thinking, memory enhancement, and creativity exercises tailored to
-            stimulate different areas of the brain. Additionally, they may
-            incorporate strategies for improving learning skills, information
-            processing speed, and mental flexibility. Intelligence building
-            programs typically draw from principles of neuroscience, psychology,
-            and education to provide participants with a holistic approach to
-            cognitive development.
+            An intelligence-building program is designed to help individuals
+            enhance cognitive abilities and develop intellectual potential
+            through structured activities and exercises. These programs include
+            tasks like problem-solving, critical thinking, memory improvement,
+            and creativity exercises to engage different areas of the brain.
+            They may also incorporate techniques to improve learning skills,
+            information processing speed, and mental agility. Drawing from
+            principles of neuroscience, psychology, and education, these
+            programs offer a comprehensive approach to cognitive development.
             <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"

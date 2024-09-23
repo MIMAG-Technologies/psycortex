@@ -7,8 +7,9 @@ function TheBrainTake() {
         alt=""
       />
       <p>
-        Get the gear that never gives up gain a new perspective on stressful
-        situations and build skills to manage your stress.
+        Equip yourself with reliable tools, gain new perspectives on stressful
+        situations, and develop effective skills to manage your stress,
+        fostering mental resilience and well-being.
       </p>
     </div>
   );

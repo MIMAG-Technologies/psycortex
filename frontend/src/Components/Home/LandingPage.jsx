@@ -1,13 +1,18 @@
 import React, { useState, useEffect } from "react";
 function LandingPage() {
-  const whatsAppLink = "https://wa.me/7249424403?text=";
+  const whatsAppLink = "https://wa.me/8767027078?text=";
 
-  const titleArr = ["Mental Health", "Indian Psychology", "Drug De-Addiction"];
-  const infoArry = [
-    "Through personalized sessions with trained professionals, individuals can learn effective coping strategies to navigate the challenges of daily life. These sessions often involve identifying stressors, exploring underlying emotions, and developing practical techniques such as relaxation exercises, mindfulness, and cognitive restructuring.",
-    "Indian psychology offers a unique perspective on mental health that integrates ancient wisdom with modern practices. Rooted in ancient texts like the Vedas, Upanishads, and Yoga Sutras, Indian psychology emphasizes holistic well-being encompassing the mind, body, and spirit. Concepts such as Ayurveda, yoga, and meditation are central to promoting mental health by addressing the interconnectedness of physical and psychological states.",
-    "Drug de-addiction counseling offers a lifeline to individuals grappling with substance abuse and addiction. Through compassionate guidance and evidence-based interventions, counselors facilitate the journey towards recovery. They work collaboratively with clients to explore the root causes of addiction, address underlying emotional issues, and develop personalized strategies for managing cravings and triggers.",
+  const titleArr = [
+    "Mental Wellness Support",
+    "Indian Psychological Perspectives",
+    "Career Guidance and Counseling",
   ];
+  const infoArry = [
+    "Our personalized sessions with trained professionals provide individuals with strategies to manage daily life challenges. These sessions involve identifying sources of stress, understanding emotions, and practicing techniques such as relaxation, mindfulness, and cognitive approaches to enhance well-being.",
+    "Indian psychology integrates ancient wisdom with modern approaches to mental wellness. Drawing from texts like the Vedas, Upanishads, and Yoga Sutras, it emphasizes a holistic approach, combining practices like Ayurveda, yoga, and meditation to support the balance of mental and physical well-being.",
+    "Psycortex Pvt. Ltd. offers tailored guidance to help individuals navigate career challenges, make informed decisions, and achieve professional growth. Our services are grounded in psychological insights, customized to meet the unique needs and goals of each client, empowering them to succeed in the workplace.",
+  ];
+
   const bgArr = [
     `${process.env.PUBLIC_URL}/assets/Images/Home/service1.webp`,
     `${process.env.PUBLIC_URL}/assets/Images/Home/service2.png`,

@@ -74,13 +74,13 @@ function DirectorsMessage() {
             mental health care.
           </p>
           <p ref={(el) => el && observedElements.current.push(el)}>
-            At Psycortex Brain Take Mental Health (OPC) Pvt. Ltd, we understand
-            the challenges and complexities individuals face when it comes to
-            mental well-being. Our mission is rooted in the belief that everyone
-            deserves access to compassionate, effective, and personalized mental
-            health support. Whether you are seeking guidance for yourself, a
-            loved one, or your organization, we are here to accompany you on
-            your journey towards greater mental wellness.
+            At Psycortex Pvt Ltd, we understand the challenges and complexities
+            individuals face when it comes to mental well-being. Our mission is
+            rooted in the belief that everyone deserves access to compassionate,
+            effective, and personalized mental health support. Whether you are
+            seeking guidance for yourself, a loved one, or your organization, we
+            are here to accompany you on your journey towards greater mental
+            wellness.
           </p>
           <p ref={(el) => el && observedElements.current.push(el)}>
             Our approach is characterized by integrity, compassion, innovation,
@@ -122,7 +122,7 @@ function DirectorsMessage() {
               DR. RASHMI SHUKLA
             </h1>
             <p ref={(el) => el && observedElements.current.push(el)}>
-              Director | Psycortex Brain Take Mental Health (OPC) Pvt. Ltd
+              Director | Psycortex Pvt Ltd
             </p>
           </span>
           <bold ref={(el) => el && observedElements.current.push(el)}>
@@ -130,20 +130,20 @@ function DirectorsMessage() {
           </bold>
           <p ref={(el) => el && observedElements.current.push(el)}>
             It is with great pleasure that I extend my warmest greetings to you
-            on behalf of Psycortex Brain Take Mental Health (OPC) Pvt. Ltd As
-            the Director of our esteemed organization, I am honored to lead a
-            team of passionate professionals dedicated to redefining the
-            standards of mental health care.
+            on behalf of Psycortex Pvt Ltd As the Director of our esteemed
+            organization, I am honored to lead a team of passionate
+            professionals dedicated to redefining the standards of mental health
+            care.
           </p>
           <p ref={(el) => el && observedElements.current.push(el)}>
-            At Psycortex Brain Take Mental Health (OPC) Pvt. Ltd, we recognize
-            the profound impact that mental well-being has on every aspect of
-            our lives. Our mission is to provide comprehensive, compassionate,
-            and personalized support to help you navigate the complexities of
-            the human mind with confidence and resilience. We understand that
-            seeking help for mental health concerns can be a daunting step,
-            which is why we are committed to creating a safe and welcoming
-            environment where you can feel heard, understood, and empowered.
+            At Psycortex Pvt Ltd, we recognize the profound impact that mental
+            well-being has on every aspect of our lives. Our mission is to
+            provide comprehensive, compassionate, and personalized support to
+            help you navigate the complexities of the human mind with confidence
+            and resilience. We understand that seeking help for mental health
+            concerns can be a daunting step, which is why we are committed to
+            creating a safe and welcoming environment where you can feel heard,
+            understood, and empowered.
           </p>
           <p ref={(el) => el && observedElements.current.push(el)}>
             Our team of highly skilled therapists, counselors, and specialists

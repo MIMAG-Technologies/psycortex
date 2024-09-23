@@ -8,25 +8,26 @@ function About() {
         {" > About Us > About"}{" "}
       </div>
       <div>
-        <h1>
-          Legal Venture Name: Psycortex Brain Take Mental Health (OPC) Pvt. Ltd
-        </h1>
+        <h1>Legal Venture Name: Psycortex Pvt Ltd</h1>
         <p>
-          Welcome to Psycortex Brain Take Mental Health (OPC) Pvt. Ltd, where we
-          specialize in providing comprehensive and transformative mental health
-          counseling and services. Situated at the forefront of mental wellness,
-          our clinic is a sanctuary of compassion and expertise, dedicated to
-          nurturing the health and happiness of our clients.
+          Welcome to Psycortex Pvt Ltd, where we specialize in providing
+          comprehensive and transformative mental health counseling and
+          services. Situated at the forefront of mental wellness, our clinic is
+          a sanctuary of compassion and expertise, dedicated to nurturing the
+          health and happiness of our clients.
         </p>
+        <img
+          src="/assets/Images/AboutUs/Gallery Images/Gallery-img- (3).jpg"
+          alt=""
+        />
         <p>
-          At Psycortex Brain Take Mental Health (OPC) Pvt. Ltd, we recognize the
-          intricate interplay between mind, body, and spirit, and our team of
-          experienced psychologists, therapists, and counselors are committed to
-          offering personalized and effective treatment plans tailored to your
-          unique needs. Whether you're grappling with the weight of anxiety,
-          depression, trauma, or facing challenges in relationships and personal
-          growth, we are here to guide you towards profound healing and
-          self-discovery.
+          At Psycortex Pvt Ltd, we recognize the intricate interplay between
+          mind, body, and spirit, and our team of experienced psychologists,
+          therapists, and counselors are committed to offering personalized and
+          effective treatment plans tailored to your unique needs. Whether
+          you're grappling with the weight of anxiety, depression, trauma, or
+          facing challenges in relationships and personal growth, we are here to
+          guide you towards profound healing and self-discovery.
         </p>
         <p>
           Our approach encompasses a diverse range of therapeutic modalities,

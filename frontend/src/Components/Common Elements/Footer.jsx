@@ -110,190 +110,120 @@ function Footer() {
             <Link to="/aboutus/offices">Offices</Link>
             <Link to="/aboutus/awards">Awards</Link>
           </div>
-          <h4>Unique Features</h4>
+
+          <h4>Our Services</h4>
+
+          <h4 className="uniqfooter">Counselling Services</h4>
           <div>
-            <Link to="/uniquefeature/maritialcounselling">
+            <Link to="/services/counsellingservices/maritalcounselling">
               Marital Counselling
             </Link>
-            <Link to="/uniquefeature/premaritalcounselling">
+            <Link to="/services/counsellingservices/premaritalcounselling">
               Pre-Marital Counselling
             </Link>
-            <Link to="/uniquefeature/postmaritalcounselling">
+            <Link to="/services/counsellingservices/postmaritalcounselling">
               Post-Marital Counselling
             </Link>
-            <Link to="/uniquefeature/careercounselling">
-              Career Counselling
-            </Link>
-            <Link to="/uniquefeature/anxietycounselling">
+            <Link to="/services/counsellingservices/anxietycounselling">
               Anxiety Counselling
             </Link>
-            <Link to="/uniquefeature/depressioncounselling">
+            <Link to="/services/counsellingservices/depressioncounselling">
               Depression Counselling
             </Link>
-            <Link to="/uniquefeature/insomniacounselling">
-              Insomnia/Sleep Problem Counselling
+            <Link to="/services/counsellingservices/traumacounselling">
+              Trauma Counselling
             </Link>
-            <Link to="/uniquefeature/traumaticcounselling">
-              Traumatic Counselling
-            </Link>
-            <Link to="/uniquefeature/cbt">Cognitive Behavioral Therapy</Link>
-            <Link to="/uniquefeature/parentingcounselling">
-              Parenting Counselling
-            </Link>
-            <Link to="/uniquefeature/familycounselling">
-              Family Counselling
-            </Link>
-            <Link to="/uniquefeature/childcounselling">Child Counselling</Link>
-            <Link to="/uniquefeature/groupcounselling">Group Counselling</Link>
-            <Link to="/uniquefeature/stressmanagementcounselling">
-              Stress Management Counselling
-            </Link>
-            <Link to="/uniquefeature/mentalhealthcounselling">
-              Mental Health Counselling
-            </Link>
-            <Link to="/uniquefeature/aptitudetest">Aptitude Test</Link>
-            <Link to="/uniquefeature/softskills">Soft Skills Devlopement</Link>
-            <Link to="/uniquefeature/garbhsanskar">Garbh Sanskar</Link>
-          </div>
-          <h4>Services</h4>
-          <h4 className="uniqfooter">Psychological Counselling</h4>
-          <div>
-            <Link to="/services/psychologicalcounselling/substanceabuseoraddictioncounselling">
+            <Link to="/services/counsellingservices/substanceabuseoraddictioncounselling">
               Substance Abuse or Addiction Counselling
             </Link>
-            <Link to="/services/psychologicalcounselling/interpersonalpsychotherapy">
-              Interpersonal Psychotherapy
-            </Link>
-            <Link to="/services/psychologicalcounselling/overthinkingcounselling">
-              Overthinking Counselling
-            </Link>
-            <Link to="/services/psychologicalcounselling/motivationalcounselling">
-              Motivational Counselling
-            </Link>
-            <Link to="/services/psychologicalcounselling/sexcounselling">
-              Sex Counselling
-            </Link>
-            <Link to="/services/psychologicalcounselling/personcenteredtherapy">
-              Person Centered Therapy
-            </Link>
-            <Link to="/services/psychologicalcounselling/griefcounselling">
+            <Link to="/services/counsellingservices/griefcounselling">
               Grief Counselling
             </Link>
-            <Link to="/services/psychologicalcounselling/dialecticalbehaviourcounselling">
-              Dialectical Behaviour Counselling
+            <Link to="/services/counsellingservices/motivationalcounselling">
+              Motivational Counselling
             </Link>
-            <Link to="/services/psychologicalcounselling/solutionfocusedbrieftherapy">
-              Solution-Focused Brief Therapy
+            <Link to="/services/counsellingservices/stressmanagementcounselling">
+              Stress Management Counselling
             </Link>
-            <Link to="/services/psychologicalcounselling/narrativetherapy">
-              Narrative Therapy
+            <Link to="/services/counsellingservices/mentalhealthcounselling">
+              Mental Health Counselling
             </Link>
-            <Link to="/services/psychologicalcounselling/rationalemotivetherapy">
-              Rational Emotive Therapy
-            </Link>
-            <Link to="/services/psychologicalcounselling/emotionallyfocusedtherapy">
-              Emotionally Focused Therapy
-            </Link>
-            <Link to="/services/psychologicalcounselling/playtherapy">
-              Play Therapy
-            </Link>
-            <Link to="/services/psychologicalcounselling/arttherapy">
-              Art Therapy
-            </Link>
-            <Link to="/services/psychologicalcounselling/rehabilitationcounselling">
-              Rehabilitation Counselling
-            </Link>
-            <Link to="/services/psychologicalcounselling/humanisticpsychology">
-              Humanistic Psychology
-            </Link>
-            <Link to="/services/psychologicalcounselling/gestalttherapy">
-              Gestalt Therapy
+            <Link to="/services/counsellingservices/sleepcounselling">
+              Sleep Counselling
             </Link>
           </div>
-          <h4 className="uniqfooter">Sexology Counselling</h4>
+
+          <h4 className="uniqfooter">Psychotherapy Approaches</h4>
           <div>
-            <Link to="/services/sexologycounselling/erectiledysfunction">
-              Erectile Dysfunction
+            <Link to="/services/psychotherapyapproaches/interpersonalpsychotherapy">
+              Interpersonal Psychotherapy
             </Link>
-            <Link to="/services/sexologycounselling/lowlibido">Low Libido</Link>
-            <Link to="/services/sexologycounselling/lackofinterest">
-              Lack of Interest
-            </Link>
-            <Link to="/services/sexologycounselling/prematureejaculation">
-              Premature Ejaculation
-            </Link>
-            <Link to="/services/sexologycounselling/lowconfidence">
-              Low Confidence
-            </Link>
-            <Link to="/services/sexologycounselling/lackofresponsetosexualstimulus">
-              Lack of Response to Sexual Stimulus
-            </Link>
-            <Link to="/services/sexologycounselling/inabilitytoreachorgasm">
-              Inability to Reach Orgasm
-            </Link>
-            <Link to="/services/sexologycounselling/excessivelibido">
-              Excessive Libido
-            </Link>
-            <Link to="/services/sexologycounselling/distressingsexualthoughtsunwanted">
-              Distressing Sexual Thoughts Unwanted
-            </Link>
-            <Link to="/services/sexologycounselling/inabilitytocontrolsexualbehaviour">
-              Inability to Control Sexual Behavior
-            </Link>
-            <Link to="/services/sexologycounselling/issuesrelatingtosexualtrauma">
-              Issues relating to Sexual Trauma
-            </Link>
-            <Link to="/services/sexologycounselling/somaticsextherapy">
-              Somatic Sex Therapy
-            </Link>
-            <Link to="/services/sexologycounselling/pelvicfloorphysicaltherapy">
-              Pelvic Floor Physical Therapy
+            <Link to="/services/psychotherapyapproaches/psychologicalcounselling">
+              Psychological Counselling
             </Link>
           </div>
-          <h4 className="uniqfooter">Psychological Testing</h4>
+
+          <h4 className="uniqfooter">Assessment and Testing</h4>
           <div>
-            <Link to="/services/psychologicaltesting/basiccounselling">
-              Basic Counselling
+            <Link to="/services/assessmentandtesting/psychologicaltesting">
+              Psychological Testing
             </Link>
-            <Link to="/services/psychologicaltesting/personalcounselling">
-              Personal Counselling
-            </Link>
-            <Link to="/services/psychologicaltesting/dmittest">DMIT Test</Link>
-            <Link to="/services/psychologicaltesting/psychometricassessment">
+            <Link to="/services/assessmentandtesting/psychometricassessment">
               Psychometric Assessment
             </Link>
-            <Link to="/services/psychologicaltesting/careersuitabilitytest">
+            <Link to="/services/assessmentandtesting/careersuitabilitytest">
               Career Suitability Test
             </Link>
-            <Link to="/services/psychologicaltesting/intelligencebuildingprogram">
-              Intelligence Building Program
+          </div>
+
+          <h4 className="uniqfooter">Career and Skills Development</h4>
+          <div>
+            <Link to="/services/careerandskillsdevelopment/careercounselling">
+              Career Counselling
             </Link>
-            <Link to="/services/psychologiccorporateltesting/midbrainactivation">
-              MidBrain Activation
+            <Link to="/services/careerandskillsdevelopment/softskillsdevelopment">
+              Soft Skills Development
             </Link>
           </div>
-          <h4 className="uniqfooter">Corporates</h4>
+
+          <h4 className="uniqfooter">Unique Features</h4>
           <div>
-            <Link to="/services/corporate/psychologicalemployeecounselling">
-              Psychological Employee Counselling
+            <Link to="/services/uniquefeatures/comprehensivementalwellnesssupport">
+              Comprehensive Mental Wellness Support
             </Link>
-            <Link to="/services/corporate/worklifeservices">
-              Work-Life Service
+            <Link to="/services/uniquefeatures/personalizedtherapyplans">
+              Personalized Therapy Plans
             </Link>
-            <Link to="/services/corporate/stresscontrolforcorporates">
-              Stress Control for Corporates
+            <Link to="/services/uniquefeatures/evidencebasedtherapeutictechniques">
+              Evidence-Based Therapeutic Techniques
             </Link>
-            <Link to="/services/corporate/hrqol">
-              Health-related Quality of Life
+            <Link to="/services/uniquefeatures/specializedsupport">
+              Specialized Support
+            </Link>
+            <Link to="/services/uniquefeatures/careerandprofessionaldevelopment">
+              Career and Professional Development
+            </Link>
+            <Link to="/services/uniquefeatures/familyandrelationshipcounselling">
+              Family and Relationship Counselling
+            </Link>
+            <Link to="/services/uniquefeatures/stressandsleepmanagement">
+              Stress and Sleep Management
+            </Link>
+            <Link to="/services/uniquefeatures/empatheticandsupportiveenvironment">
+              Empathetic and Supportive Environment
+            </Link>
+            <Link to="/services/uniquefeatures/commitmenttoconfidentiality">
+              Commitment to Confidentiality
+            </Link>
+            <Link to="/services/uniquefeatures/ethicalandprofessionalstandards">
+              Ethical and Professional Standards
+            </Link>
+            <Link to="/services/uniquefeatures/educationalresourcesandsupport">
+              Educational Resources and Support
             </Link>
           </div>
+
           <div>
-            <h4>
-              <Link to="/testimonials">Testimonials </Link>
-            </h4>
-            <h4>
-              <Link to="/casestudies">Case Studies </Link>
-            </h4>
             <h4>
               <Link to="/blogs">Blogs </Link>
             </h4>
