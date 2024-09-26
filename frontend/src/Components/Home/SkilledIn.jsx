@@ -107,7 +107,7 @@ function SkilledIn() {
             biological factors shape an individual’s thoughts, feelings, and
             actions as they face the challenges and opportunities that come with
             adulthood.
-            <Link
+            {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
               to={""}
@@ -127,7 +127,7 @@ function SkilledIn() {
                   ></path>
                 </svg>
               </div>
-            </Link>
+            </Link> */}
           </p>
         </div>
         <div id="skill2" ref={(el) => el && observedElements.current.push(el)}>
@@ -151,7 +151,7 @@ function SkilledIn() {
             dynamics. Counselors use evidence-based techniques to help parents
             develop effective discipline strategies, enhance parent-child
             relationships, and manage stress.
-            <Link
+            {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
               to={"/uniquefeature/parentingcounselling"}
@@ -174,7 +174,7 @@ function SkilledIn() {
                   ></path>
                 </svg>
               </div>
-            </Link>
+            </Link> */}
           </p>
         </div>
         <div ref={(el) => el && observedElements.current.push(el)} id="skill3">
@@ -197,7 +197,7 @@ function SkilledIn() {
             conflict resolution strategies, and behavior-focused exercises,
             couples work together to understand and address the underlying
             issues affecting their relationship.
-            <Link
+            {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
               to={"/uniquefeature/maritialcounselling"}
@@ -217,7 +217,7 @@ function SkilledIn() {
                   ></path>
                 </svg>
               </div>
-            </Link>
+            </Link> */}
           </p>
         </div>
         <div ref={(el) => el && observedElements.current.push(el)} id="skill4">
@@ -238,7 +238,7 @@ function SkilledIn() {
             quality. Using cognitive-behavioral techniques, relaxation
             exercises, and sleep hygiene practices, individuals can develop
             helpful ways to manage racing thoughts and bedtime concerns.
-            <Link
+            {/* <Link
               class="know-more-btn"
               to={"/uniquefeature/insomniacounselling"}
             >
@@ -260,7 +260,7 @@ function SkilledIn() {
                   ></path>
                 </svg>
               </div>
-            </Link>
+            </Link> */}
           </p>
         </div>
         <div id="skill5" ref={(el) => el && observedElements.current.push(el)}>
@@ -280,7 +280,7 @@ function SkilledIn() {
             information processing speed, and mental agility. Drawing from
             principles of neuroscience, psychology, and education, these
             programs offer a comprehensive approach to cognitive development.
-            <Link
+            {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
               to={"/services/psychologicaltesting/intelligencebuildingprogram"}
@@ -300,7 +300,7 @@ function SkilledIn() {
                   ></path>
                 </svg>
               </div>
-            </Link>
+            </Link> */}
           </p>
         </div>
       </div>

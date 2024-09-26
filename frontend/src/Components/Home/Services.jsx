@@ -4,39 +4,32 @@ import { Link } from "react-router-dom";
 function HomeServices() {
   const [sections, setSections] = useState([
     {
-      title: "Cognitive Behavior Therapy",
+      title: "Step 1: Get Matched to the Right Therapist",
       bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service1.jpg`,
-      info: "Cognitive Behavioral Therapy (CBT) offers support to individuals dealing with emotional and psychological difficulties. It helps manage moods, reduce anxiety, address feelings of sadness, and cope with various challenges, including relationship issues and habits related to alcohol or substance use.",
+      info: "Answer a few personalized questions, and we will match you with the most suitable therapist who aligns with your specific needs and preferences. Tap into our extensive network of credentialled professionals.",
       active: true,
-      to: "/uniquefeature/cbt",
+      to: "#",
     },
     {
-      title: "Stress Management",
+      title: "Step 2: Choose Your Communication Method",
       bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service2.png`,
-      info: "This therapy supports individuals in managing work-related stress and improving their overall well-being. Through a variety of techniques, participants are encouraged to develop strategies that promote resilience and enhance their ability to manage challenges in the workplace.",
+      info: "Engage with your therapist in a way that’s comfortable for you. Whether through text, chat, phone, or video, you can select the method that best suits your needs.",
       active: false,
-      to: "/uniquefeature/stressmanagementcounselling",
+      to: "#",
     },
     {
-      title: "Memory Support",
+      title: "Step 3: Schedule at Your Convenience",
       bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service4.jpg`,
-      info: "Regular physical activity can have positive effects on overall well-being, including cognitive function. Improved circulation, including to the brain, may support healthy memory. This underscores the importance of maintaining physical health to enhance mental clarity.",
+      info: "Book live sessions at a time that fits your schedule. You can communicate anytime with your therapist and access sessions from any device, whether on the go or at home.",
       active: false,
-      to: "/services/psychologicaltesting/intelligencebuildingprogram",
+      to: "#",
     },
     {
-      title: "Career Counseling",
+      title: "Step 4: Start Your Journey to Mental Wellness",
       bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service5.jpg`,
-      info: "Career counseling provides individuals with guidance as they explore different career options. Counselors offer insights based on strengths, interests, and aspirations to help clients make informed decisions and pursue fulfilling professional paths.",
+      info: "Begin your personalized therapy sessions and explore a transformative approach to mental wellness with our evidence-based interventions and compassionate care.",
       active: false,
-      to: "/uniquefeature/careercounselling",
-    },
-    {
-      title: "Anger Management",
-      bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service6.jpg`,
-      info: "Anger management counseling is designed to help individuals understand and address their anger in a constructive way. By exploring emotional triggers and learning new coping mechanisms, participants can gain greater control over their emotional responses and enhance personal well-being.",
-      active: false,
-      to: "/uniquefeature/anxietycounselling",
+      to: "#",
     },
   ]);
   const handleSectionHover = (index) => {
@@ -64,8 +57,8 @@ function HomeServices() {
         // ref={infoTabRef}
       >
         <h1>
-          <i className="fa-solid fa-hand-holding-medical"></i> {"  "}OUR
-          SERVICES
+          <i className="fa-solid fa-hand-holding-medical"></i> {"  "}OUR HOW IT
+          WORKS
         </h1>
         {sections.map((section, index) => (
           <React.Fragment key={index}>

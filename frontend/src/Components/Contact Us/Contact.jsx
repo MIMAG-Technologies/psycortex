@@ -203,44 +203,17 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Phone No :{" "}
               </span>
-              87670*****
+              8767027078
             </p>
             <p ref={(el) => observedElements.current.push(el)}>
               {" "}
               <span ref={(el) => observedElements.current.push(el)}>
                 Email :{" "}
               </span>
-              psycor*****@gmail.com
+              psycortex24@gmail.com
             </p>
           </div>
           <div className="form" ref={(el) => observedElements.current.push(el)}>
-            <div>
-              <label htmlFor="">Country</label>
-              <input
-                type="text"
-                value={formData.country}
-                onChange={handleChange}
-                name="country"
-              />
-            </div>
-            <div>
-              <label htmlFor="">State</label>
-              <input
-                type="text"
-                value={formData.state}
-                onChange={handleChange}
-                name="state"
-              />
-            </div>
-            <div>
-              <label htmlFor="">City</label>
-              <input
-                type="text"
-                value={formData.city}
-                onChange={handleChange}
-                name="city"
-              />
-            </div>
             <div>
               <label htmlFor="">First Name</label>
               <input
@@ -259,6 +232,16 @@ function Contact() {
                 name="lastname"
               />
             </div>
+
+            <div>
+              <label htmlFor="">Email</label>
+              <input
+                type="email"
+                value={formData.email}
+                onChange={handleChange}
+                name="email"
+              />
+            </div>
             <div>
               <label htmlFor="">Contact No.</label>
               <input
@@ -269,12 +252,31 @@ function Contact() {
               />
             </div>
             <div>
-              <label htmlFor="">Email</label>
+              <label htmlFor="">City</label>
               <input
-                type="email"
-                value={formData.email}
+                type="text"
+                value={formData.city}
                 onChange={handleChange}
-                name="email"
+                name="city"
+              />
+            </div>
+            <div>
+              <label htmlFor="">State</label>
+              <input
+                type="text"
+                value={formData.state}
+                onChange={handleChange}
+                name="state"
+              />
+            </div>
+
+            <div>
+              <label htmlFor="">Country</label>
+              <input
+                type="text"
+                value={formData.country}
+                onChange={handleChange}
+                name="country"
               />
             </div>
 

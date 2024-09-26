@@ -175,7 +175,7 @@ body {
 #Stats {
   height: 70vh;
   width: 100%;
-  box-shadow: 10px -40px 40px -10px rgba(0, 0, 0, 0.783);
+  /* box-shadow: 10px -40px 40px -10px rgba(0, 0, 0, 0.783); */
   color: white;
   display: flex;
   flex-direction: column;

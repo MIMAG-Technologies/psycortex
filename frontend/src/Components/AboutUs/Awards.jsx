@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import Acheivements from "../Home/Acheivements";
 
 function Awards() {
   useEffect(() => {
@@ -73,6 +74,7 @@ function Awards() {
         <i className="fa-solid fa-house"></i>
         {" > About Us > Awards"}{" "}
       </div>
+      <Acheivements />
       <div className="partnershipcardsdiv">
         {data.map((imgs, index) => onecard(imgs))}
         {longdata.map((imgs, index) => onelongcard(imgs))}

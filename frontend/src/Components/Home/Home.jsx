@@ -24,7 +24,7 @@ function Home() {
       <Stats />
       <SkilledIn />
       <BrainTakeForWho />
-      <Acheivements />
+      {/* <Acheivements /> */}
       <Testimonial />
     </>
   );

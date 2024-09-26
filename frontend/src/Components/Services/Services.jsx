@@ -43,7 +43,8 @@ function Services() {
   }, []); // Ensure useEffect runs whenever sectionData changes
 
   const randomImage = Math.floor(Math.random() * 5) + 1;
-  const imageUrl = `${process.env.PUBLIC_URL}/assets/Images/Services/${section}/img${randomImage}.jpg`;
+  // const imageUrl = `${process.env.PUBLIC_URL}/assets/Images/Services/${section}/img${randomImage}.jpg`;
+  const imageUrl = `${process.env.PUBLIC_URL}/assets/Images/Services/${subsection}.jpg`;
 
   return (
     <div id="Services" key={subsection}>
