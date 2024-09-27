@@ -23,261 +23,181 @@
     "title": "Awards",
     "ref": "/aboutus/awards"
   },
+
+  {
+    "title": "Counselling Services",
+    "level": 1,
+    "ref": "#"
+  },
   {
     "title": "Marital Counselling",
-    "ref": "/uniquefeature/maritialcounselling"
+    "level": 2,
+    "ref": "/services/counsellingservices/maritalcounselling"
   },
   {
     "title": "Pre-Marital Counselling",
-    "ref": "/uniquefeature/premaritalcounselling"
+    "level": 2,
+    "ref": "/services/counsellingservices/premaritalcounselling"
   },
   {
     "title": "Post-Marital Counselling",
-    "ref": "/uniquefeature/postmaritalcounselling"
-  },
-  {
-    "title": "Career Counselling",
-    "ref": "/uniquefeature/careercounselling"
+    "level": 2,
+    "ref": "/services/counsellingservices/postmaritalcounselling"
   },
   {
     "title": "Anxiety Counselling",
-    "ref": "/uniquefeature/anxietycounselling"
+    "level": 2,
+    "ref": "/services/counsellingservices/anxietycounselling"
   },
   {
     "title": "Depression Counselling",
-    "ref": "/uniquefeature/depressioncounselling"
+    "level": 2,
+    "ref": "/services/counsellingservices/depressioncounselling"
   },
   {
-    "title": "Traumatic Counselling",
-    "ref": "/uniquefeature/traumaticcounselling"
-  },
-  {
-    "title": "Cognitive Behavioral Therapy",
-    "ref": "/uniquefeature/cbt"
-  },
-  {
-    "title": "Parenting Counselling",
-    "ref": "/uniquefeature/parentingcounselling"
-  },
-  {
-    "title": "Family Counselling",
-    "ref": "/uniquefeature/familycounselling"
-  },
-  {
-    "title": "Child Counselling",
-    "ref": "/uniquefeature/childcounselling"
-  },
-  {
-    "title": "Group Counselling",
-    "ref": "/uniquefeature/groupcounselling"
-  },
-  {
-    "title": "Stress Management Counselling",
-    "ref": "/uniquefeature/stressmanagementcounselling"
-  },
-  {
-    "title": "Mental Health Counselling",
-    "ref": "/uniquefeature/mentalhealthcounselling"
-  },
-  {
-    "title": "Insomnia/Sleep Problem Counselling",
-    "ref": "/uniquefeature/insomniacounselling"
-  },
-
-  {
-    "title": "Aptitude Test",
-    "ref": "/uniquefeature/aptitudetest"
-  },
-  {
-    "title": "Soft Skills Devlopement",
-    "ref": "/uniquefeature/softskills"
-  },
-  {
-    "title": "Garbh Sanskar",
-    "ref": "/uniquefeature/garbhsanskar"
-  },
-  {
-    "title": "Substance Abuse or Addiction Counselling",
-    "ref": "/services/psychologicalcounselling/substanceabuseoraddictioncounselling"
-  },
-  {
-    "title": "Interpersonal Psychotherapy",
-    "ref": "/services/psychologicalcounselling/interpersonalpsychotherapy"
-  },
-  {
-    "title": "Overthinking Counselling",
-    "ref": "/services/psychologicalcounselling/overthinkingcounselling"
-  },
-  {
-    "title": "Motivational Counselling",
-    "ref": "/services/psychologicalcounselling/motivationalcounselling"
-  },
-  {
-    "title": "Sex Counselling",
-    "ref": "/services/psychologicalcounselling/sexcounselling"
-  },
-  {
-    "title": "Person Centered Therapy",
-    "ref": "/services/psychologicalcounselling/personcenteredtherapy"
+    "title": "Trauma Counselling",
+    "level": 2,
+    "ref": "/services/counsellingservices/traumacounselling"
   },
   {
     "title": "Grief Counselling",
-    "ref": "/services/psychologicalcounselling/griefcounselling"
+    "level": 2,
+    "ref": "/services/counsellingservices/griefcounselling"
   },
   {
-    "title": "Dialectical Behaviour Counselling",
-    "ref": "/services/psychologicalcounselling/dialecticalbehaviourcounselling"
+    "title": "Motivational Counselling",
+    "level": 2,
+    "ref": "/services/counsellingservices/motivationalcounselling"
   },
   {
-    "title": "Solution-Focused Brief Therapy",
-    "ref": "/services/psychologicalcounselling/solutionfocusedbrieftherapy"
+    "title": "Stress Management Counselling",
+    "level": 2,
+    "ref": "/services/counsellingservices/stressmanagementcounselling"
   },
   {
-    "title": "Narrative Therapy",
-    "ref": "/services/psychologicalcounselling/narrativetherapy"
+    "title": "Mental Health Counselling",
+    "level": 2,
+    "ref": "/services/counsellingservices/mentalhealthcounselling"
   },
   {
-    "title": "Rational Emotive Therapy",
-    "ref": "/services/psychologicalcounselling/rationalemotivetherapy"
+    "title": "Sleep Counselling",
+    "level": 2,
+    "ref": "/services/counsellingservices/sleepcounselling"
   },
   {
-    "title": "Emotionally Focused Therapy",
-    "ref": "/services/psychologicalcounselling/emotionallyfocusedtherapy"
+    "title": "Psychotherapy Approaches",
+    "level": 1,
+    "ref": "#"
   },
   {
-    "title": "Play Therapy",
-    "ref": "/services/psychologicalcounselling/playtherapy"
+    "title": "Interpersonal Psychotherapy",
+    "level": 2,
+    "ref": "/services/psychotherapyapproaches/interpersonalpsychotherapy"
   },
   {
-    "title": "Art Therapy",
-    "ref": "/services/psychologicalcounselling/arttherapy"
+    "title": "Psychological Counselling",
+    "level": 2,
+    "ref": "/services/psychotherapyapproaches/psychologicalcounselling"
   },
   {
-    "title": "Rehabilitation Counselling",
-    "ref": "/services/psychologicalcounselling/rehabilitationcounselling"
+    "title": "Assessment and Testing",
+    "level": 1,
+    "ref": "#"
   },
   {
-    "title": "Humanistic Psychology",
-    "ref": "/services/psychologicalcounselling/humanisticpsychology"
-  },
-  {
-    "title": "Gestalt Therapy",
-    "ref": "/services/psychologicalcounselling/gestalttherapy"
-  },
-  {
-    "title": "Erectile Dysfunction",
-    "ref": "/services/sexologycounselling/erectiledysfunction"
-  },
-  {
-    "title": "Low Libido",
-    "ref": "/services/sexologycounselling/lowlibido"
-  },
-  {
-    "title": "Lack of Interest",
-    "ref": "/services/sexologycounselling/lackofinterest"
-  },
-  {
-    "title": "Premature Ejaculation",
-    "ref": "/services/sexologycounselling/prematureejaculation"
-  },
-  {
-    "title": "Low Confidence",
-    "ref": "/services/sexologycounselling/lowconfidence"
-  },
-  {
-    "title": "Lack of Response to Sexual Stimulus",
-    "ref": "/services/sexologycounselling/lackofresponsetosexualstimulus"
-  },
-  {
-    "title": "Inability to Reach Orgasm",
-    "ref": "/services/sexologycounselling/inabilitytoreachorgasm"
-  },
-  {
-    "title": "Excessive Libido",
-    "ref": "/services/sexologycounselling/excessivelibido"
-  },
-  {
-    "title": "Distressing Sexual Thoughts Unwanted",
-    "ref": "/services/sexologycounselling/distressingsexualthoughtsunwanted"
-  },
-  {
-    "title": "Inability to Control Sexual Behavior",
-    "ref": "/services/sexologycounselling/inabilitytocontrolsexualbehaviour"
-  },
-  {
-    "title": "Issues relating to Sexual Trauma",
-    "ref": "/services/sexologycounselling/issuesrelatingtosexualtrauma"
-  },
-  {
-    "title": "Somatic Sex Therapy",
-    "ref": "/services/sexologycounselling/somaticsextherapy"
-  },
-  {
-    "title": "Pelvic Floor Physical Therapy",
-    "ref": "/services/sexologycounselling/pelvicfloorphysicaltherapy"
-  },
-  {
-    "title": "Basic Counselling",
-    "ref": "/services/psychologicaltesting/basiccounselling"
-  },
-  {
-    "title": "Personal Counselling",
-    "ref": "/services/psychologicaltesting/personalcounselling"
-  },
-  {
-    "title": "DMIT Test",
-    "ref": "/services/psychologicaltesting/dmittest"
+    "title": "Psychological Testing",
+    "level": 2,
+    "ref": "/services/assessmentandtesting/psychologicaltesting"
   },
   {
     "title": "Psychometric Assessment",
-    "ref": "/services/psychologicaltesting/psychometricassessment"
+    "level": 2,
+    "ref": "/services/assessmentandtesting/psychometricassessment"
   },
   {
     "title": "Career Suitability Test",
-    "ref": "/services/psychologicaltesting/careersuitabilitytest"
+    "level": 2,
+    "ref": "/services/assessmentandtesting/careersuitabilitytest"
   },
   {
-    "title": "Intelligence Building Program",
-    "ref": "/services/psychologicaltesting/intelligencebuildingprogram"
+    "title": "Career and Skills Development",
+    "level": 1,
+    "ref": "#"
   },
   {
-    "title": "MidBrain Activation",
-    "ref": "/services/psychologicaltesting/midbrainactivation"
+    "title": "Career Counselling",
+    "level": 2,
+    "ref": "/services/careerandskillsdevelopment/careercounselling"
   },
   {
-    "title": "Psychological Employee Counselling",
+    "title": "Soft Skills Development",
+    "level": 2,
+    "ref": "/services/careerandskillsdevelopment/softskillsdevelopment"
+  },
+  {
+    "title": "Unique Features",
+    "level": 1,
+    "ref": "#"
+  },
+  {
+    "title": "Comprehensive Mental Wellness Support",
+    "level": 2,
+    "ref": "/services/uniquefeatures/comprehensivementalwellnesssupport"
+  },
+  {
+    "title": "Personalized Therapy Plans",
+    "level": 2,
+    "ref": "/services/uniquefeatures/personalizedtherapyplans"
+  },
+  {
+    "title": "Evidence-Based Therapeutic Techniques",
+    "level": 2,
+    "ref": "/services/uniquefeatures/evidencebasedtherapeutictechniques"
+  },
+  {
+    "title": "Specialized Support",
+    "level": 2,
+    "ref": "/services/uniquefeatures/specializedsupport"
+  },
+  {
+    "title": "Career and Professional Development",
+    "level": 2,
+    "ref": "/services/uniquefeatures/careerandprofessionaldevelopment"
+  },
+  {
+    "title": "Family and Relationship Counselling",
+    "level": 2,
+    "ref": "/services/uniquefeatures/familyandrelationshipcounselling"
+  },
+  {
+    "title": "Stress and Sleep Management",
+    "level": 2,
+    "ref": "/services/uniquefeatures/stressandsleepmanagement"
+  },
+  {
+    "title": "Empathetic and Supportive Environment",
+    "level": 2,
+    "ref": "/services/uniquefeatures/empatheticandsupportiveenvironment"
+  },
+  {
+    "title": "Commitment to Confidentiality",
+    "level": 2,
+    "ref": "/services/uniquefeatures/commitmenttoconfidentiality"
+  },
+  {
+    "title": "Ethical and Professional Standards",
+    "level": 2,
+    "ref": "/services/uniquefeatures/ethicalandprofessionalstandards"
+  },
+  {
+    "title": "Educational Resources and Support",
+    "level": 2,
+    "ref": "/services/uniquefeatures/educationalresourcesandsupport"
+  },
 
-    "ref": "/services/corporate/psychologicalemployeecounselling"
-  },
-  {
-    "title": "Work-Life Service",
-
-    "ref": "/services/corporate/worklifeservices"
-  },
-  {
-    "title": "Stress Control for Corporates",
-
-    "ref": "/services/corporate/stresscontrolforcorporates"
-  },
-  {
-    "title": "Health-related Quality of Life",
-    "ref": "/services/corporate/hrqol"
-  },
-  {
-    "title": "Testimonials",
-    "ref": "/testimonials"
-  },
   {
     "title": "Our Franchise",
     "ref": "/franchise"
-  },
-  {
-    "title": "Case Studies",
-    "ref": "/casestudies"
-  },
-  {
-    "title": "Enhancing Student Well-being: A Case Study on School Counselling Services by Psycortex Pvt. Ltd.",
-    "ref": "/casestudy/enhancingstudentwellbeing"
   },
 
   {
@@ -287,10 +207,6 @@
   {
     "title": "Human Psychology: From Experimental Studies to Brain-Body Correspondence",
     "ref": "/blog/humanpsychology"
-  },
-  {
-    "title": "Breaking Free: The Role of Drug De-addiction Counselling in Reclaiming Lives",
-    "ref": "/blog/breakingfree"
   },
   {
     "title": "Unraveling the Mysteries of DMIT Test: Understanding Your Unique Potential",

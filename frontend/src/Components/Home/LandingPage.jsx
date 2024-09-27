@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 function LandingPage() {
-  const whatsAppLink = "https://wa.me/8767027078?text=";
+  const whatsAppLink = "https://wa.me/+918767027078?text=";
 
   const titleArr = [
     "Mental Wellness Support",

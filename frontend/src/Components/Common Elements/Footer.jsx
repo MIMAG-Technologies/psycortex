@@ -101,13 +101,13 @@ function Footer() {
         <div id="lower-footer-div">
           <h4>About Us</h4>
           <div>
-            <Link to="/aboutus/about">About</Link>
+            <Link to="/aboutus/about">About Us</Link>
             <Link to="/aboutus/missionvisionandvalues">
               Mission Values and Vision
             </Link>
-            <Link to="/aboutus/team">Our Team</Link>
+            {/* <Link to="/aboutus/team">Our Team</Link> */}
             <Link to="/aboutus/gallery">Gallery</Link>
-            <Link to="/aboutus/offices">Offices</Link>
+            {/* <Link to="/aboutus/offices">Offices</Link> */}
             <Link to="/aboutus/awards">Awards</Link>
           </div>
 
@@ -133,9 +133,9 @@ function Footer() {
             <Link to="/services/counsellingservices/traumacounselling">
               Trauma Counselling
             </Link>
-            <Link to="/services/counsellingservices/substanceabuseoraddictioncounselling">
+            {/* <Link to="/services/counsellingservices/substanceabuseoraddictioncounselling">
               Substance Abuse or Addiction Counselling
-            </Link>
+            </Link> */}
             <Link to="/services/counsellingservices/griefcounselling">
               Grief Counselling
             </Link>

@@ -191,11 +191,11 @@ function Navbar(props) {
         level: 2,
         ref: "/services/counsellingservices/traumacounselling",
       },
-      {
-        content: "Substance Abuse or Addiction Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/substanceabuseoraddictioncounselling",
-      },
+      // {
+      //   content: "Substance Abuse or Addiction Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/substanceabuseoraddictioncounselling",
+      // },
       {
         content: "Grief Counselling",
         level: 2,

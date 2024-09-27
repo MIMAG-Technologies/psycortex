@@ -100,7 +100,7 @@ function MobileNavbar(props) {
           >
             Trauma Counselling
           </Link>
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -108,7 +108,7 @@ function MobileNavbar(props) {
             to="/services/counsellingservices/substanceabuseoraddictioncounselling"
           >
             Substance Abuse or Addiction Counselling
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
