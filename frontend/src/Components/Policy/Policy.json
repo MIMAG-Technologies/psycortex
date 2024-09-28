@@ -1,7 +1,8 @@
 [
   {
     "searchkey": "termsandcondition",
-
+    "webtitle": "Terms and Conditions at Psycortex",
+    "webdescription": "Familiarize yourself with the terms and conditions of using Psycortex services. We prioritize transparency and your understanding of our policies.",
     "content": [
       { "tag": "h2", "text": "Terms & Conditions" },
       {
@@ -52,6 +53,9 @@
   },
   {
     "searchkey": "privacypolicy",
+
+    "webtitle": "Psycortex Privacy Policy - Your Information, Our Responsibility",
+    "webdescription": "Learn about Psycortex's privacy policy. We protect your personal information and are committed to maintaining your privacy.",
 
     "content": [
       { "tag": "h2", "text": " Privacy Policy" },
@@ -161,6 +165,8 @@
   },
   {
     "searchkey": "returnpolicy",
+    "webtitle": "Psycortex Return Policy - Our Commitment to You",
+    "webdescription": "Review Psycortex's return policy. We are committed to your satisfaction and provide a clear, fair policy for all services and products.",
 
     "content": [
       { "tag": "h2", "text": " Refund Policy" },

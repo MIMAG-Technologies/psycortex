@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 function Booking() {
   useEffect(() => {
@@ -110,6 +111,13 @@ function Booking() {
 
   return (
     <>
+      <Helmet>
+        <title>Book an Appointment at Psycortex</title>
+        <meta
+          name="description"
+          content="Schedule your appointment with Psycortex. Access expert mental health services tailored to your needs by booking online today."
+        />
+      </Helmet>
       {ismessageVisible ? (
         <div id="messageBox">
           <div>

@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import "./Shop.css";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import { Helmet } from "react-helmet-async";
 
 function Shop() {
   const [selectedVariants, setSelectedVariants] = useState({});
@@ -92,6 +93,10 @@ function Shop() {
   const oneitem = () => {
     return product.map((item, index) => (
       <div className="oneitem" key={index}>
+        <Helmet>
+          <title> Shop</title>
+          <meta name="description" content="" />
+        </Helmet>
         <Link to={`/shop/products/${index}`} className="imgtoLink">
           <img
             src={process.env.PUBLIC_URL + "/assets/Images/Shop/" + item.imgsrc}

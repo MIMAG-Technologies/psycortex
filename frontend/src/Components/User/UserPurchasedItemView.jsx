@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { fetchUserPurchased } from "./cartUtils";
+import { Helmet } from "react-helmet-async";
 
 function UserPurchasedItemView(props) {
   const [purchasedItems, setpurchasedItems] = useState([]);
@@ -62,11 +63,29 @@ function UserPurchasedItemView(props) {
   if (!purchasedItems || purchasedItems.length === 0) {
     return (
       <div className="UserCartView">
+        <Helmet>
+          <title>Your Purchased Items</title>
+          <meta
+            name="description"
+            content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+          />
+        </Helmet>
         <h1>No Item to Display</h1>
       </div>
     );
   }
-  return <div className="UserCartView">{allItemsInCart()}</div>;
+  return (
+    <>
+      <Helmet>
+        <title>Your Purchased Items</title>
+        <meta
+          name="description"
+          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+        />
+      </Helmet>
+      <div className="UserCartView">{allItemsInCart()}</div>
+    </>
+  );
 }
 
 export default UserPurchasedItemView;

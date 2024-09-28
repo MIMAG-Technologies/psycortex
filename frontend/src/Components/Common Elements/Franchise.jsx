@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 function Franchise() {
   window.scrollTo({
@@ -37,6 +38,13 @@ function Franchise() {
 
   return (
     <div className="One-Blog">
+      <Helmet>
+        <title> Franchise Opportunity for Thriving Business Growth</title>
+        <meta
+          name="description"
+          content="Join our successful franchise network. Unlock the best business opportunities and start thriving today."
+        />
+      </Helmet>
       <div
         className="frachisebg"
         style={{

@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import jsonData from "./Policy.json";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function PolicyTemplate() {
   const { section } = useParams();
@@ -50,6 +51,10 @@ function PolicyTemplate() {
         padding: "5em 0px",
       }}
     >
+      <Helmet>
+        <title>{blog.webtitle}</title>
+        <meta name="description" content={blog.webdescription} />
+      </Helmet>
       {blog.content.map((item, index) => {
         if (item.tag === "img") {
           return (

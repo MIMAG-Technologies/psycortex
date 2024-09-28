@@ -1,8 +1,16 @@
 import React from "react";
+import { Helmet } from "react-helmet-async";
 
 function About() {
   return (
     <div id="About">
+      <Helmet>
+        <title>Psycortex - Comprehensive Mental Health Solutions</title>
+        <meta
+          name="description"
+          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+        />
+      </Helmet>
       <div className="breadcrumb">
         <i className="fa-solid fa-house"></i>
         {" > About Us > About"}{" "}

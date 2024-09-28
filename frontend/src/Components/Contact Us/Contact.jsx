@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 
 import "./Contact.css";
 import { useLocation } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function Contact() {
   const [isButtonDisabled, setisButtonDisabled] = useState(false);
@@ -127,6 +128,13 @@ function Contact() {
 
   return (
     <>
+      <Helmet>
+        <title>Contact Psycortex - We're Here to Help</title>
+        <meta
+          name="description"
+          content="Get in touch with Psycortex. Whether you have questions or need support, our team is ready to assist you with your mental health needs."
+        />
+      </Helmet>
       {ismessageVisible ? (
         <div id="messageBox">
           <div>

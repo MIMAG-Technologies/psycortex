@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+import { Helmet } from "react-helmet-async";
 
 function Gallery() {
   const observedElements = useRef([]);
@@ -57,6 +58,13 @@ function Gallery() {
 
   return (
     <div className="Gallery">
+      <Helmet>
+        <title>Psycortex - Gallery</title>
+        <meta
+          name="description"
+          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+        />
+      </Helmet>
       <div className="gall-lhs">
         {leftImages.map((image, index) => (
           <img

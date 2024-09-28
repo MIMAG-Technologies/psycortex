@@ -14,6 +14,7 @@ import {
   updateUser,
 } from "./cartUtils";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function UserCartView(props) {
   const { fetchUser, user } = props;
@@ -173,6 +174,13 @@ function UserCartView(props) {
   if (confirmCard) {
     return (
       <div className="UserCheckoutView">
+        <Helmet>
+          <title>Make Payment</title>
+          <meta
+            name="description"
+            content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+          />
+        </Helmet>
         <form onSubmit={handleSubmit}>
           <p className="checkoutdetailheading">Billing Details</p>
           <label htmlFor="name">Name</label>
@@ -331,6 +339,13 @@ function UserCartView(props) {
   }
   return (
     <div className="UserCartView">
+      <Helmet>
+        <title>Your Cart</title>
+        <meta
+          name="description"
+          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+        />
+      </Helmet>
       {allItemsInCart()}
       <span>
         <h1>Grand Total: Rs {grandTotal.toLocaleString()}</h1>

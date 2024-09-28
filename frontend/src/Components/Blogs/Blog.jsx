@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import jsonData from "./Blogs.json";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function Blog() {
   const { section } = useParams();
@@ -47,6 +48,10 @@ function Blog() {
   }
   return (
     <div className="One-Blog">
+      <Helmet>
+        <title>{blog.title}</title>
+        <meta name="description" content={blog.content[1].text} />
+      </Helmet>
       <h1 ref={(el) => el && observedElements.current.push(el)}>
         {blog.title}
       </h1>

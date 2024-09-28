@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { Helmet } from "react-helmet-async";
 
 function MissionVissionValues() {
   useEffect(() => {
@@ -10,6 +11,13 @@ function MissionVissionValues() {
 
   return (
     <div id="MissionVissionValues">
+      <Helmet>
+        <title>Mission, Vision & Values at Psycortex</title>
+        <meta
+          name="description"
+          content="Understand the mission, vision, and values driving Psycortex. Learn how we are committed to excellence in mental health and community support."
+        />
+      </Helmet>
       <div className="breadcrumb">
         <i className="fa-solid fa-house"></i>{" "}
         {" > About Us > Mission Vision and Values"}

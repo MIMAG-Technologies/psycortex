@@ -8,6 +8,7 @@ import SkilledIn from "./SkilledIn";
 import BrainTakeForWho from "./BrainTakeForWho";
 import Testimonial from "./Testimonial";
 import Acheivements from "./Acheivements";
+import { Helmet } from "react-helmet-async";
 
 function Home() {
   useEffect(() => {
@@ -18,6 +19,13 @@ function Home() {
   }, []);
   return (
     <>
+      <Helmet>
+        <title>Psycortex - Comprehensive Mental Health Solutions</title>
+        <meta
+          name="description"
+          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+        />
+      </Helmet>
       <LandingPage />
       <TheBrainTake />
       <HomeServices />

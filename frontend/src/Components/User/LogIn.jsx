@@ -3,6 +3,7 @@ import "./LogIn.css";
 import axios from "axios";
 import { AlertCircle, Eye, EyeOff } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 function LogIn(props) {
   const [userEmail, setuserEmail] = useState("");
   const [response, setresponse] = useState("");
@@ -63,6 +64,15 @@ function LogIn(props) {
 
   return (
     <div id="login">
+      <Helmet>
+        <title>
+          Login to Psycortex - Comprehensive Mental Health Solutions
+        </title>
+        <meta
+          name="description"
+          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+        />
+      </Helmet>
       <form action="post">
         <h1>Login to Psycortex</h1>
         {isAnyProblem ? (

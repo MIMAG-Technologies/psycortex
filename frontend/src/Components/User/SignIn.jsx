@@ -4,6 +4,7 @@ import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 import { ChevronLeft, AlertCircle, Eye, EyeOff } from "lucide-react";
 import LoadingBar from "../Common Elements/LoadingBar";
+import { Helmet } from "react-helmet-async";
 
 function SignIn(props) {
   const [email, setemail] = useState("");
@@ -166,6 +167,15 @@ function SignIn(props) {
 
   return (
     <div id="signin">
+      <Helmet>
+        <title>
+          Create Account at Psycortex - Comprehensive Mental Health Solutions
+        </title>
+        <meta
+          name="description"
+          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
+        />
+      </Helmet>
       {isLoading ? <LoadingBar /> : <></>}
       <form>
         {currentstep === 0 ? (

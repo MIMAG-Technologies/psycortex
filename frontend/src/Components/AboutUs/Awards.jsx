@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import Acheivements from "../Home/Acheivements";
+import { Helmet } from "react-helmet-async";
 
 function Awards() {
   useEffect(() => {
@@ -70,6 +71,13 @@ function Awards() {
 
   return (
     <div id="Awards">
+      <Helmet>
+        <title>Awards & Recognition at Psycortex</title>
+        <meta
+          name="description"
+          content="Explore the awards and recognition earned by Psycortex for excellence in mental health services and innovation in care."
+        />
+      </Helmet>
       <div className="breadcrumb">
         <i className="fa-solid fa-house"></i>
         {" > About Us > Awards"}{" "}

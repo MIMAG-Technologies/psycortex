@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import data from "./Blogs.json";
 import "./Blog.css";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet-async";
 
 function Blogs() {
   useEffect(() => {
@@ -29,6 +30,13 @@ function Blogs() {
   };
   return (
     <div id="Blogs">
+      <Helmet>
+        <title> Best Blogs on Psychology for Personal Growth</title>
+        <meta
+          name="description"
+          content="Dive into expert psychology blogs. Gain insights, find motivation, and enhance your mental well-being today."
+        />
+      </Helmet>
       <div className="breadcrumb">
         <i className="fa-solid fa-house"></i>
         {" > Blogs"}{" "}

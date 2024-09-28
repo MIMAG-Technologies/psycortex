@@ -56,6 +56,14 @@
   font-style: normal;
   margin: 15px 0px;
 }
+#Services .sec3 a {
+  text-decoration: none;
+  width: fit-content;
+  margin: 20px auto;
+  margin-top: 40px;
+  border-radius: 7px;
+  padding: 7px;
+}
 #Services .sec3 {
   display: flex;
   align-items: center;
