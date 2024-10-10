@@ -234,5 +234,32 @@
         initTransaction();
       });
     </script>
+
+    <script>
+      window.addEventListener("load", function () {
+        var contactTimer = setInterval(function () {
+          if (document.querySelectorAll("#messageBox").length != 0) {
+            gtag("event", "conversion", {
+              send_to: "AW-16675194324/iYjbCOvw69sZENSLrY8-",
+            });
+            clearInterval(contactTimer);
+          }
+        }, 1000);
+      });
+    </script>
+    <script>
+      document.addEventListener("click", function (e) {
+        if (e.target.closest('[href*="wa.me"]')) {
+          gtag("event", "conversion", {
+            send_to: "AW-16675194324/NKz4CO7w69sZENSLrY8-",
+          });
+        }
+        if (e.target.closest('[href="/booking"]')) {
+          gtag("event", "conversion", {
+            send_to: "AW-16675194324/lS7QCPHw69sZENSLrY8-",
+          });
+        }
+      });
+    </script>
   </body>
 </html>
