@@ -28,6 +28,7 @@ function UserCartView(props) {
   const navigate = useNavigate();
   const [transactionStatus, setTransactionStatus] = useState(null);
   const [checking, setChecking] = useState(false);
+  const [isAggred, setisAggred] = useState(false);
 
   useEffect(() => {
     let intervalId;
@@ -317,10 +318,33 @@ function UserCartView(props) {
               Rs {grandTotal}
             </div>
           </div>
+          <label id="wordline-select-tc">
+            <p>
+              Please read all the terms and conditions carefully before making
+              your payment:
+            </p>
+            <ul>
+              <li>
+                You are eligible to apply for a refund within 7 days of
+                purchase.
+              </li>
+              <li>
+                No chargeback requests will be accepted after 7 days from the
+                date of purchase.
+              </li>
+            </ul>
+            <p
+              style={{
+                marginBottom: "10px",
+              }}
+            >
+              Kindly proceed with the payment only after reviewing our
+              terms and conditions.
+            </p>
+          </label>
           <label id="wordline-select">
-            <input type="radio" /> You agree to all the terms & conditions
-            mentioned on the website. No charge back would be entertained once
-            the payment is completed.
+            <input type="checkbox" checked /> You agree to all the terms &
+            conditions mentioned on the website.
           </label>
           <label id="wordline-select">
             <input type="radio" checked />

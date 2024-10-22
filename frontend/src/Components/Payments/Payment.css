@@ -8,7 +8,8 @@
   background-color: #ffffff;
 }
 
-.UserCheckoutView label:not(#wordline-select, #companyname)::after {
+.UserCheckoutView
+  label:not(#wordline-select, #wordline-select-tc, #companyname)::after {
   content: " *";
   color: red;
 }
@@ -72,6 +73,19 @@
   padding: 10px 10px;
   font-size: 18px;
   align-items: center;
+  text-wrap: balance;
+  gap: 5px;
+}
+#wordline-select-tc > ul {
+  margin-left: 30px;
+}
+#wordline-select-tc {
+  display: flex;
+  flex-direction: column;
+  background-color: #f3f4f6;
+  height: fit-content !important;
+  padding: 10px 10px;
+  font-size: 18px;
   gap: 5px;
 }
 @media screen and (max-width: 950px) {
