@@ -12,6 +12,15 @@ function Navbar(props) {
   const [searchkey, setsearchkey] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsHovered((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
 
   const { fetchUser, user, login, cartlenght } = props;
   useEffect(() => {
@@ -391,7 +400,11 @@ function Navbar(props) {
         <div>
           <ul className="upperdiv" onMouseEnter={handleMouseLeave}>
             {" "}
-            <Link to={"/booking"} class="button">
+            <a
+              href="https://client.psycortex.in/"
+              target="_blank"
+              className={`button ${isHovered ? "appbutton" : ""}`}
+            >
               Book Appointment
               <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
                 <path
@@ -400,7 +413,7 @@ function Navbar(props) {
                   fill-rule="evenodd"
                 ></path>
               </svg>
-            </Link>
+            </a>
             <Link to={"/user/mycart"} className="cart-container">
               <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
             </Link>

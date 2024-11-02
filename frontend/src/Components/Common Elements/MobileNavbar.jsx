@@ -776,14 +776,15 @@ function MobileNavbar(props) {
           >
             Blogs
           </Link>
-          <Link
+          <a
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
             }}
-            to="/booking"
+            href="https://client.psycortex.in/"
+            target="_blank"
           >
             Book Appointment
-          </Link>
+          </a>
 
           <Link
             onClick={() => {
