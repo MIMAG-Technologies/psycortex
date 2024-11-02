@@ -218,7 +218,7 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Email :{" "}
               </span>
-              psycortex24@gmail.com
+              info@psycortex.in
             </p>
           </div>
           <div className="form" ref={(el) => observedElements.current.push(el)}>

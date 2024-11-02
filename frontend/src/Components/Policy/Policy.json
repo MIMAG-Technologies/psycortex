@@ -47,7 +47,11 @@
       { "tag": "h2", "text": "Contact Us" },
       {
         "tag": "p",
-        "text": "If you have any questions about these Terms, please contact us."
+        "text": "If you have any questions about these Terms, please <a/>.",
+        "link": {
+          "text": "Contact Us",
+          "url": "https://psycortex.in/contactus"
+        }
       }
     ]
   },
@@ -65,7 +69,11 @@
       },
       {
         "tag": "p",
-        "text": " If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at psycortex24@gmail.com "
+        "text": " If you have additional questions or require more information about our Privacy Policy, do not hesitate to contact us through email at  <a/>",
+        "link": {
+          "text": "info@psycortex.in",
+          "url": "mailto:info@psycortex.in"
+        }
       },
       { "tag": "h2", "text": " Log Files" },
       {
@@ -80,7 +88,11 @@
       { "tag": "h2", "text": " Google DoubleClick DART Cookie" },
       {
         "tag": "p",
-        "text": " Google is one of the third-party Vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to psycortex.in and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – https://policies.google.com/technologies/ads"
+        "text": " Google is one of the third-party Vendors on our site. It also uses cookies, known as DART cookies, to serve ads to our site visitors based upon their visit to psycortex.in and other sites on the internet. However, visitors may choose to decline the use of DART cookies by visiting the Google ad and content network Privacy Policy at the following URL – <a/>",
+        "link": {
+          "text": "https://policies.google.com/technologies/ads",
+          "url": "https://policies.google.com/technologies/ads"
+        }
       },
       { "tag": "h2", "text": " Privacy Policies" },
       {
@@ -94,7 +106,7 @@
       { "tag": "h2", "text": " Third-Party Privacy Policies" },
       {
         "tag": "p",
-        "text": " psycortex.in ‘s Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt out of certain options. You may find a complete list of these Privacy Policies and their links here: Privacy Policy Links."
+        "text": " psycortex.in ‘s Privacy Policy does not apply to other advertisers or websites. Thus, we are advising you to consult the respective Privacy Policies of these third-party ad servers for more detailed information. It may include their practices and instructions about how to opt out of certain options."
       },
       {
         "tag": "p",
