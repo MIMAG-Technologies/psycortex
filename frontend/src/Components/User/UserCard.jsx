@@ -1,14 +1,17 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Usercart.css";
 
 function UserCard(props) {
-  const { user, setisUserCardVisible, fetchUser } = props;
+  const { user, setisUserCardVisible, fetchUser, setisBurgerActive } = props;
+  const navi = useNavigate();
 
   const handleLogout = () => {
     localStorage.removeItem("psycortexTOKEN");
     fetchUser();
     setisUserCardVisible(false);
+    setisBurgerActive(false);
+    navi("/");
     window.location.reload();
   };
 
@@ -26,6 +29,7 @@ function UserCard(props) {
           to={"/user/mycart"}
           onClick={() => {
             setisUserCardVisible(false);
+            setisBurgerActive(false);
           }}
         >
           <i className="fa-solid fa-cart-arrow-down"></i>View Cart
@@ -34,6 +38,7 @@ function UserCard(props) {
           to={"/user/mypurchaseditems"}
           onClick={() => {
             setisUserCardVisible(false);
+            setisBurgerActive(false);
           }}
         >
           {" "}

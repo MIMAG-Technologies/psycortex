@@ -620,6 +620,7 @@ function MobileNavbar(props) {
       {isUserCardVisible ? (
         <UserCard
           fetchUser={fetchUser}
+          setisBurgerActive={setisBurgerActive}
           user={user}
           setisUserCardVisible={setisUserCardVisible}
         />
