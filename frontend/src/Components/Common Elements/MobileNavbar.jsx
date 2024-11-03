@@ -815,7 +815,7 @@ function MobileNavbar(props) {
                   }
             }
           >
-            {login}
+            {login === "Login" ? "Login" : "My Account"}
           </Link>
         </div>
         <div
