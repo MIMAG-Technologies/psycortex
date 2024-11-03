@@ -12,6 +12,15 @@ function MobileNavbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const { fetchUser, user, login, cartlenght } = props;
+  const [isHovered, setIsHovered] = useState(false);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setIsHovered((prev) => !prev);
+    }, 500);
+
+    return () => clearInterval(interval);
+  }, []);
   useEffect(() => {
     fetchUser();
   }, []);
@@ -657,31 +666,33 @@ function MobileNavbar(props) {
               className="fa-solid fa-xmark"
             ></i>
           </div>
-          <Link to={"/user/mycart"} className="cart-container">
+          <Link
+            to={"/user/mycart"}
+            className="cart-container"
+            style={{
+              display: isSearchBoxOpen ? "none" : "flex",
+            }}
+          >
             <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
           </Link>
-          <Link
-            class="button"
+          <a
+            className={`button ${isHovered ? "appbutton" : ""}`}
             style={{
-              height: login === "Login" ? "fit-content" : "4vh",
-              width: login === "Login" ? "fit-content" : "4vh",
-              padding: login === "Login" ? "" : "0px",
-
+              fontSize: "14px",
+              height: "fit-content",
+              width: "fit-content",
               textDecoration: "none",
+              textAlign: "center",
+              display: isSearchBoxOpen ? "none" : "flex",
             }}
-            to={login === "Login" ? "/user/login" : location.pathname}
-            onClick={
-              login === "Login"
-                ? () => {
-                    return;
-                  }
-                : () => {
-                    setisUserCardVisible(!isUserCardVisible);
-                  }
-            }
+            onClick={() => {
+              setisBurgerActive(!isBurgerActive);
+            }}
+            href="https://client.psycortex.in/"
+            target="_blank"
           >
-            {login}
-          </Link>
+            Book Appointment
+          </a>
           <div
             className="burger"
             onClick={() => {
@@ -776,16 +787,6 @@ function MobileNavbar(props) {
           >
             Blogs
           </Link>
-          <a
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-            }}
-            href="https://client.psycortex.in/"
-            target="_blank"
-          >
-            Book Appointment
-          </a>
-
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -801,6 +802,20 @@ function MobileNavbar(props) {
             to="/shop"
           >
             Shop
+          </Link>
+          <Link
+            to={login === "Login" ? "/user/login" : location.pathname}
+            onClick={
+              login === "Login"
+                ? () => {
+                    setisBurgerActive(!isBurgerActive);
+                  }
+                : () => {
+                    setisUserCardVisible(!isUserCardVisible);
+                  }
+            }
+          >
+            {login}
           </Link>
         </div>
         <div
