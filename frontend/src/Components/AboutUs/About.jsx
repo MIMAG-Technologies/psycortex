@@ -16,9 +16,9 @@ function About() {
         {" > About Us > About"}{" "}
       </div>
       <div>
-        <h1>Legal Venture Name: Psycortex (OPC) Pvt. Ltd</h1>
+        <h1>Legal Venture Name: Psycortex (OPC) Pvt. Ltd</h1>
         <p>
-          Welcome to Psycortex (OPC) Pvt. Ltd, where we specialize in providing
+          Welcome to Psycortex (OPC) Pvt. Ltd, where we specialize in providing
           comprehensive and transformative mental health counseling and
           services. Situated at the forefront of mental wellness, our clinic is
           a sanctuary of compassion and expertise, dedicated to nurturing the
@@ -29,7 +29,7 @@ function About() {
           alt=""
         />
         <p>
-          At Psycortex (OPC) Pvt. Ltd, we recognize the intricate interplay
+          At Psycortex (OPC) Pvt. Ltd, we recognize the intricate interplay
           between mind, body, and spirit, and our team of experienced
           psychologists, therapists, and counselors are committed to offering
           personalized and effective treatment plans tailored to your unique
