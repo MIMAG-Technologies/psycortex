@@ -68,6 +68,20 @@ function Shop() {
               },
             ],
           },
+          {
+            name: "Test Product",
+            imgsrc: "groupCounselling.jpg",
+            description:
+              "# Test Product\n\nThis is a test product designed to demonstrate functionality. The product is available with a single variant and is priced affordably for testing purposes.\n\n## Features\n\n1. **Simple Setup:** Easy to integrate into your product catalog.\n2. **Affordable Price:** Perfect for testing purposes.\n3. **Single Variant:** Streamlined configuration for simplicity.\n\nTake this test product for a spin and explore how your system handles it effectively.",
+            variants: [
+              {
+                productId: "TEST01",
+                diffrentby: "Single Variant",
+                sessions: "1",
+                cost: "200",
+              },
+            ],
+          },
         ]);
 
         // Set the default selected variant for each product

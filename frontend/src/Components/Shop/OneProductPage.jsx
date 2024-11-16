@@ -80,12 +80,6 @@ function OneProductPage(props) {
                 sessions: "48",
                 cost: "2,40,000",
               },
-              {
-                productId: "PSYIC4",
-                diffrentby: "0 months",
-                sessions: "0",
-                cost: "100",
-              },
             ],
           },
           {
@@ -112,11 +106,19 @@ function OneProductPage(props) {
                 sessions: "1",
                 cost: "10,00,000",
               },
+            ],
+          },
+          {
+            name: "Test Product",
+            imgsrc: "groupCounselling.jpg",
+            description:
+              "# Test Product\n\nThis is a test product designed to demonstrate functionality. The product is available with a single variant and is priced affordably for testing purposes.\n\n## Features\n\n1. **Simple Setup:** Easy to integrate into your product catalog.\n2. **Affordable Price:** Perfect for testing purposes.\n3. **Single Variant:** Streamlined configuration for simplicity.\n\nTake this test product for a spin and explore how your system handles it effectively.",
+            variants: [
               {
-                productId: "PSYGC4",
-                diffrentby: "400 people",
+                productId: "TEST01",
+                diffrentby: "Single Variant",
                 sessions: "1",
-                cost: "20,00,000",
+                cost: "200",
               },
             ],
           },
