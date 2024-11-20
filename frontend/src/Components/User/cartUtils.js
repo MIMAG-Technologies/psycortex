@@ -50,41 +50,6 @@ export const fetchUserPurchased = async () => {
   }
 };
 
-export const updateCart = async (
-  productId,
-  quantity,
-  fetchCart,
-  fetchUser,
-  calculateGrandTotal
-) => {
-  const token = localStorage.getItem("psycortexTOKEN");
-  if (token) {
-    try {
-      await axios.put(
-        `${process.env.REACT_APP_API_URL}/updatecart`,
-        {
-          productId: productId,
-          quantity: quantity,
-        },
-        {
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-      alert("Cart Updated Successfully!");
-      fetchCart();
-      fetchUser();
-      calculateGrandTotal();
-    } catch (error) {
-      console.log(error);
-      alert("Internal Server Error! Please try again after some time.");
-    }
-  } else {
-    alert("Please login to access these services.");
-  }
-};
 export const updateUser = async (user, fetchUser) => {
   const token = localStorage.getItem("psycortexTOKEN");
   const { cart, purchasesItems, ...userWithoutCartAndPurchases } = user;

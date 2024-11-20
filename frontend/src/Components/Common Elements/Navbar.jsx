@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomtoTopBtn from "./BottomtoTopBtn";
 import UserCard from "../User/UserCard";
+import { UserDataContext } from "../../context/UserData";
 
 function Navbar(props) {
   const [section, setSection] = useState("aboutus");
@@ -22,7 +23,8 @@ function Navbar(props) {
     return () => clearInterval(interval);
   }, []);
 
-  const { fetchUser, user, login, cartlenght } = props;
+  const { fetchUser, user, login } = props;
+  const { cartData } = useContext(UserDataContext);
   useEffect(() => {
     fetchUser();
   }, []);
@@ -415,7 +417,7 @@ function Navbar(props) {
               </svg>
             </a>
             <Link to={"/user/mycart"} className="cart-container">
-              <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
+              <i className="fa-solid fa-cart-shopping" id={cartData.length}></i>
             </Link>
             <Link
               to={"/shop"}

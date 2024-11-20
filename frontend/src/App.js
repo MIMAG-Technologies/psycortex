@@ -23,7 +23,7 @@ import SignIn from "./Components/User/SignIn.jsx";
 import LogIn from "./Components/User/LogIn.jsx";
 import Shop from "./Components/Shop/Shop.jsx";
 import OneProductPage from "./Components/Shop/OneProductPage.jsx";
-import UserCartView from "./Components/User/UserCartView.jsx";
+// import UserCartView from "./Components/User/UserCartView.jsx";
 import UserPurchasedItemView from "./Components/User/UserPurchasedItemView.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -35,6 +35,7 @@ import ForgotPassword from "./Components/User/ForgotPassword.jsx";
 import About from "./Components/AboutUs/About.jsx";
 import AdminLogin from "./Admin/AdminLogin.jsx";
 import Gallery from "./Components/AboutUs/Gallery.jsx";
+import UserCart from "./Components/User/UserCart.jsx";
 
 function App() {
   const [user, setuser] = useState({});
@@ -129,10 +130,11 @@ function App() {
         <Route path="/user/signin" element={<SignIn fetchUser={fetchUser} />} />
         <Route path="/user/forgotpassword" element={<ForgotPassword />} />
         <Route path="/user/login" element={<LogIn fetchUser={fetchUser} />} />
-        <Route
+        <Route path="/user/mycart" element={<UserCart />} />
+        {/* <Route
           path="/user/mycart"
           element={<UserCartView fetchUser={fetchUser} user={user} />}
-        />
+        /> */}
         <Route
           path="/user/mypurchaseditems"
           element={<UserPurchasedItemView user={user} />}
