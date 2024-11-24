@@ -1,11 +1,13 @@
 import React, { useState, useContext, useEffect } from "react";
 import { Helmet } from "react-helmet-async";
 import { UserDataContext } from "../../context/UserData";
+import { useNavigate } from "react-router-dom";
 
 export default function UserCart() {
   const { cartData, setCartData } = useContext(UserDataContext);
   const [tempCart, setTempCart] = useState([]);
   const [grandTotal, setGrandTotal] = useState(0);
+  const navi = useNavigate();
 
   useEffect(() => {
     const initialTempCart = JSON.parse(JSON.stringify(cartData)); // Deep copy
@@ -106,10 +108,6 @@ export default function UserCart() {
     );
   }
 
-  const initiateTransaction = () => {
-    console.log("Transaction initiated");
-  };
-
   return (
     <div className="UserCartView">
       <Helmet>
@@ -122,7 +120,12 @@ export default function UserCart() {
       {allItemsInCart()}
       <span>
         <h1>Grand Total: Rs {grandTotal.toLocaleString()}</h1>
-        <div className="check-out-container" onClick={initiateTransaction}>
+        <div
+          className="check-out-container"
+          onClick={() => {
+            navi("/user/checkout");
+          }}
+        >
           <div className="check-out-left-side">
             <div className="check-out-card">
               <div className="check-out-card-line"></div>

@@ -50,6 +50,21 @@ export const fetchUserPurchased = async () => {
   }
 };
 
+export const updateCart = (
+  productId,
+  cartData,
+  setCartData,
+  quantity,
+  calculateGrandTotal
+) => {
+  const updatedCart = cartData.map((item) =>
+    item.productId === productId ? { ...item, quantity } : item
+  );
+
+  setCartData(updatedCart);
+  calculateGrandTotal();
+};
+
 export const updateUser = async (user, fetchUser) => {
   const token = localStorage.getItem("psycortexTOKEN");
   const { cart, purchasesItems, ...userWithoutCartAndPurchases } = user;

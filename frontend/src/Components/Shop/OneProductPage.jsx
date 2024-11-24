@@ -24,7 +24,7 @@ function OneProductPage(props) {
 
       // Prepare the cart item with all details
       const cartItem = {
-        productId: products._id,
+        productId: products.productId,
         name: products.name,
         differentby: selectedVariants.diffrentby, // Variant specific property
         sessions: selectedVariants.sessions, // Variant specific property
@@ -35,7 +35,7 @@ function OneProductPage(props) {
       // Check if the product is already in the cart
       const productIndex = existingCart.findIndex(
         (item) =>
-          item.productId === products._id &&
+          item.productId === products.productId &&
           item.differentby === selectedVariants.diffrentby
       );
 
