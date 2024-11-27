@@ -7,35 +7,33 @@ import LoadingBar from "../Common Elements/LoadingBar";
 import { UserDataContext } from "../../context/UserData";
 
 function OneProductPage(props) {
-  const { fetchUser } = props;
   const [quantity, setquantity] = useState(1);
   const [selectedVariants, setSelectedVariants] = useState({});
-  const [isLoading, setisLoading] = useState(false);
   const { pid } = useParams();
   const [products, setproducts] = useState({});
 
-  const [allproducts, setallproducts] = useState([]);
-  const { setCartData } = useContext(UserDataContext);
+  const { cartData, setCartData } = useContext(UserDataContext);
 
   const addtocart = async () => {
     try {
       // Fetch the cart data from local storage (if available)
-      const existingCart = JSON.parse(localStorage.getItem("cartData")) || [];
+      const existingCart = cartData;
 
       // Prepare the cart item with all details
       const cartItem = {
-        productId: products.productId,
+        productId: selectedVariants.productId, // Changed from products.productId
         name: products.name,
-        differentby: selectedVariants.diffrentby, // Variant specific property
-        sessions: selectedVariants.sessions, // Variant specific property
-        cost: selectedVariants.cost, // Variant specific property
-        quantity, // Current selected quantity
+        differentby: selectedVariants.diffrentby,
+        sessions: selectedVariants.sessions,
+        cost: selectedVariants.cost,
+        quantity,
+        imgsrc: products.imgsrc, // Added image source for cart display
       };
 
       // Check if the product is already in the cart
       const productIndex = existingCart.findIndex(
         (item) =>
-          item.productId === products.productId &&
+          item.productId === selectedVariants.productId && // Changed from products.productId
           item.differentby === selectedVariants.diffrentby
       );
 
@@ -48,7 +46,7 @@ function OneProductPage(props) {
       }
 
       // Update the cart in context
-      setCartData(existingCart);
+      setCartData([...existingCart]); // Changed to create a new array reference
 
       // Store the updated cart in local storage
       localStorage.setItem("cartData", JSON.stringify(existingCart));
@@ -92,7 +90,6 @@ function OneProductPage(props) {
   };
   return (
     <div className="CounsellingProduct">
-      {isLoading ? <LoadingBar /> : <></>}
       <div className="breadcrumb">
         <i className="fa-solid fa-house"></i>
         {` > Shop > ${products.name}`}

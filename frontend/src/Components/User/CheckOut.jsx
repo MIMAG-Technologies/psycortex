@@ -182,7 +182,6 @@ function CheckOut() {
           value={userData.address.pinCode || ""}
           onChange={handleChange}
         />
-        <button type="submit">Update Details</button>
       </form>
       <div className="UserCheckoutViewRHS">
         <p className="checkoutdetailheading">Your Order</p>

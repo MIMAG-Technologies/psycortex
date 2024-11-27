@@ -1,13 +1,13 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
-const connectDB = require("./config/db");
-const contactRoutes = require("./routes/contactRoutes");
-const subscriptionRoutes = require("./routes/subscriptionRoutes");
-const transactionRoutes = require("./routes/transactionRoutes");
-const authRoutes = require("./routes/authRoutes");
-const productRoutes = require("./routes/productRoutes");
-const { protect } = require("./middleware/auth");
+const connectDB = require("./src/config/db");
+const contactRoutes = require("./src/routes/contactRoutes");
+const subscriptionRoutes = require("./src/routes/subscriptionRoutes");
+const transactionRoutes = require("./src/routes/transactionRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const productRoutes = require("./src/routes/productRoutes");
+const { protect } = require("./src/middleware/auth");
 
 dotenv.config();
 

@@ -37,6 +37,7 @@ import AdminLogin from "./Admin/AdminLogin.jsx";
 import Gallery from "./Components/AboutUs/Gallery.jsx";
 import UserCart from "./Components/User/UserCart.jsx";
 import CheckOut from "./Components/User/CheckOut.jsx";
+import OrderDetails from "./Components/User/OrderDetails.jsx";
 
 function App() {
   const [user, setuser] = useState({});
@@ -133,6 +134,7 @@ function App() {
         <Route path="/user/login" element={<LogIn fetchUser={fetchUser} />} />
         <Route path="/user/mycart" element={<UserCart />} />
         <Route path="/user/checkout" element={<CheckOut />} />
+        <Route path="/user/order" element={<OrderDetails />} />
         {/* <Route
           path="/user/mycart"
           element={<UserCartView fetchUser={fetchUser} user={user} />}

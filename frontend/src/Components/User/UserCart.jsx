@@ -123,6 +123,7 @@ export default function UserCart() {
         <div
           className="check-out-container"
           onClick={() => {
+            localStorage.setItem("GrandTotal", grandTotal);
             navi("/user/checkout");
           }}
         >
