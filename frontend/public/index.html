@@ -115,7 +115,7 @@
             return credentials;
           } catch (error) {
             console.error("Credentials fetch error:", error);
-            alert("Unable to process payment. Please try again later.");
+            // alert("Unable to process payment. Please try again later.");
             return null;
           }
         };
@@ -213,7 +213,7 @@
               );
             } else {
               await completeTransaction(
-                "success",
+                "error",
                 res.paymentMethod.paymentTransaction.identifier,
                 res.paymentMethod.paymentTransaction.errorMessage
               );

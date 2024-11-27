@@ -22,8 +22,6 @@ router.get("/getUserPurchasedItems", async (req, res) => {
 
     // Fetch transactions of the user to get additional details
     const transactions = await Transaction.find({ email });
-
-    console.log(transactions);
     // Map purchasesItems to the required format
     const purchasedItems = user.purchasesItems.map((item) => {
       const product = item.productId; // Populated Product

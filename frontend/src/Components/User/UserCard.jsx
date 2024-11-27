@@ -2,15 +2,21 @@ import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Usercart.css";
 import { UserDataContext } from "../../context/UserData";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function UserCard(props) {
   const { setisUserCardVisible } = props;
   const navi = useNavigate();
   const { userData, setisLoggedIn } = useContext(UserDataContext);
+  const { logout, isAuthenticated } = useAuth0();
   const handleLogout = () => {
     localStorage.removeItem("psycortexTOKEN");
     setisLoggedIn(false);
     setisUserCardVisible(false);
+    if (isAuthenticated) {
+      logout({ logoutParams: { returnTo: window.location.origin } });
+      return;
+    }
 
     navi("/");
     window.location.reload();

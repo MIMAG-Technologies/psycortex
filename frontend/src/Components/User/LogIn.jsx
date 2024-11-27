@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import LoadingBar from "../Common Elements/LoadingBar";
 import { UserDataContext } from "../../context/UserData";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function LogIn() {
   const [email, setEmail] = useState("");
@@ -18,6 +19,7 @@ function LogIn() {
   const [isTimerActive, setIsTimerActive] = useState(false);
   const navigate = useNavigate();
   const { setisLoggedIn } = useContext(UserDataContext);
+  const { loginWithRedirect } = useAuth0();
 
   // Effect to handle timer countdown
   useEffect(() => {
@@ -148,6 +150,29 @@ function LogIn() {
           {/* Timer display */}
           {isTimerActive && <p>Resend OTP in: {timer}s</p>}
         </section>
+        <>
+          <div className="separatorggl">
+            <hr className="lineggl" />
+            <span>Or</span>
+            <hr className="lineggl" />
+          </div>
+          <button
+            onClick={() => loginWithRedirect()}
+            title="Sign In"
+            className="login-next-btn2"
+          >
+            <i className="fa-brands fa-google"></i>
+            <span>Sign In with Google</span>
+          </button>
+          <button
+            onClick={() => loginWithRedirect()}
+            title="Sign In"
+            className="login-next-btn2"
+          >
+            <i className="fa-brands fa-microsoft"></i>
+            <span>Sign In with Microsoft</span>
+          </button>
+        </>
       </form>
     </div>
   );

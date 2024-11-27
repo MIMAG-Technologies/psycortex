@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { fetchUserPurchased } from "./cartUtils";
+import { fetchUserPurchased } from "../../utils/cartUtils";
 import { Helmet } from "react-helmet-async";
 
 function UserPurchasedItemView(props) {

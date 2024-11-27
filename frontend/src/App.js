@@ -6,7 +6,7 @@ import Navbar from "./Components/Common Elements/Navbar";
 import MobileNavbar from "./Components/Common Elements/MobileNavbar";
 import UniqueFeature from "./Components/Unique Features/UniqueFeature";
 import Services from "./Components/Services/Services.jsx";
-import Testimonials from "./Components/Testimonials/Testimonials.jsx";
+// import Testimonials from "./Components/Testimonials/Testimonials.jsx";
 import Contact from "./Components/Contact Us/Contact.jsx";
 import Team from "./Components/AboutUs/Team.jsx";
 import MissionVissionValues from "./Components/AboutUs/MissionVissionValues.jsx";
@@ -116,7 +116,7 @@ function App() {
         <Route path="/contactus" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/aboutus/offices" element={<Contact />} />
-        <Route path="/testimonials" element={<Testimonials />} />
+        {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/franchise" element={<Franchise />} />
         <Route path="/uniquefeature/:section" element={<UniqueFeature />} />
         <Route path="/services/:section/:subsection" element={<Services />} />

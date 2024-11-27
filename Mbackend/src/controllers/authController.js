@@ -5,7 +5,52 @@ const {
   generateToken,
   verifyToken,
 } = require("../utils/auth");
+const { decrypt } = require("../utils/cryptoUtils");
 const { sendEmail } = require("../utils/email");
+
+exports.googleLogin = async (req, res) => {
+  try {
+    const encryptionKey = process.env.DECRYPTION_KEY; // Fetch key from .env
+    const { name, email, key } = req.body;
+    if (key !== encryptionKey) {
+      console.log(encryptionKey, key);
+
+      return res.status(401).json({ success: false, error: "Invalid key" });
+    }
+    if (!email || !name) {
+      return res.status(400).json({ success: false, error: "Invalid request" });
+    }
+
+    // Check if the user exists in the database
+    let user = await User.findOne({ email });
+    if (!user) {
+      user = await User.create({
+        email,
+        name,
+        phoneNo: "",
+        companyName: "",
+        purchasesItems: [],
+        address: {
+          country: "",
+          streetAddress: "",
+          apartment: "",
+          city: "",
+          state: "",
+          pinCode: "",
+        },
+      });
+    }
+
+    // Generate a JWT for the user
+    const token = generateToken(email);
+
+    res.status(200).json({ success: true, token });
+  } catch (error) {
+    console.log(error);
+
+    res.status(500).json({ success: false, error: "Invalid or expired token" });
+  }
+};
 
 exports.login = async (req, res) => {
   try {
@@ -31,7 +76,21 @@ exports.checkOTP = async (req, res) => {
 
     let user = await User.findOne({ email });
     if (!user) {
-      user = await User.create({ email });
+      user = await User.create({
+        name: "",
+        email,
+        phoneNo: "",
+        companyName: "",
+        purchasesItems: [],
+        address: {
+          country: "",
+          streetAddress: "",
+          apartment: "",
+          city: "",
+          state: "",
+          pinCode: "",
+        },
+      });
     }
 
     const token = generateToken(email);
