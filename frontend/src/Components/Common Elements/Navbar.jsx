@@ -24,7 +24,7 @@ function Navbar(props) {
   }, []);
 
   const { fetchUser, user, login } = props;
-  const { cartData } = useContext(UserDataContext);
+  const { cartData, isLoggedIn, userData } = useContext(UserDataContext);
   useEffect(() => {
     fetchUser();
   }, []);
@@ -378,11 +378,7 @@ function Navbar(props) {
   return (
     <>
       {!isScrolled && isUserCardVisible ? (
-        <UserCard
-          fetchUser={fetchUser}
-          user={user}
-          setisUserCardVisible={setisUserCardVisible}
-        />
+        <UserCard setisUserCardVisible={setisUserCardVisible} />
       ) : (
         <></>
       )}
@@ -477,9 +473,9 @@ function Navbar(props) {
             </div>
             <Link
               class="button"
-              to={login === "Login" ? "/user/login" : location.pathname}
+              to={!isLoggedIn ? "/user/login" : location.pathname}
               onClick={
-                login === "Login"
+                !isLoggedIn
                   ? () => {
                       return;
                     }
@@ -488,7 +484,7 @@ function Navbar(props) {
                     }
               }
             >
-              {login}
+              {isLoggedIn ? userData.name[0] : "Login"}
             </Link>
           </ul>
           <ul className={isScrolled ? "lowerscrolled" : "lowerdiv"}>
