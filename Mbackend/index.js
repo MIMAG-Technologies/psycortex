@@ -7,6 +7,7 @@ const subscriptionRoutes = require("./src/routes/subscriptionRoutes");
 const transactionRoutes = require("./src/routes/transactionRoutes");
 const authRoutes = require("./src/routes/authRoutes");
 const productRoutes = require("./src/routes/productRoutes");
+const userRoutes = require("./src/routes/userRoutes");
 const { protect } = require("./src/middleware/auth");
 
 dotenv.config();
@@ -29,7 +30,7 @@ app.use("/auth", authRoutes);
 app.use("/product", productRoutes);
 
 // Protected routes
-app.use("/user", protect, authRoutes);
+app.use("/user", protect, userRoutes);
 
 const PORT = process.env.PORT || 5000;
 

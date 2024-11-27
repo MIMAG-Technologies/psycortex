@@ -35,7 +35,7 @@ export const fetchUserPurchased = async () => {
   const token = localStorage.getItem("psycortexTOKEN");
   try {
     const res = await axios.get(
-      `${process.env.REACT_APP_API_URL}/getUserPurchased`,
+      `${process.env.REACT_APP_API_URL}/user/getUserPurchasedItems`,
       {
         headers: {
           "Content-Type": "application/json",
