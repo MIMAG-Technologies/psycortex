@@ -10,13 +10,10 @@ const { sendEmail } = require("../utils/email");
 
 exports.googleLogin = async (req, res) => {
   try {
-    const encryptionKey = process.env.DECRYPTION_KEY; // Fetch key from .env
-    const { name, email, key } = req.body;
-    if (key !== encryptionKey) {
-      console.log(encryptionKey, key);
-
-      return res.status(401).json({ success: false, error: "Invalid key" });
-    }
+    const DECRYPTION_KEY = process.env.DECRYPTION_KEY; // Fetch key from .env
+    const {encryptedData} = req.body;
+      const decryptedData = decrypt(encryptedData, DECRYPTION_KEY);
+      const { name, email } = JSON.parse(decryptedData);
     if (!email || !name) {
       return res.status(400).json({ success: false, error: "Invalid request" });
     }

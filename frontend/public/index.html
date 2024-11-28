@@ -53,7 +53,7 @@
       // Configuration Object
       const CONFIG = {
         PAYMENT_GATEWAY: {
-          API_ENDPOINT: "http://localhost:5051", // Replace with your actual endpoint
+          API_ENDPOINT: "https://api.psycortex.in", // Replace with your actual endpoint
           MERCHANT_CODE: "",
           MERCHANT_KEY: "",
           CONSUMER_ID: "",
@@ -139,7 +139,7 @@
           errorMessage
         ) => {
           try {
-            // Robust data retrieval with fallback
+            
             const UserData = JSON.parse(localStorage.getItem("userData") || {});
             const cartData = localStorage.getItem("cartData") || [];
             const grandTotal = localStorage.getItem("GrandTotal") || 0;

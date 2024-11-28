@@ -1,68 +1,39 @@
 const express = require("express");
-const app = express();
+const dotenv = require("dotenv");
 const cors = require("cors");
-const { createAdminIfNotExists } = require("./controllers/adminControllers"); // Import the function
+const connectDB = require("./src/config/db");
+const contactRoutes = require("./src/routes/contactRoutes");
+const subscriptionRoutes = require("./src/routes/subscriptionRoutes");
+const transactionRoutes = require("./src/routes/transactionRoutes");
+const authRoutes = require("./src/routes/authRoutes");
+const productRoutes = require("./src/routes/productRoutes");
+const userRoutes = require("./src/routes/userRoutes");
+const { protect } = require("./src/middleware/auth");
 
-const corsOptions = {
-  origin: [
-    "http://89.116.32.90",
-    "https://89.116.32.90",
-    "http://psycortex.in",
-    "https://psycortex.in",
-  ],
-};
+dotenv.config();
 
-// app.use(cors(corsOptions));
-app.use(cors());
+const app = express();
 
-const messageRouter = require("./routers/messages");
-const emailRouter = require("./routers/email");
-const userRouter = require("./routers/userRouter");
-const productRouter = require("./routers/productRoutes");
-const adminRouter = require("./routers/adminRoute");
-const TransactionRouter = require("./routers/transactionRoutes");
+// Connect to database
+connectDB();
 
+// Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(cors());
 
-require("dotenv").config();
+// Routes
+app.use("/contactUs", contactRoutes);
+app.use("/subscribe", subscriptionRoutes);
+app.use("/make-transaction", transactionRoutes);
+app.use("/auth", authRoutes);
+app.use("/product", productRoutes);
 
-app.use(messageRouter);
-app.use(emailRouter);
-app.use(userRouter);
-app.use(productRouter);
-app.use(adminRouter);
-app.use(TransactionRouter);
+// Protected routes
+app.use("/user", protect, userRoutes);
 
-app.get("/", (req, res) => {
-  res.status(200).send("Welcome to psycortex Backend!");
+const PORT = process.env.PORT || 5000;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
-
-const PORT = process.env.PORT || 3001;
-const { PrismaClient } = require("@prisma/client");
-
-const prisma = new PrismaClient();
-
-async function checkDatabaseConnection() {
-  try {
-    await prisma.$connect();
-    console.log("Database connected successfully");
-  } catch (error) {
-    console.error("Failed to connect to database:", error);
-  } finally {
-    await prisma.$disconnect();
-  }
-}
-
-async function startServer() {
-  // Create admin if it doesn't exist
-  await createAdminIfNotExists();
-
-  // Start server after admin creation
-  checkDatabaseConnection();
-  app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-  });
-}
-
-startServer();

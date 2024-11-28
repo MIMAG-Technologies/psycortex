@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
 import { useAuth0 } from "@auth0/auth0-react";
+import { encrypt } from "../utils/cryptoUtils";
 
 // Create a Context
 export const UserDataContext = createContext();
@@ -50,28 +51,43 @@ export const UserDataProvider = ({ children }) => {
   };
 
   // Handle OAuth Login
-  const handleOAuthLogin = async () => {
-    try {
-      const encryptionKey = process.env.REACT_APP_ENCRYPTION_KEY;
-      const data = { name: user.name, email: user.email, key: encryptionKey };
-      const res = await axios.post(
-        `${process.env.REACT_APP_API_URL}/auth/googleLogin`,
-        data
-      );
+const handleOAuthLogin = async () => {
+  try {
+    const encryptionKey = process.env.REACT_APP_ENCRYPTION_KEY;
 
-      if (res.data.success) {
-        const token = res.data.token;
-        localStorage.setItem("psycortexTOKEN", token);
-        await fetchUser(token);
-      } else {
-        console.error("OAuth login error:", res.data.error);
-        setisLoggedIn(false);
-      }
-    } catch (error) {
-      console.error("OAuth login failed:", error.message);
+    // Validate if user data exists
+    if (!user || !user.name || !user.email) {
+      throw new Error("Invalid user data provided.");
+    }
+
+    const data = { name: user.name, email: user.email };
+
+    // Encrypt user data
+    const encryptedData = encrypt(JSON.stringify(data), encryptionKey);
+
+    // Send encrypted data to the backend
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/auth/googleLogin`,
+      { encryptedData }
+    );
+
+    // Handle backend response
+    if (res.data.success) {
+      const token = res.data.token;
+
+      // Save token and fetch user info
+      localStorage.setItem("psycortexTOKEN", token);
+      await fetchUser(token);
+    } else {
+      console.error("OAuth login error:", res.data.error);
       setisLoggedIn(false);
     }
-  };
+  } catch (error) {
+    console.error("OAuth login failed:", error.message);
+    setisLoggedIn(false);
+  }
+};
+
 
   // Check authentication status
   const checkAuthentication = async () => {

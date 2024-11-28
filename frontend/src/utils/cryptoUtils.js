@@ -1,10 +1,7 @@
 import CryptoJS from "crypto-js";
-
 // Encrypt function
 export const encrypt = (data, key) => {
-  // Ensure data is a string before encryption
-  const stringData = typeof data === "string" ? data : JSON.stringify(data);
-  const ciphertext = CryptoJS.AES.encrypt(stringData, key).toString();
+  const ciphertext = CryptoJS.AES.encrypt(data, key).toString();
   return ciphertext;
 };
 

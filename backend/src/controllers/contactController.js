@@ -6,20 +6,27 @@ exports.createContact = async (req, res) => {
     const contact = await Contact.create(req.body);
 
     // Send email to admin
+    
+    res.status(201).json({ success: true, data: contact });
     await sendEmail(
       process.env.ADMIN_EMAIL,
       "New Contact Inquiry",
-      `New inquiry from ${contact.firstname} ${contact.lastname}`
-    );
+      `New inquiry from ${contact.firstname} ${contact.lastname}
+      He/She is Saying "${contact.message}"
+      `
+
+    ).catch(err => {
+      console.log("Email not sent to admin.",err);
+    });
 
     // Send email to user
     await sendEmail(
       contact.email,
       "Thank you for contacting us",
       "We have received your inquiry and will get back to you soon."
-    );
-
-    res.status(201).json({ success: true, data: contact });
+    ).catch(err => {
+      console.log("Email not sent to admin.",err);
+    });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }

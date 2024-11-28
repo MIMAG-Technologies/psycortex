@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import "./Contact.css";
 import { useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
+import axios from "axios";
 
 function Contact() {
   const [isButtonDisabled, setisButtonDisabled] = useState(false);
@@ -80,7 +81,7 @@ function Contact() {
       if (lastContactSubmitTime) {
         const currentTime = new Date().getTime();
         const timeDifference =
-          (currentTime - parseInt(lastContactSubmitTime)) / (1000 * 60 * 60); // Difference in hours
+          (currentTime - parseInt(lastContactSubmitTime)) / (1000 * 60); 
         if (timeDifference < 1) {
           setmessage(
             "You recently submitted a message. Please try again after sometime."
@@ -90,19 +91,11 @@ function Contact() {
         }
       }
       setisButtonDisabled(true);
+      const responce = await axios.post( `${process.env.REACT_APP_API_URL}/contactUs`,formData)
 
-      const response = await fetch(
-        `${process.env.REACT_APP_API_URL}/messages/contactus`,
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(formData),
-        }
-      );
 
-      if (response.ok) {
+
+      if (responce.data.success) {
         console.log("Message sent successfully");
         // Store current time in local storage
         localStorage.setItem(

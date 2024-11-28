@@ -5,13 +5,15 @@ exports.subscribe = async (req, res) => {
   try {
     const subscription = await Subscription.create(req.body);
 
+    res.status(201).json({ success: true, data: subscription });
     await sendEmail(
       subscription.email,
       "Subscription Confirmation",
       "Thank you for subscribing to our newsletter!"
-    );
+    ).catch(err => {
+      console.log("Email not sent to admin.",err);
+    });;
 
-    res.status(201).json({ success: true, data: subscription });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }

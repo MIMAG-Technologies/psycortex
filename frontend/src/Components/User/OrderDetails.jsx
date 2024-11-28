@@ -109,8 +109,8 @@ function OrderDetails() {
             flexDirection: "column",
             justifyContent: "space-between",
             padding: "20px",
-            backgroundColor: "rgb(85, 26, 139)",
-            color: "white",
+            backgroundColor: "#c1c1c1",
+            color: "black",
             borderTopLeftRadius: "8px",
             borderTopRightRadius: "8px",
           }}
@@ -135,8 +135,7 @@ function OrderDetails() {
                 Block no. 101/102, 2nd floor, Shriram Tower, Sadar,
                 Nagpur-440001, Maharashtra
               </p>
-              <p style={{ margin: 0 }}>Phone No: 8767027078</p>
-              <p style={{ margin: 0 }}>Email: info@psycortex.in</p>
+              
             </div>
           </div>
           <h2
@@ -165,7 +164,7 @@ function OrderDetails() {
                 color: "#333",
               }}
             >
-              <User style={{ marginRight: "10px" }} /> User Details
+              <User style={{ marginRight: "10px" }} /> Customer Details
             </h3>
             <p>
               <strong>Name:</strong> {userData.name}
@@ -385,7 +384,7 @@ function OrderDetails() {
               <strong>Amount:</strong> ₹{transactionData.amount}
             </p>
             <p>
-              <strong>Transaction State:</strong>{" "}
+              <strong>Transaction Status:</strong>{" "}
               {transactionData.transactionState}
             </p>
           </section>

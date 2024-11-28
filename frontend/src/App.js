@@ -19,7 +19,7 @@ import PolicyTemplate from "./Components/Policy/PolicyTemplate.jsx";
 import Franchise from "./Components/Common Elements/Franchise.jsx";
 import Booking from "./Components/Contact Us/Booking.jsx";
 import Search from "./Components/Search/Search.jsx";
-import SignIn from "./Components/User/SignIn.jsx";
+// import SignIn from "./Components/User/SignIn.jsx";
 import LogIn from "./Components/User/LogIn.jsx";
 import Shop from "./Components/Shop/Shop.jsx";
 import OneProductPage from "./Components/Shop/OneProductPage.jsx";
@@ -31,7 +31,7 @@ import AdminNavbar from "./Admin/AdminNavbar.jsx";
 import Users from "./Admin/Users.jsx";
 import Products from "./Admin/Products.jsx";
 import Media from "./Admin/Media.jsx";
-import ForgotPassword from "./Components/User/ForgotPassword.jsx";
+// import ForgotPassword from "./Components/User/ForgotPassword.jsx";
 import About from "./Components/AboutUs/About.jsx";
 import AdminLogin from "./Admin/AdminLogin.jsx";
 import Gallery from "./Components/AboutUs/Gallery.jsx";
@@ -129,8 +129,8 @@ function App() {
         />
 
         {/* USER ROUTES */}
-        <Route path="/user/signin" element={<SignIn fetchUser={fetchUser} />} />
-        <Route path="/user/forgotpassword" element={<ForgotPassword />} />
+        {/* <Route path="/user/signin" element={<SignIn fetchUser={fetchUser} />} />
+        <Route path="/user/forgotpassword" element={<ForgotPassword />} /> */}
         <Route path="/user/login" element={<LogIn fetchUser={fetchUser} />} />
         <Route path="/user/mycart" element={<UserCart />} />
         <Route path="/user/checkout" element={<CheckOut />} />

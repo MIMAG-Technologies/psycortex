@@ -12,8 +12,8 @@ root.render(
   <React.StrictMode>
     <HelmetProvider>
       <Auth0Provider
-        domain="dev-u2zo0e7rnl1l7r1p.us.auth0.com"
-        clientId="Tx87L1xQ3Hj8x699Q7pEcFW61ViwAwXq"
+        domain={process.env.REACT_APP_DOMAIN}
+        clientId={process.env.REACT_APP_CLIENT_ID}
         authorizationParams={{
           redirect_uri: window.location.origin,
         }}
