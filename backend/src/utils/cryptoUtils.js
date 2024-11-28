@@ -1,12 +1,12 @@
-import CryptoJS from "crypto-js";
+const CryptoJS = require("crypto-js");
 // Encrypt function
-export const encrypt = (data, key) => {
+exports.encrypt = (data, key) => {
   const ciphertext = CryptoJS.AES.encrypt(data, key).toString();
   return ciphertext;
 };
 
 // Decrypt function
-export const decrypt = (ciphertext, key) => {
+exports.decrypt = (ciphertext, key) => {
   const bytes = CryptoJS.AES.decrypt(ciphertext, key);
   const decryptedData = bytes.toString(CryptoJS.enc.Utf8);
   return decryptedData;
