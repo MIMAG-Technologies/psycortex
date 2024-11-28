@@ -1,7 +1,8 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomtoTopBtn from "./BottomtoTopBtn";
 import UserCard from "../User/UserCard";
+import { UserDataContext } from "../../context/UserData";
 
 function Navbar(props) {
   const [section, setSection] = useState("aboutus");
@@ -22,7 +23,8 @@ function Navbar(props) {
     return () => clearInterval(interval);
   }, []);
 
-  const { fetchUser, user, login, cartlenght } = props;
+  const { fetchUser, user, login } = props;
+  const { cartData, isLoggedIn, userData } = useContext(UserDataContext);
   useEffect(() => {
     fetchUser();
   }, []);
@@ -376,11 +378,7 @@ function Navbar(props) {
   return (
     <>
       {!isScrolled && isUserCardVisible ? (
-        <UserCard
-          fetchUser={fetchUser}
-          user={user}
-          setisUserCardVisible={setisUserCardVisible}
-        />
+        <UserCard setisUserCardVisible={setisUserCardVisible} />
       ) : (
         <></>
       )}
@@ -408,14 +406,14 @@ function Navbar(props) {
               Book Appointment
               <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
                 <path
-                  clip-rule="evenodd"
+                  clipRule="evenodd"
                   d="M12 2.25c-5.385 0-9.75 4.365-9.75 9.75s4.365 9.75 9.75 9.75 9.75-4.365 9.75-9.75S17.385 2.25 12 2.25zm4.28 10.28a.75.75 0 000-1.06l-3-3a.75.75 0 10-1.06 1.06l1.72 1.72H8.25a.75.75 0 000 1.5h5.69l-1.72 1.72a.75.75 0 101.06 1.06l3-3z"
-                  fill-rule="evenodd"
+                  fillRule="evenodd"
                 ></path>
               </svg>
             </a>
             <Link to={"/user/mycart"} className="cart-container">
-              <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
+              <i className="fa-solid fa-cart-shopping" id={cartData.length}></i>
             </Link>
             <Link
               to={"/shop"}
@@ -475,9 +473,9 @@ function Navbar(props) {
             </div>
             <Link
               class="button"
-              to={login === "Login" ? "/user/login" : location.pathname}
+              to={!isLoggedIn ? "/user/login" : location.pathname}
               onClick={
-                login === "Login"
+                !isLoggedIn
                   ? () => {
                       return;
                     }
@@ -486,7 +484,7 @@ function Navbar(props) {
                     }
               }
             >
-              {login}
+              {isLoggedIn ? userData.name[0] : "Login"}
             </Link>
           </ul>
           <ul className={isScrolled ? "lowerscrolled" : "lowerdiv"}>

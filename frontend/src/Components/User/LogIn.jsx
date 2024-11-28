@@ -1,69 +1,91 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import "./LogIn.css";
 import axios from "axios";
-import { AlertCircle, Eye, EyeOff } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { AlertCircle } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
-function LogIn(props) {
-  const [userEmail, setuserEmail] = useState("");
-  const [response, setresponse] = useState("");
-  const [userPassword, setuserPassword] = useState("");
-  const [isAnyProblem, setisAnyProblem] = useState(false);
-  const [isPasswordVisible, setisPasswordVisible] = useState(false);
-  const navigate = useNavigate();
-  const { fetchUser } = props;
+import LoadingBar from "../Common Elements/LoadingBar";
+import { UserDataContext } from "../../context/UserData";
+import { useAuth0 } from "@auth0/auth0-react";
 
-  const submitForm = async () => {
-    const userObj = {
-      email: userEmail,
-      password: userPassword,
-    };
+function LogIn() {
+  const [email, setEmail] = useState("");
+  const [otp, setOtp] = useState("");
+  const [hashedOTP, setHashedOTP] = useState("");
+  const [isOTPRequested, setIsOTPRequested] = useState(false);
+  const [error, setError] = useState("");
+  const [isLoading, setisLoading] = useState(false);
+  const [timer, setTimer] = useState(45); // Timer for 45 seconds
+  const [isTimerActive, setIsTimerActive] = useState(false);
+  const navigate = useNavigate();
+  const { setisLoggedIn } = useContext(UserDataContext);
+  const { loginWithRedirect } = useAuth0();
+
+  // Effect to handle timer countdown
+  useEffect(() => {
+    let interval;
+    if (isTimerActive && timer > 0) {
+      interval = setInterval(() => setTimer((prev) => prev - 1), 1000);
+    } else if (timer === 0) {
+      setIsTimerActive(false); // Stop the timer when it hits 0
+    }
+
+    return () => clearInterval(interval); // Clean up interval on component unmount
+  }, [isTimerActive, timer]);
+
+  const sendOTP = async () => {
+    setisLoading(true);
     try {
-      setresponse(
-        await axios.post(
-          `${process.env.REACT_APP_API_URL}/auth/login`,
-          userObj,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/login`,
+        { email },
+        { headers: { "Content-Type": "application/json" } }
       );
-      localStorage.setItem("psycortexTOKEN", response.data.token);
-      fetchUser();
-      navigate("/");
-      setisAnyProblem(false);
-    } catch (error) {
-      console.log(error);
-      setisAnyProblem(true);
+      if (response.data.success) {
+        setHashedOTP(response.data.hashedOTP);
+        setIsOTPRequested(true);
+        setError("");
+        setTimer(45); // Reset timer to 45 seconds on new OTP request
+        setIsTimerActive(true); // Start the timer
+      }
+    } catch (err) {
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setisLoading(false);
     }
   };
-  useEffect(() => {
-    const token = localStorage.getItem("psycortexTOKEN");
-    const fetchUser = async () => {
-      if (token) {
-        try {
-          const response = await axios.get(
-            `${process.env.REACT_APP_API_URL}/user/fetchuser`,
-            {
-              headers: {
-                "Content-Type": "application/json",
-                Authorization: `Bearer ${token}`,
-              },
-            }
-          );
-          navigate("/");
-        } catch (error) {
-          localStorage.removeItem("psycortexTOKEN");
-        }
+
+  const resendOTP = async () => {
+    setTimer(45); // Reset timer for resend
+    setIsTimerActive(true); // Start the timer again
+    sendOTP(); // Send OTP again
+  };
+
+  const verifyOTP = async () => {
+    setisLoading(true);
+    try {
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/checkOTP`,
+        { email, otp, hashedOTP },
+        { headers: { "Content-Type": "application/json" } }
+      );
+      if (response.data.success) {
+        localStorage.setItem("psycortexTOKEN", response.data.token);
+        setisLoggedIn(true);
+        navigate("/");
+      } else {
+        setError("Invalid OTP. Please try again.");
       }
-    };
-    fetchUser();
-  }, []);
+    } catch (err) {
+      setError("Something went wrong. Please try again later.");
+    } finally {
+      setisLoading(false);
+    }
+  };
 
   return (
     <div id="login">
+      {isLoading && <LoadingBar />}
       <Helmet>
         <title>
           Login to Psycortex - Comprehensive Mental Health Solutions
@@ -73,57 +95,84 @@ function LogIn(props) {
           content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
         />
       </Helmet>
-      <form action="post">
+      <form>
         <h1>Login to Psycortex</h1>
-        {isAnyProblem ? (
+        {error && (
           <div id="user-warning">
             <AlertCircle size={24} strokeWidth={2.25} />
-            <p>Oops! Something went wrong, please try again later!</p>
+            <p>{error}</p>
           </div>
-        ) : (
-          <></>
         )}
+
         <section id="login-form">
           <label htmlFor="login-user-email-id">Email</label>
           <input
             type="email"
             name="login-user-email-id"
             id="login-user-email-id"
-            value={userEmail}
-            onChange={(e) => {
-              setuserEmail(e.target.value);
-            }}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
           />
-          <div id="login-passwordcontainer">
-            <label htmlFor="login-user-password">Password</label>
-            <input
-              type={isPasswordVisible ? "text" : "password"}
-              name="login-user-password"
-              id="login-user-password"
-              value={userPassword}
-              onChange={(e) => {
-                setuserPassword(e.target.value);
-              }}
-            />
-            <div
-              id="login-password-visibility"
-              onClick={() => {
-                setisPasswordVisible(!isPasswordVisible);
-              }}
-            >
-              {isPasswordVisible ? <Eye /> : <EyeOff />}
-            </div>
-          </div>
-          <a className="login-next-btn" onClick={submitForm}>
-            Login
-          </a>
-          <Link to={"/user/forgotpassword"} className="forgotpassword">
-            Forgot Password?
-          </Link>
-          <p className="login-signin">
-            Don't have an Account? <Link to={"/user/signin"}>Sign in</Link>
-          </p>
+          {isOTPRequested && (
+            <>
+              <label htmlFor="otp">Enter OTP</label>
+              <input
+                type="text"
+                name="otp"
+                id="otp"
+                value={otp}
+                onChange={(e) => setOtp(e.target.value)}
+              />
+            </>
+          )}
+
+          <button
+            type="button"
+            className="login-next-btn"
+            onClick={isOTPRequested ? verifyOTP : sendOTP}
+          >
+            {isOTPRequested ? "Verify OTP" : "Send OTP"}
+          </button>
+
+          {/* Resend OTP link appears after timer ends */}
+          {isOTPRequested && !isTimerActive && (
+            <p>
+              <button
+                className="login-next-btn"
+                type="button"
+                onClick={resendOTP}
+              >
+                Resend OTP
+              </button>
+            </p>
+          )}
+
+          {/* Timer display */}
+          {isTimerActive && <p>Resend OTP in: {timer}s</p>}
         </section>
+        <>
+          <div className="separatorggl">
+            <hr className="lineggl" />
+            <span>Or</span>
+            <hr className="lineggl" />
+          </div>
+          <button
+            onClick={() => loginWithRedirect()}
+            title="Sign In"
+            className="login-next-btn2"
+          >
+            <i className="fa-brands fa-google"></i>
+            <span>Sign In with Google</span>
+          </button>
+          <button
+            onClick={() => loginWithRedirect()}
+            title="Sign In"
+            className="login-next-btn2"
+          >
+            <i className="fa-brands fa-microsoft"></i>
+            <span>Sign In with Microsoft</span>
+          </button>
+        </>
       </form>
     </div>
   );

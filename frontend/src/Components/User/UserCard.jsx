@@ -1,16 +1,23 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Usercart.css";
+import { UserDataContext } from "../../context/UserData";
+import { useAuth0 } from "@auth0/auth0-react";
 
 function UserCard(props) {
-  const { user, setisUserCardVisible, fetchUser, setisBurgerActive } = props;
+  const { setisUserCardVisible } = props;
   const navi = useNavigate();
-
+  const { userData, setisLoggedIn } = useContext(UserDataContext);
+  const { logout, isAuthenticated } = useAuth0();
   const handleLogout = () => {
     localStorage.removeItem("psycortexTOKEN");
-    fetchUser();
+    setisLoggedIn(false);
     setisUserCardVisible(false);
-    setisBurgerActive(false);
+    if (isAuthenticated) {
+      logout({ logoutParams: { returnTo: window.location.origin } });
+      return;
+    }
+
     navi("/");
     window.location.reload();
   };
@@ -23,13 +30,12 @@ function UserCard(props) {
       }}
     >
       <div id="UserCard">
-        <h1>{user.name}</h1>
-        <p>{user.email}</p>
+        <h1>{userData.name}</h1>
+        <p>{userData.email}</p>
         <Link
           to={"/user/mycart"}
           onClick={() => {
             setisUserCardVisible(false);
-            setisBurgerActive(false);
           }}
         >
           <i className="fa-solid fa-cart-arrow-down"></i>View Cart
@@ -38,7 +44,6 @@ function UserCard(props) {
           to={"/user/mypurchaseditems"}
           onClick={() => {
             setisUserCardVisible(false);
-            setisBurgerActive(false);
           }}
         >
           {" "}

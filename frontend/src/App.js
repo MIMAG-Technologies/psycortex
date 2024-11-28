@@ -6,7 +6,7 @@ import Navbar from "./Components/Common Elements/Navbar";
 import MobileNavbar from "./Components/Common Elements/MobileNavbar";
 import UniqueFeature from "./Components/Unique Features/UniqueFeature";
 import Services from "./Components/Services/Services.jsx";
-import Testimonials from "./Components/Testimonials/Testimonials.jsx";
+// import Testimonials from "./Components/Testimonials/Testimonials.jsx";
 import Contact from "./Components/Contact Us/Contact.jsx";
 import Team from "./Components/AboutUs/Team.jsx";
 import MissionVissionValues from "./Components/AboutUs/MissionVissionValues.jsx";
@@ -19,11 +19,11 @@ import PolicyTemplate from "./Components/Policy/PolicyTemplate.jsx";
 import Franchise from "./Components/Common Elements/Franchise.jsx";
 import Booking from "./Components/Contact Us/Booking.jsx";
 import Search from "./Components/Search/Search.jsx";
-import SignIn from "./Components/User/SignIn.jsx";
+// import SignIn from "./Components/User/SignIn.jsx";
 import LogIn from "./Components/User/LogIn.jsx";
 import Shop from "./Components/Shop/Shop.jsx";
 import OneProductPage from "./Components/Shop/OneProductPage.jsx";
-import UserCartView from "./Components/User/UserCartView.jsx";
+// import UserCartView from "./Components/User/UserCartView.jsx";
 import UserPurchasedItemView from "./Components/User/UserPurchasedItemView.jsx";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -31,10 +31,13 @@ import AdminNavbar from "./Admin/AdminNavbar.jsx";
 import Users from "./Admin/Users.jsx";
 import Products from "./Admin/Products.jsx";
 import Media from "./Admin/Media.jsx";
-import ForgotPassword from "./Components/User/ForgotPassword.jsx";
+// import ForgotPassword from "./Components/User/ForgotPassword.jsx";
 import About from "./Components/AboutUs/About.jsx";
 import AdminLogin from "./Admin/AdminLogin.jsx";
 import Gallery from "./Components/AboutUs/Gallery.jsx";
+import UserCart from "./Components/User/UserCart.jsx";
+import CheckOut from "./Components/User/CheckOut.jsx";
+import OrderDetails from "./Components/User/OrderDetails.jsx";
 
 function App() {
   const [user, setuser] = useState({});
@@ -113,7 +116,7 @@ function App() {
         <Route path="/contactus" element={<Contact />} />
         <Route path="/booking" element={<Booking />} />
         <Route path="/aboutus/offices" element={<Contact />} />
-        <Route path="/testimonials" element={<Testimonials />} />
+        {/* <Route path="/testimonials" element={<Testimonials />} /> */}
         <Route path="/franchise" element={<Franchise />} />
         <Route path="/uniquefeature/:section" element={<UniqueFeature />} />
         <Route path="/services/:section/:subsection" element={<Services />} />
@@ -126,13 +129,16 @@ function App() {
         />
 
         {/* USER ROUTES */}
-        <Route path="/user/signin" element={<SignIn fetchUser={fetchUser} />} />
-        <Route path="/user/forgotpassword" element={<ForgotPassword />} />
+        {/* <Route path="/user/signin" element={<SignIn fetchUser={fetchUser} />} />
+        <Route path="/user/forgotpassword" element={<ForgotPassword />} /> */}
         <Route path="/user/login" element={<LogIn fetchUser={fetchUser} />} />
-        <Route
+        <Route path="/user/mycart" element={<UserCart />} />
+        <Route path="/user/checkout" element={<CheckOut />} />
+        <Route path="/user/order" element={<OrderDetails />} />
+        {/* <Route
           path="/user/mycart"
           element={<UserCartView fetchUser={fetchUser} user={user} />}
-        />
+        /> */}
         <Route
           path="/user/mypurchaseditems"
           element={<UserPurchasedItemView user={user} />}

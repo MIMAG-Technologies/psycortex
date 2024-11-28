@@ -72,7 +72,7 @@ function Testimonials() {
           <span className="line"></span>
         </h2>
         <div className="all-testimonialdiv">
-          {data.map((ele, index) => oneTestmonial(ele))}
+          {data.map((ele) => oneTestmonial(ele))}
         </div>
         <h1 ref={(el) => el && observedElements.current.push(el)}>
           Our Gallery

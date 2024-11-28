@@ -21,7 +21,7 @@ function Footer() {
     } else {
       try {
         const response = await fetch(
-          `${process.env.REACT_APP_API_URL}/subscription`,
+          `${process.env.REACT_APP_API_URL}/subscribe`,
           {
             method: "POST",
             headers: {
