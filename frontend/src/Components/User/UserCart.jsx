@@ -56,6 +56,7 @@ export default function UserCart() {
     setTempCart(updatedTempCart);
     setCartData(updatedCart);
 
+
     // Update localStorage and recalculate total
     calculateGrandTotal(updatedCart);
     localStorage.setItem("cartData", JSON.stringify(updatedCart));
@@ -100,7 +101,8 @@ export default function UserCart() {
     ));
   };
 
-  if (!cartData || cartData.length === 0) {
+  // Check if cart is empty before rendering content
+  if (cartData.length === 0)  {
     return (
       <div className="UserCartView">
         <h1>Cart is Empty</h1>

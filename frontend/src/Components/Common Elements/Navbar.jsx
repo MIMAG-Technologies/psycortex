@@ -3,6 +3,8 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import BottomtoTopBtn from "./BottomtoTopBtn";
 import UserCard from "../User/UserCard";
 import { UserDataContext } from "../../context/UserData";
+import { User } from "lucide-react";
+
 
 function Navbar(props) {
   const [section, setSection] = useState("aboutus");
@@ -20,11 +22,12 @@ function Navbar(props) {
       setIsHovered((prev) => !prev);
     }, 500);
 
+    
     return () => clearInterval(interval);
   }, []);
 
   const { fetchUser, user, login } = props;
-  const { cartData, isLoggedIn, userData } = useContext(UserDataContext);
+  const { cartData, isLoggedIn } = useContext(UserDataContext);
   useEffect(() => {
     fetchUser();
   }, []);
@@ -484,7 +487,7 @@ function Navbar(props) {
                     }
               }
             >
-              {isLoggedIn ? userData.name[0] : "Login"}
+              {isLoggedIn ? <User /> : "Login"}
             </Link>
           </ul>
           <ul className={isScrolled ? "lowerscrolled" : "lowerdiv"}>

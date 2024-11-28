@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import UserCard from "../User/UserCard";
+import { UserDataContext } from "../../context/UserData";
 function MobileNavbar(props) {
   const [isBurgerActive, setisBurgerActive] = useState(false);
   const [isLevel2Active, setisLevel2Active] = useState(false);
@@ -12,6 +13,7 @@ function MobileNavbar(props) {
   const navigate = useNavigate();
   const location = useLocation();
   const { fetchUser, user, login, cartlenght } = props;
+  const { cartData, isLoggedIn, userData } = useContext(UserDataContext);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -24,6 +26,9 @@ function MobileNavbar(props) {
   useEffect(() => {
     fetchUser();
   }, []);
+  useEffect(() => {
+    setisBurgerActive(false);
+  }, [location.pathname]);
   const handleAccordionClick = (event) => {
     const accordionButton = event.target;
     const content = accordionButton.nextElementSibling;
@@ -619,9 +624,9 @@ function MobileNavbar(props) {
     <>
       {isUserCardVisible ? (
         <UserCard
-          fetchUser={fetchUser}
-          setisBurgerActive={setisBurgerActive}
-          user={user}
+          // fetchUser={fetchUser}
+          // setisBurgerActive={setisBurgerActive}
+          // user={user}
           setisUserCardVisible={setisUserCardVisible}
         />
       ) : (
@@ -674,7 +679,7 @@ function MobileNavbar(props) {
               display: isSearchBoxOpen ? "none" : "flex",
             }}
           >
-            <i className="fa-solid fa-cart-shopping" id={cartlenght}></i>
+            <i className="fa-solid fa-cart-shopping"  id={cartData.length}></i>
           </Link>
           <a
             className={`button ${isHovered ? "appbutton" : ""}`}
@@ -805,9 +810,9 @@ function MobileNavbar(props) {
             Shop
           </Link>
           <Link
-            to={login === "Login" ? "/user/login" : location.pathname}
+            to={!isLoggedIn ? "/user/login" : location.pathname}
             onClick={
-              login === "Login"
+               !isLoggedIn
                 ? () => {
                     setisBurgerActive(!isBurgerActive);
                   }
@@ -816,7 +821,7 @@ function MobileNavbar(props) {
                   }
             }
           >
-            {login === "Login" ? "Login" : "My Account"}
+            { !isLoggedIn ? "Login" : "My Account"}
           </Link>
         </div>
         <div

@@ -28,6 +28,13 @@ export const UserDataProvider = ({ children }) => {
           },
         };
   });
+  const [cartData, setCartData] = useState(() => {
+    const storedCartData = localStorage.getItem("cartData");
+    return storedCartData
+      ? JSON.parse(storedCartData)
+      :[]
+  });
+
 
   const { isAuthenticated, user, isLoading } = useAuth0();
   const [isLoggedIn, setisLoggedIn] = useState(false);
@@ -102,6 +109,11 @@ const handleOAuthLogin = async () => {
     }
   };
 
+  useEffect(() => {
+localStorage.setItem("cartData", JSON.stringify(cartData))
+  }, [cartData])
+  
+
   // Run authentication check on mount and updates
   useEffect(() => {
     checkAuthentication();
@@ -112,10 +124,9 @@ const handleOAuthLogin = async () => {
       value={{
         userData,
         setUserData,
-        cartData: JSON.parse(localStorage.getItem("cartData")) || [],
-        setCartData: (data) =>
-          localStorage.setItem("cartData", JSON.stringify(data)),
-        isLoggedIn,
+        cartData,
+         setCartData,
+          isLoggedIn,
         setisLoggedIn,
       }}
     >

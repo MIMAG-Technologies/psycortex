@@ -9,7 +9,7 @@
 }
 
 .UserCheckoutView
-  label:not(#wordline-select, #wordline-select-tc, #companyname)::after {
+  label:not(#wordline-select, #wordline-select-tc, #companyName)::after {
   content: " *";
   color: red;
 }

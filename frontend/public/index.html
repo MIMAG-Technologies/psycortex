@@ -191,9 +191,12 @@
             }
           } catch (error) {
             console.error("Transaction completion error:", error);
-            alert(
-              "There was an issue processing your transaction. Please contact support."
-            );
+            if(transactionState === "success") {
+              alert(
+                "There was an issue processing your transaction. Please contact support."
+              );
+            }
+
           }
         };
 

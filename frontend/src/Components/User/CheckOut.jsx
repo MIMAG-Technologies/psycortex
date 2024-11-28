@@ -1,12 +1,16 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { UserDataContext } from "../../context/UserData";
 // import { Helmet } from "react-helmet"; // Ensure you have this package installed if used
 import "../Payments/Payment.css";
 function CheckOut() {
   const { userData, setUserData, cartData } = useContext(UserDataContext);
+  const [isChecked, setIsChecked] = useState(false)
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
+    const handleCheckboxChange = () => {
+    setIsChecked(!isChecked); // Toggle the checked state
+  };
 
   // Function to handle form input changes
   const handleChange = (e) => {
@@ -107,7 +111,7 @@ function CheckOut() {
           onChange={handleChange}
         />
 
-        <label htmlFor="companyName">Company Name</label>
+        <label id="companyName" htmlFor="companyName">Company Name</label>
         <input
           type="text"
           id="companyName"
@@ -230,7 +234,11 @@ function CheckOut() {
           </p>
         </label>
         <label id="wordline-select">
-          <input type="checkbox" checked /> You agree to all the terms &
+          <input type="checkbox"  
+          
+           checked={isChecked} // Bind state to checkbox
+          onChange={handleCheckboxChange} // Update state on change
+          /> You agree to all the terms &
           conditions mentioned on the website.
         </label>
         <label id="wordline-select">
@@ -241,7 +249,16 @@ function CheckOut() {
             alt="Worldline"
           />
         </label>
-        <button id={isEverythingOk ? "btnSubmit" : ""}>
+        <button id={isEverythingOk ? "btnSubmit" : ""}
+        style={{
+          backgroundColor: isEverythingOk && isChecked? "#501a77" : "#cccccc",
+          cursor: isEverythingOk && isChecked? "pointer" : "not-allowed",
+          color: isEverythingOk && isChecked? "white" : "black",
+          opacity: isEverythingOk && isChecked? 1 : 0.6,
+         
+        }}
+         disabled={!(isEverythingOk && isChecked)} // Corrected condition
+        >
           {!isEverythingOk ? "Please Fill Your Details First" : "Pay Now"}
         </button>
       </div>
