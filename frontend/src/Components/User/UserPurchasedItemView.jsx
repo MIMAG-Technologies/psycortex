@@ -1,7 +1,26 @@
 import React, { useEffect, useState } from "react";
-import { fetchUserPurchased } from "../../utils/cartUtils";
 import { Helmet } from "react-helmet-async";
-import { ShoppingCart, Clock, DollarSign, Calendar, Hash } from "lucide-react";
+import { ShoppingCart, DollarSign, Calendar, Hash } from "lucide-react";
+import axios from "axios";
+
+const fetchUserPurchased = async () => {
+  const token = localStorage.getItem("psycortexTOKEN");
+  try {
+    const res = await axios.get(
+      `${process.env.REACT_APP_API_URL}/user/getUserPurchasedItems`,
+      {
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    return res.data;
+  } catch (error) {
+    console.error(error);
+    return [];
+  }
+};
 
 function UserPurchasedItemView() {
   const [purchasedItems, setPurchasedItems] = useState([]);

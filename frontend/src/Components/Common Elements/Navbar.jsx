@@ -25,12 +25,7 @@ function Navbar(props) {
     
     return () => clearInterval(interval);
   }, []);
-
-  const { fetchUser, user, login } = props;
   const { cartData, isLoggedIn } = useContext(UserDataContext);
-  useEffect(() => {
-    fetchUser();
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -56,116 +51,14 @@ function Navbar(props) {
         ref: "/aboutus/missionvisionandvalues",
         level: 1,
       },
-      // {
-      //   content: "Our Team",
-      //   ref: "/aboutus/team",
-      //   level: 1,
-      // },
       {
         content: "Gallery",
         ref: "/aboutus/gallery",
         level: 1,
       },
-      // {
-      //   content: "Offices",
-      //   ref: "/aboutus/offices",
-      //   level: 1,
-      // },
       {
         content: "Awards",
         ref: "/aboutus/awards",
-        level: 1,
-      },
-    ],
-    uniqueFeatures: [
-      {
-        content: "Marital Counselling",
-        ref: "/uniquefeature/maritialcounselling",
-        level: 1,
-      },
-      {
-        content: "Pre-Marital Counselling ",
-        ref: "/uniquefeature/premaritalcounselling",
-        level: 1,
-      },
-      {
-        content: "Post-Marital Counselling ",
-        ref: "/uniquefeature/postmaritalcounselling",
-        level: 1,
-      },
-      {
-        content: "Career Counselling",
-        ref: "/uniquefeature/careercounselling",
-        level: 1,
-      },
-      {
-        content: "Anxiety Counselling",
-        ref: "/uniquefeature/anxietycounselling",
-        level: 1,
-      },
-      {
-        content: "Depression Counselling",
-        ref: "/uniquefeature/depressioncounselling",
-        level: 1,
-      },
-      {
-        content: "Traumatic Counselling",
-        ref: "/uniquefeature/traumaticcounselling",
-        level: 1,
-      },
-      {
-        content: "Cognitive Behavioral Therapy",
-        level: 1,
-        ref: "/uniquefeature/cbt",
-      },
-      {
-        content: "Parenting Counselling",
-        ref: "/uniquefeature/parentingcounselling",
-        level: 1,
-      },
-      {
-        content: "Family Counselling",
-        ref: "/uniquefeature/familycounselling",
-        level: 1,
-      },
-      {
-        content: "Child Counselling",
-        ref: "/uniquefeature/childcounselling",
-        level: 1,
-      },
-      {
-        content: "Group Counselling",
-        ref: "/uniquefeature/groupcounselling",
-        level: 1,
-      },
-      {
-        content: "Stress Management Counselling",
-        ref: "/uniquefeature/stressmanagementcounselling",
-        level: 1,
-      },
-      {
-        content: "Mental Health Counselling",
-        ref: "/uniquefeature/mentalhealthcounselling",
-        level: 1,
-      },
-      {
-        content: "Insomnia/Sleep Problem Counselling",
-        ref: "/uniquefeature/insomniacounselling",
-        level: 1,
-      },
-      {
-        content: "Aptitude Test",
-        ref: "/uniquefeature/aptitudetest",
-        level: 1,
-      },
-      {
-        content: "Soft Skills Devlopement",
-        ref: "/uniquefeature/softskills",
-        level: 1,
-      },
-      {
-        content: "Garbh Sanskar",
-        ref: "/uniquefeature/garbhsanskar",
         level: 1,
       },
     ],
@@ -404,6 +297,7 @@ function Navbar(props) {
             <a
               href="https://client.psycortex.in/"
               target="_blank"
+              rel="noreferrer"
               className={`button ${isHovered ? "appbutton" : ""}`}
             >
               Book Appointment
@@ -513,46 +407,24 @@ function Navbar(props) {
             >
               Home
             </Link>
-            <a
+            <div
+            
               onMouseEnter={() => {
                 setSection("aboutus");
                 setIsDropdownActive(true);
               }}
             >
               About Us <DropdownArrow />{" "}
-            </a>
-            {/* <a
-              onMouseEnter={() => {
-                setSection("uniqueFeatures");
-                setIsDropdownActive(true);
-              }}
-            >
-              Unique features <DropdownArrow />{" "}
-            </a> */}
-            <a
+            </div>
+            <div
+            
               onMouseEnter={() => {
                 setIsDropdownActive(true);
                 setSection("services");
               }}
             >
               Our Services <DropdownArrow />{" "}
-            </a>
-            {/* <Link
-              onMouseEnter={() => {
-                setIsDropdownActive(false);
-              }}
-              to="/testimonials"
-              style={{
-                color:
-                  location.pathname === "/"
-                    ? isScrolled
-                      ? "black"
-                      : "white"
-                    : "black",
-              }}
-            >
-              Testimonials
-            </Link> */}
+            </div>
             <Link
               to={"/franchise"}
               onMouseEnter={() => {
@@ -569,22 +441,6 @@ function Navbar(props) {
             >
               Franchise
             </Link>
-            {/* <Link
-              to={"/casestudies"}
-              onMouseEnter={() => {
-                setIsDropdownActive(false);
-              }}
-              style={{
-                color:
-                  location.pathname === "/"
-                    ? isScrolled
-                      ? "black"
-                      : "white"
-                    : "black",
-              }}
-            >
-              Case Studies
-            </Link> */}
             <Link
               to={"/blogs"}
               onMouseEnter={() => {

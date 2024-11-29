@@ -12,8 +12,7 @@ function MobileNavbar(props) {
   const [searchkey, setsearchkey] = useState("");
   const navigate = useNavigate();
   const location = useLocation();
-  const { fetchUser, user, login, cartlenght } = props;
-  const { cartData, isLoggedIn, userData } = useContext(UserDataContext);
+  const { cartData, isLoggedIn } = useContext(UserDataContext);
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
@@ -22,9 +21,6 @@ function MobileNavbar(props) {
     }, 500);
 
     return () => clearInterval(interval);
-  }, []);
-  useEffect(() => {
-    fetchUser();
   }, []);
   useEffect(() => {
     setisBurgerActive(false);
@@ -384,16 +380,7 @@ function MobileNavbar(props) {
         >
           Mission Values and Vision
         </Link>
-        {/* <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-
-            setisLevel2Active(false);
-          }}
-          to="/aboutus/team"
-        >
-          Our Team
-        </Link> */}
+      
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
@@ -404,16 +391,7 @@ function MobileNavbar(props) {
         >
           Gallery
         </Link>
-        {/* <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-
-            setisLevel2Active(false);
-          }}
-          to="/aboutus/offices"
-        >
-          Offices
-        </Link> */}
+       
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
@@ -423,174 +401,6 @@ function MobileNavbar(props) {
           to="/aboutus/awards"
         >
           Awards
-        </Link>
-      </>
-    );
-  };
-  const UniqueFeatureDropdown = () => {
-    return (
-      <>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/maritialcounselling"
-        >
-          Marital Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/premaritalcounselling"
-        >
-          Pre-Marital Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/postmaritalcounselling"
-        >
-          Post-Marital Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/careercounselling"
-        >
-          Career Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/anxietycounselling"
-        >
-          Anxiety Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/depressioncounselling"
-        >
-          Depression Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/insomniacounselling"
-        >
-          Insomnia/Sleep Problem Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/traumaticcounselling"
-        >
-          Traumatic Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/cbt"
-        >
-          Cognitive Behavioral Therapy
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/parentingcounselling"
-        >
-          Parenting Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/familycounselling"
-        >
-          Family Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/childcounselling"
-        >
-          Child Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/groupcounselling"
-        >
-          Group Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/stressmanagementcounselling"
-        >
-          Stress Management Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/mentalhealthcounselling"
-        >
-          Mental Health Counselling
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/aptitudetest"
-        >
-          Aptitude Test
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/softskills"
-        >
-          Soft Skills Devlopement
-        </Link>
-        <Link
-          onClick={() => {
-            setisBurgerActive(!isBurgerActive);
-            setisLevel2Active(false);
-          }}
-          to="/uniquefeature/garbhsanskar"
-        >
-          Garbh Sanskar
         </Link>
       </>
     );
@@ -610,11 +420,6 @@ function MobileNavbar(props) {
         setisLevel2Active(true);
 
         break;
-      case 3:
-        setDropdownContent(<UniqueFeatureDropdown />);
-        setisLevel2Active(true);
-
-        break;
       default:
         setDropdownContent(null);
     }
@@ -624,9 +429,6 @@ function MobileNavbar(props) {
     <>
       {isUserCardVisible ? (
         <UserCard
-          // fetchUser={fetchUser}
-          // setisBurgerActive={setisBurgerActive}
-          // user={user}
           setisUserCardVisible={setisUserCardVisible}
         />
       ) : (
@@ -696,6 +498,7 @@ function MobileNavbar(props) {
             }}
             href="https://client.psycortex.in/"
             target="_blank"
+            rel="noreferrer"
           >
             Book Appointment
           </a>
@@ -745,14 +548,7 @@ function MobileNavbar(props) {
           >
             About Us
           </span>
-          {/* <span
-            onClick={() => {
-              setisLevel2Active(true);
-              handleNavHover(3);
-            }}
-          >
-            Unique Features
-          </span> */}
+        
           <span
             onClick={() => {
               setisLevel2Active(true);
@@ -761,14 +557,7 @@ function MobileNavbar(props) {
           >
             Services
           </span>
-          {/* <Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-            }}
-            to="/testimonials"
-          >
-            Testimonials
-          </Link> */}
+
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -777,14 +566,7 @@ function MobileNavbar(props) {
           >
             Franchise
           </Link>
-          {/*<Link
-            onClick={() => {
-              setisBurgerActive(!isBurgerActive);
-            }}
-            to="/casestudies"
-          >
-            Case Studies
-          </Link> */}
+
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);

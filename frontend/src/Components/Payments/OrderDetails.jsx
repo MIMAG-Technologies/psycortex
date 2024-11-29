@@ -26,7 +26,7 @@ function OrderDetails() {
         sendTransactionEmail();
       }, 2000);
     }
-  }, [userData]);
+  }, [userData,isSendingStarted]);
 
   const sendTransactionEmail = () => {
     const htmlContent = invoiceRef.current.innerHTML; // Get the invoice HTML content
