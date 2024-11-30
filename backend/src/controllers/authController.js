@@ -112,3 +112,25 @@ exports.getUser = async (req, res) => {
     res.status(500).json({ success: false, error: error.message });
   }
 };
+
+
+exports.adminLogin = async (req, res) => {
+try{
+
+  const { username, password } = req.body;
+  const ActualPassWord = process.env.ADMIN_PASSWORD;
+  const ActualUsername = process.env.ADMIN_USERNAME;
+  if (username === ActualUsername && password === ActualPassWord) {
+    const token = generateToken(password);
+    res.status(200).json({ success: true, token });
+  }
+  else {
+    res.status(401).json({ success: false, error: "Invalid credentials" });
+  }
+
+}
+catch (error) {
+  res.status(500).json({ success: false, error: error.message });
+}
+
+};

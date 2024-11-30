@@ -7,8 +7,10 @@ const subscriptionRoutes = require("./src/routes/subscriptionRoutes");
 const transactionRoutes = require("./src/routes/transactionRoutes");
 const authRoutes = require("./src/routes/authRoutes");
 const productRoutes = require("./src/routes/productRoutes");
+const adminRoutes = require("./src/routes/adminRoutes");
+
 const userRoutes = require("./src/routes/userRoutes");
-const { protect } = require("./src/middleware/auth");
+const { protect, isAdmin } = require("./src/middleware/auth");
 
 dotenv.config();
 
@@ -20,20 +22,29 @@ connectDB();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-// CORS configuration
-const allowedOrigins = ["https://psycortex.in", "https://www.psycortex.in", "www.psycortex.in"];
-app.use(
-  cors({
-    origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
-        callback(null, true);
-      } else {
-        callback(new Error("Not allowed by CORS"));
-      }
-    },
-  })
-);
 
+const isDevMode = process.env.IS_DEV_MODE;
+
+if (isDevMode) {
+  app.use(cors());
+} else {
+  const allowedOrigins = [
+    "https://psycortex.in",
+    "https://www.psycortex.in",
+    "www.psycortex.in",
+  ];
+  app.use(
+    cors({
+      origin: function (origin, callback) {
+        if (!origin || allowedOrigins.includes(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
+    })
+  );
+}
 
 // Routes
 app.use("/contactUs", contactRoutes);
@@ -44,6 +55,9 @@ app.use("/product", productRoutes);
 
 // Protected routes
 app.use("/user", protect, userRoutes);
+
+// Admin routes
+app.use("/admin", isAdmin, adminRoutes);
 
 const PORT = process.env.PORT || 5000;
 

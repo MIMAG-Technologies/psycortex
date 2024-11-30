@@ -21,13 +21,14 @@ import UserPurchasedItemView from "./Components/User/UserPurchasedItemView.jsx";
 import AdminNavbar from "./Admin/AdminNavbar.jsx";
 import Users from "./Admin/Users.jsx";
 import Products from "./Admin/Products.jsx";
-import Media from "./Admin/Media.jsx";
 import About from "./Components/AboutUs/About.jsx";
 import AdminLogin from "./Admin/AdminLogin.jsx";
 import Gallery from "./Components/AboutUs/Gallery.jsx";
 import UserCart from "./Components/User/UserCart.jsx";
 import CheckOut from "./Components/Payments/CheckOut.jsx";
 import OrderDetails from "./Components/Payments/OrderDetails.jsx";
+import UserTransactions from "./Admin/UserTransactions.jsx";
+import AdminContact from "./Admin/AdminContact.jsx";
 
 function App() {
  
@@ -85,12 +86,13 @@ function App() {
         />
         {/* ADMIN ROUTE */}
 
-        <Route path="/adminLogin" element={<AdminLogin />} />
+        <Route path="/admin/login" element={<AdminLogin />} />
 
         <Route path="/admin" element={<AdminNavbar />}>
           <Route path="" element={<Users />} />
+          <Route path="userTransaction/:id" element={<UserTransactions />} />
           <Route path="product-management" element={<Products />} />
-          <Route path="media" element={<Media />} />
+          <Route path="contact" element={<AdminContact />} />
         </Route>
       </Routes>
       {!isAdminRoute && <Footer />}

@@ -19,7 +19,7 @@ function AdminLogin() {
     try {
       setresponse(
         await axios.post(
-          `${process.env.REACT_APP_API_URL}/admin/login`,
+          `${process.env.REACT_APP_API_URL}/auth/adminlogin`,
           userObj,
           {
             headers: {
@@ -36,25 +36,6 @@ function AdminLogin() {
       setisAnyProblem(true);
     }
   };
-  useEffect(() => {
-    const token = localStorage.getItem("psycortexAdminTOKEN");
-    const fetchUser = async () => {
-      if (token) {
-        try {
-          await axios.get(`${process.env.REACT_APP_API_URL}/fetchadmin`, {
-            headers: {
-              "Content-Type": "application/json",
-              Authorization: `Bearer ${token}`,
-            },
-          });
-          navigate("/admin");
-        } catch (error) {
-          localStorage.removeItem("psycortexTOKEN");
-        }
-      }
-    };
-    fetchUser();
-  }, []);
 
   return (
     <div id="login">
