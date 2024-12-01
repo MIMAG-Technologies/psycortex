@@ -15,7 +15,7 @@ function Shop() {
           `${process.env.REACT_APP_API_URL}/product/all`
         );
         setProduct(response.data.data);
-        // setProduct([
+       
         //   {
         //     name: "Individual Counselling",
         //     imgsrc: "individualCounselling.jpg",
@@ -118,7 +118,11 @@ function Shop() {
         </Helmet>
         <Link to={`/shop/products/${item.name}`} className="imgtoLink">
           <img
-            src={process.env.PUBLIC_URL + "/assets/Images/Shop/" + item.imgsrc}
+            src={
+              process.env.REACT_APP_API_URL +
+              
+              item.imgsrc
+            }
             alt=""
           />
         </Link>

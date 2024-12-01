@@ -61,7 +61,7 @@ export default function AdminContact() {
             <th>Country</th>
             <th>Created At</th>
             <th>Action</th>
-          </tr>
+          </tr> 
         </thead>
         <tbody>
           {contactList.map((contact) => (

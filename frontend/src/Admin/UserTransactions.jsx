@@ -1,8 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
-import { ShoppingCart, User, CreditCard, MapPin } from "lucide-react";
 
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
 export default function UserTransactions() {
   const { id } = useParams();
@@ -13,6 +12,7 @@ export default function UserTransactions() {
     date: "",
     transactionState: "",
   });
+  const navi = useNavigate()
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -282,17 +282,31 @@ const printInvoice = (transactionId) => {
                 {onetran.transactionState === "error" && (
                   <p>Error Message:{onetran.errorMessage}</p>
                 )}
-                <button
-                  className="view-btn"
-                  style={{
-                    margin:"10px 0px"
-                  }}
-                  onClick={() => {
-                    printInvoice(onetran.transactionIdentifier);
-                  }}
-                >
-                  Print Invoice
-                </button>
+                {id === "all" ? (
+                  <button
+                    className="view-btn"
+                    style={{
+                      margin: "10px 0px",
+                    }}
+                    onClick={()=>{
+                      navi(`/admin/userTransaction/${onetran.email}`);
+                    }}
+                  >
+                    Go to User's Transaction to Print Invoice
+                  </button>
+                ) : (
+                  <button
+                    className="view-btn"
+                    style={{
+                      margin: "10px 0px",
+                    }}
+                    onClick={() => {
+                      printInvoice(onetran.transactionIdentifier);
+                    }}
+                  >
+                    Print Invoice
+                  </button>
+                )}
               </div>
               <div className="ProductsTable">
                 <div>

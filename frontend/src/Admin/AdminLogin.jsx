@@ -1,65 +1,72 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import axios from "axios";
 import { AlertCircle, Eye, EyeOff } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 
 function AdminLogin() {
-  const [userEmail, setuserEmail] = useState("");
-  const [response, setresponse] = useState("");
-  const [userPassword, setuserPassword] = useState("");
-  const [isAnyProblem, setisAnyProblem] = useState(false);
-  const [isPasswordVisible, setisPasswordVisible] = useState(false);
+  const [userEmail, setUserEmail] = useState("");
+  const [userPassword, setUserPassword] = useState("");
+  const [isAnyProblem, setIsAnyProblem] = useState(false);
+  const [isPasswordVisible, setIsPasswordVisible] = useState(false);
   const navigate = useNavigate();
 
-  const submitForm = async () => {
+  const submitForm = async (e) => {
+    // Prevent default form submission behavior
+    e.preventDefault();
+
     const userObj = {
       username: userEmail,
       password: userPassword,
     };
+
     try {
-      setresponse(
-        await axios.post(
-          `${process.env.REACT_APP_API_URL}/auth/adminlogin`,
-          userObj,
-          {
-            headers: {
-              "Content-Type": "application/json",
-            },
-          }
-        )
+      const response = await axios.post(
+        `${process.env.REACT_APP_API_URL}/auth/adminlogin`,
+        userObj,
+        {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        }
       );
+
+      // Set token immediately after successful response
       localStorage.setItem("psycortexAdminTOKEN", response.data.token);
+
+      // Navigate to admin page
       navigate("/admin");
-      setisAnyProblem(false);
+
+      // Reset any previous error state
+      setIsAnyProblem(false);
     } catch (error) {
       console.log(error);
-      setisAnyProblem(true);
+      setIsAnyProblem(true);
     }
   };
 
   return (
     <div id="login">
-      <form action="post">
-        <h1>Psycortex Login for Psycortex</h1>
-        {isAnyProblem ? (
+      <form onSubmit={submitForm}>
+        <h1>Psycortex Login for Admin</h1>
+
+        {isAnyProblem && (
           <div id="user-warning">
             <AlertCircle size={24} strokeWidth={2.25} />
             <p>Oops! Something went wrong, please try again later!</p>
           </div>
-        ) : (
-          <></>
         )}
+
         <section id="login-form">
           <label htmlFor="login-user-email-id">Username</label>
           <input
-            type="email"
+            type="text"
             name="login-user-email-id"
             id="login-user-email-id"
             value={userEmail}
-            onChange={(e) => {
-              setuserEmail(e.target.value);
-            }}
+            onChange={(e) => setUserEmail(e.target.value)}
+            required
           />
+
           <div id="login-passwordcontainer">
             <label htmlFor="login-user-password">Password</label>
             <input
@@ -67,22 +74,20 @@ function AdminLogin() {
               name="login-user-password"
               id="login-user-password"
               value={userPassword}
-              onChange={(e) => {
-                setuserPassword(e.target.value);
-              }}
+              onChange={(e) => setUserPassword(e.target.value)}
+              required
             />
             <div
               id="login-password-visibility"
-              onClick={() => {
-                setisPasswordVisible(!isPasswordVisible);
-              }}
+              onClick={() => setIsPasswordVisible(!isPasswordVisible)}
             >
               {isPasswordVisible ? <Eye /> : <EyeOff />}
             </div>
           </div>
-          <a className="login-next-btn" onClick={submitForm}>
+
+          <button type="submit" className="login-next-btn">
             Login
-          </a>
+          </button>
         </section>
       </form>
     </div>

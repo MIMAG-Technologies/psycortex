@@ -13,12 +13,21 @@ function Footer() {
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
   const [ismessageVisible, setismessageVisible] = useState(false);
+function isValidEmail(email) {
+  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+  return emailRegex.test(email);
+}
 
   const handleSubmit = async (e) => {
     if (email === "") {
       window.alert("Please fill email before submitting.");
       return;
-    } else {
+    } 
+    else if(!isValidEmail(email)){
+      window.alert("Please enter a valid email address.");
+      return;
+    }
+    else {
       try {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/subscribe`,
@@ -75,6 +84,7 @@ function Footer() {
                 id="newsletter-email"
                 placeholder="Enter Email"
                 value={email}
+                required
                 onChange={(e) => setemail(e.target.value)}
               />
               <button onClick={handleSubmit}>Subscribe</button>

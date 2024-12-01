@@ -97,7 +97,7 @@ function OneProductPage(props) {
       <div className="mainProduct">
         <img
           src={
-            process.env.PUBLIC_URL + "/assets/Images/Shop/" + products.imgsrc
+            process.env.REACT_APP_API_URL+ products.imgsrc
           }
           alt=""
         />

@@ -1,6 +1,7 @@
 const express = require("express");
 const dotenv = require("dotenv");
 const cors = require("cors");
+const path = require("path");
 const connectDB = require("./src/config/db");
 const contactRoutes = require("./src/routes/contactRoutes");
 const subscriptionRoutes = require("./src/routes/subscriptionRoutes");
@@ -52,6 +53,20 @@ app.use("/subscribe", subscriptionRoutes);
 app.use("/make-transaction", transactionRoutes);
 app.use("/auth", authRoutes);
 app.use("/product", productRoutes);
+app.get("/uploads/productThumbnail/:filename", (req, res) => {
+  const filename = req.params.filename;
+  const filepath = path.join(
+    __dirname,
+    "./src/uploads/productThumbnail",
+    filename
+  );
+
+  res.sendFile(filepath, (err) => {
+    if (err) {
+      res.status(404).json({ success: false, error: "Image not found" });
+    }
+  });
+});
 
 // Protected routes
 app.use("/user", protect, userRoutes);

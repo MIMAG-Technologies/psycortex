@@ -1,18 +1,6 @@
 const Product = require("../models/Product");
 
-exports.createProduct = async (req, res) => {
-  try {
-    const existingProduct = await Product.findOne({ name: req.body.name });
-    if (existingProduct) {
-      req.body.diffrentby = existingProduct.diffrentby;
-    }
 
-    const product = await Product.create(req.body);
-    res.status(201).json({ success: true, data: product });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-};
 function transformData(input) {
   const groupedData = {};
 
@@ -75,21 +63,4 @@ exports.getProduct = async (req, res) => {
   }
 };
 
-exports.updateProduct = async (req, res) => {
-  try {
-    const product = await Product.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
 
-    if (!product) {
-      return res
-        .status(404)
-        .json({ success: false, error: "Product not found" });
-    }
-
-    res.status(200).json({ success: true, data: product });
-  } catch (error) {
-    res.status(500).json({ success: false, error: error.message });
-  }
-};

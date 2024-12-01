@@ -17,9 +17,9 @@ function AdminNavbar() {
     <div id="AdminNavbar">
       <nav>
         <h1>Admin Panel</h1>
-        <button onClick={() => setisChangePassVisisble(!isChangePassVisisble)}>
+        {/* <button onClick={() => setisChangePassVisisble(!isChangePassVisisble)}>
           Change Password
-        </button>
+        </button> */}
         {isChangePassVisisble ? (
           <ChangePassword
             isChangePassVisisble={isChangePassVisisble}
@@ -28,7 +28,18 @@ function AdminNavbar() {
         ) : (
           <></>
         )}
-        <button onClick={handleLogout}>Logout</button>{" "}
+        <button
+          style={{
+            backgroundColor: "red",
+            color: "white",
+            padding: "10px",
+            borderRadius: "5px",
+            cursor: "pointer",
+          }}
+          onClick={handleLogout}
+        >
+          Logout
+        </button>{" "}
       </nav>
       <Outlet />
       <div className="adminMenubar">
@@ -37,6 +48,14 @@ function AdminNavbar() {
           to={""}
         >
           Users
+        </Link>
+        <Link
+          className={
+            path.pathname === "/admin/userTransaction/all" ? "admin-active" : ""
+          }
+          to={"/admin/userTransaction/all"}
+        >
+          Transactions
         </Link>
         <Link
           className={
