@@ -1,41 +1,37 @@
+import axios from "axios";
 import React, { useEffect, useState } from "react";
 
 export default function AdminContact() {
   const [contactList, setContactList] = useState([]);
   const [selectedContact, setSelectedContact] = useState(null);
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-
+ const token = localStorage.getItem("psycortexAdminTOKEN");
   useEffect(() => {
     // Mock Data
-    const mockData = [
-      {
-        _id: "67482915e90a1a7560b4934a",
-        firstname: "Ultra",
-        lastname: "Factechz",
-        email: "rautan_1@rknec.edu",
-        contactNumber: "08408820931",
-        city: "Nagpur",
-        state: "Maharashtra",
-        country: "India",
-        message: "Its my message",
-        createdAt: "2024-11-28T08:25:57.396Z",
-      },
-      {
-        _id: "67482a8e0af1644648523493",
-        firstname: "Ultra",
-        lastname: "Factechz",
-        email: "rautan_1@rknec.edu",
-        contactNumber: "08408820931",
-        city: "Nagpur",
-        state: "Maharashtra",
-        country: "India",
-        message: "nkfbjksbc,z",
-        createdAt: "2024-11-28T08:32:14.538Z",
-      },
-    ];
+ async function fetchContacts() {
+   try {
+     const response = await axios.get(
+       `${process.env.REACT_APP_API_URL}/admin/getContacts`,
+       {
+         headers: {
+           "Content-Type": "application/json",
+           Authorization: `Bearer ${token}`,
+         },
+       }
+     );
+     if (response.data.success) {
+       setContactList(response.data.data);
+     } else {
+       console.error("Failed to fetch contactList");
+     }
+   } catch (error) {
+     console.error("Error fetching contactList:", error);
+   }
+ }
 
-    setContactList(mockData);
-  }, []);
+
+    fetchContacts();
+  }, [token]);
 
   const handleViewMore = (contact) => {
     setSelectedContact(contact);
@@ -73,7 +69,7 @@ export default function AdminContact() {
               <td>{contact.city}</td>
               <td>{contact.state}</td>
               <td>{contact.country}</td>
-              <td>{new Date(contact.createdAt).toLocaleString()}</td>
+              <td>{new Date(contact.timeframe).toLocaleString()}</td>
               <td>
                 <button
                   className="view-btn"

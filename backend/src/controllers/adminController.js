@@ -67,14 +67,15 @@ exports.getTransactions = async (req, res) => {
 };
 
 
-exports.getContacts = async (req,res) =>{
+exports.getContacts = async (req, res) => {
   try {
-   const contacts = await Contact.find({})
-    res.status(200).json({ success: true, data: contacts }); 
-  } catch (error) { 
+    const contacts = await Contact.find({}).sort({ timeframe: -1 }); // Sort by 'timeframe' in descending order
+    res.status(200).json({ success: true, data: contacts });
+  } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
-}
+};
+
 
 exports.getProducts = async (req,res) =>{
   try {

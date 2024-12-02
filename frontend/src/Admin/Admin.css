@@ -111,6 +111,7 @@
   display: grid;
   gap: 10px;
   padding: 20px;
+  margin-bottom: 10vh;
 }
 
 .grid-header {
@@ -301,6 +302,7 @@ border: 1px solid rgb(0, 0, 0);
 
 .AdminContact {
   padding: 20px;
+  margin-bottom: 10vh;
   font-family: Arial, sans-serif;
 }
 
