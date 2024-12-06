@@ -29,6 +29,7 @@ import CheckOut from "./Components/Payments/CheckOut.jsx";
 import OrderDetails from "./Components/Payments/OrderDetails.jsx";
 import UserTransactions from "./Admin/UserTransactions.jsx";
 import AdminContact from "./Admin/AdminContact.jsx";
+import Marketing from "./Components/Marketing/Marketing.jsx";
 
 function App() {
  
@@ -44,16 +45,20 @@ function App() {
     <>
       {!isAdminRoute && (
         <>
-          <Navbar/>
-          <MobileNavbar/>
+          <Navbar />
+          <MobileNavbar />
         </>
       )}
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/brochure" element={<Marketing/>} />
         <Route path="/search/:key" element={<Search />} />
 
         <Route path="/aboutus/about" element={<About />} />
-        <Route path="/aboutus/missionvisionandvalues" element={<MissionVissionValues />}/>
+        <Route
+          path="/aboutus/missionvisionandvalues"
+          element={<MissionVissionValues />}
+        />
         <Route path="/aboutus/awards" element={<Awards />} />
         <Route path="/aboutus/gallery" element={<Gallery />} />
 
@@ -62,21 +67,17 @@ function App() {
 
         <Route path="/psycortex/:section" element={<PolicyTemplate />} />
 
-
         <Route path="/contactus" element={<Contact />} />
         <Route path="/franchise" element={<Franchise />} />
         <Route path="/services/:section/:subsection" element={<Services />} />
 
         {/* ECOM ROUTES */}
         <Route path="/shop" element={<Shop />} />
-        <Route
-          path="/shop/products/:pid"
-          element={<OneProductPage />}
-        />
+        <Route path="/shop/products/:pid" element={<OneProductPage />} />
 
         {/* USER ROUTES */}
-      
-        <Route path="/user/login" element={<LogIn/>} />
+
+        <Route path="/user/login" element={<LogIn />} />
         <Route path="/user/mycart" element={<UserCart />} />
         <Route path="/user/checkout" element={<CheckOut />} />
         <Route path="/user/order" element={<OrderDetails />} />

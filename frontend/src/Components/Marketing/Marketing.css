@@ -1,0 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
+.Marketing *:not(i){
+
+    font-family: "Inter", serif;
+    font-weight: normal;
+}
+.Marketing{
+    margin-top: 20vh;
+}
+
+/* ==========WhytoChoose============= */
+.WhytoChoose > div{
+    display: grid;
+grid-template-columns: 3fr 2fr ;
+align-items: center;
+max-width: 1000px;
+margin: auto;
+}
+.WhytoChoose > h1{
+    max-width: 1000px;
+    margin: auto;
+    font-weight: bold;
+    font-size: 40px;
+}
+.WhytoChoose > h1 span{
+    color: #a694ea;
+    font-weight: bold;
+}
+.wtc-info{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+.one-reason i{
+    font-size: 20px;
+    color: #a694ea;
+    
+    background-color: #f4f2fc;
+    padding: 15px;
+    border-radius: 3px;
+}
+.one-reason h2{
+font-size: 22px;
+
+}
+.one-reason p{
+font-size: 16px;
+
+}
+.one-reason{
+    display: flex;
+    transition: all 200ms ease-in-out;
+    padding: 10px;
+    border-radius: 3px;
+    align-items: center;
+    gap: 10px;
+}
+    .one-reason:hover {
+        transform: scale(1.01);
+        box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+    }
