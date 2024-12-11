@@ -2,7 +2,7 @@ export default function WhytoChoose() {
   return (
     <div className="WhytoChoose">
       <h1>
-        Why choose <span>Us?</span>
+        Why Choose <span>Us?</span>
       </h1>
       <div>
         <div className="wtc-info">
@@ -46,7 +46,7 @@ export default function WhytoChoose() {
         </div>
         <div className="wtc-img">
           <img
-            src={`${process.env.PUBLIC_URL}/assets/Images/Marketing/why_to_choose_us.svg`}
+            src={`${process.env.PUBLIC_URL}/assets/Images/thebraintakeLogo.png`}
             alt=""
           />
         </div>

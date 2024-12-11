@@ -6,6 +6,9 @@
 .Marketing {
   margin-top: 18vh;
 }
+.Marketing img {
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.389);
+}
 .Marketing h1 {
   text-align: center;
   max-width: 1000px;
@@ -15,14 +18,14 @@
 
 }
 .Marketing h1 span {
-  color: #a694ea;
+  color: #702b88;
   font-weight: bold;
 }
 
 /* ===========LANDING PAGE ============ */
 
 #landing-upper {
-  background-color: #a694ea;
+  background-color: #702b88;
   display: flex;
   padding: 10px;
   color: white;
@@ -39,7 +42,7 @@
 
 .MrkLanding div a{
   color: white;
-  background-color: #a694ea;
+  background-color: #702b88;
   padding: 10px 20px;
   border-radius: 5px;
   text-decoration: none;
@@ -48,6 +51,7 @@
 .MrkLanding img{
   width: 400px;
   object-fit: contain;
+  border-radius: 5px;
 }
 .MrkLanding h1 {
   text-align: start;
@@ -58,11 +62,15 @@
 gap: 40px;
   align-items: center;
   max-width: 1000px;
-  min-height: 80vh;
+  min-height: 76vh;
   margin: auto;
 }
 
 /* ==========WhytoChoose============= */
+.WhytoChoose {
+  background-color: #f4f2fc;
+  padding: 3vh 0px;
+}
 .WhytoChoose > div {
   display: grid;
   grid-template-columns: 3fr 2fr;
@@ -70,7 +78,11 @@ gap: 40px;
   max-width: 1000px;
   margin: auto;
 }
-
+.wtc-img img{
+  box-shadow: none;
+  object-fit: contain;
+  width: 350px;
+}
 .wtc-info {
   display: flex;
   flex-direction: column;
@@ -78,8 +90,8 @@ gap: 40px;
 }
 .one-reason i {
   font-size: 20px;
-  color: #a694ea;
-  background-color: #f4f2fc;
+  color: #702b88;
+  background-color: #b5d55b;
   padding: 15px;
   border-radius: 3px;
 }
@@ -204,7 +216,11 @@ gap: 40px;
 
 
 /* ==========FAQ============= */
+.FAQs{
 
+ background-color: #f4f2fc;
+ padding: 3vh 0px;
+}
 .faqs {
   width: 100%;
   max-width: 1000px;
@@ -278,7 +294,7 @@ gap: 40px;
   
 }
 .Warning1 ul div span{
-   color: #a694ea;
+   color: #702b88;
 
   margin: auto 5px;
 }
@@ -302,7 +318,7 @@ gap: 40px;
   background-color: #f4f2fc;
 }
   .Warning2 a{
-    background-color: #a694ea;
+    background-color: #702b88;
     text-decoration: none;
     color: white;
     padding: 10px 20px;
@@ -317,7 +333,7 @@ gap: 40px;
   
 }
 .WhoThisFor > p span{
-  color: #a694ea;
+  color: #702b88;
   font-size: 24px;
   font-style: italic;
   margin: auto 5px;
@@ -331,7 +347,7 @@ gap: 40px;
 .quote{
   font-style: italic;
   font-size: 24px;
-  color: #a694ea;
+  color: #702b88;
   margin: 10px;
 }
 .WhoThisFor > div{
@@ -355,6 +371,6 @@ gap: 40px;
       border-radius: 5px;
     }
     .who-this-item h3{
-      color: #8b6fef;
+      color: #702b88;
       font-weight: bold;
     }

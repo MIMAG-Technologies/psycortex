@@ -104,7 +104,7 @@ export default function FAQ() {
   };
 
   return (
-    <div>
+    <div className="FAQs">
       <h1>
         Need Help? We've Got You
         <span> Fully Covered</span>
