@@ -4,13 +4,15 @@
   font-weight: normal;
 }
 .Marketing {
-  margin-top: 20vh;
+  margin-top: 18vh;
 }
 .Marketing h1 {
+  text-align: center;
   max-width: 1000px;
-  margin: auto;
+  margin: 40px auto ;
   font-weight: bold;
   font-size: 40px;
+
 }
 .Marketing h1 span {
   color: #a694ea;
@@ -19,6 +21,16 @@
 
 /* ===========LANDING PAGE ============ */
 
+#landing-upper {
+  background-color: #a694ea;
+  display: flex;
+  padding: 10px;
+  color: white;
+  gap: 10px;
+}
+#landing-upper p:first-child{
+  margin-right: auto;
+}
 .MrkLanding div{
   display: flex;
   flex-direction: column;
@@ -37,11 +49,16 @@
   width: 400px;
   object-fit: contain;
 }
+.MrkLanding h1 {
+  text-align: start;
+  margin: 0px;
+}
 .MrkLanding{
    display: flex;
 gap: 40px;
   align-items: center;
   max-width: 1000px;
+  min-height: 80vh;
   margin: auto;
 }
 
@@ -249,3 +266,95 @@ gap: 40px;
 .faqs .faq:hover {
   border: 1px solid #867d7d;
 }
+
+
+/* =============Warning============== */
+
+.Warning1 h1{
+  background-color: rgb(255, 114, 114);
+  border-radius: 5px;
+  padding: 5px;
+  color: white;
+  
+}
+.Warning1 ul div span{
+   color: #a694ea;
+
+  margin: auto 5px;
+}
+.Warning1 ul{
+  display: flex;
+   max-width: 1000px;
+    font-size: 18px;
+    flex-wrap: wrap;
+  margin: auto;
+  margin-bottom: 50px;
+  align-items: center;
+  justify-content: space-between;
+}
+.Warning2{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  text-align: center;
+  align-items: center;
+  padding: 50px 10px;
+  background-color: #f4f2fc;
+}
+  .Warning2 a{
+    background-color: #a694ea;
+    text-decoration: none;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+  }
+
+
+/* ======WhoThisFor========== */
+.WhoThisFor{
+  max-width: 1000px;
+  margin: auto;
+  
+}
+.WhoThisFor > p span{
+  color: #a694ea;
+  font-size: 24px;
+  font-style: italic;
+  margin: auto 5px;
+ }
+.WhoThisFor > p{
+  text-align: center;
+  font-size: 24px;
+  font-style: italic;
+  margin: 10px 0px;
+}
+.quote{
+  font-style: italic;
+  font-size: 24px;
+  color: #a694ea;
+  margin: 10px;
+}
+.WhoThisFor > div{
+  display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+    padding: 20px;
+}
+
+  .who-this-item{
+    display: flex;
+    flex-direction: column;
+    max-width: 250px;
+    margin-bottom: 20px;
+    gap: 10px;
+
+  }
+    .who-this-item img{
+      border-radius: 5px;
+    }
+    .who-this-item h3{
+      color: #8b6fef;
+      font-weight: bold;
+    }

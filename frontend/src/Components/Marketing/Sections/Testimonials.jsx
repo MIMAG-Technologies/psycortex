@@ -34,7 +34,7 @@ function NewTestimonials() {
         "The counseling services are excellent. His knowledge and care have been truly impactful. Thank you so much!",
     },
     {
-      name: "Ramesh Babu",
+      name: "Ramesh B",
       job: "Marital Counseling Client",
       message:
         "The sessions transformed my life, especially my marriage. Dr. Kumar gave me a new perspective. Highly recommend!",

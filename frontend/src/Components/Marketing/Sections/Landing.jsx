@@ -3,6 +3,12 @@ import { Link } from "react-router-dom";
 
 export default function Landing() {
   return (
+    <>
+      <section id="landing-upper">
+        <p>10,000+ Lives Transformed—Yours Could Be Next!</p>
+        <p>Contact: 8767027078</p>
+        <p>Email: psycortex24@gmail.com</p>
+      </section>
     <div className="MrkLanding">
       <div>
         <h1>
@@ -20,5 +26,6 @@ export default function Landing() {
       </div>
       <img src="/assets/Images/Marketing/landing.svg" alt="" />
     </div>
+    </>
   );
 }

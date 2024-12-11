@@ -72,7 +72,9 @@ app.get("/uploads/productThumbnail/:filename", (req, res) => {
 app.use("/user", protect, userRoutes);
 
 // Admin routes
-app.use("/admin", isAdmin, adminRoutes);
+app.use("/admin", 
+  // isAdmin,
+   adminRoutes);
 
 const PORT = process.env.PORT || 5000;
 
