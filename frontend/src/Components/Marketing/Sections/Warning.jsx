@@ -8,11 +8,9 @@ export default function Warning() {
         <h1>Don’t Miss Out – Limited Slots Available!</h1>
         <ul>
           <div>● Special pricing is valid only for this month.</div>
-          <div>● 
-            Slots are filling fast – act now to secure your first session at
-            <span>
-            ₹1499.
-            </span>
+          <div>
+            ● Slots are filling fast – act now to secure your first session at
+            <span>₹1499.</span>
           </div>
         </ul>
       </div>
@@ -23,7 +21,7 @@ export default function Warning() {
           today. Your journey to a better you
           <span> starts here! </span>
         </h1>
-        <Link>Get Started Now – Secure Your Slot</Link>
+        <Link to={"/contactus"}>Get Started Now – Secure Your Slot</Link>
       </div>
     </>
   );

@@ -12,10 +12,9 @@
 .Marketing h1 {
   text-align: center;
   max-width: 1000px;
-  margin: 40px auto ;
+  margin: 40px auto;
   font-weight: bold;
   font-size: 40px;
-
 }
 .Marketing h1 span {
   color: #702b88;
@@ -31,16 +30,16 @@
   color: white;
   gap: 10px;
 }
-#landing-upper p:first-child{
+#landing-upper p:first-child {
   margin-right: auto;
 }
-.MrkLanding div{
+.MrkLanding div {
   display: flex;
   flex-direction: column;
   gap: 20px;
 }
 
-.MrkLanding div a{
+.MrkLanding div a {
   color: white;
   background-color: #702b88;
   padding: 10px 20px;
@@ -48,21 +47,24 @@
   text-decoration: none;
   width: fit-content;
 }
-.MrkLanding img{
+.MrkLanding img {
   width: 400px;
   object-fit: contain;
   border-radius: 5px;
+}
+.MrkLanding p {
+  font-size: 20px;
 }
 .MrkLanding h1 {
   text-align: start;
   margin: 0px;
 }
-.MrkLanding{
-   display: flex;
-gap: 40px;
+.MrkLanding {
+  min-height: 76vh;
+  display: flex;
+  gap: 40px;
   align-items: center;
   max-width: 1000px;
-  min-height: 76vh;
   margin: auto;
 }
 
@@ -78,7 +80,7 @@ gap: 40px;
   max-width: 1000px;
   margin: auto;
 }
-.wtc-img img{
+.wtc-img img {
   box-shadow: none;
   object-fit: contain;
   width: 350px;
@@ -113,7 +115,6 @@ gap: 40px;
   transform: scale(1.01);
   box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
 }
-
 
 /* =========NEW TESTIMONIALS============ */
 
@@ -214,12 +215,10 @@ gap: 40px;
   transform: scale(1.01);
 }
 
-
 /* ==========FAQ============= */
-.FAQs{
-
- background-color: #f4f2fc;
- padding: 3vh 0px;
+.FAQs {
+  background-color: #f4f2fc;
+  padding: 3vh 0px;
 }
 .faqs {
   width: 100%;
@@ -283,32 +282,30 @@ gap: 40px;
   border: 1px solid #867d7d;
 }
 
-
 /* =============Warning============== */
 
-.Warning1 h1{
+.Warning1 h1 {
   background-color: rgb(255, 114, 114);
   border-radius: 5px;
   padding: 5px;
   color: white;
-  
 }
-.Warning1 ul div span{
-   color: #702b88;
+.Warning1 ul div span {
+  color: #702b88;
 
   margin: auto 5px;
 }
-.Warning1 ul{
+.Warning1 ul {
   display: flex;
-   max-width: 1000px;
-    font-size: 18px;
-    flex-wrap: wrap;
+  max-width: 1000px;
+  font-size: 18px;
+  flex-wrap: wrap;
   margin: auto;
   margin-bottom: 50px;
   align-items: center;
   justify-content: space-between;
 }
-.Warning2{
+.Warning2 {
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -317,60 +314,111 @@ gap: 40px;
   padding: 50px 10px;
   background-color: #f4f2fc;
 }
-  .Warning2 a{
-    background-color: #702b88;
-    text-decoration: none;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-  }
-
+.Warning2 a {
+  background-color: #702b88;
+  text-decoration: none;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+}
 
 /* ======WhoThisFor========== */
-.WhoThisFor{
+.WhoThisFor {
   max-width: 1000px;
   margin: auto;
-  
 }
-.WhoThisFor > p span{
+.WhoThisFor > p span {
   color: #702b88;
   font-size: 24px;
   font-style: italic;
   margin: auto 5px;
- }
-.WhoThisFor > p{
+}
+.WhoThisFor > p {
   text-align: center;
   font-size: 24px;
   font-style: italic;
   margin: 10px 0px;
 }
-.quote{
+.quote {
   font-style: italic;
   font-size: 24px;
   color: #702b88;
   margin: 10px;
 }
-.WhoThisFor > div{
+.WhoThisFor > div {
   display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-    padding: 20px;
+  gap: 30px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-around;
+  padding: 20px;
+}
+.who-this-item h3 {
+  color: #702b88;
+  font-weight: bold;
 }
 
-  .who-this-item{
+.who-this-item {
+  display: flex;
+  flex-direction: column;
+  max-width: 250px;
+  margin-bottom: 20px;
+  gap: 10px;
+}
+.who-this-item img {
+  border-radius: 5px;
+}
+
+@media screen and (max-width: 970px) {
+  .Marketing {
+    margin-top: 10vh;
+  }
+}
+@media screen and (max-width: 1000px) {
+  .MrkLanding img {
+    display: none;
+  }
+  .MrkLanding {
+    padding: 0px 20px;
+    padding-top: 10vh;
+    display: block;
+    min-height: 65vh;
+  }
+
+  .landing_upper_p {
+    display: none;
+  }
+  .WhytoChoose > div {
+    display: flex;
+    padding: 0px 10px;
+  }
+  .wtc-img img {
+    display: none;
+  }
+
+  .WhoThisFor > p {
+    padding: 0px 10px;
+    font-size: 24px;
+    text-wrap: balance;
+  }
+  .who-this-item h3 {
+    font-size: 24px;
+  }
+  .who-this-item {
+    max-width: 100%;
+  }
+  .quote {
+    font-size: 20px;
+  }
+
+  .faqs {
     display: flex;
     flex-direction: column;
-    max-width: 250px;
-    margin-bottom: 20px;
+    align-items: center;
     gap: 10px;
-
+    padding: 0%;
   }
-    .who-this-item img{
-      border-radius: 5px;
-    }
-    .who-this-item h3{
-      color: #702b88;
-      font-weight: bold;
-    }
+  .Warning1 {
+    padding: 0px 20px;
+  }
+}

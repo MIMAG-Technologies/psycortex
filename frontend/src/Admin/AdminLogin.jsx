@@ -14,10 +14,10 @@ function AdminLogin() {
     // Prevent default form submission behavior
     e.preventDefault();
 
-    const userObj = {
-      username: userEmail,
-      password: userPassword,
-    };
+     const userObj = {
+       username: userEmail.trim(),
+       password: userPassword.trim(),
+     };
 
     try {
       const response = await axios.post(

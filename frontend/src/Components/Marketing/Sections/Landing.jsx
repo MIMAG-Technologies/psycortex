@@ -6,8 +6,8 @@ export default function Landing() {
     <>
       <section id="landing-upper">
         <p>10,000+ Lives Transformed—Yours Could Be Next!</p>
-        <p>Contact: 8767027078</p>
-        <p>Email: psycortex24@gmail.com</p>
+        <p className="landing_upper_p">Contact: 8767027078</p>
+        <p className="landing_upper_p">Email: psycortex24@gmail.com</p>
       </section>
       <div className="MrkLanding">
         <div>
@@ -22,7 +22,7 @@ export default function Landing() {
             ₹1499 (Save ₹4000 Today) Let’s work together to overcome your
             challenges.
           </p>
-          <Link>Book Now</Link>
+          <Link to={"/contactus"}> Book Now</Link>
         </div>
         <img src="/assets/Images/Marketing/landing.jpg" alt="" />
       </div>
