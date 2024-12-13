@@ -142,9 +142,32 @@ const printInvoice = (transactionId) => {
 
   // Create a new window for printing
   const printWindow = window.open('', '_blank');
-
+  const style = `
+    <style>
+      body *{
+        margin: 0%;
+      }
+         @media print {
+        body {
+          margin: 0;
+        }
+        .content-wrapper {
+          transform: scale(0.95); /* Scale content to 80% */
+          transform-origin: top left; /* Set the scale origin */
+           width: 105.26%;
+        }
+      }
+    </style>
+  `;
   // Create the invoice content as a string
   const printContents = `
+<html>
+      <head>
+        <title>Invoice</title>
+        ${style}
+      </head>
+      <body>
+        
     <div style="max-width: 800px; margin: 0 auto; border: 1px solid #ddd; border-radius: 8px; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);">
       <header style="display: flex; align-items: center; flex-direction: column; justify-content: space-between; padding: 20px; background-color: #c1c1c1; color: black; border-top-left-radius: 8px; border-top-right-radius: 8px;">
         <div style="display: flex; width: 100%; gap: 20px; align-items: center; margin-bottom: 20px;">
@@ -167,7 +190,9 @@ const printInvoice = (transactionId) => {
           <h3 style="font-size: 18px; margin-bottom: 10px; font-weight: bold; color: #333;">Billing Address</h3>
           <p><strong>Street:</strong> ${UserData.address?.streetAddress}</p>
           <p><strong>Apartment:</strong> ${UserData.address?.apartment}</p>
-          <p><strong>City:</strong> ${UserData.address?.city}, ${UserData.address?.state}</p>
+          <p><strong>City:</strong> ${UserData.address?.city}, ${
+    UserData.address?.state
+  }</p>
           <p><strong>Country:</strong> ${UserData.address?.country}</p>
           <p><strong>Pin Code:</strong> ${UserData.address?.pinCode}</p>
         </section>
@@ -182,13 +207,23 @@ const printInvoice = (transactionId) => {
               </tr>
             </thead>
             <tbody>
-              ${cartData.map((item, index) => `
+              ${cartData
+                .map(
+                  (item, index) => `
                 <tr key="${index}">
-                  <td style=" padding: 10px; border: 1px solid #ddd;">${item.name}</td>
-                  <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">${item.quantity}</td>
-                  <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">₹${(parseInt(item.cost.replace(/,/g, ""), 10) * item.quantity).toLocaleString()}</td>
+                  <td style=" padding: 10px; border: 1px solid #ddd;">${
+                    item.name
+                  }</td>
+                  <td style="padding: 10px; border: 1px solid #ddd; text-align: center;">${
+                    item.quantity
+                  }</td>
+                  <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">₹${(
+                    parseInt(item.cost.replace(/,/g, ""), 10) * item.quantity
+                  ).toLocaleString()}</td>
                 </tr>
-              `).join('')}
+              `
+                )
+                .join("")}
               <tr>
                 <td colSpan="2" style="padding: 10px; border: 1px solid #ddd; text-align: right;"><strong>Subtotal:</strong></td>
                 <td style="padding: 10px; border: 1px solid #ddd; text-align: right;">₹${calculateSubtotal().toLocaleString()}</td>
@@ -199,19 +234,55 @@ const printInvoice = (transactionId) => {
               </tr>
               <tr>
                 <td colSpan="2" style="padding: 10px; border: 1px solid #ddd; text-align: right; font-weight: bold; color: rgb(85, 26, 139);">Total:</td>
-                <td style="padding: 10px; border: 1px solid #ddd; text-align: right; font-weight: bold; color: rgb(85, 26, 139);">₹${transactionData.amount}</td>
+                <td style="padding: 10px; border: 1px solid #ddd; text-align: right; font-weight: bold; color: rgb(85, 26, 139);">₹${
+                  transactionData.amount
+                }</td>
               </tr>
             </tbody>
           </table>
         </section>
         <section style="margin-bottom: 20px;">
           <h3 style="font-size: 18px; margin-bottom: 10px; font-weight: bold; color: #333;">Transaction Summary</h3>
-          <p><strong>Transaction ID:</strong> ${transactionData.transactionIdentifier}</p>
+          <p><strong>Transaction ID:</strong> ${
+            transactionData.transactionIdentifier
+          }</p>
           <p><strong>Amount:</strong> ₹${transactionData.amount}</p>
-          <p><strong>Transaction Status:</strong> ${transactionData.transactionState}</p>
+          <p><strong>Transaction Status:</strong> ${
+            transactionData.transactionState
+          }</p>
         </section>
       </div>
+      <div
+  style="padding: 0px 20px; display: flex; flex-direction: column; gap: 5px; padding-bottom: 20px;"
+>
+  <h3 style="font-size: 18px; font-weight: bold; color: #333;">
+    Thanks for the Purchase
+  </h3>
+  <p>
+    Please read all the terms and conditions carefully before making your
+    payment.
+  </p>
+
+  <p>
+    ● You are eligible to apply for cancellation within 7 days of purchase.
+  </p>
+  <p>● No chargeback will be entertained after 7 days of payment.</p>
+  <p>
+    ● Within 10 days of your purchase, you will receive an email kindly
+    acknowledge your purchase.
+  </p>
+
+  <p>
+    Kindly proceed with the payment only after reviewing our terms and
+    conditions.
+  </p>
+  <a href="https://psycortex.in/">psycortex.in</a>
+</div>
+
     </div>
+     
+      </body>
+    </html>
   `;
 
   // Write the invoice content to the new window
