@@ -19,10 +19,14 @@ export default function Landing() {
           </h1>
           <p>
             Affordable, Accessible, and Life-Changing Therapy – Now Starting at
-            ₹1499 (Save ₹4000 Today) Let’s work together to overcome your
-            challenges.
+            <span style={{
+              color:"green"
+            }}> ₹1499 </span> (Save <span style={{
+              color:"red"
+            }}> ₹4000 </span> Today) Let’s work
+            together to overcome your challenges.
           </p>
-          <Link to={"/contactus"}> Book Now</Link>
+          <Link to={"/contactus"}> Book Appoinment Now</Link>
         </div>
         <img src="/assets/Images/Marketing/landing.jpg" alt="" />
       </div>

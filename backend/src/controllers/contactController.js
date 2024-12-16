@@ -5,18 +5,35 @@ exports.createContact = async (req, res) => {
   try {
     const contact = await Contact.create(req.body);
 
+  //   {
+  //   firstname: "",
+  //   lastname: "",
+  //   email: "",
+  //   contactNumber: "",
+  //   city: "",
+  //   state: "",
+  //   country: "",
+  //   message: "",
+  // }
+
     // Send email to admin
     
     res.status(201).json({ success: true, data: contact });
     await sendEmail(
       process.env.ADMIN_EMAIL,
       "New Contact Inquiry",
-      `New inquiry from ${contact.firstname} ${contact.lastname}
-      He/She is Saying "${contact.message}"
       `
-
-    ).catch(err => {
-      console.log("Email not sent to admin.",err);
+      <p> New Inquiry from ${contact.firstname} ${contact.lastname} </p> \n
+      <p> Email: ${contact.email} </p> \n
+      <p> Contact Number: ${contact.contactNumber} </p> \n
+      <p> City: ${contact.city} </p> \n
+      <p> State: ${contact.state} </p> \n
+      <p> Country: ${contact.country} </p> \n
+      <p> He/She is Saying  </p> \n 
+      <blockquote>${contact.message}</blockquote>
+      `
+    ).catch((err) => {
+      console.log("Email not sent to admin.", err);
     });
 
     // Send email to user

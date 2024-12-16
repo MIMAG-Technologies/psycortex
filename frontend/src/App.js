@@ -38,7 +38,10 @@ function App() {
 
   useEffect(() => {
     // Check if the current location path starts with "/admin"
-    setIsAdminRoute(location.pathname.startsWith("/admin"));
+    setIsAdminRoute(
+      location.pathname.startsWith("/admin") ||
+        location.pathname.startsWith("/brochure")
+    );
   }, [location.pathname]);
 
   return (
