@@ -1,15 +1,25 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useEffect, useMemo, useState } from "react";
 import { UserDataContext } from "../../context/UserData";
+
 // import { Helmet } from "react-helmet"; // Ensure you have this package installed if used
 import "../Payments/Payment.css";
+import axios from "axios";
 function CheckOut() {
+  const merchantKey = process.env.REACT_APP_MERCENT_KEY;
   const { userData, setUserData, cartData } = useContext(UserDataContext);
-  const [isChecked, setIsChecked] = useState(false)
+  const [hash, sethash] = useState("");
+  const [txnId, settxnId] = useState("");
+  const [productHash, setproductHash] = useState(null);
+  const surl = `${process.env.REACT_APP_API_URL}/make-transaction/handle_payments`;
+  const furl = `${process.env.REACT_APP_API_URL}/make-transaction/handle_payments`;
+
+
+  const [isChecked, setIsChecked] = useState(false);
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
-    const handleCheckboxChange = () => {
-    setIsChecked(!isChecked); // Toggle the checked state
+  const handleCheckboxChange = () => {
+    setIsChecked(!isChecked);
   };
 
   // Function to handle form input changes
@@ -33,13 +43,6 @@ function CheckOut() {
     }
   };
 
-  // Function to handle form submission
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("User data submitted:", userData);
-    // Add your API call logic here
-  };
-
   // Function to calculate the total for an item
   const calculateTotal = (item) => {
     const cost = parseInt(item.cost.replace(/,/g, ""));
@@ -48,35 +51,73 @@ function CheckOut() {
   };
 
   // Calculate grand total
-  const calculateGrandTotal = (cart) => {
-    let total = 0;
-    cart.forEach((item) => {
-      total += parseInt(item.cost.replace(/,/g, "")) * item.quantity;
-    });
-    return total;
+const calculateGrandTotal = (cart) => {
+  let total = 0;
+  cart.forEach((item) => {
+    total += parseInt(item.cost.replace(/,/g, "")) * item.quantity;
+  });
+  return total;
+};
+
+
+  const amount = calculateGrandTotal(cartData);
+
+  const generateHash = async () => {
+    if(!productHash){
+       const hashArray = [];
+       await cartData.forEach((item) => {
+         hashArray.push(item.name);
+       });
+       setproductHash(hashArray.join(","));
+    }
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/make-transaction/getHash`,
+      {
+        amount,
+        productInfo: productHash,
+        firstName: userData.name,
+        email: userData.email,
+        phone: userData.email,
+        txnId,
+        surl,
+        furl,
+      }
+    );
+    sethash(res.data.data);
+    settxnId(res.data.txnId);
   };
 
-  const isEverythingOk =
-    userData.name &&
-    userData.email &&
-    userData.phoneNo &&
-    userData.address.country &&
-    userData.address.streetAddress &&
-    userData.address.apartment &&
-    userData.address.city &&
-    userData.address.state &&
-    userData.address.pinCode;
+  const isEverythingOk = useMemo(() => {
+    return (
+      userData.name &&
+      userData.email &&
+      userData.phoneNo &&
+      userData.address.country &&
+      userData.address.streetAddress &&
+      userData.address.apartment &&
+      userData.address.city &&
+      userData.address.state &&
+      userData.address.pinCode
+    );
+  }, [userData]);
+
+
+useEffect(() => {
+  const handler = setTimeout(() => {
+    if (userData.name && userData.email && userData.phoneNo) {
+      generateHash();
+    }
+  }, 1000);
+
+  return () => {
+    clearTimeout(handler);
+  };
+}, [userData.name, userData.email, userData.phoneNo, isChecked]);
+
 
   return (
     <div className="UserCheckoutView">
-      {/* <Helmet>
-        <title>Make Payment</title>
-        <meta
-          name="description"
-          content="Explore comprehensive mental health services at Psycortex. Offering expert guidance and tailored solutions for mental well-being."
-        />
-      </Helmet> */}
-      <form onSubmit={handleSubmit}>
+      <form>
         <p className="checkoutdetailheading">Billing Details</p>
         <label htmlFor="name">Name</label>
         <input
@@ -111,7 +152,9 @@ function CheckOut() {
           onChange={handleChange}
         />
 
-        <label id="companyName" htmlFor="companyName">Company Name</label>
+        <label id="companyName" htmlFor="companyName">
+          Company Name
+        </label>
         <input
           type="text"
           id="companyName"
@@ -234,33 +277,55 @@ function CheckOut() {
           </p>
         </label>
         <label id="wordline-select">
-          <input type="checkbox"  
-          
-           checked={isChecked} // Bind state to checkbox
-          onChange={handleCheckboxChange} // Update state on change
-          /> You agree to all the terms &
-          conditions mentioned on the website.
+          <input
+            type="checkbox"
+            checked={isChecked} // Bind state to checkbox
+            onChange={handleCheckboxChange} // Update state on change
+          />{" "}
+          You agree to all the terms & conditions mentioned on the website.
         </label>
         <label id="wordline-select">
           <input type="radio" checked />
-          Pay with Worldline
+          Pay with PayU
           <img
-            src="/assets/Images/Payments/worldline-logo.svg"
-            alt="Worldline"
+          style={{
+             mixBlendMode: "multiply"
+          }}
+            src="/assets/Images/Payments/PayU-logo-Green.jpg"
+            alt="PayU"
           />
         </label>
-        <button id={isEverythingOk ? "btnSubmit" : ""}
-        style={{
-          backgroundColor: isEverythingOk && isChecked? "#501a77" : "#cccccc",
-          cursor: isEverythingOk && isChecked? "pointer" : "not-allowed",
-          color: isEverythingOk && isChecked? "white" : "black",
-          opacity: isEverythingOk && isChecked? 1 : 0.6,
-         
-        }}
-         disabled={!(isEverythingOk && isChecked)} // Corrected condition
-        >
-          {!isEverythingOk ? "Please Fill Your Details First" : "Pay Now"}
-        </button>
+        <form action="https://test.payu.in/_payment" method="post">
+          <input type="hidden" name="key" value={merchantKey} />
+          <input type="hidden" name="txnid" value={txnId} />
+          <input type="hidden" name="productinfo" value={productHash} />
+          <input type="hidden" name="amount" value={amount} />
+          <input type="hidden" name="email" value={userData.email} />
+          <input type="hidden" name="firstname" value={userData.name} />
+          <input type="hidden" name="surl" value={surl} />
+          <input type="hidden" name="furl" value={furl} />
+          <input type="hidden" name="udf1" value="udf1" />
+          <input type="hidden" name="udf2" value="udf2" />
+          <input type="hidden" name="udf3" value="udf3" />
+          <input type="hidden" name="udf4" value="udf4" />
+          <input type="hidden" name="udf5" value="udf5" />
+          <input type="hidden" name="phone" value={userData.phoneNo} />
+          <input type="hidden" name="hash" value={hash} />
+          <input
+            style={{
+              backgroundColor:
+                isEverythingOk && isChecked ? "#501a77" : "#cccccc",
+              cursor: isEverythingOk && isChecked ? "pointer" : "not-allowed",
+              color: isEverythingOk && isChecked ? "white" : "black",
+              opacity: isEverythingOk && isChecked ? 1 : 0.6,
+            }}
+            disabled={!(isEverythingOk && isChecked)}
+            type="submit"
+            value={
+              !isEverythingOk ? "Please Fill Your Details First" : "Pay Now"
+            }
+          />
+        </form>
       </div>
     </div>
   );

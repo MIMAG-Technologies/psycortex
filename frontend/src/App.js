@@ -83,7 +83,7 @@ function App() {
         <Route path="/user/login" element={<LogIn />} />
         <Route path="/user/mycart" element={<UserCart />} />
         <Route path="/user/checkout" element={<CheckOut />} />
-        <Route path="/user/order" element={<OrderDetails />} />
+        <Route path="/user/order/:txdId" element={<OrderDetails />} />
         <Route
           path="/user/mypurchaseditems"
           element={<UserPurchasedItemView />}

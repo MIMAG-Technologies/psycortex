@@ -1,70 +1,82 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState, useRef, useContext } from "react";
 import { ShoppingCart, User, CreditCard, MapPin } from "lucide-react";
 import "./OrderDetails.css"; // Importing the CSS file
 import axios from "axios";
+import { useParams } from "react-router-dom";
+import { UserDataContext } from "../../context/UserData";
 
 function OrderDetails() {
   const [userData, setUserData] = useState({});
-  const [cartData, setCartData] = useState([]);
+  const [cartData, setcartdata] = useState([]);
+      const { setCartData } = useContext(UserDataContext);
   const [transactionData, setTransactionData] = useState({});
   const invoiceRef = useRef();
-  const [isSendingStarted, setisSendingStarted] = useState(false);
-  const rawData = localStorage.getItem("OrderDetailes");
+  const { txdId } = useParams(); 
 
-  useEffect(() => {
-    if (rawData) {
-      const data = JSON.parse(rawData);
-      setUserData(data.UserData || {});
-      setCartData(data.cartData ? JSON.parse(data.cartData) : []);
-      setTransactionData(data.transactionData || {});
-    }
-  }, [rawData]);
+useEffect(() => {
+  if (txdId) {
+    // Fetch and parse necessary data
+    const UserData = JSON.parse(localStorage.getItem("userData") || "{}");
+    const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
 
-  useEffect(() => {
-    if (!isSendingStarted) {
-      setTimeout(() => {
-        sendTransactionEmail();
-      }, 2000);
-    }
-  }, [userData, isSendingStarted]);
+    // Initialize state
+    setUserData(UserData);
+    setcartdata(cartData);
 
-  const sendTransactionEmail = () => {
-    const htmlContent = invoiceRef.current.innerHTML; // Get the invoice HTML content
-    const email = userData.email; // User's email
-    const emailisSend = localStorage.getItem("EmailSent");
-    if (emailisSend === transactionData.transactionIdentifier) {
-      console.log("Email Already Sent");
-
-      return; // If email has already been sent, return
-    }
-    if (!userData.email) {
-      console.error("Email is not available.");
-      return; // If email is undefined, do not proceed
-    }
-    setisSendingStarted(true); // Set sending started to true
-    // Call the email-sending route
-    axios
-      .post(`${process.env.REACT_APP_API_URL}/make-transaction/sendEmail`, {
-        email,
-        htmlContent,
-      })
-      .then(() => {
-        console.log("Emails sent successfully.");
-        localStorage.setItem(
-          "EmailSent",
-          transactionData.transactionIdentifier
+    // Function to handle both transaction and email
+    const initializeTransaction = async () => {
+      try {
+        // Avoid duplicate transaction calls
+        const response = await axios.post(
+          `${process.env.REACT_APP_API_URL}/make-transaction`,
+          { UserData, ProductData: cartData, txnId: atob(txdId) }
         );
-      })
-      .catch((error) => {
-        console.error("Failed to send emails:", error);
-      });
-  };
+        setTransactionData(response.data.data);
+
+        // Check and send email if necessary
+        if (
+          localStorage.getItem("EmailSent") !== txdId &&
+          UserData.email &&
+          response.data.data.transactionState === "success"
+        ) {
+          const htmlContent = invoiceRef.current.innerHTML;
+          await axios.post(
+            `${process.env.REACT_APP_API_URL}/make-transaction/sendEmail`,
+            { email: UserData.email, htmlContent }
+          );
+          console.log("Email sent successfully.");
+          localStorage.setItem("EmailSent", txdId);
+        } else {
+          console.log("Email already sent or user email unavailable.");
+        }
+        
+      } catch (error) {
+        console.error(
+          "Error initializing transaction or sending email:",
+          error
+        );
+      }
+    };
+
+    // Execute the transaction
+    initializeTransaction();
+
+    // Clear localStorage and context
+    localStorage.removeItem("cartData");
+    setCartData([]);
+    localStorage.removeItem("GrandTotal");
+  }
+}, [txdId]);
+
+
+
+
 
 const printInvoice = () => {
   const printContents = invoiceRef.current.innerHTML;
   const printWindow = window.open("", "", "width=900,height=600");
 
-  // Add CSS to scale content
+
   const style = `
     <style>
       body *{
@@ -284,7 +296,7 @@ const printInvoice = () => {
                 </tr>
               </thead>
               <tbody>
-                {cartData.map((item, index) => (
+                {cartData?.map((item, index) => (
                   <tr key={index}>
                     <td
                       style={{

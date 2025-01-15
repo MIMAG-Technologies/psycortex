@@ -13,11 +13,12 @@
   content: " *";
   color: red;
 }
-.UserCheckoutView button {
+.UserCheckoutView input[type="submit"] {
   background-color: #501a77;
   border: none;
   outline: none;
   font-size: 18px;
+  width: 100%;
   cursor: pointer;
   color: white;
   margin-top: 10px;
