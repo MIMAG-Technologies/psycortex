@@ -23,29 +23,7 @@ connectDB();
 // Middleware
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-
-const isDevMode = process.env.IS_DEV_MODE;
-
-if (isDevMode) {
-  app.use(cors());
-} else {
-  const allowedOrigins = [
-    "https://psycortex.in",
-    "https://www.psycortex.in",
-    "www.psycortex.in",
-  ];
-  app.use(
-    cors({
-      origin: function (origin, callback) {
-        if (!origin || allowedOrigins.includes(origin)) {
-          callback(null, true);
-        } else {
-          callback(new Error("Not allowed by CORS"));
-        }
-      },
-    })
-  );
-}
+app.use(cors());
 
 // Routes
 app.use("/contactUs", contactRoutes);

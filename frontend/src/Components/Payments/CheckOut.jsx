@@ -107,7 +107,7 @@ useEffect(() => {
     if (userData.name && userData.email && userData.phoneNo) {
       generateHash();
     }
-  }, 1000);
+  }, 500);
 
   return () => {
     clearTimeout(handler);
@@ -288,14 +288,21 @@ useEffect(() => {
           <input type="radio" checked />
           Pay with PayU
           <img
-          style={{
-             mixBlendMode: "multiply"
-          }}
+            style={{
+              mixBlendMode: "multiply",
+            }}
             src="/assets/Images/Payments/PayU-logo-Green.jpg"
             alt="PayU"
           />
         </label>
-        <form action="https://test.payu.in/_payment" method="post">
+        <form
+          action={
+            process.env.REACT_APP_GATEWAY_MODE === "DEV"
+              ? "https://test.payu.in/_payment"
+              : "https://secure.payu.in/_payment"
+          }
+          method="post"
+        >
           <input type="hidden" name="key" value={merchantKey} />
           <input type="hidden" name="txnid" value={txnId} />
           <input type="hidden" name="productinfo" value={productHash} />
