@@ -50,9 +50,10 @@ app.get("/uploads/productThumbnail/:filename", (req, res) => {
 app.use("/user", protect, userRoutes);
 
 // Admin routes
-app.use("/admin", 
-  // isAdmin,
-   adminRoutes);
+app.use("/admin", adminRoutes);
+app.get("/test", async(req,res)=>{
+  res.status(200).json({"message":"Welcome to Psycortex Api"})
+});
 
 const PORT = process.env.PORT || 5000;
 

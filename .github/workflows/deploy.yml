@@ -25,11 +25,13 @@ jobs:
             
             # Backend deployment
             cd backend
+            npm i
             pm2 restart psycortex
             
             # Frontend deployment
             cd ../frontend
-            pnpm run build
+            npm i
+            npm run build
             
             # Restart nginx
             sudo systemctl restart nginx
