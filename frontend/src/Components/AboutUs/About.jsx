@@ -55,7 +55,7 @@ function About() {
         </p>
         <p>
           Take the courageous step towards a brighter tomorrow—contact Psycortex
-          Brain Take Mental Health (OPC) Pvt. Ltd today, and embark on a
+           (OPC) Pvt. Ltd today, and embark on a
           transformative path towards greater emotional well-being and a more
           meaningful life. Together, let's unlock the potential for growth and
           healing within you.
