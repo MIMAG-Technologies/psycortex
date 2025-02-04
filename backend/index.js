@@ -52,7 +52,7 @@ app.use("/user", protect, userRoutes);
 // Admin routes
 app.use("/admin", adminRoutes);
 app.get("/test", async(req,res)=>{
-  res.status(200).json({"message":"Welcome to Psycortex Api"})
+  res.status(200).json({"message":"Welcome to Psycortex Api Test"})
 });
 
 const PORT = process.env.PORT || 5000;

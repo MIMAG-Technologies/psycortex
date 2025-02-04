@@ -1,4 +1,4 @@
-name: Deploy to VPS
+name: Conditional Deploy to VPS
 
 on:
   push:
@@ -12,6 +12,26 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
+        with:
+          fetch-depth: 2
+      
+      - name: Check Backend Changes
+        id: backend-changes
+        run: |
+          backend_changes=$(git diff HEAD^ HEAD --name-only | grep "^backend/")
+          frontend_changes=$(git diff HEAD^ HEAD --name-only | grep "^frontend/")
+          
+          if [ -n "$backend_changes" ]; then
+            echo "backend_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "backend_changed=false" >> $GITHUB_OUTPUT
+          fi
+          
+          if [ -n "$frontend_changes" ]; then
+            echo "frontend_changed=true" >> $GITHUB_OUTPUT
+          else
+            echo "frontend_changed=false" >> $GITHUB_OUTPUT
+          fi
       
       - name: Deploy to VPS
         uses: appleboy/ssh-action@master
@@ -23,15 +43,19 @@ jobs:
             cd ./psycortex
             git pull origin main
             
-            # Backend deployment
-            cd backend
-            npm i
-            pm2 restart psycortex
+            # Conditional Backend Deployment
+            if [ "${{ steps.backend-changes.outputs.backend_changed }}" = "true" ]; then
+              cd backend
+              npm ci
+              pm2 restart psycortex
+            fi
             
-            # Frontend deployment
-            cd ../frontend
-            npm i
-            npm run build
+            # Conditional Frontend Deployment
+            if [ "${{ steps.backend-changes.outputs.frontend_changed }}" = "true" ]; then
+              cd ../frontend
+              npm ci
+              npm run build
+            fi
             
-            # Restart nginx
+            # Always restart nginx
             sudo systemctl restart nginx
