@@ -42,9 +42,6 @@ function Services() {
       observer.disconnect();
     };
   }, []); // Ensure useEffect runs whenever sectionData changes
-
-  const randomImage = Math.floor(Math.random() * 5) + 1;
-  // const imageUrl = `${process.env.PUBLIC_URL}/assets/Images/Services/${section}/img${randomImage}.jpg`;
   const imageUrl = `${process.env.PUBLIC_URL}/assets/Images/Services/${subsection}.jpg`;
 
   return (
@@ -131,7 +128,7 @@ function Services() {
             {sectionData.p8}
           </p>
 
-          <Link to={"/booking"} class="button">
+          <Link to={"https://client.psycortex.in/"} class="button">
             Start Your Journey
             <svg fill="currentColor" viewBox="0 0 24 24" class="icon">
               <path

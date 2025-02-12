@@ -1,7 +1,7 @@
 import React, { useEffect, useRef, useState } from "react";
 
 import "./Contact.css";
-import { useLocation } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { Helmet } from "react-helmet-async";
 import axios from "axios";
 
@@ -58,13 +58,6 @@ function Contact() {
     return () => {
       observer.disconnect();
     };
-  }, []);
-
-  useEffect(() => {
-    window.scrollTo({
-      top: 0,
-      behavior: "smooth",
-    });
   }, []);
 
   const handleSubmit = async (e) => {
@@ -181,8 +174,8 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Address :{" "}
               </span>
-              Block no. 214 2nd Floor , 93 Avenue Mall,Bhagwan Tatyasaheb Kawade
-              Rd, Fatima Nagar , RSPF , Wanowrie , Pune , Maharashtra 411022
+              Block no. 214 2nd Floor, 93 Avenue Mall,Bhagwan Tatyasaheb Kawade
+              Rd, Fatima Nagar, RSPF, Wanowrie, Pune, Maharashtra 411022
             </p>
 
             <h2
@@ -195,24 +188,32 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Address :{" "}
               </span>
-              114 , AB Road , Near PATEL MOTORS , Part II , Scheme No 114,
-              Indore , Madhya Pradesh 452010
+              114, AB Road, Near PATEL MOTORS, Part II, Scheme No 114, Indore,
+              Madhya Pradesh 452010
             </p>
 
-            <p>
-              {" "}
+            <p ref={(el) => observedElements.current.push(el)}>
               <span ref={(el) => observedElements.current.push(el)}>
-                Phone No :{" "}
+                Customer Care No.:{" "}
               </span>
-              8767027078
+              <a href="tel:8767027078">8767027078</a>
             </p>
             <p ref={(el) => observedElements.current.push(el)}>
-              {" "}
               <span ref={(el) => observedElements.current.push(el)}>
-                Email :{" "}
+                Email:{" "}
               </span>
-              info@psycortex.in
+              <a href="mailto:info@psycortex.in">info@psycortex.in</a>
             </p>
+            <p ref={(el) => observedElements.current.push(el)}>
+              <span ref={(el) => observedElements.current.push(el)}>
+                Customer Support Email:{" "}
+              </span>
+              <a href="mailto:care@psycortex.in">care@psycortex.in</a>
+            </p>
+
+            <Link className="all-contact-Link" to="all">
+              View All Branches
+            </Link>
           </div>
           <div className="form" ref={(el) => observedElements.current.push(el)}>
             <div>

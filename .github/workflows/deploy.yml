@@ -24,14 +24,14 @@ jobs:
             git pull origin main
             
             # Backend deployment
-            cd backend
-            npm ci
-            npx pm2 restart psycortex
+            # cd backend
+            # npm ci
+            # npx pm2 restart psycortex
             
             # # Frontend deployment
-            # cd ../frontend
+            cd frontend
             # npm ci
-            # npm run build
+            npm run build
             
             # Restart nginx
             sudo systemctl restart nginx

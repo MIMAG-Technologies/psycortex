@@ -30,6 +30,7 @@ import OrderDetails from "./Components/Payments/OrderDetails.jsx";
 import UserTransactions from "./Admin/UserTransactions.jsx";
 import AdminContact from "./Admin/AdminContact.jsx";
 import Marketing from "./Components/Marketing/Marketing.jsx";
+import AllContacts from "./Components/Contact Us/AllContacts.jsx";
 
 function App() {
  
@@ -71,6 +72,7 @@ function App() {
         <Route path="/psycortex/:section" element={<PolicyTemplate />} />
 
         <Route path="/contactus" element={<Contact />} />
+        <Route path="/contactus/all" element={<AllContacts />} />
         <Route path="/franchise" element={<Franchise />} />
         <Route path="/services/:section/:subsection" element={<Services />} />
 
