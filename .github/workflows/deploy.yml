@@ -1,37 +1,34 @@
 name: Deploy to VPS
-
 on:
   push:
     branches:
       - main
-
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    
     steps:
-      - name: Checkout code
+      - name: Checkout Repository
         uses: actions/checkout@v3
-      
-      - name: Deploy to VPS
+      - name: Deploy via SSH with Password
         uses: appleboy/ssh-action@master
         with:
           host: ${{ secrets.SERVER_IP }}
           username: root
           password: ${{ secrets.SERVER_PASSWORD }}
           script: |
+            # Source the profile to get the same environment as interactive shell
+            source ~/.bash_profile
+            source ~/.bashrc
+            
+            # Set PATH explicitly
+            export PATH="/usr/local/bin:$PATH"
+            export NVM_DIR="$HOME/.nvm"
+            [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+            
+            # Now run your commands
             cd ./psycortex
+            nvm use 20
             git pull origin main
-            
-            # Backend deployment
-            # cd backend
-            # npm ci
-            # npx pm2 restart psycortex
-            
-            # # Frontend deployment
             cd frontend
-            # npm ci
             npm run build
-            
-            # Restart nginx
-            sudo systemctl restart nginx
+            systemctl restart nginx

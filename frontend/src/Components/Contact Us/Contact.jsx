@@ -7,6 +7,7 @@ import axios from "axios";
 
 function Contact() {
   const [isButtonDisabled, setisButtonDisabled] = useState(false);
+    const whatsAppLink = "https://wa.me/+918767027078?text=";
   const [formData, setFormData] = useState({
     firstname: "",
     lastname: "",
@@ -318,6 +319,14 @@ function Contact() {
           </div>
         </div>
       </div>
+      <a
+        href={whatsAppLink}
+        id="whatsapp-logo"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <i className="fa-brands fa-whatsapp"></i>
+      </a>
     </>
   );
 }
