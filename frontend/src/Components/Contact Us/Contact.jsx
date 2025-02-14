@@ -159,8 +159,8 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Address :{" "}
               </span>
-              Block no. 101/102, 2nd floor, Shriram Tower, Sadar, Nagpur-
-              440001, Maharashtra
+              Block No. 101/102, Sri Ram Tower, 2nd Floor, Next to NIT,
+              Kingsway, Civil Lines, Sadar, Nagpur, Maharashtra 440001
             </p>
             <h2 ref={(el) => observedElements.current.push(el)}>
               Branch Office
@@ -175,8 +175,9 @@ function Contact() {
               <span ref={(el) => observedElements.current.push(el)}>
                 Address :{" "}
               </span>
-              Block no. 214 2nd Floor, 93 Avenue Mall,Bhagwan Tatyasaheb Kawade
-              Rd, Fatima Nagar, RSPF, Wanowrie, Pune, Maharashtra 411022
+              Block No. 234, 2nd Floor, 93 Avenue Mall, Bhagwan Tatyasaheb
+              Kawade Road, Fatima Nagar, RSPF, Wanowrie, Pune, Maharashtra
+              411022.
             </p>
 
             <h2

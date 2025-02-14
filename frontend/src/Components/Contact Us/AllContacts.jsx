@@ -56,10 +56,6 @@ const allContacts = [
       "DT City Centre Mall, IT Park Road, Phase-I, Sector 13, Chandigarh, Panchkula, Chandigarh 160101.",
   },
   {
-    City: "Chandigarh",
-    Address: "Industrial Area Phase I, Chandigarh 160002.",
-  },
-  {
     City: "Surat",
     Address: "Dumas Road, Magdalla, Surat, Gujarat 395007.",
   },
