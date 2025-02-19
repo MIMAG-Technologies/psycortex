@@ -148,7 +148,9 @@ function Contact() {
             ref={(el) => observedElements.current.push(el)}
           >
             <h1> {loc.pathname === "/contactus" ? "Get in Touch" : ""}</h1>
-            <h2 ref={(el) => observedElements.current.push(el)}>Head Office</h2>
+            <h2 ref={(el) => observedElements.current.push(el)}>
+              Corporate Office
+            </h2>
             <h2
               ref={(el) => observedElements.current.push(el)}
               className="cityname"
@@ -162,38 +164,7 @@ function Contact() {
               Block No. 101/102, Sri Ram Tower, 2nd Floor, Next to NIT,
               Kingsway, Civil Lines, Sadar, Nagpur, Maharashtra 440001
             </p>
-            <h2 ref={(el) => observedElements.current.push(el)}>
-              Branch Office
-            </h2>
-            <h2
-              ref={(el) => observedElements.current.push(el)}
-              className="cityname"
-            >
-              Pune
-            </h2>
-            <p ref={(el) => observedElements.current.push(el)}>
-              <span ref={(el) => observedElements.current.push(el)}>
-                Address :{" "}
-              </span>
-              Block No. 234, 2nd Floor, 93 Avenue Mall, Bhagwan Tatyasaheb
-              Kawade Road, Fatima Nagar, RSPF, Wanowrie, Pune, Maharashtra
-              411022.
-            </p>
-
-            <h2
-              ref={(el) => observedElements.current.push(el)}
-              className="cityname"
-            >
-              Indore
-            </h2>
-            <p ref={(el) => observedElements.current.push(el)}>
-              <span ref={(el) => observedElements.current.push(el)}>
-                Address :{" "}
-              </span>
-              114, AB Road, Near PATEL MOTORS, Part II, Scheme No 114, Indore,
-              Madhya Pradesh 452010
-            </p>
-
+          
             <p ref={(el) => observedElements.current.push(el)}>
               <span ref={(el) => observedElements.current.push(el)}>
                 Customer Care No.:{" "}
