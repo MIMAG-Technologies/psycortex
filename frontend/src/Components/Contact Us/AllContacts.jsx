@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { MapPin, Navigation, Building } from "lucide-react";
+import { MapPin, Building } from "lucide-react";
 
 function AllContacts() {
   const allContacts = [
@@ -204,11 +204,7 @@ const getCityImageUrl = (city) => {
 
   return (
     <div className="branches-container">
-      <header className="branches-header">
-        <h1>Our Branches</h1>
-        <p>Find our locations across India</p>
-      </header>
-
+    
       <div className="branches-grid">
         {allContacts.map((contact, index) => (
           <div
