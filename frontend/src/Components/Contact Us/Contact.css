@@ -418,8 +418,9 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .card-title h2 {
-  font-size: 1.25rem;
-  color: #2c3e50;
+  font-size: 1.35rem;
+  color: black;
+  font-weight: bold;
   margin: 0;
 }
 
@@ -436,8 +437,8 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .card-address p {
-  font-size: 0.9rem;
-  color: #7f8c8d;
+  font-size: 1rem;
+  color: black;
   line-height: 1.6;
   margin: 0;
 }
