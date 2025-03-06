@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from "react";
-import { MapPin, Building } from "lucide-react";
+import { MapPin, Building, Phone, Mail, Clock } from "lucide-react";
 
 function AllContacts() {
   const allContacts = [
@@ -162,11 +162,46 @@ function AllContacts() {
     },
   ];
 
-  // Function to get placeholder image URL with city name
-const getCityImageUrl = (city) => {
-  return `/assets/Images/Branches/${city.toLowerCase()}.jpg`;
-};
+  const contactDetails = {
+    Pune: { email: "beautifulmindclinicpune@gmail.com", phone: "7020911566" },
+    Indore: { email: "psycortexindore@gmail.com", phone: "9022755627" },
+    Udaipur: { email: "psycoudp@gmail.com", phone: "8767027078" },
+    Hyderabad: { email: "psycohyd@gmail.com", phone: "8767027078" },
+    Visakhapatnam: { email: "psycovishakha@gmail.com", phone: "8767027078" },
+    Guwahati: { email: "psycoasam@gmail.com", phone: "8767027078" },
+    Patna: { email: "psycortexpatna@gmail.com", phone: "8767027078" },
+    Raipur: { email: "psycortexraipur@gmail.com", phone: "8767027078" },
+    Bilaspur: { email: "psycobilaspur1@gmail.com", phone: "8767027078" },
+    Panaji: { email: "panajipsycho@gmail.com", phone: "8767027078" },
+    Gandhinagar: { email: "psycogujrat@gmail.com", phone: "8767027078" },
+    Gurugram: { email: "gurugrampsyco@gmail.com", phone: "8767027078" },
+    Chandigarh: { email: "psycochandi@gmail.com", phone: "8767027078" },
+    Surat: { email: "psycosurat@gmail.com", phone: "8767027078" },
+    Ahmedabad: { email: "psycoahm@gmail.com", phone: "8767027078" },
+    Dispur: { email: "psycortexdispur@gmail.com", phone: "8767027078" },
+    Shimla: { email: "psycoshimla@gmail.com", phone: "8767027078" },
+    Ranchi: { email: "psycorachi@gmail.com", phone: "8767027078" },
+    Thiruvananthapuram: { email: "psycothiru1@gmail.com", phone: "8767027078" },
+    Ernakulam: { email: "psycoernaku@gmail.com", phone: "8767027078" },
+    Kota: { email: "psycokota@gmail.com", phone: "8767027078" },
+    Bhopal: { email: "psycobhopal@gmail.com", phone: "8767027078" },
+    Imphal: { email: "psycoimphal32@gmail.com", phone: "8767027078" },
+    Shillong: { email: "psycoshilong@gmail.com", phone: "8767027078" },
+    Aizawl: { email: "psycoaiz@gmail.com", phone: "8767027078" },
+    Kohima: { email: "psycokohima@gmail.com", phone: "8767027078" },
+    Bhubaneswar: { email: "psycobhuw@gmail.com", phone: "8767027078" },
+    Gangtok: { email: "psycogangtok@gmail.com", phone: "8767027078" },
+    Chennai: { email: "psycochennai@gmail.com", phone: "8767027078" },
+    Agartala: { email: "psycoagartla@gmail.com", phone: "8767027078" },
+    Lucknow: { email: "luckpsyco@gmail.com", phone: "8767027078" },
+    Dehradun: { email: "psycodehra@gmail.com", phone: "8767027078" },
+    Kolkata: { email: "psycokolkata@gmail.com", phone: "8767027078" },
+  };
 
+  // Function to get placeholder image URL with city name
+  const getCityImageUrl = (city) => {
+    return `/assets/Images/Branches/${city.toLowerCase()}.jpg`;
+  };
 
   useEffect(() => {
     window.scrollTo({
@@ -204,34 +239,66 @@ const getCityImageUrl = (city) => {
 
   return (
     <div className="branches-container">
-    
       <div className="branches-grid">
-        {allContacts.map((contact, index) => (
-          <div
-            key={index}
-            className="branch-card"
-            ref={(el) => (cardRefs.current[index] = el)}
-          >
-            <div className="card-image">
-              <img
-                src={getCityImageUrl(contact.City)}
-                alt={`${contact.City} branch`}
-              />
-            </div>
+        {allContacts.map((contact, index) => {
+          const details = contactDetails[contact.City] || {
+            email: "contact@example.com",
+            phone: "N/A",
+          };
 
-            <div className="card-content">
-              <div className="card-title">
-                <Building size={20} />
-                <h2>{contact.City}</h2>
+          return (
+            <div
+              key={index}
+              className="branch-card"
+              ref={(el) => (cardRefs.current[index] = el)}
+            >
+              <div className="card-image">
+                <img
+                  src={getCityImageUrl(contact.City)}
+                  alt={`${contact.City} branch`}
+                />
               </div>
 
-              <div className="card-address">
-                <MapPin size={16} />
-                <p>{contact.Address}</p>
+              <div className="card-content">
+                <div className="card-title">
+                  <Building size={20} />
+                  <h2>{contact.City}</h2>
+                </div>
+
+                <div className="card-contact-details">
+                  <div className="card-address">
+                    <MapPin size={16} />
+                    <p>{contact.Address}</p>
+                  </div>
+
+                  <div className="card-contact-info">
+                    <div className="contact-item">
+                      <Mail size={16} />
+                      <a
+                        href={`mailto:${details.email}`}
+                        className="contact-link"
+                      >
+                        {details.email}
+                      </a>
+                    </div>
+
+                    <div className="contact-item">
+                      <Phone size={16} />
+                      <a href={`tel:${details.phone}`} className="contact-link">
+                        {details.phone}
+                      </a>
+                    </div>
+
+                    <div className="contact-item">
+                      <Clock size={16} />
+                      <span className="timing">10 AM - 6 PM</span>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
-          </div>
-        ))}
+          );
+        })}
       </div>
     </div>
   );
