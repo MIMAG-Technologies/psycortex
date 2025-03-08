@@ -145,7 +145,6 @@ function Contact() {
         <div>
           <div
             className="adress"
-            ref={(el) => observedElements.current.push(el)}
           >
             <h1> {loc.pathname === "/contactus" ? "Get in Touch" : ""}</h1>
             <h2 ref={(el) => observedElements.current.push(el)}>
@@ -164,24 +163,32 @@ function Contact() {
               Block No. 101/102, Sri Ram Tower, 2nd Floor, Next to NIT,
               Kingsway, Civil Lines, Sadar, Nagpur, Maharashtra 440001
             </p>
-          
+
             <p ref={(el) => observedElements.current.push(el)}>
               <span ref={(el) => observedElements.current.push(el)}>
                 Customer Care No.:{" "}
               </span>
               <a href="tel:8767027078">8767027078</a>
             </p>
-            <p ref={(el) => observedElements.current.push(el)}>
+            <p ref={(el) => observedElements.current.push(el)} 
+              style={{
+                display:"flex",
+                flexWrap:"wrap",
+                gap:"10px"
+              }}
+              >
               <span ref={(el) => observedElements.current.push(el)}>
-                Email:{" "}
+                Customer Care:{" "}
               </span>
+              <span style={{
+                display:"flex",
+                flexDirection:"column",
+                width:"fit-content",
+              }}>
+
               <a href="mailto:info@psycortex.in">info@psycortex.in</a>
-            </p>
-            <p ref={(el) => observedElements.current.push(el)}>
-              <span ref={(el) => observedElements.current.push(el)}>
-                Customer Support Email:{" "}
-              </span>
               <a href="mailto:care@psycortex.in">care@psycortex.in</a>
+              </span>
             </p>
 
             <Link className="all-contact-Link" to="all">

@@ -163,39 +163,39 @@ function AllContacts() {
   ];
 
   const contactDetails = {
-    Pune: { email: "beautifulmindclinicpune@gmail.com", phone: "7020911566" },
-    Indore: { email: "psycortexindore@gmail.com", phone: "9022755627" },
-    Udaipur: { email: "psycoudp@gmail.com", phone: "8767027078" },
-    Hyderabad: { email: "psycohyd@gmail.com", phone: "8767027078" },
-    Visakhapatnam: { email: "psycovishakha@gmail.com", phone: "8767027078" },
-    Guwahati: { email: "psycoasam@gmail.com", phone: "8767027078" },
-    Patna: { email: "psycortexpatna@gmail.com", phone: "8767027078" },
-    Raipur: { email: "psycortexraipur@gmail.com", phone: "8767027078" },
-    Bilaspur: { email: "psycobilaspur1@gmail.com", phone: "8767027078" },
-    Panaji: { email: "panajipsycho@gmail.com", phone: "8767027078" },
-    Gandhinagar: { email: "psycogujrat@gmail.com", phone: "8767027078" },
-    Gurugram: { email: "gurugrampsyco@gmail.com", phone: "8767027078" },
-    Chandigarh: { email: "psycochandi@gmail.com", phone: "8767027078" },
-    Surat: { email: "psycosurat@gmail.com", phone: "8767027078" },
-    Ahmedabad: { email: "psycoahm@gmail.com", phone: "8767027078" },
-    Dispur: { email: "psycortexdispur@gmail.com", phone: "8767027078" },
-    Shimla: { email: "psycoshimla@gmail.com", phone: "8767027078" },
-    Ranchi: { email: "psycorachi@gmail.com", phone: "8767027078" },
-    Thiruvananthapuram: { email: "psycothiru1@gmail.com", phone: "8767027078" },
-    Ernakulam: { email: "psycoernaku@gmail.com", phone: "8767027078" },
-    Kota: { email: "psycokota@gmail.com", phone: "8767027078" },
-    Bhopal: { email: "psycobhopal@gmail.com", phone: "8767027078" },
-    Imphal: { email: "psycoimphal32@gmail.com", phone: "8767027078" },
-    Shillong: { email: "psycoshilong@gmail.com", phone: "8767027078" },
-    Aizawl: { email: "psycoaiz@gmail.com", phone: "8767027078" },
-    Kohima: { email: "psycokohima@gmail.com", phone: "8767027078" },
-    Bhubaneswar: { email: "psycobhuw@gmail.com", phone: "8767027078" },
-    Gangtok: { email: "psycogangtok@gmail.com", phone: "8767027078" },
-    Chennai: { email: "psycochennai@gmail.com", phone: "8767027078" },
-    Agartala: { email: "psycoagartla@gmail.com", phone: "8767027078" },
-    Lucknow: { email: "luckpsyco@gmail.com", phone: "8767027078" },
-    Dehradun: { email: "psycodehra@gmail.com", phone: "8767027078" },
-    Kolkata: { email: "psycokolkata@gmail.com", phone: "8767027078" },
+    Pune: { email: "care@psycortex.in", phone: "8767027078" },
+    Indore: { email: "care@psycortex.in", phone: "8767027078" },
+    Udaipur: { email: "care@psycortex.in", phone: "8767027078" },
+    Hyderabad: { email: "care@psycortex.in", phone: "8767027078" },
+    Visakhapatnam: { email: "care@psycortex.in", phone: "8767027078" },
+    Guwahati: { email: "care@psycortex.in", phone: "8767027078" },
+    Patna: { email: "care@psycortex.in", phone: "8767027078" },
+    Raipur: { email: "care@psycortex.in", phone: "8767027078" },
+    Bilaspur: { email: "care@psycortex.in", phone: "8767027078" },
+    Panaji: { email: "care@psycortex.in", phone: "8767027078" },
+    Gandhinagar: { email: "care@psycortex.in", phone: "8767027078" },
+    Gurugram: { email: "care@psycortex.in", phone: "8767027078" },
+    Chandigarh: { email: "care@psycortex.in", phone: "8767027078" },
+    Surat: { email: "care@psycortex.in", phone: "8767027078" },
+    Ahmedabad: { email: "care@psycortex.in", phone: "8767027078" },
+    Dispur: { email: "care@psycortex.in", phone: "8767027078" },
+    Shimla: { email: "care@psycortex.in", phone: "8767027078" },
+    Ranchi: { email: "care@psycortex.in", phone: "8767027078" },
+    Thiruvananthapuram: { email: "care@psycortex.in", phone: "8767027078" },
+    Ernakulam: { email: "care@psycortex.in", phone: "8767027078" },
+    Kota: { email: "care@psycortex.in", phone: "8767027078" },
+    Bhopal: { email: "care@psycortex.in", phone: "8767027078" },
+    Imphal: { email: "care@psycortex.in", phone: "8767027078" },
+    Shillong: { email: "care@psycortex.in", phone: "8767027078" },
+    Aizawl: { email: "care@psycortex.in", phone: "8767027078" },
+    Kohima: { email: "care@psycortex.in", phone: "8767027078" },
+    Bhubaneswar: { email: "care@psycortex.in", phone: "8767027078" },
+    Gangtok: { email: "care@psycortex.in", phone: "8767027078" },
+    Chennai: { email: "care@psycortex.in", phone: "8767027078" },
+    Agartala: { email: "care@psycortex.in", phone: "8767027078" },
+    Lucknow: { email: "care@psycortex.in", phone: "8767027078" },
+    Dehradun: { email: "care@psycortex.in", phone: "8767027078" },
+    Kolkata: { email: "care@psycortex.in", phone: "8767027078" },
   };
 
   // Function to get placeholder image URL with city name
@@ -242,7 +242,7 @@ function AllContacts() {
       <div className="branches-grid">
         {allContacts.map((contact, index) => {
           const details = contactDetails[contact.City] || {
-            email: "contact@example.com",
+            email: "care@psycortex.in",
             phone: "N/A",
           };
 
@@ -272,8 +272,13 @@ function AllContacts() {
                   </div>
 
                   <div className="card-contact-info">
-                    <div className="contact-item">
+                    <div className="contact-item" 
+                    style={{
+                      flexWrap:"wrap"
+                    }}
+                    >
                       <Mail size={16} />
+                      <span>Customer Care:</span>
                       <a
                         href={`mailto:${details.email}`}
                         className="contact-link"
@@ -284,6 +289,7 @@ function AllContacts() {
 
                     <div className="contact-item">
                       <Phone size={16} />
+                      <span>Customer Care No. :</span>
                       <a href={`tel:${details.phone}`} className="contact-link">
                         {details.phone}
                       </a>
