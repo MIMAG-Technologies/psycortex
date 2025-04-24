@@ -496,7 +496,7 @@ function MobileNavbar(props) {
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
             }}
-            href="https://client.psycortex.in/"
+            href="https://democlient.psycortex.in/"
             target="_blank"
             rel="noreferrer"
           >
