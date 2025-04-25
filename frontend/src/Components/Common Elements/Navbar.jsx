@@ -295,7 +295,7 @@ function Navbar(props) {
           <ul className="upperdiv" onMouseEnter={handleMouseLeave}>
             {" "}
             <a
-              href="https://democlient.psycortex.in/"
+              href="https://client.psycortex.in/"
               target="_blank"
               rel="noreferrer"
               className={`button ${isHovered ? "appbutton" : ""}`}
