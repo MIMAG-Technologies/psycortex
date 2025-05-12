@@ -143,9 +143,7 @@ function Contact() {
           {loc.pathname === "/contactus" ? "CONTACT US" : "Get in Touch"}
         </h1>
         <div>
-          <div
-            className="adress"
-          >
+          <div className="adress">
             <h1> {loc.pathname === "/contactus" ? "Get in Touch" : ""}</h1>
             <h2 ref={(el) => observedElements.current.push(el)}>
               Corporate Office
@@ -166,28 +164,36 @@ function Contact() {
 
             <p ref={(el) => observedElements.current.push(el)}>
               <span ref={(el) => observedElements.current.push(el)}>
+                Office No.:{" "}
+              </span>
+              <a href="tel:7249424403">7249424403</a>
+            </p>
+            <p ref={(el) => observedElements.current.push(el)}>
+              <span ref={(el) => observedElements.current.push(el)}>
                 Customer Care No.:{" "}
               </span>
               <a href="tel:8767027078">8767027078</a>
             </p>
-            <p ref={(el) => observedElements.current.push(el)} 
+            <p
+              ref={(el) => observedElements.current.push(el)}
               style={{
-                display:"flex",
-                flexWrap:"wrap",
-                gap:"10px"
+                display: "flex",
+                flexWrap: "wrap",
+                gap: "10px",
               }}
-              >
+            >
               <span ref={(el) => observedElements.current.push(el)}>
                 Customer Care:{" "}
               </span>
-              <span style={{
-                display:"flex",
-                flexDirection:"column",
-                width:"fit-content",
-              }}>
-
-              <a href="mailto:info@psycortex.in">info@psycortex.in</a>
-              <a href="mailto:care@psycortex.in">care@psycortex.in</a>
+              <span
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  width: "fit-content",
+                }}
+              >
+                <a href="mailto:info@psycortex.in">info@psycortex.in</a>
+                <a href="mailto:care@psycortex.in">care@psycortex.in</a>
               </span>
             </p>
 
