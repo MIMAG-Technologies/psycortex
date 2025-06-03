@@ -1,99 +1,55 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 
 function HomeServices() {
-  const [sections, setSections] = useState([
+  const sections = [
     {
-      title: "Step 1: Get Matched to the Right Therapist",
-      bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service1.jpg`,
-      info: "Answer a few personalized questions, and we will match you with the most suitable therapist who aligns with your specific needs and preferences. Tap into our extensive network of credentialled professionals.",
-      active: true,
+      title: "Get Matched to the Right Therapist",
+      icon: "fa-user-md",
+      info: "Answer a few personalized questions and get matched with a therapist who aligns with your needs and preferences. Access our network of credentialed professionals for support.",
       to: "#",
     },
     {
-      title: "Step 2: Choose Your Communication Method",
-      bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service2.png`,
-      info: "Engage with your therapist in a way that’s comfortable for you. Whether through text, chat, phone, or video, you can select the method that best suits your needs.",
-      active: false,
+      title: "Choose Your Communication Method",
+      icon: "fa-comments",
+      info: "Select how you want to connect: text, chat, phone, or video. Communicate in the way that feels most comfortable and convenient for you at any time.",
       to: "#",
     },
     {
-      title: "Step 3: Schedule at Your Convenience",
-      bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service4.jpg`,
-      info: "Book live sessions at a time that fits your schedule. You can communicate anytime with your therapist and access sessions from any device, whether on the go or at home.",
-      active: false,
+      title: "Schedule at Your Convenience",
+      icon: "fa-calendar-alt",
+      info: "Book live sessions at times that fit your schedule. Message your therapist anytime and join sessions from any device, whether you’re at home or on the go.",
       to: "#",
     },
     {
-      title: "Step 4: Start Your Journey to Mental Wellness",
-      bg: `${process.env.PUBLIC_URL}/assets/Images/Home/service5.jpg`,
-      info: "Begin your personalized therapy sessions and explore a transformative approach to mental wellness with our evidence-based interventions and compassionate care.",
-      active: false,
+      title: "Start Your Journey to Mental Wellness",
+      icon: "fa-brain",
+      info: "Begin your personalized therapy sessions and experience a transformative approach to mental wellness with evidence-based care and ongoing support.",
       to: "#",
     },
-  ]);
-  const handleSectionHover = (index) => {
-    const updatedSections = sections.map((section, i) => ({
-      ...section,
-      active: i === index,
-    }));
-    setSections(updatedSections);
-  };
+  ];
 
   return (
-    <div
-      id="HomeServices"
-      style={{
-        backgroundImage: `url(${
-          sections.find((section) => section.active)?.bg
-        })`,
-        backgroundSize: "cover",
-        backgroundRepeat: "no-repeat",
-        backgroundPosition: "center",
-      }}
-    >
-      <div
-        className="info-tab"
-        // ref={infoTabRef}
-      >
-        <h1>
-          <i className="fas fa-lightbulb"></i>
-          {"  "}HOW IT WORKS
-        </h1>
-        {sections.map((section, index) => (
-          <React.Fragment key={index}>
-            {section.active && (
-              <>
-                <h2>{section.title}</h2>
-                <p>{section.info}</p>
-              </>
-            )}
-          </React.Fragment>
-        ))}
-      </div>
+    <div id="HomeServices" className="services-redesign">
+      <div className="services-container">
+        <h1 className="services-title">HOW IT WORKS</h1>
 
-      <ul
-        className="intro-nav"
-        // ref={introNavRef}
-      >
-        {sections.map((section, index) => (
-          <Link
-            to={section.to}
-            key={index}
-            style={
-              section.active
-                ? {
-                    fontSize: "25px",
-                    borderBottom: "2px solid  #a536f3",
-                  }
-                : {}
-            }
-            onMouseEnter={() => handleSectionHover(index)}
-          >
-            {section.title}
-          </Link>
-        ))}
-      </ul>
+        <div className="services-circles">
+          {sections.map((section, index) => (
+            <div className="service-circle-container" key={index}>
+              <Link to={section.to} className="service-circle">
+                <div className="circle-icon">
+                  <i className={`fas ${section.icon}`}></i>
+                </div>
+                <h3>{section.title}</h3>
+              </Link>
+              <div className="service-description">
+                <p>{section.info}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

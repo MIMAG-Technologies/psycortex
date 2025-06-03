@@ -87,7 +87,7 @@ function SkilledIn() {
               id="specilizedIn"
               ref={(el) => el && observedElements.current.push(el)}
             >
-              We are Specialized in...
+              We Specialized in
             </h1>
             Adult Psychology
           </h1>

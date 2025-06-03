@@ -194,7 +194,7 @@ function MobileNavbar(props) {
           Assessment and Testing
         </span>
         <div className="accordion-content">
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -202,7 +202,7 @@ function MobileNavbar(props) {
             to="/services/assessmentandtesting/psychologicaltesting"
           >
             Psychological Testing
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -251,7 +251,7 @@ function MobileNavbar(props) {
           Unique Features
         </span>
         <div className="accordion-content">
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -259,7 +259,7 @@ function MobileNavbar(props) {
             to="/services/uniquefeatures/comprehensivementalwellnesssupport"
           >
             Comprehensive Mental Wellness Support
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -278,7 +278,7 @@ function MobileNavbar(props) {
           >
             Evidence-Based Therapeutic Techniques
           </Link>
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -322,7 +322,7 @@ function MobileNavbar(props) {
             to="/services/uniquefeatures/empatheticandsupportiveenvironment"
           >
             Empathetic and Supportive Environment
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -332,7 +332,7 @@ function MobileNavbar(props) {
           >
             Commitment to Confidentiality
           </Link>
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -340,7 +340,7 @@ function MobileNavbar(props) {
             to="/services/uniquefeatures/ethicalandprofessionalstandards"
           >
             Ethical and Professional Standards
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
