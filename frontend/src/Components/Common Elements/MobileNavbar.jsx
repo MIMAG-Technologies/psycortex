@@ -56,7 +56,7 @@ function MobileNavbar(props) {
           Counselling Services
         </span>
         <div className="accordion-content">
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -64,8 +64,8 @@ function MobileNavbar(props) {
             to="/services/counsellingservices/maritalcounselling"
           >
             Marital Counselling
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -73,8 +73,8 @@ function MobileNavbar(props) {
             to="/services/counsellingservices/premaritalcounselling"
           >
             Pre-Marital Counselling
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -109,7 +109,7 @@ function MobileNavbar(props) {
             to="/services/counsellingservices/traumacounselling"
           >
             Trauma Counselling
-          </Link>
+          </Link> */}
           {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -119,7 +119,7 @@ function MobileNavbar(props) {
           >
             Substance Abuse or Addiction Counselling
           </Link> */}
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -136,8 +136,8 @@ function MobileNavbar(props) {
             to="/services/counsellingservices/motivationalcounselling"
           >
             Motivational Counselling
-          </Link>
-          <Link
+          </Link> */}
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -145,7 +145,7 @@ function MobileNavbar(props) {
             to="/services/counsellingservices/stressmanagementcounselling"
           >
             Stress Management Counselling
-          </Link>
+          </Link> */}
           <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
@@ -155,7 +155,7 @@ function MobileNavbar(props) {
           >
             Mental Health Counselling
           </Link>
-          <Link
+          {/* <Link
             onClick={() => {
               setisBurgerActive(!isBurgerActive);
               setisLevel2Active(false);
@@ -163,7 +163,7 @@ function MobileNavbar(props) {
             to="/services/counsellingservices/sleepcounselling"
           >
             Sleep Counselling
-          </Link>
+          </Link> */}
         </div>
 
         <span className="accordion" onClick={handleAccordionClick}>
@@ -380,7 +380,7 @@ function MobileNavbar(props) {
         >
           Mission Values and Vision
         </Link>
-      
+
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
@@ -391,7 +391,7 @@ function MobileNavbar(props) {
         >
           Gallery
         </Link>
-       
+
         <Link
           onClick={() => {
             setisBurgerActive(!isBurgerActive);
@@ -428,9 +428,7 @@ function MobileNavbar(props) {
   return (
     <>
       {isUserCardVisible ? (
-        <UserCard
-          setisUserCardVisible={setisUserCardVisible}
-        />
+        <UserCard setisUserCardVisible={setisUserCardVisible} />
       ) : (
         <></>
       )}
@@ -481,7 +479,7 @@ function MobileNavbar(props) {
               display: isSearchBoxOpen ? "none" : "flex",
             }}
           >
-            <i className="fa-solid fa-cart-shopping"  id={cartData.length}></i>
+            <i className="fa-solid fa-cart-shopping" id={cartData.length}></i>
           </Link>
           <a
             className={`button ${isHovered ? "appbutton" : ""}`}
@@ -548,7 +546,7 @@ function MobileNavbar(props) {
           >
             About Us
           </span>
-        
+
           <span
             onClick={() => {
               setisLevel2Active(true);
@@ -594,7 +592,7 @@ function MobileNavbar(props) {
           <Link
             to={!isLoggedIn ? "/user/login" : location.pathname}
             onClick={
-               !isLoggedIn
+              !isLoggedIn
                 ? () => {
                     setisBurgerActive(!isBurgerActive);
                   }
@@ -603,7 +601,7 @@ function MobileNavbar(props) {
                   }
             }
           >
-            { !isLoggedIn ? "Login" : "My Account"}
+            {!isLoggedIn ? "Login" : "My Account"}
           </Link>
         </div>
         <div

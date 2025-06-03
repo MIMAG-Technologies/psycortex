@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Link } from "react-router-dom";
 function SkilledIn() {
   const observedElements = useRef([]);
   useEffect(() => {
@@ -99,14 +98,9 @@ function SkilledIn() {
             className="mobile-view-photo"
           />
           <p ref={(el) => el && observedElements.current.push(el)}>
-            Adult psychology explores the cognitive, emotional, and behavioral
-            aspects of individuals during adulthood. It covers various topics
-            such as identity development, relationships, career progression, and
-            overall mental well-being. A key focus in adult psychology is
-            understanding how life experiences, societal influences, and
-            biological factors shape an individual’s thoughts, feelings, and
-            actions as they face the challenges and opportunities that come with
-            adulthood.
+            Adult Psychology focuses on how adults think, feel, and behave. It
+            explores identity, relationships, career growth, and mental
+            well-being throughout different stages of adulthood.
             {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
@@ -143,14 +137,9 @@ function SkilledIn() {
           />
 
           <p ref={(el) => el && observedElements.current.push(el)}>
-            Parenting counseling offers support to parents as they navigate the
-            challenges of raising children. It provides a safe, non-judgmental
-            space for parents to discuss their concerns, frustrations, and
-            parenting goals. Through these sessions, parents can better
-            understand their parenting styles, communication methods, and family
-            dynamics. Counselors use evidence-based techniques to help parents
-            develop effective discipline strategies, enhance parent-child
-            relationships, and manage stress.
+            Parenting Counseling supports parents in managing the challenges of
+            raising children, offering a safe space to explore concerns,
+            frustrations, and parenting goals
             {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
@@ -189,14 +178,9 @@ function SkilledIn() {
           />
 
           <p ref={(el) => el && observedElements.current.push(el)}>
-            Marital counseling, or couples therapy, offers support to couples
-            looking to address conflicts, improve communication, and strengthen
-            their relationship. In these sessions, trained therapists provide a
-            neutral and supportive space for couples to openly discuss concerns
-            and relationship dynamics. Using techniques like active listening,
-            conflict resolution strategies, and behavior-focused exercises,
-            couples work together to understand and address the underlying
-            issues affecting their relationship.
+            Marital Counseling helps couples resolve conflicts, improve
+            communication, and build stronger relationships in a supportive,
+            neutral setting guided by trained therapists.
             {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"
@@ -220,7 +204,7 @@ function SkilledIn() {
             </Link> */}
           </p>
         </div>
-        <div ref={(el) => el && observedElements.current.push(el)} id="skill4">
+        {/* <div ref={(el) => el && observedElements.current.push(el)} id="skill4">
           <h1 ref={(el) => el && observedElements.current.push(el)}>
             Insomnia Counseling
           </h1>
@@ -238,7 +222,7 @@ function SkilledIn() {
             quality. Using cognitive-behavioral techniques, relaxation
             exercises, and sleep hygiene practices, individuals can develop
             helpful ways to manage racing thoughts and bedtime concerns.
-            {/* <Link
+            <Link
               class="know-more-btn"
               to={"/uniquefeature/insomniacounselling"}
             >
@@ -260,9 +244,9 @@ function SkilledIn() {
                   ></path>
                 </svg>
               </div>
-            </Link> */}
+            </Link>
           </p>
-        </div>
+        </div> */}
         <div id="skill5" ref={(el) => el && observedElements.current.push(el)}>
           <h1 ref={(el) => el && observedElements.current.push(el)}>
             {" "}
@@ -273,13 +257,7 @@ function SkilledIn() {
           <p ref={(el) => el && observedElements.current.push(el)}>
             An intelligence-building program is designed to help individuals
             enhance cognitive abilities and develop intellectual potential
-            through structured activities and exercises. These programs include
-            tasks like problem-solving, critical thinking, memory improvement,
-            and creativity exercises to engage different areas of the brain.
-            They may also incorporate techniques to improve learning skills,
-            information processing speed, and mental agility. Drawing from
-            principles of neuroscience, psychology, and education, these
-            programs offer a comprehensive approach to cognitive development.
+            through structured activities and exercises.
             {/* <Link
               ref={(el) => el && observedElements.current.push(el)}
               class="know-more-btn"

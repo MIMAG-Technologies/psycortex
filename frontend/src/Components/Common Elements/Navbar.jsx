@@ -5,7 +5,6 @@ import UserCard from "../User/UserCard";
 import { UserDataContext } from "../../context/UserData";
 import { User } from "lucide-react";
 
-
 function Navbar(props) {
   const [section, setSection] = useState("aboutus");
   const [isDropdownActive, setIsDropdownActive] = useState(false);
@@ -22,7 +21,6 @@ function Navbar(props) {
       setIsHovered((prev) => !prev);
     }, 500);
 
-    
     return () => clearInterval(interval);
   }, []);
   const { cartData, isLoggedIn } = useContext(UserDataContext);
@@ -68,66 +66,66 @@ function Navbar(props) {
         level: 1,
         ref: "#",
       },
-      {
-        content: "Marital Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/maritalcounselling",
-      },
-      {
-        content: "Pre-Marital Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/premaritalcounselling",
-      },
-      {
-        content: "Post-Marital Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/postmaritalcounselling",
-      },
-      {
-        content: "Anxiety Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/anxietycounselling",
-      },
-      {
-        content: "Depression Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/depressioncounselling",
-      },
-      {
-        content: "Trauma Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/traumacounselling",
-      },
+      // {
+      //   content: "Marital Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/maritalcounselling",
+      // },
+      // {
+      //   content: "Pre-Marital Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/premaritalcounselling",
+      // },
+      // {
+      //   content: "Post-Marital Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/postmaritalcounselling",
+      // },
+      // {
+      //   content: "Anxiety Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/anxietycounselling",
+      // },
+      // {
+      //   content: "Depression Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/depressioncounselling",
+      // },
+      // {
+      //   content: "Trauma Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/traumacounselling",
+      // },
       // {
       //   content: "Substance Abuse or Addiction Counselling",
       //   level: 2,
       //   ref: "/services/counsellingservices/substanceabuseoraddictioncounselling",
       // },
-      {
-        content: "Grief Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/griefcounselling",
-      },
-      {
-        content: "Motivational Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/motivationalcounselling",
-      },
-      {
-        content: "Stress Management Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/stressmanagementcounselling",
-      },
+      // {
+      //   content: "Grief Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/griefcounselling",
+      // },
+      // {
+      //   content: "Motivational Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/motivationalcounselling",
+      // },
+      // {
+      //   content: "Stress Management Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/stressmanagementcounselling",
+      // },
       {
         content: "Mental Health Counselling",
         level: 2,
         ref: "/services/counsellingservices/mentalhealthcounselling",
       },
-      {
-        content: "Sleep Counselling",
-        level: 2,
-        ref: "/services/counsellingservices/sleepcounselling",
-      },
+      // {
+      //   content: "Sleep Counselling",
+      //   level: 2,
+      //   ref: "/services/counsellingservices/sleepcounselling",
+      // },
       {
         content: "Psychotherapy Approaches",
         level: 1,
@@ -148,11 +146,11 @@ function Navbar(props) {
         level: 1,
         ref: "#",
       },
-      {
-        content: "Psychological Testing",
-        level: 2,
-        ref: "/services/assessmentandtesting/psychologicaltesting",
-      },
+      // {
+      //   content: "Psychological Testing",
+      //   level: 2,
+      //   ref: "/services/assessmentandtesting/psychologicaltesting",
+      // },
       {
         content: "Psychometric Assessment",
         level: 2,
@@ -183,11 +181,11 @@ function Navbar(props) {
         level: 1,
         ref: "#",
       },
-      {
-        content: "Comprehensive Mental Wellness Support",
-        level: 2,
-        ref: "/services/uniquefeatures/comprehensivementalwellnesssupport",
-      },
+      // {
+      //   content: "Comprehensive Mental Wellness Support",
+      //   level: 2,
+      //   ref: "/services/uniquefeatures/comprehensivementalwellnesssupport",
+      // },
       {
         content: "Personalized Therapy Plans",
         level: 2,
@@ -198,41 +196,41 @@ function Navbar(props) {
         level: 2,
         ref: "/services/uniquefeatures/evidencebasedtherapeutictechniques",
       },
-      {
-        content: "Specialized Support",
-        level: 2,
-        ref: "/services/uniquefeatures/specializedsupport",
-      },
-      {
-        content: "Career and Professional Development",
-        level: 2,
-        ref: "/services/uniquefeatures/careerandprofessionaldevelopment",
-      },
-      {
-        content: "Family and Relationship Counselling",
-        level: 2,
-        ref: "/services/uniquefeatures/familyandrelationshipcounselling",
-      },
-      {
-        content: "Stress and Sleep Management",
-        level: 2,
-        ref: "/services/uniquefeatures/stressandsleepmanagement",
-      },
-      {
-        content: "Empathetic and Supportive Environment",
-        level: 2,
-        ref: "/services/uniquefeatures/empatheticandsupportiveenvironment",
-      },
+      // {
+      //   content: "Specialized Support",
+      //   level: 2,
+      //   ref: "/services/uniquefeatures/specializedsupport",
+      // },
+      // {
+      //   content: "Career and Professional Development",
+      //   level: 2,
+      //   ref: "/services/uniquefeatures/careerandprofessionaldevelopment",
+      // },
+      // {
+      //   content: "Family and Relationship Counselling",
+      //   level: 2,
+      //   ref: "/services/uniquefeatures/familyandrelationshipcounselling",
+      // },
+      // {
+      //   content: "Stress and Sleep Management",
+      //   level: 2,
+      //   ref: "/services/uniquefeatures/stressandsleepmanagement",
+      // },
+      // {
+      //   content: "Empathetic and Supportive Environment",
+      //   level: 2,
+      //   ref: "/services/uniquefeatures/empatheticandsupportiveenvironment",
+      // },
       {
         content: "Commitment to Confidentiality",
         level: 2,
         ref: "/services/uniquefeatures/commitmenttoconfidentiality",
       },
-      {
-        content: "Ethical and Professional Standards",
-        level: 2,
-        ref: "/services/uniquefeatures/ethicalandprofessionalstandards",
-      },
+      // {
+      //   content: "Ethical and Professional Standards",
+      //   level: 2,
+      //   ref: "/services/uniquefeatures/ethicalandprofessionalstandards",
+      // },
       {
         content: "Educational Resources and Support",
         level: 2,
@@ -408,7 +406,6 @@ function Navbar(props) {
               Home
             </Link>
             <div
-            
               onMouseEnter={() => {
                 setSection("aboutus");
                 setIsDropdownActive(true);
@@ -417,7 +414,6 @@ function Navbar(props) {
               About Us <DropdownArrow />{" "}
             </div>
             <div
-            
               onMouseEnter={() => {
                 setIsDropdownActive(true);
                 setSection("services");

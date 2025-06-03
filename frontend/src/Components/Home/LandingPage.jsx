@@ -35,11 +35,11 @@ function LandingPage() {
         id="LandingPage"
         style={{ background: `url(${bgArr[index]}) center/cover` }}
       >
-        <div>
+        {/* <div>
           <h1>Psychological Therapy</h1>
           <h2>{titleArr[index]}</h2>
           <p>{infoArry[index]}</p>
-        </div>
+        </div> */}
       </div>
       <a
         href={whatsAppLink}

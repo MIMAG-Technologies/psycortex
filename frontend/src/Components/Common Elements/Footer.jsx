@@ -13,21 +13,19 @@ function Footer() {
   const [email, setemail] = useState("");
   const [message, setmessage] = useState("");
   const [ismessageVisible, setismessageVisible] = useState(false);
-function isValidEmail(email) {
-  const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-  return emailRegex.test(email);
-}
+  function isValidEmail(email) {
+    const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return emailRegex.test(email);
+  }
 
   const handleSubmit = async (e) => {
     if (email === "") {
       window.alert("Please fill email before submitting.");
       return;
-    } 
-    else if(!isValidEmail(email)){
+    } else if (!isValidEmail(email)) {
       window.alert("Please enter a valid email address.");
       return;
-    }
-    else {
+    } else {
       try {
         const response = await fetch(
           `${process.env.REACT_APP_API_URL}/subscribe`,
@@ -125,7 +123,7 @@ function isValidEmail(email) {
 
           <h4 className="uniqfooter">Counselling Services</h4>
           <div>
-            <Link to="/services/counsellingservices/maritalcounselling">
+            {/* <Link to="/services/counsellingservices/maritalcounselling">
               Marital Counselling
             </Link>
             <Link to="/services/counsellingservices/premaritalcounselling">
@@ -142,11 +140,11 @@ function isValidEmail(email) {
             </Link>
             <Link to="/services/counsellingservices/traumacounselling">
               Trauma Counselling
-            </Link>
+            </Link> */}
             {/* <Link to="/services/counsellingservices/substanceabuseoraddictioncounselling">
               Substance Abuse or Addiction Counselling
             </Link> */}
-            <Link to="/services/counsellingservices/griefcounselling">
+            {/* <Link to="/services/counsellingservices/griefcounselling">
               Grief Counselling
             </Link>
             <Link to="/services/counsellingservices/motivationalcounselling">
@@ -154,13 +152,13 @@ function isValidEmail(email) {
             </Link>
             <Link to="/services/counsellingservices/stressmanagementcounselling">
               Stress Management Counselling
-            </Link>
+            </Link> */}
             <Link to="/services/counsellingservices/mentalhealthcounselling">
               Mental Health Counselling
             </Link>
-            <Link to="/services/counsellingservices/sleepcounselling">
+            {/* <Link to="/services/counsellingservices/sleepcounselling">
               Sleep Counselling
-            </Link>
+            </Link> */}
           </div>
 
           <h4 className="uniqfooter">Psychotherapy Approaches</h4>
@@ -175,9 +173,9 @@ function isValidEmail(email) {
 
           <h4 className="uniqfooter">Assessment and Testing</h4>
           <div>
-            <Link to="/services/assessmentandtesting/psychologicaltesting">
+            {/* <Link to="/services/assessmentandtesting/psychologicaltesting">
               Psychological Testing
-            </Link>
+            </Link> */}
             <Link to="/services/assessmentandtesting/psychometricassessment">
               Psychometric Assessment
             </Link>
@@ -198,16 +196,16 @@ function isValidEmail(email) {
 
           <h4 className="uniqfooter">Unique Features</h4>
           <div>
-            <Link to="/services/uniquefeatures/comprehensivementalwellnesssupport">
+            {/* <Link to="/services/uniquefeatures/comprehensivementalwellnesssupport">
               Comprehensive Mental Wellness Support
-            </Link>
+            </Link> */}
             <Link to="/services/uniquefeatures/personalizedtherapyplans">
               Personalized Therapy Plans
             </Link>
             <Link to="/services/uniquefeatures/evidencebasedtherapeutictechniques">
               Evidence-Based Therapeutic Techniques
             </Link>
-            <Link to="/services/uniquefeatures/specializedsupport">
+            {/* <Link to="/services/uniquefeatures/specializedsupport">
               Specialized Support
             </Link>
             <Link to="/services/uniquefeatures/careerandprofessionaldevelopment">
@@ -221,13 +219,13 @@ function isValidEmail(email) {
             </Link>
             <Link to="/services/uniquefeatures/empatheticandsupportiveenvironment">
               Empathetic and Supportive Environment
-            </Link>
+            </Link> */}
             <Link to="/services/uniquefeatures/commitmenttoconfidentiality">
               Commitment to Confidentiality
             </Link>
-            <Link to="/services/uniquefeatures/ethicalandprofessionalstandards">
+            {/* <Link to="/services/uniquefeatures/ethicalandprofessionalstandards">
               Ethical and Professional Standards
-            </Link>
+            </Link> */}
             <Link to="/services/uniquefeatures/educationalresourcesandsupport">
               Educational Resources and Support
             </Link>
