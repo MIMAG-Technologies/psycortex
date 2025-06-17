@@ -160,6 +160,26 @@ function AllContacts() {
       Address:
         "Sector 1, 1858/1, Rajdanga Main Road, East Kolkata Township, Kolkata, West Bengal 700107",
     },
+    {
+      City: "Mumbai",
+      Address:
+        "Shop No. 22, Mahakali Caves Road, Sunder Nagar, Andheri East, Mumbai, Maharashtra 400093",
+    },
+    {
+      City: "Bangalore",
+      Address:
+        "World Trade Center Bengaluru. Brigade Gateway Campus 26/1, Dr. Rajkumar Road, Malleswaram, Rajajinagar, Bengaluru, Karnataka 560055",
+    },
+    {
+      City: "Jaipur",
+      Address:
+        "Gandhi Path W, B Block, Vaishali Nagar,Jaipur, Rajasthan 302021",
+    },
+    {
+      City: "Thane",
+      Address:
+        "Korum Mall, Eastern Express Hwy, Samata Nagar, Thane West, Thane, Maharashtra 400606",
+    },
   ];
 
   const contactDetails = {
@@ -196,6 +216,10 @@ function AllContacts() {
     Lucknow: { email: "care@psycortex.in", phone: "8767027078" },
     Dehradun: { email: "care@psycortex.in", phone: "8767027078" },
     Kolkata: { email: "care@psycortex.in", phone: "8767027078" },
+    Mumbai: { email: "care@psycortex.in", phone: "8767027078" },
+    Bangalore: { email: "care@psycortex.in", phone: "8767027078" },
+    Jaipur: { email: "care@psycortex.in", phone: "8767027078" },
+    Thane: { email: "care@psycortex.in", phone: "8767027078" },
   };
 
   // Function to get placeholder image URL with city name
@@ -272,10 +296,11 @@ function AllContacts() {
                   </div>
 
                   <div className="card-contact-info">
-                    <div className="contact-item" 
-                    style={{
-                      flexWrap:"wrap"
-                    }}
+                    <div
+                      className="contact-item"
+                      style={{
+                        flexWrap: "wrap",
+                      }}
                     >
                       <Mail size={16} />
                       <span>Customer Care:</span>
