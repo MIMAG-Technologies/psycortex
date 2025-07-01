@@ -46,7 +46,7 @@ exports.sendTransactionEmail = async (req, res) => {
 exports.makeTransaction = async (req, res) => {
   try {
     const { UserData, ProductData, txnId } = req.body;
-    
+
     // Find transaction by ID
     const transactionData = await Transaction.findOne({
       transactionIdentifier: txnId,
@@ -54,7 +54,11 @@ exports.makeTransaction = async (req, res) => {
 
     // If transaction already has products, return early
     if (transactionData.products && transactionData.products.length !== 0) {
-      res.status(201).json({ success: true, message:"transaction already done",  data: transactionData });
+      res.status(201).json({
+        success: true,
+        message: "transaction already done",
+        data: transactionData,
+      });
       return;
     }
 
@@ -93,17 +97,16 @@ exports.makeTransaction = async (req, res) => {
   }
 };
 
-
 exports.handlePaymets = async (req, res) => {
   try {
-      await Transaction.create({
-        email: req.body.email,
-        amount: req.body.amount,
-        transactionState: req.body.status === "success" ? "success" : "error",
-        transactionIdentifier: req.body.txnid,
-        errorMessage: req.body.error_Message,
-      });
-    
+    console.log(req.body);
+    await Transaction.create({
+      email: req.body.email,
+      amount: req.body.amount,
+      transactionState: req.body.status === "success" ? "success" : "error",
+      transactionIdentifier: req.body.txnid,
+      errorMessage: req.body.error_Message,
+    });
   } catch (error) {
     console.error("Error while Storing Payment Record:", error);
   }
@@ -124,7 +127,7 @@ function generateHash(params, salt) {
     "|" +
     params["firstname"] +
     "|" +
-    params["email"] + 
+    params["email"] +
     "|" +
     params["udf1"] +
     "|" +
@@ -137,7 +140,7 @@ function generateHash(params, salt) {
     params["udf5"] +
     "||||||" +
     salt;
-  
+
   const hash = sha512(hashString);
 
   return hash;
@@ -153,7 +156,7 @@ exports.generateHash = async (req, res) => {
 
     const merchantKey = process.env.MERCHANT_KEY;
     const salt = process.env.SALT;
-    const txnId = 'TXD'+Date.now();
+    const txnId = "TXD" + Date.now();
 
     const params = {
       key: merchantKey,
@@ -174,15 +177,12 @@ exports.generateHash = async (req, res) => {
 
     const hash = generateHash(params, salt);
 
-    res
-      .status(200)
-      .json({
-        success: true,
-        data: hash,
-        txnId: txnId,
-      });
+    res.status(200).json({
+      success: true,
+      data: hash,
+      txnId: txnId,
+    });
   } catch (error) {
     res.status(500).json({ success: false, error: error.message });
   }
 };
-
