@@ -99,7 +99,6 @@ exports.makeTransaction = async (req, res) => {
 
 exports.handlePaymets = async (req, res) => {
   try {
-    console.log(req.body);
     await Transaction.create({
       email: req.body.email,
       amount: req.body.amount,
