@@ -8,76 +8,70 @@ import { UserDataContext } from "../../context/UserData";
 function OrderDetails() {
   const [userData, setUserData] = useState({});
   const [cartData, setcartdata] = useState([]);
-      const { setCartData } = useContext(UserDataContext);
+  const { setCartData } = useContext(UserDataContext);
   const [transactionData, setTransactionData] = useState({});
   const invoiceRef = useRef();
-  const { txdId } = useParams(); 
+  const { txdId } = useParams();
 
-useEffect(() => {
-  if (txdId) {
-    // Fetch and parse necessary data
-    const UserData = JSON.parse(localStorage.getItem("userData") || "{}");
-    const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
+  useEffect(() => {
+    if (txdId) {
+      // Fetch and parse necessary data
+      const UserData = JSON.parse(localStorage.getItem("userData") || "{}");
+      const cartData = JSON.parse(localStorage.getItem("cartData")) || [];
 
-    // Initialize state
-    setUserData(UserData);
-    setcartdata(cartData);
+      // Initialize state
+      setUserData(UserData);
+      setcartdata(cartData);
 
-    // Function to handle both transaction and email
-    const initializeTransaction = async () => {
-      try {
-        // Avoid duplicate transaction calls
-        const response = await axios.post(
-          `${process.env.REACT_APP_API_URL}/make-transaction`,
-          { UserData, ProductData: cartData, txnId: atob(txdId) }
-        );
-        setTransactionData(response.data.data);
-
-        // Check and send email if necessary
-        if (
-          localStorage.getItem("EmailSent") !== txdId &&
-          UserData.email &&
-          response.data.data.transactionState === "success"
-        ) {
-          const htmlContent = invoiceRef.current.innerHTML;
-          await axios.post(
-            `${process.env.REACT_APP_API_URL}/make-transaction/sendEmail`,
-            { email: UserData.email, htmlContent }
+      // Function to handle both transaction and email
+      const initializeTransaction = async () => {
+        try {
+          // Avoid duplicate transaction calls
+          const response = await axios.post(
+            `${process.env.REACT_APP_API_URL}/make-transaction`,
+            { UserData, txnId: atob(txdId) }
           );
-          console.log("Email sent successfully.");
-          localStorage.setItem("EmailSent", txdId);
-        } else {
-          console.log("Email already sent or user email unavailable.");
+          setTransactionData(response.data.data);
+
+          // Check and send email if necessary
+          if (
+            localStorage.getItem("EmailSent") !== txdId &&
+            UserData.email &&
+            response.data.data.transactionState === "success"
+          ) {
+            const htmlContent = invoiceRef.current.innerHTML;
+            await axios.post(
+              `${process.env.REACT_APP_API_URL}/make-transaction/sendEmail`,
+              { email: UserData.email, htmlContent }
+            );
+            console.log("Email sent successfully.");
+            localStorage.setItem("EmailSent", txdId);
+          } else {
+            console.log("Email already sent or user email unavailable.");
+          }
+        } catch (error) {
+          console.error(
+            "Error initializing transaction or sending email:",
+            error
+          );
         }
-        
-      } catch (error) {
-        console.error(
-          "Error initializing transaction or sending email:",
-          error
-        );
-      }
-    };
+      };
 
-    // Execute the transaction
-    initializeTransaction();
+      // Execute the transaction
+      initializeTransaction();
 
-    // Clear localStorage and context
-    localStorage.removeItem("cartData");
-    setCartData([]);
-    localStorage.removeItem("GrandTotal");
-  }
-}, [txdId]);
+      // Clear localStorage and context
+      localStorage.removeItem("cartData");
+      setCartData([]);
+      localStorage.removeItem("GrandTotal");
+    }
+  }, [txdId]);
 
+  const printInvoice = () => {
+    const printContents = invoiceRef.current.innerHTML;
+    const printWindow = window.open("", "", "width=900,height=600");
 
-
-
-
-const printInvoice = () => {
-  const printContents = invoiceRef.current.innerHTML;
-  const printWindow = window.open("", "", "width=900,height=600");
-
-
-  const style = `
+    const style = `
     <style>
       body *{
         margin: 0%;
@@ -95,8 +89,8 @@ const printInvoice = () => {
     </style>
   `;
 
-  printWindow.document.write(
-    `<html>
+    printWindow.document.write(
+      `<html>
       <head>
         <title>Invoice</title>
         ${style}
@@ -107,12 +101,11 @@ const printInvoice = () => {
         </div>
       </body>
     </html>`
-  );
+    );
 
-  printWindow.document.close();
-  printWindow.print();
-};
-
+    printWindow.document.close();
+    printWindow.print();
+  };
 
   const calculateSubtotal = () => {
     return cartData.reduce(
@@ -129,7 +122,6 @@ const printInvoice = () => {
         padding: "20px",
         fontFamily: "'Segoe UI', sans-serif",
       }}
-    
     >
       <div
         ref={invoiceRef}
