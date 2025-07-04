@@ -1,32 +1,72 @@
 import React, { useContext, useEffect, useMemo, useState } from "react";
 import { UserDataContext } from "../../context/UserData";
-
-// import { Helmet } from "react-helmet"; // Ensure you have this package installed if used
 import "../Payments/Payment.css";
 import axios from "axios";
+
 function CheckOut() {
-  const merchantKey = process.env.REACT_APP_MERCENT_KEY;
   const { userData, setUserData, cartData } = useContext(UserDataContext);
-  const [hash, sethash] = useState("");
-  const [txnId, settxnId] = useState("");
-  const [productHash, setproductHash] = useState(null);
-  const surl = `${process.env.REACT_APP_API_URL}/make-transaction/handle_payments`;
-  const furl = `${process.env.REACT_APP_API_URL}/make-transaction/handle_payments`;
 
+  // Calculate grand total for cart
+  const calculateGrandTotal = (cart) => {
+    let total = 0;
+    cart.forEach((item) => {
+      total += parseInt(item.cost.replace(/,/g, "")) * item.quantity;
+    });
+    return total;
+  };
 
+  // Calculate total for a single item
+  const calculateTotal = (item) => {
+    const cost = parseInt(item.cost.replace(/,/g, ""));
+    const total = item.quantity * cost;
+    return total.toLocaleString();
+  };
+
+  // State for transaction id and amount
+  const [txnId, setTxnId] = useState(null);
+  const [amount, setAmount] = useState(calculateGrandTotal(cartData));
+
+  // Payment URLs
+  const merchantKey = process.env.REACT_APP_MERCENT_KEY;
+  const frontendUrl =
+    process.env.REACT_APP_DEV_MODE === "true"
+      ? "http://localhost:3000"
+      : "https://psycortex.in";
+  const surl = `${process.env.REACT_APP_API_URL}/make-transaction/handle_payments/${userData.email}/${amount}/success/${txnId}`;
+  const furl = `${process.env.REACT_APP_API_URL}/make-transaction/handle_payments/${userData.email}/${amount}/error/${txnId}`;
+  const curl = `${frontendUrl}/user/mycart`;
+
+  // Checkbox for terms and conditions
   const [isChecked, setIsChecked] = useState(false);
+
+  // Save userData to localStorage on change
   useEffect(() => {
     localStorage.setItem("userData", JSON.stringify(userData));
   }, [userData]);
+
+  // Update transaction id every 500ms
+
+  const getTxnId = async () => {
+    const res = await axios.post(
+      `${process.env.REACT_APP_API_URL}/make-transaction/getHash`
+    );
+    setTxnId(res.data.txnId);
+  };
+  useEffect(() => {
+    if (!txnId) {
+      getTxnId();
+    }
+  }, [txnId]);
+
+  // Handle checkbox change
   const handleCheckboxChange = () => {
-    setIsChecked(!isChecked);
+    setIsChecked((prev) => !prev);
   };
 
-  // Function to handle form input changes
+  // Handle form input changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    if (name in userData.address) {
-      // Update nested address fields
+    if (userData.address && name in userData.address) {
       setUserData((prevState) => ({
         ...prevState,
         address: {
@@ -35,7 +75,6 @@ function CheckOut() {
         },
       }));
     } else {
-      // Update top-level fields
       setUserData((prevState) => ({
         ...prevState,
         [name]: value,
@@ -43,55 +82,13 @@ function CheckOut() {
     }
   };
 
-  // Function to calculate the total for an item
-  const calculateTotal = (item) => {
-    const cost = parseInt(item.cost.replace(/,/g, ""));
-    const total = item.quantity * cost;
-    return total.toLocaleString();
-  };
-
-  // Calculate grand total
-const calculateGrandTotal = (cart) => {
-  let total = 0;
-  cart.forEach((item) => {
-    total += parseInt(item.cost.replace(/,/g, "")) * item.quantity;
-  });
-  return total;
-};
-
-
-  const amount = calculateGrandTotal(cartData);
-
-  const generateHash = async () => {
-    if(!productHash){
-       const hashArray = [];
-       await cartData.forEach((item) => {
-         hashArray.push(item.name);
-       });
-       setproductHash(hashArray.join(","));
-    }
-    const res = await axios.post(
-      `${process.env.REACT_APP_API_URL}/make-transaction/getHash`,
-      {
-        amount,
-        productInfo: productHash,
-        firstName: userData.name,
-        email: userData.email,
-        phone: userData.email,
-        txnId,
-        surl,
-        furl,
-      }
-    );
-    sethash(res.data.data);
-    settxnId(res.data.txnId);
-  };
-
+  // Check if all required fields are filled
   const isEverythingOk = useMemo(() => {
     return (
       userData.name &&
       userData.email &&
       userData.phoneNo &&
+      userData.address &&
       userData.address.country &&
       userData.address.streetAddress &&
       userData.address.apartment &&
@@ -101,24 +98,11 @@ const calculateGrandTotal = (cart) => {
     );
   }, [userData]);
 
-
-useEffect(() => {
-  const handler = setTimeout(() => {
-    if (userData.name && userData.email && userData.phoneNo) {
-      generateHash();
-    }
-  }, 500);
-
-  return () => {
-    clearTimeout(handler);
-  };
-}, [userData.name, userData.email, userData.phoneNo, isChecked]);
-
-
   return (
     <div className="UserCheckoutView">
       <form>
         <p className="checkoutdetailheading">Billing Details</p>
+
         <label htmlFor="name">Name</label>
         <input
           type="text"
@@ -152,9 +136,7 @@ useEffect(() => {
           onChange={handleChange}
         />
 
-        <label id="companyName" htmlFor="companyName">
-          Company Name
-        </label>
+        <label htmlFor="companyName">Company Name</label>
         <input
           type="text"
           id="companyName"
@@ -168,10 +150,10 @@ useEffect(() => {
         <input
           type="text"
           id="country"
-          required
           name="country"
+          required
           placeholder="Country"
-          value={userData.address.country || ""}
+          value={userData.address?.country || ""}
           onChange={handleChange}
         />
 
@@ -179,10 +161,10 @@ useEffect(() => {
         <input
           type="text"
           id="streetAddress"
-          required
           name="streetAddress"
+          required
           placeholder="Street Address"
-          value={userData.address.streetAddress || ""}
+          value={userData.address?.streetAddress || ""}
           onChange={handleChange}
         />
 
@@ -190,10 +172,10 @@ useEffect(() => {
         <input
           type="text"
           id="apartment"
-          required
           name="apartment"
+          required
           placeholder="Apartment"
-          value={userData.address.apartment || ""}
+          value={userData.address?.apartment || ""}
           onChange={handleChange}
         />
 
@@ -204,7 +186,7 @@ useEffect(() => {
           name="city"
           required
           placeholder="City"
-          value={userData.address.city || ""}
+          value={userData.address?.city || ""}
           onChange={handleChange}
         />
 
@@ -215,7 +197,7 @@ useEffect(() => {
           name="state"
           required
           placeholder="State"
-          value={userData.address.state || ""}
+          value={userData.address?.state || ""}
           onChange={handleChange}
         />
 
@@ -226,10 +208,11 @@ useEffect(() => {
           name="pinCode"
           required
           placeholder="Pin Code"
-          value={userData.address.pinCode || ""}
+          value={userData.address?.pinCode || ""}
           onChange={handleChange}
         />
       </form>
+
       <div className="UserCheckoutViewRHS">
         <p className="checkoutdetailheading">Your Order</p>
         <div className="cartdetails">
@@ -249,6 +232,7 @@ useEffect(() => {
             Rs {calculateGrandTotal(cartData)}
           </div>
         </div>
+
         <label id="wordline-select-tc">
           <p>
             Please read all the terms and conditions carefully before making
@@ -267,57 +251,50 @@ useEffect(() => {
               info@psycortex.in
             </li>
           </ul>
-          <p
-            style={{
-              marginBottom: "10px",
-            }}
-          >
+          <p style={{ marginBottom: "10px" }}>
             Kindly proceed with the payment only after reviewing our terms and
             conditions.
           </p>
         </label>
+
         <label id="wordline-select">
           <input
             type="checkbox"
-            checked={isChecked} // Bind state to checkbox
-            onChange={handleCheckboxChange} // Update state on change
+            checked={isChecked}
+            onChange={handleCheckboxChange}
           />{" "}
           You agree to all the terms & conditions mentioned on the website.
         </label>
+
         <label id="wordline-select">
-          <input type="radio" checked />
+          <input type="radio" checked readOnly />
           Pay with PayU
           <img
-            style={{
-              mixBlendMode: "multiply",
-            }}
+            style={{ mixBlendMode: "multiply" }}
             src="/assets/Images/Payments/PayU-logo-Green.jpg"
             alt="PayU"
           />
         </label>
+
         <form
-          action={
-            process.env.REACT_APP_GATEWAY_MODE === "DEV"
-              ? "https://test.payu.in/_payment"
-              : "https://secure.payu.in/_payment"
-          }
+          action="https://www.paydollar.com/b2c2/eng/payment/payForm.jsp"
           method="post"
         >
-          <input type="hidden" name="key" value={merchantKey} />
-          <input type="hidden" name="txnid" value={txnId} />
-          <input type="hidden" name="productinfo" value={productHash} />
-          <input type="hidden" name="amount" value={amount} />
-          <input type="hidden" name="email" value={userData.email} />
-          <input type="hidden" name="firstname" value={userData.name} />
-          <input type="hidden" name="surl" value={surl} />
-          <input type="hidden" name="furl" value={furl} />
-          <input type="hidden" name="udf1" value="udf1" />
-          <input type="hidden" name="udf2" value="udf2" />
-          <input type="hidden" name="udf3" value="udf3" />
-          <input type="hidden" name="udf4" value="udf4" />
-          <input type="hidden" name="udf5" value="udf5" />
-          <input type="hidden" name="phone" value={userData.phoneNo} />
-          <input type="hidden" name="hash" value={hash} />
+          <input type="hidden" name="merchantId" value={merchantKey} />
+          <input type="hidden" name="orderRef" value={txnId} />
+          <input type="hidden" name="currCode" value="356" />
+          <input type="hidden" name="mpsMode" value="NIL" />
+          <input
+            type="hidden"
+            name="amount"
+            value={(amount / 1000000).toFixed(1)}
+          />
+          <input type="hidden" name="lang" value="E" />
+          <input type="hidden" name="successUrl" value={surl} />
+          <input type="hidden" name="failUrl" value={furl} />
+          <input type="hidden" name="cancelUrl" value={curl} />
+          <input type="hidden" name="payType" value="N" />
+          <input type="hidden" name="payMethod" value="ALL" />
           <input
             style={{
               backgroundColor:
