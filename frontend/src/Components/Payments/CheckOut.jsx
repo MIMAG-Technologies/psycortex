@@ -284,11 +284,7 @@ function CheckOut() {
           <input type="hidden" name="orderRef" value={txnId} />
           <input type="hidden" name="currCode" value="356" />
           <input type="hidden" name="mpsMode" value="NIL" />
-          <input
-            type="hidden"
-            name="amount"
-            value={(amount / 1000000).toFixed(1)}
-          />
+          <input type="hidden" name="amount" value={amount} />
           <input type="hidden" name="lang" value="E" />
           <input type="hidden" name="successUrl" value={surl} />
           <input type="hidden" name="failUrl" value={furl} />
