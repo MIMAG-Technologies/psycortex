@@ -11,6 +11,6 @@ router.post("/", makeTransaction);
 router.post("/sendEmail", sendTransactionEmail);
 
 router.post("/getHash", generateHash);
-router.get("/handle_payments", handlePaymets);
+router.get("/handle_payments/:email/:amount/:status/:txnid", handlePaymets);
 
 module.exports = router;
