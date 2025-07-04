@@ -12,7 +12,7 @@ export default function UserTransactions() {
     date: "",
     transactionState: "",
   });
-  const navi = useNavigate()
+  const navi = useNavigate();
 
   function formatDate(dateString) {
     const date = new Date(dateString);
@@ -90,19 +90,19 @@ export default function UserTransactions() {
     const cartData = transaction.products.map((product) => {
       const { productId, quantity } = product;
       return {
-        productId: productId._id,
-        name: productId.name,
-        differentby: productId.diffrentby,
-        sessions: productId.sessions.toString(),
-        cost: productId.cost.toLocaleString(), // Format as currency
+        productId: productId?._id || "",
+        name: productId?.name || "N/A",
+        differentby: productId?.diffrentby || "N/A",
+        sessions: productId?.sessions ? productId.sessions.toString() : "0",
+        cost: productId?.cost ? productId.cost.toLocaleString() : "0", // Format as currency
         quantity,
-        imgsrc: productId.imgsrc,
+        imgsrc: productId?.imgsrc || "",
       };
     });
 
     // Extract transaction data
     const transactionData = {
-      amount: transaction.amount.toLocaleString(), // Format as currency
+      amount: transaction.amount ? transaction.amount.toLocaleString() : "0", // Format as currency
       transactionState: transaction.transactionState,
       transactionIdentifier: transaction.transactionIdentifier,
       errorMessage: transaction.errorMessage,
@@ -127,22 +127,21 @@ export default function UserTransactions() {
     };
   }
 
+  const printInvoice = (transactionId) => {
+    const { UserData, cartData, transactionData } =
+      getTransactionDetails(transactionId);
 
+    const calculateSubtotal = () => {
+      return cartData.reduce(
+        (acc, item) =>
+          acc + parseInt(item.cost.replace(/,/g, ""), 10) * item.quantity,
+        0
+      );
+    };
 
-const printInvoice = (transactionId) => {
-  const { UserData, cartData, transactionData } = getTransactionDetails(transactionId);
-
-  const calculateSubtotal = () => {
-    return cartData.reduce(
-      (acc, item) =>
-        acc + parseInt(item.cost.replace(/,/g, ""), 10) * item.quantity,
-      0
-    );
-  };
-
-  // Create a new window for printing
-  const printWindow = window.open('', '_blank');
-  const style = `
+    // Create a new window for printing
+    const printWindow = window.open("", "_blank");
+    const style = `
     <style>
       body *{
         margin: 0%;
@@ -159,8 +158,8 @@ const printInvoice = (transactionId) => {
       }
     </style>
   `;
-  // Create the invoice content as a string
-  const printContents = `
+    // Create the invoice content as a string
+    const printContents = `
 <html>
       <head>
         <title>Invoice</title>
@@ -191,8 +190,8 @@ const printInvoice = (transactionId) => {
           <p><strong>Street:</strong> ${UserData.address?.streetAddress}</p>
           <p><strong>Apartment:</strong> ${UserData.address?.apartment}</p>
           <p><strong>City:</strong> ${UserData.address?.city}, ${
-    UserData.address?.state
-  }</p>
+      UserData.address?.state
+    }</p>
           <p><strong>Country:</strong> ${UserData.address?.country}</p>
           <p><strong>Pin Code:</strong> ${UserData.address?.pinCode}</p>
         </section>
@@ -285,11 +284,11 @@ const printInvoice = (transactionId) => {
     </html>
   `;
 
-  // Write the invoice content to the new window
-  printWindow.document.write(printContents);
-  printWindow.document.close();
-  printWindow.print();
-};
+    // Write the invoice content to the new window
+    printWindow.document.write(printContents);
+    printWindow.document.close();
+    printWindow.print();
+  };
 
   return (
     <div className="UserTransactions">
@@ -348,7 +347,12 @@ const printInvoice = (transactionId) => {
               <div>
                 <h2>Transaction Id:{onetran.transactionIdentifier}</h2>
                 <p>Email:{onetran.email}</p>
-                <p>Amount: ₹{onetran.amount.toLocaleString("en-IN")}</p>
+                <p>
+                  Amount: ₹
+                  {onetran.amount
+                    ? onetran.amount.toLocaleString("en-IN")
+                    : "N/A"}
+                </p>
                 <p>DateTime:{formatDate(onetran.dateTime)}</p>
                 {onetran.transactionState === "error" && (
                   <p>Error Message:{onetran.errorMessage}</p>
@@ -359,7 +363,7 @@ const printInvoice = (transactionId) => {
                     style={{
                       margin: "10px 0px",
                     }}
-                    onClick={()=>{
+                    onClick={() => {
                       navi(`/admin/userTransaction/${onetran.email}`);
                     }}
                   >
@@ -393,18 +397,22 @@ const printInvoice = (transactionId) => {
                   return (
                     <div key={index2}>
                       <span> {index2 + 1}</span>
-                      <span> {oneproduct.productId.name}</span>
-                      <span> {oneproduct.productId.diffrentby}</span>
+                      <span> {oneproduct.productId?.name || "N/A"}</span>
+                      <span> {oneproduct.productId?.diffrentby || "N/A"}</span>
                       <span>
                         {" "}
-                        {oneproduct.productId.cost.toLocaleString("en-IN")}
+                        {oneproduct.productId?.cost
+                          ? oneproduct.productId.cost.toLocaleString("en-IN")
+                          : "N/A"}
                       </span>
                       <span> {oneproduct.quantity}</span>
                       <span>
                         ₹{" "}
-                        {(
-                          oneproduct.productId.cost * oneproduct.quantity
-                        ).toLocaleString("en-IN")}
+                        {oneproduct.productId?.cost && oneproduct.quantity
+                          ? (
+                              oneproduct.productId.cost * oneproduct.quantity
+                            ).toLocaleString("en-IN")
+                          : "N/A"}
                       </span>
                     </div>
                   );
